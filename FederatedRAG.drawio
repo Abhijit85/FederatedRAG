@@ -28,11 +28,6 @@
         <mxCell id="9" value="Federated Learning Server" style="rhombus;strokeWidth=2;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="110" y="273" width="239" height="239" as="geometry" />
         </mxCell>
-        <mxCell id="10" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="5" target="9" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="11" value="" style="curved=1;startArrow=none;endArrow=block;exitX=0.01;exitY=1;entryX=0.5;entryY=0;" parent="1" source="9" target="6" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
@@ -50,6 +45,12 @@
             <Array as="points">
               <mxPoint x="371" y="537" />
             </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oqwQkh1PEegopu5h-gTR-19" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="9" target="5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="225" y="273" as="sourcePoint" />
+            <mxPoint x="275" y="223" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
