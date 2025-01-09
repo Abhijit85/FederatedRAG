@@ -1,0 +1,25 @@
+\subsection{Algorithm}
+The training process for TransEE is outlined in Algorithm \ref{alg:transEE}.
+\begin{algorithm}[h]
+\caption{Training TransEE}
+\label{alg:transEE}
+\begin{algorithmic}[1]
+\STATE \textbf{Input:} Knowledge graph triples $(h, r, t)$, margin $\gamma$, embedding dimension $d$
+\STATE \textbf{Output:} Optimized embeddings for entities and relations
+\STATE Initialize entity embeddings $E$, relation embeddings $R$, and transformation matrices $W_r$
+\FOR{epoch in $1$ to $N$}
+    \FOR{batch of triples $(h, r, t)$}
+        \STATE Generate negative samples $(h', r, t')$ by corrupting $h$ or $t$
+        \STATE Compute positive and negative scores:
+        \[
+        s(h, r, t) = -\| W_r(h) + r - t \|_p
+        \]
+        \STATE Compute loss:
+        \[
+        L = \max(0, \gamma + s(h, r, t') - s(h, r, t))
+        \]
+        \STATE Update embeddings and transformation matrices using gradient descent
+    \ENDFOR
+\ENDFOR
+\end{algorithmic}
+\end{algorithm}
