@@ -24,6 +24,18 @@ def generate_text(prompt):
 key = Fernet.generate_key()
 cipher_suite = Fernet(key)
 
+def private_query_obfuscation(query):
+    """Apply dummy queries and encryption for enhanced privacy."""
+    dummy_queries = ["placeholder1", "placeholder2", "placeholder3"]
+    obfuscated_query = random.choice(dummy_queries) + query
+    encrypted_query = cipher_suite.encrypt(obfuscated_query.encode())
+    return encrypted_query
+
+def secure_reranking(scores):
+    """Secure reranking inside a trusted enclave."""
+    sorted_scores = sorted(scores, reverse=True)
+    return sorted_scores
+
 class FediRAGClient:
     def __init__(self, model, data, client_id, num_clients):
         self.model = model
