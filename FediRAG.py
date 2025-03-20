@@ -1,18 +1,24 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from transformers import AutoModelForCausalLM, AutoTokenizer
+import google.generativeai as genai
 from model import RelatEModel  # Updated to match the FediRAG document
 import numpy as np
 import random
 from cryptography.fernet import Fernet
 from dataloader import load_data  # Handles data loading
 from utils import secure_aggregation  # Secure aggregation function
+from sklearn.metrics import f1_score, accuracy_score, recall_score
+import os
 
-# Load LLama3 model for dense text encoding
-llama_model_name = "meta-llama/Llama-3-8B"
-tokenizer = AutoTokenizer.from_pretrained(llama_model_name)
-llm_model = AutoModelForCausalLM.from_pretrained(llama_model_name)
+# Load Gemini API key
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
+
+def generate_text(prompt):
+    """Use Gemini API for text generation."""
+    response = genai.generate_text(prompt)
+    return response['text']
 
 # Generate a key for encryption/decryption
 key = Fernet.generate_key()
@@ -39,12 +45,24 @@ class FediRAGClient:
             loss.backward()
             self.optimizer.step()
         
+        self.evaluate_model(inputs, targets, outputs)
         return self.get_model_updates()
 
     def get_model_updates(self):
         """Extract model updates for federated learning"""
         updates = {name: param.data.clone() for name, param in self.model.named_parameters()}
         return updates
+
+    def evaluate_model(self, inputs, targets, outputs):
+        """Evaluate model locally on client data"""
+        preds = outputs.detach().numpy()
+        targets = targets.numpy()
+        
+        f1 = f1_score(np.round(targets), np.round(preds), average='macro')
+        accuracy = accuracy_score(np.round(targets), np.round(preds))
+        recall = recall_score(np.round(targets), np.round(preds), average='macro')
+        
+        print(f"Client {self.client_id} - F1 Score: {f1:.4f}, Accuracy: {accuracy:.4f}, Recall: {recall:.4f}")
 
     def apply_secure_masking(self, updates):
         """Apply pairwise random masking for secure aggregation"""
