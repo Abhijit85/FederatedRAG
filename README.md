@@ -90,7 +90,7 @@ FediRAG is evaluated on multiple datasets:
 MIT License
 
 ## Contact
-For questions and contributions, reach out to **achakr40@gmail.com** or open an issue in this repository.
+For questions and contributions, reach out to **achakr40@asu.edu** or open an issue in this repository.
 
 ---
 ### Citation
