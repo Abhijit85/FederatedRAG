@@ -1,107 +1,50 @@
-# FediRAG: Federated Retrieval-Augmented Generation with Structured Relational Embeddings and Hybrid Search
+# FederatedRAG
 
 ## Overview
-FediRAG is a federated retrieval-augmented generation (RAG) framework that integrates **structured relational embeddings** with **hybrid retrieval** and **secure federated learning**. It enables privacy-preserving knowledge integration while leveraging both unstructured and structured relational knowledge representations.
+This repository provides a compendium-aware retrieval-augmented agent that can answer math and science questions. Structured knowledge about each tool is stored in JSON "compendiums". The agent indexes the usage scenarios from these compendiums with Jina embeddings, reranks candidates with a Lambda LLM, and routes the query to the most appropriate tool.
 
-## Features
-- **Federated Knowledge Graph Embeddings**: Utilizes the **RelatE model** for structured embeddings, ensuring fine-grained relational pattern learning.
-- **Hybrid Retrieval & Reranking**: Combines **LLama3-based dense text embeddings** with **RelatE-based structured embeddings** for accurate and contextually aware retrieval.
-- **Privacy-Preserving Aggregation**: Implements **secure masking, differential privacy, and encrypted model updates** to ensure data confidentiality.
-- **Cross-Modal Reranking**: Uses a **transformer-based cross-encoder** to jointly optimize textual and relational signals for relevance.
-- **Retrieval-Augmented Generation (RAG)**: Generates responses enriched with structured knowledge, enhancing contextual understanding and reasoning.
+The project includes two main tools:
+- **MathQATool** – a RAG pipeline built on Jina embeddings, Jina reranker, and ChromaDB for mathematical word problems.
+- **ScienceQATool** – a vision-language system that analyzes images and text to solve ScienceQA-style questions.
 
-## Architecture
-FediRAG consists of the following components:
+## Requirements
+- Python 3.9 or later
+- Environment variables in a `.env` file:
+  ```env
+  LAMDA_API_KEY=your_lambda_api_key
+  JINA_API_KEY=your_jina_api_key
+  ```
+- Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`
 
-1. **Federated RelatE-Based Knowledge Graph Embeddings**  
-   - Each client trains a **local RelatE model** on private knowledge graph data.
-   - Secure aggregation combines relational embeddings without sharing raw data.
-   
-2. **Hybrid Search and Reranking Module**  
-   - **Textual Encoding**: Encodes queries using **Llama 3** to generate dense embeddings.
-   - **Relational Encoding**: Uses **RelatE embeddings** to capture structured dependencies.
-   - **Hybrid Candidate Retrieval**: Combines dense and structured retrieval using weighted rank fusion.
-   - **Cross-Modal Reranking**: Ensures retrieved candidates are both **semantically similar** and **relationally coherent**.
+## Data and Compendiums
+The repository contains example resources used by the agent:
+- `train_new.json` – training data for MathQATool.
+- `mathqa_tools_compendium.json` and `scienceqa_tools_compendium.json` – structured tool descriptions.
+- `mixed_queries.json` – evaluation set with math and science questions.
 
-3. **Federated Secure Aggregation**  
-   - Implements **secure masking** and **differential privacy (DP)** for encrypted model updates.
-   - Utilizes **pairwise random masking** and **secure multi-party computation** to protect sensitive knowledge graphs.
-   
-4. **Retrieval-Augmented Generation (RAG) with LLMs**  
-   - Retrieved context is fed into **Llama 3**, enhancing text generation with structured knowledge.
+## Running the Agent
+1. Install dependencies:
+   ```bash
+   pip install requests numpy pandas chromadb openai datasets pillow python-dotenv
+   ```
+2. Ensure the `.env` file and compendium JSON files are present.
+3. Execute the evaluation script:
+   ```bash
+   python main.py
+   ```
+   This loads compendiums, builds a unified vector store, creates the MathQA and ScienceQA tools, and evaluates the agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
 
-## Installation
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/FediRAG.git
-cd FediRAG
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## Usage
-### 1. Train Federated Clients
-```python
-from model import RelatEModel
-from dataloader import load_data
-from fediRAG import FediRAGClient
-
-num_clients = 5
-data_splits = load_data(num_clients)
-clients = [FediRAGClient(RelatEModel(), data=data_splits[i], client_id=i, num_clients=num_clients) for i in range(num_clients)]
-
-for client in clients:
-    local_updates = client.train_local_model()
-```
-
-### 2. Securely Aggregate Updates
-```python
-from fediRAG import FediRAGServer
-server = FediRAGServer(num_clients=num_clients, global_model=RelatEModel())
-aggregated_updates = server.aggregate_updates([client.get_model_updates() for client in clients])
-server.update_global_model(aggregated_updates)
-```
-
-### 3. Hybrid Retrieval and Generation
-```python
-query_text = "What are the key impacts of AI in healthcare?"
-response = server.generate_response(query_text, knowledge_base)
-print(response)
-```
-
-## Privacy and Security
-- **Local Differential Privacy (DP)**: Clients add noise to updates before sharing.
-- **Secure Multi-Party Computation (MPC)**: Ensures encrypted data sharing.
-- **Private Query Obfuscation**: Uses dummy queries and encryption for enhanced privacy.
-- **Secure Reranking**: Runs cross-encoder inside a secure enclave to protect sensitive knowledge.
-
-## Benchmark Datasets
-FediRAG is evaluated on multiple datasets:
-- **Knowledge Graph Embeddings**: FB15k-237, WN18RR, YAGO3-10
-- **Retrieval-Augmented Generation**: Natural Questions (NQ), TriviaQA, SQuAD, HotpotQA
-
-## Future Improvements
-- Enhancing **federated optimization techniques** for knowledge graph embeddings.
-- Improving **adaptive retrieval mechanisms** for multi-domain applications.
-- Extending **privacy-preserving protocols** with advanced homomorphic encryption.
+## Project Structure
+- `main.py` – loads compendiums, initializes `CompendiumAwareAgent`, and runs evaluation.
+- `CompendiumAwareAgent.py` – builds the unified vector store and reranks tools using a Lambda LLM before routing.
+- `vector_search.py` – Jina-based embedding client storing scenario vectors in memory.
+- `math_qa.py` – RAG pipeline for math word problems using Jina embeddings and ChromaDB.
+- `science_qa.py` – image and text reasoning with Lambda's vision-language models.
+- `CompendiumBuilder.py` – generates structured compendiums and filters similar tools.
+- `agenttools.py` – base classes and helper tools.
 
 ## License
 MIT License
 
 ## Contact
-For questions and contributions, reach out to **achakr40@asu.edu** or open an issue in this repository.
-
----
-### Citation
-If you use **FediRAG** in your research, please cite:
-```bibtex
-@article{yourpaper2025,
-  title={FediRAG: Federated Retrieval-Augmented Generation with Structured Relational Embeddings and Hybrid Search},
-  author={Your Name et al.},
-  journal={ACL 2025},
-  year={2025}
-}
-```
-
-
+For questions or contributions, reach out to **achakr40@asu.edu** or open an issue in this repository.
