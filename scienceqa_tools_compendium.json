@@ -1,0 +1,141 @@
+{
+    "Textual_Compendium": {
+        "Tool_Description": "A hyper-aligned AI analysis suite designed to solve problems from the ScienceQA dataset. It interprets visual diagrams and textual questions across specific domains to provide accurate, context-aware solutions.",
+        "Usage_Scenarios": [
+            {
+                "scenario": "Biology: Genetics and Heredity Analyzer",
+                "context": "Solves problems related to genetics, heredity, and Punnett squares. Calculates expected phenotype and genotype ratios for offspring based on parental traits like woolly or hairy fleece. Covers concepts of dominant and recessive alleles."
+            },
+            {
+                "scenario": "Biology: Ecosystem and Classification Interpreter",
+                "context": "Analyzes food webs, organism classifications, and ecological interactions. Identifies producers, consumers, and decomposers. Answers questions about matter transfer, such as which organism contains matter from a lichen."
+            },
+            {
+                "scenario": "Physics: Mechanics and Forces Calculator",
+                "context": "Solves problems involving force, motion, velocity, magnets, and energy. Analyzes diagrams of physical systems, such as wheels, carriages, and magnetic fields, to determine outcomes."
+            },
+            {
+                "scenario": "Scientific Method and Experiment Analysis",
+                "context": "Evaluates experimental designs. Identifies independent and dependent variables, controls, and the main question an experiment can answer. Analyzes procedural texts to determine the purpose of a test, like Gordon's parachute experiment."
+            },
+            {
+                "scenario": "Earth Science: Geosystems Interpreter",
+                "context": "Interprets geological maps, weather charts, and diagrams of Earth's systems. Answers questions about rocks, minerals, fossils, plate tectonics, and weather patterns."
+            },
+            {
+                "scenario": "Astronomy: Solar System and Celestial Bodies",
+                "context": "Answers questions about the solar system, planets, stars, and other celestial objects. Handles true/false statements regarding astronomical facts, like the composition of planets."
+            },
+            {
+                "scenario": "Geography: Geospatial Data Interpreter",
+                "context": "Interprets geographical and political maps to answer questions about state capitals (Wyoming, Delaware, Colorado), continents, oceans, and cardinal directions (farthest north)."
+            },
+            {
+                "scenario": "General Science: Visual Property Identifier",
+                "context": "Identifies common properties of objects shown in an image, such as material (e.g., 'what is this path made of'), state of matter, or shared characteristics. Also used for simple identification, like 'Select the bird'."
+            }
+        ],
+        "Precautions": [
+            {
+                "precaution": "Visual Fidelity Dependency",
+                "details": "The accuracy of analysis is highly dependent on the clarity and correct labeling of the diagrams and images within the dataset. Low-resolution or ambiguous images can lead to errors."
+            },
+            {
+                "precaution": "Contextual Knowledge Limitation",
+                "details": "The tool operates based on the knowledge contained within the ScienceQA dataset's lectures and context. It may not correctly answer questions that require external, specialized knowledge not provided."
+            },
+            {
+                "precaution": "Implicit Reasoning Steps",
+                "details": "Problems that require significant logical leaps or unstated assumptions between steps may challenge the tool's reasoning capabilities, as it is designed for explicit, step-by-step problem-solving."
+            }
+        ],
+        "Multi_tool_Coordination": {
+            "Description": "The system dynamically selects and coordinates the most appropriate tool(s) based on an initial analysis of the question's topic and content. A 'Problem Classifier' first identifies the domain(s), then invokes the specialized tool(s) to generate a solution.",
+            "Examples": [
+                {
+                    "example": "For a question about animal classification with a data table, the Problem Classifier would activate both the 'Biology: Biological Systems Analyzer' and the 'Data Interpretation: Chart and Graph Analyzer' to synthesize a complete answer."
+                }
+            ]
+        }
+    },
+    "Structured_Annex": {
+        "Entities": [
+            "ScienceQA_Problem",
+            "Visual_Diagram",
+            "Textual_Question",
+            "VLM_Analyzer",
+            "Problem_Classifier",
+            "Domain_Tool",
+            "Biology_Analyzer",
+            "Physics_Calculator",
+            "Chemistry_Modeler",
+            "Earth_Science_Interpreter",
+            "Data_Analyzer",
+            "Language_Engine",
+            "Final_Answer",
+            "Final_Explanation",
+            "Force_Diagram",
+            "Geological_Map",
+            "Punnett_Square",
+            "Data_Chart",
+            "Chemical_Formula"
+        ],
+        "Relations": [
+            {
+                "source": "VLM_Analyzer",
+                "link": "analyzes",
+                "target": "Visual_Diagram"
+            },
+            {
+                "source": "VLM_Analyzer",
+                "link": "interprets",
+                "target": "Data_Chart"
+            },
+            {
+                "source": "Problem_Classifier",
+                "link": "analyzes",
+                "target": "ScienceQA_Problem"
+            },
+            {
+                "source": "Problem_Classifier",
+                "link": "selects",
+                "target": "Domain_Tool"
+            },
+            {
+                "source": "Domain_Tool",
+                "link": "guides",
+                "target": "Final_Explanation"
+            },
+            {
+                "source": "Domain_Tool",
+                "link": "specializes_in",
+                "target": "ScienceQA_Problem"
+            },
+            {
+                "source": "Biology_Analyzer",
+                "link": "interprets",
+                "target": "Punnett_Square"
+            },
+            {
+                "source": "Physics_Calculator",
+                "link": "solves_using",
+                "target": "Force_Diagram"
+            },
+            {
+                "source": "Earth_Science_Interpreter",
+                "link": "reads",
+                "target": "Geological_Map"
+            },
+            {
+                "source": "Data_Analyzer",
+                "link": "extracts_from",
+                "target": "Visual_Diagram"
+            },
+            {
+                "source": "Domain_Tool",
+                "link": "produces",
+                "target": "Final_Answer"
+            }
+        ]
+    }
+}
