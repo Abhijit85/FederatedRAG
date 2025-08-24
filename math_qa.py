@@ -54,14 +54,15 @@ class JinaAIClient:
         return response.json()['choices'][0]['message']['content']
 
 class ChromaDBManager:
-    """A wrapper for ChromaDB using Jina AI for embeddings."""
+    """A wrapper for a persistent ChromaDB instance."""
     def __init__(self, jina_client, collection_name="math_problems_jina"):
-        self.client = chromadb.Client()
+        # FIX: Use a persistent client to save the database to disk.
+        self.client = chromadb.PersistentClient(path="chroma_db")
         self.jina_client = jina_client
-        if collection_name in [c.name for c in self.client.list_collections()]:
-            self.client.delete_collection(name=collection_name)
-        self.collection = self.client.create_collection(name=collection_name)
-        print(f"✅ ChromaDB collection '{collection_name}' created.")
+        
+        # FIX: Use get_or_create_collection to avoid deleting and recreating the DB on every run.
+        self.collection = self.client.get_or_create_collection(name=collection_name)
+        print(f"✅ ChromaDB collection '{collection_name}' is ready.")
 
     def add_documents(self, documents_df):
         print("Embedding documents with Jina AI...")
@@ -84,8 +85,13 @@ class RAGSystem:
         self.jina_client = JinaAIClient(api_key)
         self.db_manager = ChromaDBManager(self.jina_client)
         
-        processed_docs_df = self._load_and_preprocess_data(training_data)
-        self.db_manager.add_documents(processed_docs_df)
+        # FIX: Only populate the database if it's empty to save time and API calls.
+        if self.db_manager.collection.count() == 0:
+            print("Collection is empty. Populating with new data...")
+            processed_docs_df = self._load_and_preprocess_data(training_data)
+            self.db_manager.add_documents(processed_docs_df)
+        else:
+            print("MathQA RAG system is already populated.")
 
     def _load_and_preprocess_data(self, training_data):
         tool_mapping = {
@@ -122,7 +128,7 @@ class RAGSystem:
         print("✅ Reranking complete.")
 
         context_str = "\n---\n".join(
-            f"Example {i+1} (Relevance: {doc['relevance_score']:.2f}):\n{doc['document']}"
+            f"Example {i+1} (Relevance: {doc['relevance_score']:.2f}):\n{doc['document']['text']}"
             for i, doc in enumerate(reranked_results)
         )
         prompt = f"""
@@ -149,7 +155,6 @@ class MathQATool(BaseTool):
         super().__init__("mathqa")
         self.description = "A tool for solving mathematical word problems using a Retrieval-Augmented Generation system."
         
-        # Initialize the RAG system when the tool is created
         try:
             with open('train_new.json', 'r') as f:
                 training_data = json.load(f)
@@ -162,16 +167,12 @@ class MathQATool(BaseTool):
     def run(self, user_query: str, dynamic_prompt: str = None) -> ToolUsageExample:
         """
         Executes the math problem-solving logic by calling the internal RAG system.
-        The dynamic_prompt from the agent is ignored here, as the RAG system builds its own.
         """
         if not self.rag_system:
             return self._create_error_response(user_query, "RAG system not initialized.")
 
         try:
-            # --- The tool now calls its internal RAG system ---
             full_response_text = self.rag_system.answer_question(user_query)
-            
-            # The tool parses its own response to find the answer
             parsed_output = self._parse_llm_response(full_response_text)
 
             return ToolUsageExample(
