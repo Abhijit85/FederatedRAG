@@ -17,7 +17,7 @@ load_dotenv()
 
 # Configure the Streamlit page for a professional and user-friendly layout
 st.set_page_config(
-    page_title="Compendium-Aware AI Agent",
+    page_title="FredRag",
     page_icon="🤖",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -68,7 +68,7 @@ def initialize_agent():
 
 # --- 4. STREAMLIT UI LAYOUT ---
 
-st.title("🔬 Compendium-Aware AI Agent")
+st.title("🔬 FredRag")
 st.markdown("An intelligent system for solving complex math and science problems.")
 
 agent = initialize_agent()
