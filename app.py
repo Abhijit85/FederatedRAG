@@ -1,21 +1,21 @@
 import streamlit as st
 import json
 import os
-import logging
 import uuid
 import base64
 from dotenv import load_dotenv
-from CompendiumManager import CompendiumManager
 from CompendiumAwareAgent import CompendiumAwareAgent
 from math_qa import MathQATool
 from science_qa import ScienceQATool
+from mongo_utils import MongoLogger
+from build_compendium import main as run_database_setup # Import the setup function
 
 # --- 1. APP CONFIGURATION & INITIALIZATION ---
 
 # Load environment variables from a .env file
 load_dotenv()
 
-# Configure the Streamlit page for a professional and user-friendly layout
+# Configure the Streamlit page
 st.set_page_config(
     page_title="FredRag",
     page_icon="🤖",
@@ -23,105 +23,106 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# --- 2. LOGGING SETUP FOR MULTI-USER SUPPORT ---
+# --- 2. ONE-TIME DATABASE SETUP PER SESSION---
+
+# Use session state to ensure this runs only once for each new user session.
+if 'db_initialized' not in st.session_state:
+    # Clear the resource cache to ensure the agent is re-initialized with the new data.
+    st.cache_resource.clear()
+    with st.spinner("Performing first-time setup: Building knowledge base... This may take a moment."):
+        try:
+            run_database_setup()
+            st.session_state.db_initialized = True
+            st.success("Knowledge base setup complete!")
+        except Exception as e:
+            st.error(f"Failed to build the knowledge base: {e}")
+            # Stop the app if setup fails
+            st.stop()
+
+
+# --- 3. LOGGING SETUP ---
+
+# Initialize MongoDB logger
+MONGO_URI = os.environ.get("MONGO_URI")
+DB_NAME = "FredRag"
+logger = MongoLogger(MONGO_URI, DB_NAME)
 
 def setup_user_logger(session_id):
-    """
-    Creates and configures a unique logger for each user session.
-    This ensures that logs from concurrent users are saved to separate files.
-    """
-    log_formatter = logging.Formatter('%(asctime)s - %(message)s')
-    logger = logging.getLogger(session_id)
-    logger.setLevel(logging.INFO)
+    """Creates and configures a unique logger for each user session."""
+    return logger, f"evaluation_log_{session_id}.txt"
 
-    if logger.hasHandlers():
-        logger.handlers.clear()
-
-    log_file = f"evaluation_log_{session_id}.txt"
-    file_handler = logging.FileHandler(log_file, mode='w')
-    file_handler.setFormatter(log_formatter)
-    logger.addHandler(file_handler)
-    
-    return logger, log_file
-
-# --- 3. AGENT INITIALIZATION (CACHED FOR EFFICIENCY) ---
+# --- 4. AGENT INITIALIZATION (CACHED FOR EFFICIENCY) ---
 
 @st.cache_resource
 def initialize_agent():
     """
-    Initializes the Compendium-Aware Agent. This function is cached
-    to ensure the agent is loaded only once, improving performance.
+    Initializes all the necessary components for the agent.
+    This function is cached to avoid re-initializing on every interaction.
     """
-    if not os.environ.get("LAMDA_API_KEY") or not os.environ.get("JINA_API_KEY"):
-        st.error("❌ Error: API keys must be set in your .env file.")
+    try:
+        # Initialize the tools
+        math_tool = MathQATool()
+        science_tool = ScienceQATool()
+        tools = {"mathqa": math_tool, "scienceqa": science_tool}
+
+        # Initialize the agent
+        agent = CompendiumAwareAgent(tools=tools)
+        return agent
+    except Exception as e:
+        st.error(f"Failed to initialize agent: {e}")
         return None
 
-    compendium_manager = CompendiumManager()
-    source_files = ["mathqa_tools_compendium.json", "scienceqa_tools_compendium.json"]
-    final_compendium_path = "final_compendium.json"
-    compendium_manager.merge_compendiums(source_files, final_compendium_path)
+# --- 5. STREAMLIT UI LAYOUT ---
 
-    tool_map = {"mathqa": MathQATool(), "scienceqa": ScienceQATool()}
-    agent = CompendiumAwareAgent(tools=tool_map, final_compendium_path=final_compendium_path)
-    
-    return agent
+st.title("🧠 FredRag")
+st.markdown("This agent uses a dynamically built knowledge base to answer questions about math and science.")
 
-# --- 4. STREAMLIT UI LAYOUT ---
-
-st.title("🔬 FredRag")
-st.markdown("An intelligent system for solving complex math and science problems.")
-
-agent = initialize_agent()
-
+# Initialize or get the session ID
 if 'session_id' not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
 
-logger, log_file = setup_user_logger(st.session_state.session_id)
+session_id = st.session_state.session_id
+user_logger, log_file = setup_user_logger(session_id)
 
-with st.sidebar:
-    st.header("App Controls")
-    st.markdown("Select the type of query you want to solve.")
-    query_type = st.radio("Query Type", ["Math Problem", "Science Problem (with Image)"])
-    st.info(f"📝 Your session log is being saved to: `{log_file}`")
+agent = initialize_agent()
 
 if agent:
-    if query_type == "Math Problem":
-        st.header("🔢 Math Problem Solver")
-        problem = st.text_area("Enter the problem statement:", height=100)
-        options = st.text_area("Enter the options (e.g., a) 1, b) 2, ...):", height=100)
-        
-        if st.button("Solve Math Problem"):
-            if problem and options:
-                with st.spinner("Agent is thinking..."):
-                    query_text = f"{problem}\nOptions: {options}"
-                    logger.info(f"--- Processing MathQA Query: '{query_text[:50]}...' ---")
-                    result = agent.route_query(query=query_text, data_item=None)
-                    
+    # Create two columns for a clean layout
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.header("Math QA")
+        math_query = st.text_input("Enter your math question:")
+        if st.button("Ask Math QA"):
+            if math_query:
+                log_id = user_logger.log_entry(session_id, f"Math QA Query: {math_query}")
+                with st.spinner("The Math agent is thinking..."):
+                    result = agent.route_query(query=math_query)
                     st.subheader("Agent's Response:")
                     if result and result.llm_response:
                         st.text_area("Reasoning & Output", result.llm_response, height=300)
                     else:
                         st.error("The agent could not produce a result for this query.")
-            else:
-                st.warning("Please enter both a problem and its options.")
+                user_logger.log_exit(log_id)
 
-    elif query_type == "Science Problem (with Image)":
-        st.header("⚛️ Science Problem Solver")
-        question = st.text_area("Enter the science question:", height=100)
-        choices_str = st.text_area("Enter the choices, separated by a semicolon (;):", height=100)
-        uploaded_image = st.file_uploader("Upload an image for the science problem:", type=["png", "jpg", "jpeg"])
+    with col2:
+        st.header("Science QA")
+        science_question = st.text_input("Enter your science question:")
+        uploaded_image = st.file_uploader("Upload an image (optional)", type=["png", "jpg", "jpeg"])
+        choices_str = st.text_area("Enter choices (one per line):")
 
-        if st.button("Solve Science Problem"):
-            if question and choices_str:
-                with st.spinner("Agent is analyzing the problem..."):
-                    choices = [choice.strip() for choice in choices_str.split(';')]
+        if st.button("Ask Science QA"):
+            choices = [choice.strip() for choice in choices_str.split('\n') if choice.strip()]
+            if science_question and choices:
+                log_id = user_logger.log_entry(session_id, f"Science QA Query: {science_question}")
+                with st.spinner("The Science agent is thinking..."):
                     image_data = None
                     if uploaded_image:
                         image_data = base64.b64encode(uploaded_image.getvalue()).decode('utf-8')
                         image_data = f"data:image/jpeg;base64,{image_data}"
 
                     data_payload = {
-                        "question": question,
+                        "question": science_question,
                         "choices": choices,
                         "image": image_data if image_data else "",
                         "hint": "", "answer": -1, "task": "closed choice", "grade": "grade8",
@@ -130,14 +131,14 @@ if agent:
                         "lecture": "", "solution": ""
                     }
                     
-                    logger.info(f"--- Processing ScienceQA Query: '{question[:50]}...' ---")
-                    result = agent.route_query(query=question, data_item=data_payload)
+                    result = agent.route_query(query=science_question, data_item=data_payload)
                     
                     st.subheader("Agent's Response:")
                     if result and result.llm_response:
                         st.text_area("Reasoning & Output", result.llm_response, height=300)
                     else:
                         st.error("The agent could not produce a result for this query.")
+                user_logger.log_exit(log_id)
             else:
                 st.warning("Please provide a question and its choices.")
 else:
