@@ -3,16 +3,19 @@ import json
 import re
 import requests
 import pandas as pd
-import chromadb
-import time
 from dotenv import load_dotenv
-from agenttools import BaseTool, ToolUsageExample, CalculatorTool
+from agenttools import BaseTool, ToolUsageExample
+from mongo_utils import MongoVectorStore # Re-use the connection utility
+from typing import Dict, Optional
 
 # --- 1. CONFIGURATION ---
 load_dotenv()
 API_KEY = os.environ.get("JINA_API_KEY")
 if not API_KEY:
     raise ValueError("JINA_API_KEY environment variable not set.")
+
+MONGO_URI = os.environ.get("MONGO_URI")
+DB_NAME = "FredRag"
 
 JINA_EMBED_API_URL = "https://api.jina.ai/v1/embeddings"
 JINA_RERANK_API_URL = "https://api.jina.ai/v1/rerank"
@@ -53,47 +56,56 @@ class JinaAIClient:
         response.raise_for_status()
         return response.json()['choices'][0]['message']['content']
 
-class ChromaDBManager:
-    """A wrapper for a persistent ChromaDB instance."""
-    def __init__(self, jina_client, collection_name="math_problems_jina"):
-        # FIX: Use a persistent client to save the database to disk.
-        self.client = chromadb.PersistentClient(path="chroma_db")
+class MongoRAGManager:
+    """A manager for the MathQA RAG system using MongoDB."""
+    def __init__(self, jina_client, collection_name="math_problems"):
+        self.vector_store = MongoVectorStore(MONGO_URI, DB_NAME, collection_name)
         self.jina_client = jina_client
-        
-        # FIX: Use get_or_create_collection to avoid deleting and recreating the DB on every run.
-        self.collection = self.client.get_or_create_collection(name=collection_name)
-        print(f"✅ ChromaDB collection '{collection_name}' is ready.")
+        print(f"✅ MongoDB RAG collection '{collection_name}' is ready.")
+
+    def count(self):
+        return self.vector_store.collection.count_documents({})
 
     def add_documents(self, documents_df):
-        print("Embedding documents with Jina AI...")
+        print("Embedding documents for RAG with Jina AI...")
         embeddings = self.jina_client.get_embeddings(documents_df["text_for_embedding"].tolist())
-        self.collection.add(
-            ids=documents_df["id"].tolist(),
-            embeddings=embeddings,
-            metadatas=documents_df[['tool', 'original_problem']].to_dict('records'),
-            documents=documents_df["text_for_embedding"].tolist()
-        )
-        print(f"✅ Added {len(documents_df)} documents to ChromaDB.")
+        
+        documents_to_insert = []
+        for i, row in documents_df.iterrows():
+            doc = {
+                "_id": row["id"],
+                "text": row["text_for_embedding"],
+                "embedding": embeddings[i],
+                "metadata": {
+                    "tool": row["tool"],
+                    "original_problem": row["original_problem"]
+                }
+            }
+            documents_to_insert.append(doc)
+
+        self.vector_store.collection.insert_many(documents_to_insert)
+        print(f"✅ Added {len(documents_df)} documents to MongoDB RAG collection.")
 
     def query(self, user_query, n_results=3):
-        query_embedding = self.jina_client.get_embeddings([user_query])
-        return self.collection.query(query_embeddings=query_embedding, n_results=n_results)
+        query_embedding = self.jina_client.get_embeddings([user_query])[0]
+        # Use the manual search for testing, as no Atlas index is set up for this collection
+        return self.vector_store.search_manual(query_embedding, num_results=n_results)
 
 class RAGSystem:
-    """Orchestrates the RAG process: Retrieve -> Rerank -> Generate."""
+    """Orchestrates the RAG process using MongoDB."""
     def __init__(self, training_data, api_key):
         self.jina_client = JinaAIClient(api_key)
-        self.db_manager = ChromaDBManager(self.jina_client)
+        self.db_manager = MongoRAGManager(self.jina_client)
         
-        # FIX: Only populate the database if it's empty to save time and API calls.
-        if self.db_manager.collection.count() == 0:
-            print("Collection is empty. Populating with new data...")
+        if self.db_manager.count() == 0:
+            print("Math RAG collection is empty. Populating with new data...")
             processed_docs_df = self._load_and_preprocess_data(training_data)
             self.db_manager.add_documents(processed_docs_df)
         else:
             print("MathQA RAG system is already populated.")
 
     def _load_and_preprocess_data(self, training_data):
+        # This function remains the same
         tool_mapping = {
             "Financial": "Financial_Calculator", "Percentage": "Financial_Calculator", "gain": "Financial_Calculator",
             "Mixture": "Algebraic_Problem_Solver", "Averages": "Algebraic_Problem_Solver", "Algebra": "Algebraic_Problem_Solver",
@@ -119,10 +131,10 @@ class RAGSystem:
         print(f"\n🔎 Querying RAG system for: '{user_query}'")
         retrieved_docs = self.db_manager.query(user_query, n_results=3)
         
-        if not retrieved_docs or not retrieved_docs.get('documents', [[]])[0]:
+        if not retrieved_docs:
             return "Could not find relevant documents."
 
-        docs_to_rerank = retrieved_docs['documents'][0]
+        docs_to_rerank = [doc['text'] for doc in retrieved_docs]
         print(f"\n🔄 Reranking {len(docs_to_rerank)} documents for relevance...")
         reranked_results = self.jina_client.rerank_documents(user_query, docs_to_rerank)
         print("✅ Reranking complete.")
@@ -149,7 +161,7 @@ class RAGSystem:
 
 class MathQATool(BaseTool):
     """
-    A tool for solving mathematical word problems by leveraging an internal RAG system.
+    A tool for solving mathematical word problems by leveraging a MongoDB-based RAG system.
     """
     def __init__(self):
         super().__init__("mathqa")
@@ -164,7 +176,7 @@ class MathQATool(BaseTool):
             print(f"❌ CRITICAL ERROR: Could not initialize RAG system for MathQATool: {e}")
             self.rag_system = None
 
-    def run(self, user_query: str, dynamic_prompt: str = None) -> ToolUsageExample:
+    def run(self, user_query: str, data_item: Optional[Dict] = None) -> ToolUsageExample:
         """
         Executes the math problem-solving logic by calling the internal RAG system.
         """
