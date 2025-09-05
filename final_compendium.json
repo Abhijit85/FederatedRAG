@@ -1,0 +1,180 @@
+{
+    "Textual_Compendium": {
+        "Tool_Description": "A comprehensive mathematical problem-solving tool designed to interpret and solve a wide range of quantitative word problems by selecting the appropriate specialized sub-tool.",
+        "Usage_Scenarios": [
+            {
+                "scenario": "Financial and Banking Calculator",
+                "context": "Solves complex financial problems including simple and compound interest, profit/loss percentages, discounts, and investment analysis. Used for questions involving shares, dividends, and rates of interest."
+            },
+            {
+                "scenario": "Percentage and Proportion Solver",
+                "context": "Handles calculations involving percentages, proportions, and direct or inverse relationships. Ideal for problems like '? % of 360 = 108'."
+            },
+            {
+                "scenario": "Geometry and Measurement",
+                "context": "Calculates properties of geometric shapes. Solves problems involving circumferences, area, volume, and distances, such as those concerning wheels, carriages, and their rotations."
+            },
+            {
+                "scenario": "Algebraic Word Problem Solver",
+                "context": "Parses and solves word problems that can be translated into algebraic equations. Handles scenarios with variables, unknowns, and logical steps, such as problems about trading items between people."
+            },
+            {
+                "scenario": "Work, Rate, and Time Analyzer",
+                "context": "Solves problems related to rates of work, speed, distance, and time. For example, calculating the time it takes for two individuals working at different speeds to complete a task together."
+            },
+            {
+                "scenario": "General Logic and Counting",
+                "context": "A general-purpose tool for logic puzzles and counting problems that do not fit other categories, such as determining the number of zeroes needed to write numbers from 1 to 1000."
+            },
+            {
+                "scenario": "Genetics and Heredity Analyzer (Biology)",
+                "context": "Solves problems related to genetics, heredity, and Punnett squares. Calculates expected phenotype and genotype ratios for offspring based on parental traits like woolly or hairy fleece. Covers concepts of dominant and recessive alleles."
+            },
+            {
+                "scenario": "Ecosystem and Classification Interpreter (Biology)",
+                "context": "Analyzes food webs, organism classifications, and ecological interactions. Identifies producers, consumers, and decomposers. Answers questions about matter transfer, such as which organism contains matter from a lichen."
+            },
+            {
+                "scenario": "Mechanics and Forces Calculator (Physics)",
+                "context": "Solves problems involving force, motion, velocity, magnets, and energy. Analyzes diagrams of physical systems, such as wheels, carriages, and magnetic fields, to determine outcomes."
+            },
+            {
+                "scenario": "Scientific Method and Experiment Analysis",
+                "context": "Evaluates experimental designs. Identifies independent and dependent variables, controls, and the main question an experiment can answer. Analyzes procedural texts to determine the purpose of a test, like Gordon's parachute experiment."
+            },
+            {
+                "scenario": "Earth Science: Geosystems Interpreter",
+                "context": "Interprets geological maps, weather charts, and diagrams of Earth's systems. Answers questions about rocks, minerals, fossils, plate tectonics, and weather patterns."
+            },
+            {
+                "scenario": "Astronomy: Solar System and Celestial Bodies",
+                "context": "Answers questions about the solar system, planets, stars, and other celestial objects. Handles true/false statements regarding astronomical facts, like the composition of planets."
+            },
+            {
+                "scenario": "Geography: Geospatial Data Interpreter",
+                "context": "Interprets geographical and political maps to answer questions about state capitals (Wyoming, Delaware, Colorado), continents, oceans, and cardinal directions (farthest north)."
+            },
+            {
+                "scenario": "General Science: Visual Property Identifier",
+                "context": "Identifies common properties of objects shown in an image, such as material (e.g., 'what is this path made of'), state of matter, or shared characteristics. Also used for simple identification, like 'Select the bird'."
+            }
+        ],
+        "Precautions": [
+            {
+                "precaution": "Ambiguity in Problem Phrasing",
+                "details": "The tool's accuracy depends on clear and unambiguous problem statements. Vague language, complex sentence structures, or missing contextual information may lead to incorrect interpretation of the required calculations. Always ensure problem statements are complete and mathematically well-defined."
+            },
+            {
+                "precaution": "Mathematical Formula Validation",
+                "details": "The tool must correctly identify and apply appropriate mathematical formulas for each problem type. Incorrect formula selection or application can lead to systematic errors across calculations. Cross-validation with standard mathematical principles is essential for reliable results."
+            },
+            {
+                "precaution": "Unit Consistency and Precision",
+                "details": "Users must ensure that all numerical values within a problem use consistent units (e.g., all time measurements in days, all monetary values in the same currency). The tool requires explicit unit specification and does not perform automatic unit conversion. Additionally, appropriate rounding precision must be maintained based on problem context."
+            },
+            {
+                "precaution": "Scope of Mathematical Complexity",
+                "details": "This tool is designed for word problems solvable with arithmetic and basic algebra including linear equations, percentages, ratios, and basic statistical measures. It is not intended for higher-level mathematics like calculus, trigonometry, or advanced statistical analysis. Problem complexity should match the tool's computational capabilities."
+            },
+            {
+                "precaution": "Edge Case and Error Handling",
+                "details": "The tool must account for mathematical edge cases such as division by zero, negative values in inappropriate contexts, and extreme input values. Results should be validated for practical feasibility within the problem context (e.g., negative time durations or impossible percentages should trigger validation warnings)."
+            }
+        ],
+        "Multi_tool_Coordination": {
+            "Description": "This Word Problem Solver functions as a comprehensive interpretation and processing engine that coordinates with multiple specialized components. It parses natural language queries to extract mathematical relationships, categorizes problems by type, validates formulas, and generates structured solutions. The system coordinates with Calculator tools for computation, Formula Validators for accuracy verification, and Explanation Engines for step-by-step solution presentation.",
+            "Examples": [
+                {
+                    "example": "Financial Problem Workflow: For banker's gain problems, the Word Problem Solver extracts the formula `divide(multiply(const_100, divide(multiply(36, const_100), multiply(3, 10))), multiply(3, 10))`, coordinates with the Calculator for computation, and integrates with Explanation Engine to provide detailed step-by-step solutions showing TD calculation, PW derivation, and final answer verification."
+                },
+                {
+                    "example": "Multi-step Problem Processing: For average calculation problems, the system first parses the problem to identify variables, coordinates with Statistical Processor to set up equations, uses Calculator for algebraic manipulation, and finally integrates with Answer Verifier to ensure the result makes practical sense within the problem context."
+                }
+            ]
+        }
+    },
+    "Structured_Annex": {
+        "Entities": [
+            "Word_Problem_Solver",
+            "Calculator",
+            "Mathematical_Formula",
+            "Final_Answer",
+            "Problem_Classifier",
+            "Formula_Validator",
+            "Statistical_Processor",
+            "Financial_Calculator",
+            "Algebraic_Engine",
+            "Explanation_Engine",
+            "Answer_Verifier",
+            "Unit_Handler",
+            "Error_Detector",
+            "Algebra",
+            "Geometry",
+            "Finance",
+            "Percentage",
+            "Word_Problem"
+        ],
+        "Relations": [
+            {
+                "source": "Word_Problem_Solver",
+                "link": "extracts",
+                "target": "Mathematical_Formula"
+            },
+            {
+                "source": "Calculator",
+                "link": "computes",
+                "target": "Final_Answer"
+            },
+            {
+                "source": "Calculator",
+                "link": "executes",
+                "target": "Mathematical_Formula"
+            },
+            {
+                "source": "Problem_Classifier",
+                "link": "categorizes",
+                "target": "Word_Problem_Solver"
+            },
+            {
+                "source": "Formula_Validator",
+                "link": "validates",
+                "target": "Mathematical_Formula"
+            },
+            {
+                "source": "Word_Problem_Solver",
+                "link": "coordinates_with",
+                "target": "Statistical_Processor"
+            },
+            {
+                "source": "Word_Problem_Solver",
+                "link": "utilizes",
+                "target": "Financial_Calculator"
+            },
+            {
+                "source": "Algebraic_Engine",
+                "link": "processes",
+                "target": "Mathematical_Formula"
+            },
+            {
+                "source": "Explanation_Engine",
+                "link": "generates_explanation_for",
+                "target": "Final_Answer"
+            },
+            {
+                "source": "Answer_Verifier",
+                "link": "validates",
+                "target": "Final_Answer"
+            },
+            {
+                "source": "Unit_Handler",
+                "link": "standardizes",
+                "target": "Mathematical_Formula"
+            },
+            {
+                "source": "Error_Detector",
+                "link": "monitors",
+                "target": "Word_Problem_Solver"
+            }
+        ]
+    }
+}

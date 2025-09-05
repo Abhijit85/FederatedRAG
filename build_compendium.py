@@ -35,7 +35,7 @@ def main():
     print(f"Merging the following files: {COMPENDIUM_FILES}")
     
     # Capture the returned compendium data in a variable
-    merged_compendium = manager.merge_compendiums(file_paths=COMPENDIUM_FILES, compendium_id="master_compendium")
+    merged_compendium = manager.merge_compendiums(file_paths=COMPENDIUM_FILES)
     
     # --- Step 2: Populate the Vector Store ---
     if merged_compendium:
