@@ -193,7 +193,7 @@ class MathQATool(BaseTool):
             return self._create_error_response(user_query, "RAG system not initialized.")
 
         try:
-            full_response_text = self.rag_system.answer_question(user_query)
+            full_response_text = self.rag_system.answer_question(user_query, recommended_scenario)
             parsed_output = self._parse_llm_response(full_response_text)
 
             return ToolUsageExample(
