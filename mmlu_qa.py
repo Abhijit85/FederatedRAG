@@ -202,7 +202,7 @@ class RAGSystem:
             })
         return pd.DataFrame(processed_docs)
 
-    def answer_question(self, user_query):
+    def answer_question(self, user_query, scenario: str = None):
         """Answers a user's question using the full RAG pipeline."""
         print(f"\n🔎 Querying RAG system for: '{user_query}'")
         retrieved_docs = self.db_manager.query(user_query, n_results=3)
@@ -219,8 +219,16 @@ class RAGSystem:
             f"Example {i+1} (Relevance: {doc['relevance_score']:.2f}):\n{doc['document']['text']}"
             for i, doc in enumerate(reranked_results)
         )
+        # Create a guidance sentence only if a scenario was provided
+        scenario_guidance = ""
+        if scenario:
+            scenario_guidance = f"To solve this, use the analytical framework of '{scenario}'."
+
         prompt = f"""
-        Analyze the user's question using the provided context from a knowledge base. Provide a step-by-step rationale and conclude with the final answer in the format 'Final Answer: [letter]'.
+            You are a Polymath AI expert, an expert reasoning engine with deep knowledge across STEM, humanities, and professional studies with precision and clarity.
+            Your task is to solve the following multiple-choice question. {scenario_guidance}
+            Analyze the provided context from a knowledge base, which contains similar problems or relevant information.
+
 
         **Context: Examples from Knowledge Base**
         {context_str}
@@ -229,6 +237,8 @@ class RAGSystem:
         {user_query}
 
         **Your Response:**
+        Provide a step-by-step rationale explaining your work, and conclude with the final answer in the strict format: 'Final Answer: [letter]'.
+        Ensure your reasoning is thorough and that you double-check your final answer for accuracy.
         """
         print("\n🤖 Generating final answer with Jina DeepSearch...")
         return self.jina_client.generate_chat_response(prompt)
@@ -252,7 +262,7 @@ class MMLUQATool(BaseTool):
             print(f"❌ CRITICAL ERROR: Could not initialize RAG system for MMLUQATool: {e}")
             self.rag_system = None
 
-    def run(self, user_query: str, data_item: Optional[Dict] = None) -> ToolUsageExample:
+    def run(self, user_query: str, data_item: Optional[Dict] = None, recommended_scenario: str = None) -> ToolUsageExample:
         """
         Executes the MMLU problem-solving logic by calling the internal RAG system.
         """
@@ -260,7 +270,7 @@ class MMLUQATool(BaseTool):
             return self._create_error_response(user_query, "RAG system not initialized.")
 
         try:
-            full_response_text = self.rag_system.answer_question(user_query)
+            full_response_text = self.rag_system.answer_question(user_query, recommended_scenario)
             parsed_output = self._parse_llm_response(full_response_text)
 
             return ToolUsageExample(
