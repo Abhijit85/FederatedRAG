@@ -1,0 +1,156 @@
+{
+    "MMLU_Analysis_Compendium": {
+        "Textual_Compendium": {
+            "Tool_Description": "A comprehensive, multi-disciplinary knowledge engine designed to solve complex, domain-specific questions from the MMLU dataset. This tool leverages a suite of specialized solvers and knowledge bases to address expert-level problems across STEM, humanities, health, and professional studies.",
+            "Usage_Scenarios": [
+                {
+                    "scenario": "STEM: Abstract & Higher Mathematics Solver",
+                    "context": "Addresses university-level mathematical problems. Solves questions in Abstract Algebra and advanced College Mathematics, focusing on theoretical concepts, proofs, and complex calculations."
+                },
+                {
+                    "scenario": "STEM: Foundational Mathematics Engine",
+                    "context": "Handles mathematical problems from K-12 education. Provides step-by-step solutions for Elementary Mathematics, High School Mathematics, and High School Statistics."
+                },
+                {
+                    "scenario": "STEM: Physics Problem Calculator",
+                    "context": "Solves physics questions across various levels. Manages calculations and conceptual problems for College Physics, High School Physics, and Conceptual Physics, covering mechanics, electromagnetism, and modern physics."
+                },
+                {
+                    "scenario": "STEM: Chemistry Equation & Concept Analyzer",
+                    "context": "Addresses chemical problems. Solves stoichiometry, organic chemistry, and theoretical questions for both College Chemistry and High School Chemistry."
+                },
+                {
+                    "scenario": "STEM: Biological Systems Modeler",
+                    "context": "Answers questions in the life sciences. Covers topics in College Biology, High School Biology, Anatomy, and Virology, from cellular processes to organismal systems and viral replication."
+                },
+                 {
+                    "scenario": "STEM: Advanced Sciences & Engineering Module",
+                    "context": "Tackles specialized STEM fields. Provides expert knowledge for Astronomy, Electrical Engineering, Computer Security, College & High School Computer Science, and Machine Learning."
+                },
+                {
+                    "scenario": "Health & Medicine: Clinical Knowledge Base",
+                    "context": "Provides answers for medical professionals and students. Addresses questions in Clinical Knowledge, College Medicine, Professional Medicine, and Medical Genetics."
+                },
+                {
+                    "scenario": "Health & Medicine: Human Health & Wellness Advisor",
+                    "context": "Focuses on general human health topics. Answers questions related to Human Aging, Human Sexuality, and Nutrition, based on established scientific consensus."
+                },
+                {
+                    "scenario": "Social Sciences: Economic Modeler",
+                    "context": "Analyzes and solves problems in economics. Differentiates between and provides solutions for Macroeconomics, Microeconomics, and Econometrics."
+                },
+                {
+                    "scenario": "Social Sciences: Behavioral & Societal Analyzer",
+                    "context": "Addresses questions about human behavior and society. Covers High School & Professional Psychology, Clinical Psychology, and Sociology."
+                },
+                {
+                    "scenario": "Humanities: Governance & Global Affairs Analyst",
+                    "context": "Provides expertise on political and legal systems. Answers questions on Security Studies, U.S. Foreign Policy, International Law, and High School Government & Politics."
+                },
+                {
+                    "scenario": "Humanities: Historical Event Retriever",
+                    "context": "Provides factual recall and analysis of historical periods. Covers High School U.S. History, World History, European History, and Prehistory."
+                },
+                {
+                    "scenario": "Humanities: Philosophical & Moral Reasoner",
+                    "context": "Analyzes abstract and ethical problems. Addresses questions in Philosophy, World Religions, Moral Disputes, Moral Scenarios, Jurisprudence, and identifies Logical Fallacies."
+                },
+                 {
+                    "scenario": "Humanities: Global Knowledge Navigator",
+                    "context": "A specialized tool for retrieving specific, factual information about the world (e.g., capitals, geography, demographics). Directly addresses 'Global Facts' queries."
+                },
+                {
+                    "scenario": "Law & Professional: Legal Case Analyzer",
+                    "context": "Addresses questions related to professional legal practice and theory, covering precedent, statutes, and legal ethics."
+                },
+                {
+                    "scenario": "Professional Studies: Business Strategy Simulator",
+                    "context": "Solves problems in business domains. Provides expert answers for Management, Marketing, Public Relations, Business Ethics, and Professional Accounting."
+                },
+                {
+                    "scenario": "Miscellaneous: Cross-Domain Problem Synthesizer",
+                    "context": "A general-purpose tool for questions that do not fit neatly into a single category or require interdisciplinary knowledge. It also handles Formal Logic problems that underpin many other domains."
+                }
+            ],
+            "Precautions": [
+                {
+                    "precaution": "Domain Specificity",
+                    "details": "The tool's accuracy is highest when the question clearly falls within one of the defined scenarios. Ambiguous or poorly-defined questions may yield less precise results."
+                },
+                {
+                    "precaution": "Knowledge Frontier",
+                    "details": "For rapidly evolving fields like Machine Learning or Virology, the knowledge base is current up to its last training date and may not include the very latest research."
+                }
+            ],
+            "Multi_tool_Coordination": {
+                "Description": "A 'Domain Classifier Engine' serves as the central router. It performs a semantic analysis on each incoming MMLU question to identify its specific academic subject (e.g., 'College Physics', 'Business Ethics'). Based on this classification, it routes the query to the single, most appropriate specialized tool. For questions categorized as 'Moral Disputes' or 'Miscellaneous', it may query multiple relevant tools (e.g., Philosophy, Law, Economics) to synthesize a comprehensive answer.",
+                "Examples": [
+                    {
+                        "example": "A question about 'group theory' would be classified as 'Abstract Algebra' and routed directly to the 'STEM: Abstract & Higher Mathematics Solver.'"
+                    },
+                    {
+                        "example": "A question asking about the ethical obligations of a corporation would be classified as 'Business Ethics' and sent to the 'Professional Studies: Business Strategy Simulator.'"
+                    }
+                ]
+            }
+        },
+        "Structured_Annex": {
+            "Entities": [
+                "MMLU_Question",
+                "Domain_Classifier_Engine",
+                "Specialized_Solver",
+                "Mathematical_Solver",
+                "Physics_Calculator",
+                "Biology_Modeler",
+                "Clinical_Knowledge_Base",
+                "Historical_Fact_Checker",
+                "Economic_Modeler",
+                "Legal_Case_Analyzer",
+                "Business_Strategy_Simulator",
+                "Philosophical_Reasoner",
+                "Formal_Logic_Engine",
+                "Academic_Knowledge_Base",
+                "Textbook_Corpus",
+                "Peer_Reviewed_Journal_Archive",
+                "Final_Correct_Answer"
+            ],
+            "Relations": [
+                {
+                    "source": "Domain_Classifier_Engine",
+                    "link": "analyzes_and_routes",
+                    "target": "MMLU_Question"
+                },
+                {
+                    "source": "Domain_Classifier_Engine",
+                    "link": "selects",
+                    "target": "Specialized_Solver"
+                },
+                {
+                    "source": "Specialized_Solver",
+                    "link": "queries",
+                    "target": "Academic_Knowledge_Base"
+                },
+                 {
+                    "source": "Academic_Knowledge_Base",
+                    "link": "is_composed_of",
+                    "target": "Textbook_Corpus"
+                },
+                {
+                    "source": "Academic_Knowledge_Base",
+                    "link": "is_composed_of",
+                    "target": "Peer_Reviewed_Journal_Archive"
+                },
+                {
+                    "source": "Specialized_Solver",
+                    "link": "computes",
+                    "target": "Final_Correct_Answer"
+                },
+                {
+                    "source": "Philosophical_Reasoner",
+                    "link": "utilizes",
+                    "target": "Formal_Logic_Engine"
+                }
+            ]
+        }
+    }
+}

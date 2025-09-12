@@ -120,7 +120,7 @@ class MongoRAGManager:
     def query(self, user_query, image_b64, n_results=3):
         # Placeholder for multimodal query embedding
         query_embedding = self.jina_client.get_multimodal_embeddings([user_query], [image_b64])[0]
-        return self.vector_store.search_manual(query_embedding, num_results=n_results)
+        return self.vector_store.search(query_embedding)
 
 class RAGSystem:
     """Orchestrates the Science RAG process using MongoDB."""
@@ -150,11 +150,11 @@ class RAGSystem:
                 "id": str(i),
                 "text_for_embedding": text_for_embedding,
                 "original_question": item['question'],
-                "image_b64": item['image'] # Assuming image is already base64
+                "image_b64": item['image'] 
             })
         return pd.DataFrame(processed_docs)
 
-    def answer_question(self, user_query, image_b64, choices):
+    def answer_question(self, user_query, image_b64, choices, scenario):
         print(f"\n🔎 Querying Science RAG system for: '{user_query[:50]}...'")
         retrieved_docs = self.db_manager.query(user_query, image_b64, n_results=3)
         
@@ -171,7 +171,9 @@ class RAGSystem:
             )
 
         prompt = f"""
-        You are an expert scientific analyst. Analyze the provided image, text, and context from a knowledge base to answer the multiple-choice question. Provide a step-by-step rationale and conclude with the final answer in the format 'Final Answer: [The correct choice text]'.
+        You are an expert scientific analyst.Your task is to answer the user's question based on the provided image.
+        Analyze the provided image, text, and knowledge base context to answer the multiple-choice question. You have been assigned the specific analytical lens of {scenario} for this problem; use it to guide your reasoning. 
+        Provide a step-by-step rationale and conclude with the final answer in the format 'Final Answer: [The correct choice text]'.
 
         **Context from Knowledge Base:**
         {context_str}
@@ -210,7 +212,7 @@ class ScienceQATool(BaseTool):
             print(f"❌ CRITICAL ERROR: Could not initialize RAG system for ScienceQATool: {e}")
             self.rag_system = None
 
-    def run(self, user_query: str, data_item: Optional[Dict] = None) -> ToolUsageExample:
+    def run(self, user_query: str, data_item: Optional[Dict] = None ,recommended_scenario: str = None) -> ToolUsageExample:
         if not self.rag_system:
             return self._create_error_response(user_query, "RAG system not initialized.")
         if not data_item or not data_item.get("image"):
@@ -220,7 +222,8 @@ class ScienceQATool(BaseTool):
             full_response_text = self.rag_system.answer_question(
                 user_query,
                 data_item["image"],
-                data_item["choices"]
+                data_item["choices"],
+                recommended_scenario
             )
             return ToolUsageExample(
                 tool_name=self.name,

@@ -1,26 +1,29 @@
-# CompendiumManager.py
 import json
 import os
 import requests
 from typing import List, Dict
-from CompendiumBuilder import CompendiumBuilder, CompendiumEntry
-from vector_search import VectorSearchFilter
+from CompendiumBuilder import CompendiumBuilder
+from pymongo import MongoClient
 
 # --- CONFIG ---
 API_KEY = os.environ.get("LAMDA_API_KEY")
 MODEL = "llama3.1-8b-instruct"
-LAMBDA_API = "https://api.lambda.ai/v1/chat/completions"
+LAMBDA_API = "https://api.lambdalabs.com/v1/chat/completions"
 HEADERS = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
+
+# --- DATABASE CONFIG ---
+MONGO_URI = os.environ.get("MONGO_URI")
+DB_NAME = "FredRag"
+COMPENDIUM_COLLECTION = "master_compendium"
 
 class CompendiumManager:
     def __init__(self):
         self.compendium_builder = CompendiumBuilder()
-        self.vector_search = VectorSearchFilter()
 
-    def merge_compendiums(self, file_paths: List[str], output_path: str = "final_compendium.json"):
+    def merge_compendiums(self, file_paths: List[str]) -> Dict:
         """
-        Merges multiple compendium files into a single master compendium using an LLM to
-        deduplicate and combine overlapping usage scenarios.
+        Merges tool compendiums using an LLM and then saves the result
+        to a dedicated collection in MongoDB.
         """
         all_scenarios = []
         base_structure = None
@@ -30,55 +33,52 @@ class CompendiumManager:
                 with open(path, 'r') as f:
                     comp_data = json.load(f)
                     if not base_structure:
-                        base_structure = comp_data # Use the first file as a template
-                    
-                    scenarios = comp_data.get("Textual_Compendium", {}).get("Usage_Scenarios", [])
-                    # Use a set to keep track of unique scenarios to avoid duplicates from the start
-                    all_scenarios.extend(scenarios)
+                        base_structure = comp_data
+                    all_scenarios.extend(comp_data.get("Textual_Compendium", {}).get("Usage_Scenarios", []))
 
         if not base_structure:
             print("❌ No compendiums found to merge.")
             return None
 
-        # Create a list of unique scenarios based on the 'scenario' key
         unique_scenarios = list({s['scenario']: s for s in all_scenarios}.values())
-
-        # FIX: Refined prompt to be more explicit about the expected JSON output
         prompt = f"""
-        You are an AI knowledge base architect. Your task is to merge and deduplicate the following list of tool usage scenarios into a single, cohesive list.
-        - Combine scenarios that are semantically similar.
-        - Preserve unique and distinct scenarios.
-        - Your response MUST be a valid JSON object with a single key "merged_scenarios", containing the final array of scenario objects.
+        You are an AI knowledge base architect. Merge and deduplicate the following tool usage scenarios into a single, cohesive list.
+        Your response MUST be a valid JSON object with a single key "merged_scenarios".
 
-        **Scenarios to Merge:**
-        {json.dumps(unique_scenarios, indent=2)}
-
-        Respond ONLY with the valid JSON object.
+        Scenarios: {json.dumps(unique_scenarios, indent=2)}
         """
         
-        # FIX: Enforce a JSON object response from the API for better reliability.
-        payload = {
-            "model": MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 4096,
-            "response_format": {"type": "json_object"} 
-        }
+        payload = {"model": MODEL, "messages": [{"role": "user", "content": prompt}], "max_tokens": 4096, "response_format": {"type": "json_object"}}
 
         try:
             res = requests.post(LAMBDA_API, json=payload, headers=HEADERS)
             res.raise_for_status()
             
-            response_data = json.loads(res.json()['choices'][0]['message']['content'])
-            merged_scenarios_list = response_data["merged_scenarios"]
+            response_json = res.json()
+            merged_scenarios_data = json.loads(response_json['choices'][0]['message']['content'])
+            merged_scenarios = merged_scenarios_data.get("merged_scenarios", [])
 
-            base_structure["Textual_Compendium"]["Usage_Scenarios"] = merged_scenarios_list
+            base_structure["Textual_Compendium"]["Usage_Scenarios"] = merged_scenarios
+            print("✅ Compendiums successfully merged by LLM.")
 
-            with open(output_path, 'w') as f:
-                json.dump(base_structure, f, indent=4)
-            print(f"✅ Successfully merged {len(file_paths)} compendiums into '{output_path}'.")
+            # --- Save the merged result to MongoDB ---
+            try:
+                print(f"Saving master compendium to MongoDB collection: '{COMPENDIUM_COLLECTION}'...")
+                client = MongoClient(MONGO_URI)
+                db = client[DB_NAME]
+                collection = db[COMPENDIUM_COLLECTION]
+                
+                # Use replace_one with upsert=True to ensure there is only ever one master document.
+                collection.replace_one({"_id": "master_compendium_document"}, base_structure, upsert=True)
+                print("✅ Master compendium successfully saved to MongoDB.")
+                client.close()
+            except Exception as e:
+                print(f"❌ Failed to save master compendium to MongoDB: {e}")
+
             return base_structure
+
         except (requests.RequestException, json.JSONDecodeError, KeyError) as e:
-            print(f"❌ Failed to merge compendiums: {e}")
+            print(f"❌ LLM-driven merge failed: {e}")
             return None
 
     def self_improve_compendium(self, failed_query: str, compendium_path: str = "final_compendium.json"):

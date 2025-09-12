@@ -1,25 +1,30 @@
+# build_compendium.py
+
 import os
 from dotenv import load_dotenv
 from CompendiumManager import CompendiumManager
 from populate_vector_store import populate_vectors
+from pymongo import MongoClient
 
 # --- CONFIGURATION ---
 load_dotenv()
 
-# List the paths to your individual tool compendium JSON files.
 COMPENDIUM_FILES = [
     "mathqa_tools_compendium.json",
-    "scienceqa_tools_compendium.json" 
+    "scienceqa_tools_compendium.json",
+    "mmlu_tools_compendium.json"
 ]
+DB_NAME = "FredRag"
 
 def main():
     """
-    Runs the full database setup process:
-    1. Merges local compendium files and saves the master compendium to MongoDB.
-    2. Immediately uses the in-memory master compendium to populate the vector store.
+    Runs the full database setup process.
+    1. Merges local compendium files into 'master_compendium'.
+    2. Populates the 'vectors' collection for searching.
+    3. Ensures the 'logs' collection exists for the application logger.
     """
     print("--- Starting Full Database Setup Process ---")
-    
+
     # Check for necessary environment variables
     mongo_uri = os.environ.get("MONGO_URI")
     lambda_api_key = os.environ.get("LAMDA_API_KEY")
@@ -33,19 +38,30 @@ def main():
     print("\n--- Building Master Compendium ---")
     manager = CompendiumManager()
     print(f"Merging the following files: {COMPENDIUM_FILES}")
-    
-    # Capture the returned compendium data in a variable
-    merged_compendium = manager.merge_compendiums(file_paths=COMPENDIUM_FILES)
-    
-    # --- Step 2: Populate the Vector Store ---
-    if merged_compendium:
+    merged_compendium_data = manager.merge_compendiums(file_paths=COMPENDIUM_FILES)
+
+    # --- Step 2: Populate the Vector Store from In-Memory Data ---
+    if merged_compendium_data:
         print("\n--- Populating Vector Store ---")
-        # Pass the in-memory data directly to the populate function
-        populate_vectors(merged_compendium)
+        populate_vectors(merged_compendium_data)
     else:
         print("❌ Halting process: Master compendium could not be built.")
-    
-    print("\n--- Full Database Setup Process Complete ---")
+        
+    # --- Step 3: Ensure 'logs' collection exists ---
+    print("\n--- Ensuring 'logs' collection exists ---")
+    try:
+        client = MongoClient(mongo_uri)
+        db = client[DB_NAME]
+        if "logs" not in db.list_collection_names():
+            db.create_collection("logs")
+            print("✅ 'logs' collection successfully created.")
+        else:
+            print("✅ 'logs' collection already exists.")
+        client.close()
+    except Exception as e:
+        print(f"❌ Failed to create 'logs' collection: {e}")
+
+    print("\n--- Full Database Setup Complete ---")
     print("Your MongoDB database is now ready for the agent.")
 
 if __name__ == "__main__":
