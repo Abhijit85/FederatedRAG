@@ -12,7 +12,8 @@ load_dotenv()
 COMPENDIUM_FILES = [
     "mathqa_tools_compendium.json",
     "scienceqa_tools_compendium.json",
-    "mmlu_tools_compendium.json"
+    "mmlu_tools_compendium.json",
+    "truthfulqa_tools_compendium.json"
 ]
 DB_NAME = "FredRag"
 

@@ -128,14 +128,14 @@ class CompendiumAwareAgent:
         **Candidate Tool Scenarios (retrieved from a vector search):**
         {candidate_descriptions}
 
-        Your primary task is to determine which main tool, 'mathqa' or 'scienceqa' or 'mmluqa', is the correct one to handle this query, based on which tool owns the most relevant scenario from the candidate list. Then, create a JSON object describing your plan.
+        Your primary task is to determine which main tool, 'mathqa' or 'scienceqa' or 'mmluqa' or 'truthfulqa', is the correct one to handle this query, based on which tool owns the most relevant scenario from the candidate list. Then, create a JSON object describing your plan.
 
         **JSON Response Format:**
         {{
           "plan_rationale": "A brief explanation of why you chose the parent tool, referencing the most relevant candidate scenario.",
           "primary_tool": {{
             "scenario_name": "The full name of the best matching tool scenario from the candidate list.",
-            "parent_tool_name": "The final parent tool name. This value MUST be 'mathqa' or 'scienceqa' or 'mmluqa'."
+            "parent_tool_name": "The final parent tool name. This value MUST be 'mathqa' or 'scienceqa' or 'mmluqa' or 'truthfulqa'."
           }}
         }}
 

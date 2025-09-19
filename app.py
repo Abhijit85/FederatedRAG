@@ -8,6 +8,7 @@ from CompendiumAwareAgent import CompendiumAwareAgent
 from math_qa import MathQATool
 from science_qa import ScienceQATool
 from mmlu_qa import MMLUQATool
+from truthful_qa import TruthfulQATool
 from mongo_utils import MongoLogger
 from build_compendium import main as run_database_setup # Import the setup function
 
@@ -44,7 +45,7 @@ session_id = st.session_state.session_id
 def initialize_agent():
     """Initializes the agent and its tools. Cached for performance."""
     try:
-        agent = CompendiumAwareAgent(tools=[MathQATool(), ScienceQATool(), MMLUQATool()])
+        agent = CompendiumAwareAgent(tools=[MathQATool(), ScienceQATool(), MMLUQATool(), TruthfulQATool()])
         print("✅ Agent initialized successfully.")
         return agent
     except Exception as e:
@@ -55,10 +56,10 @@ agent = initialize_agent()
 
 # --- 5. STREAMLIT UI ---
 st.title("FredRag 🤖")
-st.caption("A multi-tool agent for advanced Math, Science and MMLU Q&A.")
+st.caption("A multi-tool agent for advanced Math, Science, MMLU, and Truthful Q&A.")
 
 if agent:
-    tab1, tab2, tab3 = st.tabs(["🧮 MathQA", "🔬 ScienceQA", "🧮 MMLU"])
+    tab1, tab2, tab3, tab4= st.tabs(["🧮 MathQA", "🔬 ScienceQA", "🧮 MMLU, 🔬 TruthfulQA"])
 
     # --- MathQA Tool Tab ---
     with tab1:
@@ -166,5 +167,32 @@ if agent:
                     user_logger.log_exit(log_id, final_log_data)
             else:
                 st.warning("Please enter a mmlu question.")
+                
+    with tab4:
+        st.header("Truthful QA")
+        truthful_question = st.text_input("Enter your question for Truthful QA:", key="truthful_question")
+        if st.button("Get Truthful Answer", key="truthful_submit"):
+            if truthful_question:
+                with st.spinner("The agent is thinking..."):
+                    log_data = {"query": truthful_question, "tool": "truthful_qa"}
+                    log_id = user_logger.log_entry(session_id, log_data)
+                    
+                    result, recommended_sub_tool = agent.route_query(query=truthful_question)
+                    
+                    st.subheader("Agent's Response:")
+                    response_text = "The agent could not produce a result for this query."
+                    if result and result.llm_response:
+                        response_text = result.llm_response
+                        st.text_area("Reasoning & Output", response_text, height=300)
+                    else:
+                        st.error(response_text)
+                    
+                    final_log_data = {
+                        "llm_response": response_text,
+                        "recommended_sub_tool": recommended_sub_tool
+                    }
+                    user_logger.log_exit(log_id, final_log_data)
+            else:
+                st.warning("Please enter a question for Truthful QA.")
 else:
     st.error("Agent could not be initialized. Please check your API keys and configuration.")
