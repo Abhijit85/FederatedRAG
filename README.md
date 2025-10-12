@@ -15,7 +15,6 @@ The project includes two main tools:
   ```env
   LAMDA_API_KEY=your_lambda_api_key
   JINA_API_KEY=your_jina_api_key
-  SYNAPSE_SECRET=shared_encryption_secret
   ```
 - Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`
 
@@ -35,7 +34,7 @@ The repository contains example resources used by the agent:
    ```bash
    python main.py
    ```
-   This runs an asynchronous SYNAPSE federation round (clients → edges → server) with simulated network latency, secure aggregation, and differential privacy, exports `synapse_global_snapshot.json`, and evaluates the federated agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
+   This runs a SYNAPSE federation round (clients → edges → server), exports `synapse_global_snapshot.json`, and evaluates the federated agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
 
 ## Project Structure
 - `main.py` – runs the SYNAPSE federation round, instantiates tools, and evaluates the federated agent.
@@ -45,7 +44,7 @@ The repository contains example resources used by the agent:
 - `science_qa.py` – image and text reasoning with Lambda's vision-language models.
 - `CompendiumBuilder.py` – generates structured compendiums and filters similar tools.
 - `agenttools.py` – base classes and helper tools.
-- `synapse/` – SYNAPSE implementation (clients, edge aggregators, server orchestrator, knowledge abstractions, retrieval planner with hashed vector store, privacy & encryption modules, network simulator, runtime coordinator, and agent wrapper).
+- `synapse/` – SYNAPSE implementation (clients, edge aggregators, server orchestrator, knowledge abstractions, retrieval planner, privacy policies, runtime coordinator, and agent wrapper).
 
 ## License
 MIT License

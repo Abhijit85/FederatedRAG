@@ -28,11 +28,11 @@ class SynapseClient:
       * Communicate filtered packages to an edge aggregator.
     """
 
-    def __init__(self, metadata: ClientMetadata, privacy_policy: Optional[PrivacyPolicy] = None) -> None:
+    def __init__(self, metadata: ClientMetadata) -> None:
         self.metadata = metadata
         self._last_package: Optional[KnowledgePackage] = None
         self._shared_signatures: Set[str] = set()
-        self.privacy_policy = privacy_policy or PrivacyPolicy()
+        self.privacy_policy = PrivacyPolicy()
 
     def collect_local_artifacts(self) -> List[KnowledgeArtifact]:
         """
@@ -123,8 +123,6 @@ class SynapseClient:
         novel = self._filter_novel_artifacts(package.artifacts)
         prioritized = self._prioritize_artifacts(novel)
         sanitized = self.privacy_policy.enforce(prioritized)
-        sanitized = self.privacy_policy.apply_dp_noise(sanitized)
-        sanitized = self.privacy_policy.encrypt_artifacts(sanitized)
 
         for artifact in sanitized:
             self._shared_signatures.add(artifact.signature)

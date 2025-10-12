@@ -6,6 +6,5 @@ with symbolic queries over the shared compendium.
 """
 
 from .context import RetrievalPlanner, RetrievalConfig
-from .vector_store import HashedVectorStore
 
-__all__ = ["RetrievalPlanner", "RetrievalConfig", "HashedVectorStore"]
+__all__ = ["RetrievalPlanner", "RetrievalConfig"]

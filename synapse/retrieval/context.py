@@ -3,10 +3,9 @@ from __future__ import annotations
 import re
 from collections import Counter
 from dataclasses import dataclass, field
-from typing import Iterable, List, Optional, Tuple
+from typing import Iterable, List, Optional
 
 from synapse.knowledge.compendium import KnowledgeArtifact
-from synapse.retrieval.vector_store import HashedVectorStore
 
 
 @dataclass
@@ -22,28 +21,22 @@ class RetrievalPlanner:
     Coordinates retrieval of relevant knowledge artifacts for a new query.
     """
 
-    def __init__(
-        self,
-        config: Optional[RetrievalConfig] = None,
-        vector_store: Optional[HashedVectorStore] = None,
-    ) -> None:
+    def __init__(self, config: Optional[RetrievalConfig] = None) -> None:
         self.config = config or RetrievalConfig()
-        self.vector_store = vector_store or HashedVectorStore()
-
-    def update_artifacts(self, artifacts: Iterable[KnowledgeArtifact]) -> None:
-        self.vector_store.bulk_upsert(artifacts)
 
     def select(self, query: str, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
-        self.update_artifacts(artifacts)
-        vector_hits = self.vector_store.query(query, top_k=self.config.max_artifacts * 3)
+        """
+        Placeholder retrieval strategy that returns the first N artifacts.
 
-        ranked: List[Tuple[KnowledgeArtifact, float]] = []
-        for artifact, vector_score in vector_hits:
-            symbolic_score = self._score_artifact(query, artifact)
-            ranked.append((artifact, vector_score + symbolic_score))
-
-        ranked.sort(key=lambda pair: pair[1], reverse=True)
-        return [artifact for artifact, _ in ranked[: self.config.max_artifacts]]
+        Later revisions will combine embedding similarity, symbolic
+        matching, and uncertainty-aware heuristics.
+        """
+        ranked = sorted(
+            artifacts,
+            key=lambda art: self._score_artifact(query, art),
+            reverse=True,
+        )
+        return ranked[: self.config.max_artifacts]
 
     def _tokenize(self, text: str) -> Counter:
         tokens = re.findall(r"[a-z0-9]+", text.lower())

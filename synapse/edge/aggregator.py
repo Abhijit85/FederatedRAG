@@ -5,7 +5,6 @@ from datetime import datetime
 from typing import Dict, Iterable, List, Optional, Set
 
 from synapse.knowledge.compendium import KnowledgeArtifact, KnowledgePackage
-from synapse.privacy.policies import PrivacyPolicy
 
 
 @dataclass
@@ -23,11 +22,10 @@ class EdgeAggregator:
     forwarding them to the central SYNAPSE server.
     """
 
-    def __init__(self, config: EdgeConfig, privacy_policy: Optional[PrivacyPolicy] = None) -> None:
+    def __init__(self, config: EdgeConfig) -> None:
         self.config = config
         self._history: List[KnowledgePackage] = []
         self._domain_cache: Dict[str, Dict[str, KnowledgeArtifact]] = {}
-        self.privacy_policy = privacy_policy or PrivacyPolicy()
 
     def _deduplicate_artifacts(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
         """
@@ -64,8 +62,7 @@ class EdgeAggregator:
         metadata: Dict[str, List[str]] = {"sources": []}
 
         for package in packages:
-            decrypted = self.privacy_policy.decrypt_artifacts(package.artifacts)
-            artifacts.extend(decrypted)
+            artifacts.extend(package.artifacts)
             metadata["sources"].append(package.source_id)
 
         if not artifacts:

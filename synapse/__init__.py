@@ -6,7 +6,7 @@ including client, edge, and server components as well as shared knowledge
 and retrieval utilities.
 """
 
-from . import agent, clients, edge, server, knowledge, retrieval, privacy, runtime, network
+from . import agent, clients, edge, server, knowledge, retrieval, privacy, runtime
 
 __all__ = [
     "agent",
@@ -17,5 +17,4 @@ __all__ = [
     "retrieval",
     "privacy",
     "runtime",
-    "network",
 ]

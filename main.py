@@ -94,7 +94,6 @@ def main():
     lambda_key = os.environ.get("LAMDA_API_KEY", "")
     jina_key = os.environ.get("JINA_API_KEY", "")
     mongo_uri = os.environ.get("MONGO_URI", "mongodb://localhost:27017")
-    synapse_secret = os.environ.get("SYNAPSE_SECRET", "synapse-default-secret")
 
     if not lambda_key or not jina_key:
         print("⚠️ Warning: API keys are missing; downstream tool calls may fail.")
@@ -103,7 +102,6 @@ def main():
         lambda_api_key=lambda_key,
         jina_api_key=jina_key,
         mongo_uri=mongo_uri,
-        synapse_secret=synapse_secret,
     )
 
     runtime = SynapseRuntime.build_local_runtime(Path.cwd(), credentials)
