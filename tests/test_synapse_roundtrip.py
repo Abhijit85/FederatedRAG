@@ -1,3 +1,4 @@
+import os
 import unittest
 
 from synapse.clients.client import ClientMetadata, SynapseClient
@@ -5,6 +6,7 @@ from synapse.edge.aggregator import EdgeAggregator, EdgeConfig
 from synapse.knowledge.compendium import KnowledgeArtifact
 from synapse.server.orchestrator import SynapseServer
 from synapse.retrieval import RetrievalPlanner, RetrievalConfig
+from synapse.runtime import SynapseRuntime
 
 
 class DemoClient(SynapseClient):
@@ -65,6 +67,18 @@ class SynapseRoundtripTest(unittest.TestCase):
         selected = planner.select("How do I calculate the ratio of two numbers?", artifacts)
         self.assertEqual(len(selected), 1)
         self.assertEqual(selected[0].signature, "a1")
+
+    def test_dp_env_toggle(self):
+        try:
+            os.environ["SYNAPSE_ENABLE_DP"] = "0"
+            self.assertIsNone(SynapseRuntime._resolve_dp_epsilon(1.0))
+
+            os.environ["SYNAPSE_ENABLE_DP"] = "1"
+            os.environ["SYNAPSE_DP_EPSILON"] = "0.25"
+            self.assertAlmostEqual(SynapseRuntime._resolve_dp_epsilon(1.0), 0.25)
+        finally:
+            os.environ.pop("SYNAPSE_ENABLE_DP", None)
+            os.environ.pop("SYNAPSE_DP_EPSILON", None)
 
 
 if __name__ == "__main__":

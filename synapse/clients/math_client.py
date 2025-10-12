@@ -19,8 +19,9 @@ class MathQAClient(SynapseClient):
         metadata: ClientMetadata,
         compendium_path: Path,
         training_data_path: Path,
+        privacy_policy=None,
     ) -> None:
-        super().__init__(metadata)
+        super().__init__(metadata, privacy_policy=privacy_policy)
         self.compendium_path = compendium_path
         self.training_data_path = training_data_path
 

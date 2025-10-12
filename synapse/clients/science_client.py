@@ -18,8 +18,9 @@ class ScienceQAClient(SynapseClient):
         metadata: ClientMetadata,
         compendium_path: Path,
         dataset_path: Path,
+        privacy_policy=None,
     ) -> None:
-        super().__init__(metadata)
+        super().__init__(metadata, privacy_policy=privacy_policy)
         self.compendium_path = compendium_path
         self.dataset_path = dataset_path
 

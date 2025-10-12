@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
@@ -8,6 +9,7 @@ from synapse.clients import ClientMetadata, MathQAClient, ScienceQAClient, Synap
 from synapse.config import ApiCredentials, FederationTopology, SynapseConfig
 from synapse.edge import EdgeAggregator, EdgeConfig
 from synapse.knowledge import KnowledgeArtifact, SynapseCompendium
+from synapse.privacy.policies import PrivacyPolicy
 from synapse.retrieval import RetrievalPlanner, RetrievalConfig
 from synapse.server import SynapseServer, ServerConfig
 
@@ -32,6 +34,26 @@ class SynapseRuntime:
         self.retrieval_planner = retrieval_planner or RetrievalPlanner()
         self._last_snapshot: Optional[SynapseCompendium] = None
 
+    @staticmethod
+    def _dp_enabled_from_env(default: bool = True) -> bool:
+        toggle = os.environ.get("SYNAPSE_ENABLE_DP")
+        if toggle is None:
+            return default
+        return toggle.strip().lower() not in {"0", "false", "no", "off"}
+
+    @classmethod
+    def _resolve_dp_epsilon(cls, default: Optional[float]) -> Optional[float]:
+        epsilon = default
+        override = os.environ.get("SYNAPSE_DP_EPSILON")
+        if override:
+            try:
+                epsilon = float(override)
+            except ValueError:
+                pass
+        if not cls._dp_enabled_from_env(True):
+            return None
+        return epsilon
+
     @classmethod
     def build_local_runtime(
         cls,
@@ -51,6 +73,12 @@ class SynapseRuntime:
         )
         config = SynapseConfig(topology=topology, credentials=credentials)
 
+        dp_epsilon: Optional[float]
+        if config.enable_privacy:
+            dp_epsilon = cls._resolve_dp_epsilon(1.0)
+        else:
+            dp_epsilon = None
+
         clients: Dict[str, SynapseClient] = {}
 
         math_client = MathQAClient(
@@ -61,6 +89,7 @@ class SynapseRuntime:
             ),
             compendium_path=base_path / "mathqa_tools_compendium.json",
             training_data_path=base_path / "train_new.json",
+            privacy_policy=PrivacyPolicy(dp_epsilon=dp_epsilon),
         )
         clients["mathqa-client"] = math_client
 
@@ -72,6 +101,7 @@ class SynapseRuntime:
             ),
             compendium_path=base_path / "scienceqa_tools_compendium.json",
             dataset_path=base_path / "scienceqa_dataset.json",
+            privacy_policy=PrivacyPolicy(dp_epsilon=dp_epsilon),
         )
         clients["scienceqa-client"] = science_client
 
