@@ -3,6 +3,8 @@
 ## Overview
 This repository provides a compendium-aware retrieval-augmented agent that can answer math and science questions. Structured knowledge about each tool is stored in JSON "compendiums". The agent indexes the usage scenarios from these compendiums with Jina embeddings, reranks candidates with a Lambda LLM, and routes the query to the most appropriate tool.
 
+The project has been refactored toward **SYNAPSE** (Structured federated knowledge exchange), a hierarchical framework where clients, edge aggregators, and a central server collaborate by sharing curated knowledge artifacts instead of model weights. The SYNAPSE runtime now powers the main evaluation script by running a client → edge → server round, exporting a global knowledge snapshot, and using it to inject federated context into downstream tools.
+
 The project includes two main tools:
 - **MathQATool** – a RAG pipeline built on Jina embeddings, Jina reranker, and ChromaDB for mathematical word problems.
 - **ScienceQATool** – a vision-language system that analyzes images and text to solve ScienceQA-style questions.
@@ -13,6 +15,7 @@ The project includes two main tools:
   ```env
   LAMDA_API_KEY=your_lambda_api_key
   JINA_API_KEY=your_jina_api_key
+  SYNAPSE_SECRET=shared_encryption_secret
   ```
 - Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`
 
@@ -32,16 +35,17 @@ The repository contains example resources used by the agent:
    ```bash
    python main.py
    ```
-   This loads compendiums, builds a unified vector store, creates the MathQA and ScienceQA tools, and evaluates the agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
+   This runs an asynchronous SYNAPSE federation round (clients → edges → server) with simulated network latency, secure aggregation, and differential privacy, exports `synapse_global_snapshot.json`, and evaluates the federated agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
 
 ## Project Structure
-- `main.py` – loads compendiums, initializes `CompendiumAwareAgent`, and runs evaluation.
-- `CompendiumAwareAgent.py` – builds the unified vector store and reranks tools using a Lambda LLM before routing.
+- `main.py` – runs the SYNAPSE federation round, instantiates tools, and evaluates the federated agent.
+- `CompendiumAwareAgent.py` – legacy single-node routing agent (kept for reference).
 - `vector_search.py` – Jina-based embedding client storing scenario vectors in memory.
 - `math_qa.py` – RAG pipeline for math word problems using Jina embeddings and ChromaDB.
 - `science_qa.py` – image and text reasoning with Lambda's vision-language models.
 - `CompendiumBuilder.py` – generates structured compendiums and filters similar tools.
 - `agenttools.py` – base classes and helper tools.
+- `synapse/` – SYNAPSE implementation (clients, edge aggregators, server orchestrator, knowledge abstractions, retrieval planner with hashed vector store, privacy & encryption modules, network simulator, runtime coordinator, and agent wrapper).
 
 ## License
 MIT License
