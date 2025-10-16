@@ -15,11 +15,13 @@ The project includes two main tools:
   ```env
   LAMDA_API_KEY=your_lambda_api_key
   JINA_API_KEY=your_jina_api_key
+  MONGO_URI=mongodb://localhost:27017
   SYNAPSE_SECRET=shared_encryption_secret
   # Optional privacy controls
   SYNAPSE_ENABLE_DP=1         # set to 0/false to disable differential privacy noise
   SYNAPSE_DP_EPSILON=1.0      # override epsilon (ignored if DP disabled)
   ```
+  Update `MONGO_URI` if you host MongoDB anywhere other than the local default.
 - Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`
 
 ## Data and Compendiums
