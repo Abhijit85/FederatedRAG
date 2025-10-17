@@ -21,11 +21,19 @@ MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
 
 # Using a different embedding model for multimodal data
-JINA_MULTIMODAL_EMBED_API_URL = "https://api.jina.ai/v1/embeddings" 
+JINA_MULTIMODAL_EMBED_API_URL = "https://api.jina.ai/v1/embeddings"
 JINA_RERANK_API_URL = "https://api.jina.ai/v1/rerank"
 LAMBDA_API_KEY = os.environ.get("LAMDA_API_KEY")
-LAMBDA_API_BASE = "https://api.lambda.ai/v1"
-VLM_MODEL = "llama-4-maverick-17b-128e-instruct-fp8"
+if not LAMBDA_API_KEY:
+    raise ValueError("LAMDA_API_KEY environment variable not set.")
+
+LAMBDA_API_BASE = os.environ.get("LAMBDA_API_BASE")
+if not LAMBDA_API_BASE:
+    raise ValueError("LAMBDA_API_BASE environment variable not set.")
+
+VLM_MODEL = os.environ.get("VLM_MODEL")
+if not VLM_MODEL:
+    raise ValueError("VLM_MODEL environment variable not set.")
 
 
 # --- 2. RAG SYSTEM COMPONENTS ---
@@ -65,7 +73,12 @@ class VLMClient:
             "Authorization": f"Bearer {api_key}",
             "Content-Type": "application/json"
         }
-        self.api_url = f"{api_base}/chat/completions"
+        api_base_clean = api_base.strip()
+        formatted_base = api_base_clean.format(model=model).rstrip("/")
+        if formatted_base.endswith("/chat/completions"):
+            self.api_url = formatted_base
+        else:
+            self.api_url = f"{formatted_base}/chat/completions"
         self.model = model
 
     def generate_response(self, prompt, image_data_uri):
@@ -165,10 +178,17 @@ class RAGSystem:
             print(f"\n🔄 Reranking {len(docs_to_rerank)} documents for relevance...")
             reranked_results = self.jina_client.rerank_documents(user_query, docs_to_rerank)
             print("✅ Reranking complete.")
-            context_str = "\n---\n".join(
-                f"Example {i+1} (Relevance: {doc['relevance_score']:.2f}):\n{doc['document']['text']}"
-                for i, doc in enumerate(reranked_results)
-            )
+            context_chunks = []
+            for i, doc in enumerate(reranked_results):
+                doc_payload = doc.get("document")
+                if isinstance(doc_payload, dict):
+                    doc_text = doc_payload.get("text", "")
+                else:
+                    doc_text = doc_payload or ""
+                context_chunks.append(
+                    f"Example {i+1} (Relevance: {doc.get('relevance_score', 0):.2f}):\n{doc_text}"
+                )
+            context_str = "\n---\n".join(context_chunks)
 
         prompt = f"""
         You are an expert scientific analyst.Your task is to answer the user's question based on the provided image.

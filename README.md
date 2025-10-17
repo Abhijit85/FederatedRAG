@@ -22,7 +22,7 @@ The project includes two main tools:
   SYNAPSE_DP_EPSILON=1.0      # override epsilon (ignored if DP disabled)
   ```
   Update `MONGO_URI` if you host MongoDB anywhere other than the local default.
-- Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`
+- Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`, `pymongo`
 
 ## Data and Compendiums
 The repository contains example resources used by the agent:
