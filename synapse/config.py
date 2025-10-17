@@ -24,7 +24,7 @@ class ApiCredentials:
     lambda_api_key: str
     jina_api_key: str
     mongo_uri: str
-    lambda_api_base: str = "https://api.lambda.ai/v1"
+    lambda_api_base: str = "https://openrouter.ai/api/v1/chat/completions"
     jina_embed_url: str = "https://api.jina.ai/v1/embeddings"
     jina_rerank_url: str = "https://api.jina.ai/v1/rerank"
 
@@ -39,4 +39,3 @@ class SynapseConfig:
     credentials: ApiCredentials
     enable_privacy: bool = True
     snapshot_interval: int = 1  # number of rounds between server snapshots
-

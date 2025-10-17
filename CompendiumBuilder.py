@@ -2,20 +2,15 @@
 
 from typing import List, Optional
 from pydantic import BaseModel
-import requests
 import json
 import os
 from dotenv import load_dotenv
+from openrouter_client import chat_completion, get_openrouter_client
 
 # --- CONFIG ---
 load_dotenv()
-API_KEY = os.environ.get("LAMDA_API_KEY")
+get_openrouter_client()
 MODEL = "llama3.1-8b-instruct"
-LAMBDA_API = "https://api.lambda.ai/v1/chat/completions"
-HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json"
-}
 
 # --- FIX: Define models for the nested objects to match the JSON structure ---
 class Scenario(BaseModel):
@@ -66,17 +61,14 @@ class CompendiumBuilder:
         using an LLM call.
         """
         prompt = self._get_structuring_prompt(tool_name, raw_content)
-        payload = {
-            "model": MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 4096,
-            "response_format": {"type": "json_object"}
-        }
-
         try:
-            res = requests.post(LAMBDA_API, json=payload, headers=HEADERS)
-            res.raise_for_status()
-            response_json = res.json()['choices'][0]['message']['content']
+            response = chat_completion(
+                model=MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=4096,
+                response_format={"type": "json_object"},
+            )
+            response_json = response.choices[0].message.content
             
             structured_data = json.loads(response_json)
             compendium_entry = CompendiumEntry(**structured_data)

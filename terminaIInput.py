@@ -180,7 +180,12 @@ def main():
     
     logger = setup_logging(username)
 
-    if not os.environ.get("LAMDA_API_KEY") or not os.environ.get("JINA_API_KEY"):
+    lambda_key = os.environ.get("API_KEY")
+    if not lambda_key:
+        lambda_key = os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
+        if lambda_key:
+            print("⚠️ Detected deprecated env var for Lambda API key. Please rename it to API_KEY.")
+    if not lambda_key or not os.environ.get("JINA_API_KEY"):
         print("❌ Error: API keys must be set in your .env file.")
         return
     
@@ -207,4 +212,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

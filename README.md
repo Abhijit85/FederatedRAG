@@ -13,15 +13,17 @@ The project includes two main tools:
 - Python 3.9 or later
 - Environment variables in a `.env` file:
   ```env
-  LAMDA_API_KEY=your_lambda_api_key
+  API_KEY=your_openrouter_api_key
   JINA_API_KEY=your_jina_api_key
   MONGO_URI=mongodb://localhost:27017
   SYNAPSE_SECRET=shared_encryption_secret
+  OPENROUTER_SITE_URL=https://your-app.example   # optional, used for OpenRouter rankings
+  OPENROUTER_SITE_NAME=FederatedRAG             # optional, used for OpenRouter rankings
   # Optional privacy controls
   SYNAPSE_ENABLE_DP=1         # set to 0/false to disable differential privacy noise
   SYNAPSE_DP_EPSILON=1.0      # override epsilon (ignored if DP disabled)
   ```
-  Update `MONGO_URI` if you host MongoDB anywhere other than the local default.
+  The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. Update `MONGO_URI` if you host MongoDB anywhere other than the local default.
 - Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`, `pymongo`
 
 ## Data and Compendiums
