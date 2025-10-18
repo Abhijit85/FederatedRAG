@@ -11,20 +11,48 @@ The project includes two main tools:
 
 ## Requirements
 - Python 3.9 or later
-- Environment variables in a `.env` file:
-  ```env
-  API_KEY=your_openrouter_api_key
-  JINA_API_KEY=your_jina_api_key
-  MONGO_URI=mongodb://localhost:27017
-  SYNAPSE_SECRET=shared_encryption_secret
-  OPENROUTER_SITE_URL=https://your-app.example   # optional, used for OpenRouter rankings
-  OPENROUTER_SITE_NAME=FederatedRAG             # optional, used for OpenRouter rankings
-  # Optional privacy controls
-  SYNAPSE_ENABLE_DP=1         # set to 0/false to disable differential privacy noise
-  SYNAPSE_DP_EPSILON=1.0      # override epsilon (ignored if DP disabled)
-  ```
-  The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. Update `MONGO_URI` if you host MongoDB anywhere other than the local default.
 - Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`, `pymongo`
+
+### Environment Variables
+Create a `.env` file in the repository root:
+
+```env
+API_KEY=your_openrouter_api_key
+VLM_MODEL=openai/gpt-4o-mini              # vision-capable model
+JINA_API_KEY=your_jina_api_key
+MONGO_URI=mongodb://localhost:27017       # or your Atlas connection string
+MATHQA_COLLECTION=math_problems           # use 'vectors' if your Atlas collection has that name
+SYNAPSE_SECRET=shared_encryption_secret
+OPENROUTER_SITE_URL=https://your-app.example   # optional – used for OpenRouter rankings
+OPENROUTER_SITE_NAME=FederatedRAG             # optional – used for OpenRouter rankings
+# Optional privacy controls
+SYNAPSE_ENABLE_DP=1
+SYNAPSE_DP_EPSILON=1.0
+```
+
+The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. After editing `.env`, run `set -a; source .env; set +a` (or the equivalent in your shell) before launching any scripts.
+
+### MongoDB Atlas Vector Search
+MathQA retrieval expects a MongoDB Atlas vector index on the collection that stores embeddings (`math_problems` by default, or `vectors` if you prefer). Create the index from the Atlas UI (Search/Vector Search tab) with this JSON definition:
+
+```json
+{
+  "name": "vector_index",
+  "type": "vectorSearch",
+  "definition": {
+    "fields": [
+      {
+        "type": "vector",
+        "path": "embedding",
+        "numDimensions": 1536,
+        "similarity": "cosine"
+      }
+    ]
+  }
+}
+```
+
+Ensure `numDimensions` matches the embedding size returned by Jina (`1536` for `jina-embeddings-v2-base-en`). Set `MATHQA_COLLECTION` in `.env` to the collection name that holds these documents. If the vector index is unavailable, the code automatically falls back to a manual cosine-similarity search.
 
 ## Data and Compendiums
 The repository contains example resources used by the agent:
@@ -32,17 +60,28 @@ The repository contains example resources used by the agent:
 - `mathqa_tools_compendium.json` and `scienceqa_tools_compendium.json` – structured tool descriptions.
 - `mixed_queries.json` – evaluation set with math and science questions.
 
+Regenerate the mixed evaluation set at any time:
+
+```bash
+python scripts/build_mixed_queries.py --math-count 10 --science-count 10 --seed 123
+```
+
 ## Running the Agent
 1. Install dependencies:
    ```bash
    pip install requests numpy pandas chromadb openai datasets pillow python-dotenv
    ```
 2. Ensure the `.env` file and compendium JSON files are present.
-3. Execute the evaluation script:
+3. Optionally rebuild `mixed_queries.json` (see above).
+4. Execute the evaluation script:
    ```bash
    python main.py
    ```
    This runs a SYNAPSE federation round (clients → edges → server), exports `synapse_global_snapshot.json`, and evaluates the federated agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
+5. Review the accuracy metrics printed near the end of the run. You can also recompute them offline:
+   ```bash
+   python scripts/eval_log_metrics.py
+   ```
 
 ## Project Structure
 - `main.py` – runs the SYNAPSE federation round, instantiates tools, and evaluates the federated agent.
@@ -59,3 +98,15 @@ MIT License
 
 ## Contact
 For questions or contributions, reach out to **achakr40@asu.edu** or open an issue in this repository.
+
+## Citation
+If this project contributes to your research, please cite it:
+
+```bibtex
+@misc{FederatedRAG2025,
+  author       = {Abhijit Chakraborty},
+  title        = {FederatedRAG: Compendium-Aware Federated Retrieval-Augmented Generation},
+  year         = {2025},
+  howpublished = {\url{https://github.com/abhijit-chakraborty/FederatedRAG}}
+}
+```

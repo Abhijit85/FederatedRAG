@@ -16,6 +16,7 @@ if not API_KEY:
 
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
+MATHQA_COLLECTION = os.environ.get("MATHQA_COLLECTION", "math_problems")
 
 JINA_EMBED_API_URL = "https://api.jina.ai/v1/embeddings"
 JINA_RERANK_API_URL = "https://api.jina.ai/v1/rerank"
@@ -58,7 +59,7 @@ class JinaAIClient:
 
 class MongoRAGManager:
     """A manager for the MathQA RAG system using MongoDB."""
-    def __init__(self, jina_client, collection_name="math_problems"):
+    def __init__(self, jina_client, collection_name=MATHQA_COLLECTION):
         self.vector_store = MongoVectorStore(MONGO_URI, DB_NAME, collection_name)
         self.jina_client = jina_client
         print(f"✅ MongoDB RAG collection '{collection_name}' is ready.")
