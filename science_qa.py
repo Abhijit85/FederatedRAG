@@ -10,22 +10,24 @@ from typing import Dict, Optional
 import base64
 from PIL import Image
 from io import BytesIO
+from openrouter_client import chat_completion
 
 # --- 1. CONFIGURATION ---
 load_dotenv()
-API_KEY = os.environ.get("JINA_API_KEY")
-if not API_KEY:
+JINA_API_KEY = os.environ.get("JINA_API_KEY")
+if not JINA_API_KEY:
     raise ValueError("JINA_API_KEY environment variable not set.")
 
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
 
 # Using a different embedding model for multimodal data
-JINA_MULTIMODAL_EMBED_API_URL = "https://api.jina.ai/v1/embeddings" 
+JINA_MULTIMODAL_EMBED_API_URL = "https://api.jina.ai/v1/embeddings"
 JINA_RERANK_API_URL = "https://api.jina.ai/v1/rerank"
-LAMBDA_API_KEY = os.environ.get("LAMDA_API_KEY")
-LAMBDA_API_BASE = "https://api.lambda.ai/v1"
-VLM_MODEL = "llama-4-maverick-17b-128e-instruct-fp8"
+
+VLM_MODEL = os.environ.get("VLM_MODEL")
+if not VLM_MODEL:
+    raise ValueError("VLM_MODEL environment variable not set.")
 
 
 # --- 2. RAG SYSTEM COMPONENTS ---
@@ -60,12 +62,7 @@ class JinaAIClient:
 
 class VLMClient:
     """A client for the Vision Language Model."""
-    def __init__(self, api_key, api_base, model):
-        self.headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        }
-        self.api_url = f"{api_base}/chat/completions"
+    def __init__(self, model):
         self.model = model
 
     def generate_response(self, prompt, image_data_uri):
@@ -74,14 +71,12 @@ class VLMClient:
             {"type": "image_url", "image_url": {"url": image_data_uri}}
         ]}]
         
-        payload = {
-            "model": self.model,
-            "messages": messages,
-            "max_tokens": 2048
-        }
-        response = requests.post(self.api_url, headers=self.headers, json=payload)
-        response.raise_for_status()
-        return response.json()['choices'][0]['message']['content']
+        response = chat_completion(
+            model=self.model,
+            messages=messages,
+            max_tokens=2048,
+        )
+        return response.choices[0].message.content
 
 class MongoRAGManager:
     """A manager for the ScienceQA RAG system using MongoDB."""
@@ -165,10 +160,17 @@ class RAGSystem:
             print(f"\n🔄 Reranking {len(docs_to_rerank)} documents for relevance...")
             reranked_results = self.jina_client.rerank_documents(user_query, docs_to_rerank)
             print("✅ Reranking complete.")
-            context_str = "\n---\n".join(
-                f"Example {i+1} (Relevance: {doc['relevance_score']:.2f}):\n{doc['document']['text']}"
-                for i, doc in enumerate(reranked_results)
-            )
+            context_chunks = []
+            for i, doc in enumerate(reranked_results):
+                doc_payload = doc.get("document")
+                if isinstance(doc_payload, dict):
+                    doc_text = doc_payload.get("text", "")
+                else:
+                    doc_text = doc_payload or ""
+                context_chunks.append(
+                    f"Example {i+1} (Relevance: {doc.get('relevance_score', 0):.2f}):\n{doc_text}"
+                )
+            context_str = "\n---\n".join(context_chunks)
 
         prompt = f"""
         You are an expert scientific analyst.Your task is to answer the user's question based on the provided image.
@@ -187,7 +189,7 @@ class RAGSystem:
         **Your Response:**
         """
         print("\n🤖 Generating final answer with VLM...")
-        vlm_client = VLMClient(LAMBDA_API_KEY, LAMBDA_API_BASE, VLM_MODEL)
+        vlm_client = VLMClient(VLM_MODEL)
         return vlm_client.generate_response(prompt, image_b64)
 
 # --- 3. THE FINAL SCIENCEQA TOOL FOR THE AGENT ---
@@ -204,7 +206,7 @@ class ScienceQATool(BaseTool):
             with open('scienceqa_challenge_test.json', 'r') as f:
                 training_data = json.load(f)
             print("✅ Successfully loaded 'scienceqa_challenge_test.json' for ScienceQATool.")
-            self.rag_system = RAGSystem(training_data, API_KEY)
+            self.rag_system = RAGSystem(training_data, JINA_API_KEY)
         except FileNotFoundError:
             print("❌ CRITICAL ERROR: 'scienceqa_challenge_test.json' not found. ScienceQATool will not work.")
             self.rag_system = None

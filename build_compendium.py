@@ -28,11 +28,15 @@ def main():
 
     # Check for necessary environment variables
     mongo_uri = os.environ.get("MONGO_URI")
-    lambda_api_key = os.environ.get("LAMDA_API_KEY")
+    lambda_api_key = os.environ.get("API_KEY")
+    if not lambda_api_key:
+        lambda_api_key = os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
+        if lambda_api_key:
+            print("⚠️ Detected deprecated env var for Lambda API key. Please rename it to API_KEY.")
     jina_api_key = os.environ.get("JINA_API_KEY")
 
     if not all([mongo_uri, lambda_api_key, jina_api_key]):
-        print("❌ Error: MONGO_URI, LAMDA_API_KEY, and JINA_API_KEY must be set in your .env file.")
+        print("❌ Error: MONGO_URI, API_KEY, and JINA_API_KEY must be set in your .env file.")
         return
 
     # --- Step 1: Build and Save the Master Compendium ---

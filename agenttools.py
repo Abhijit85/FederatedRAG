@@ -1,16 +1,15 @@
 from typing import List, Optional
 from pydantic import BaseModel
-import requests
-import json
 import os
+
+from openrouter_client import chat_completion
+
 # -------------- CONFIG --------------
-API_KEY = os.environ.get("LAMDA_API_KEY")
+if not os.environ.get("API_KEY") and not (
+    os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
+):
+    raise ValueError("API_KEY environment variable not set.")
 MODEL = "llama3.1-8b-instruct"
-LAMBDA_API = "https://api.lambda.ai/v1/chat/completions"
-HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json"
-}
 
 # -------------- PYDANTIC MODEL FOR TOOL USAGE LOGGING --------------
 class ToolUsageExample(BaseModel):
@@ -52,19 +51,16 @@ class WeatherTool(BaseTool):
             Please provide the weather report first, and finally acknowledge the instructions for future reference.
         """
 
-        payload = {
-            "model": MODEL,
-            "messages": [
+        completion = chat_completion(
+            model=MODEL,
+            messages=[
                 {"role": "system", "content": "You are a highly capable AI assistant. Always be helpful and follow all instructions precisely."},
-                {"role": "user", "content": consolidated_prompt}
+                {"role": "user", "content": consolidated_prompt},
             ],
-            "max_tokens": 1000
-        }
-
-        res = requests.post(LAMBDA_API, json=payload, headers=HEADERS, timeout=120)
-        # print(type(res))
-        response = res.json()["choices"][0]["message"]["content"]
-        print(type(response),response)
+            max_tokens=1000,
+        )
+        response = completion.choices[0].message.content
+        print(type(response), response)
         return ToolUsageExample(
             tool_name=self.name,
             user_query=user_query,
@@ -113,18 +109,16 @@ class CalculatorTool(BaseTool):
            consolidated_prompt=dynamic_prompt
            print(dynamic_prompt)
 
-        payload = {
-            "model": MODEL,
-            "messages": [
+        completion = chat_completion(
+            model=MODEL,
+            messages=[
                 {"role": "system", "content": "You are a helpful AI assistant that functions as a calculator. You must follow all user instructions precisely, including the detailed protocols for handling errors and suggesting follow-up actions. Perform the calculation the user requests and provide the numerical answer."},
-                {"role": "user", "content": consolidated_prompt}
+                {"role": "user", "content": consolidated_prompt},
             ],
-            "max_tokens": 2000
-        }
-
-        res = requests.post(LAMBDA_API, json=payload, headers=HEADERS, timeout=120)
-        response = res.json()["choices"][0]["message"]["content"]
-        print(type(response),response)
+            max_tokens=2000,
+        )
+        response = completion.choices[0].message.content
+        print(type(response), response)
         return ToolUsageExample(
             tool_name=self.name,
             user_query=user_query,

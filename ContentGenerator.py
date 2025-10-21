@@ -1,21 +1,15 @@
 # ContentGenerator.py
 
 from typing import List
-import requests
 import json
 from agenttools import ToolUsageExample
-import os
 from dotenv import load_dotenv
+from openrouter_client import chat_completion, get_openrouter_client
 
 load_dotenv()
 # --- CONFIG ---
-API_KEY =os.environ.get("LAMDA_API_KEY")
+get_openrouter_client()
 MODEL = "llama3.1-8b-instruct"
-LAMBDA_API = "https://api.lambda.ai/v1/chat/completions"
-HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
-    "Content-Type": "application/json"
-}
 
 class ContentGenerator:
     """
@@ -73,19 +67,16 @@ class ContentGenerator:
         """
         prompt = self._build_generation_prompt(tool_name, examples)
 
-        payload = {
-            "model": MODEL,
-            "messages": [
-                {"role": "system", "content": "You are an expert technical writer and knowledge synthesis AI."},
-                {"role": "user", "content": prompt}
-            ],
-            "max_tokens": 2000
-        }
-
         try:
-            res = requests.post(LAMBDA_API, json=payload, headers=HEADERS, timeout=120)
-            res.raise_for_status()
-            content = res.json()["choices"][0]["message"]["content"]
+            completion = chat_completion(
+                model=MODEL,
+                messages=[
+                    {"role": "system", "content": "You are an expert technical writer and knowledge synthesis AI."},
+                    {"role": "user", "content": prompt},
+                ],
+                max_tokens=2000,
+            )
+            content = completion.choices[0].message.content
             return content
         except Exception as e:
             print(f"[!] Failed during content generation for tool '{tool_name}': {e}")

@@ -1,15 +1,13 @@
 import json
-import os
 import re
-import requests
 from typing import Dict, Optional, List
 
 from agenttools import BaseTool
 from vector_search import VectorSearchFilter
+from openrouter_client import chat_completion, get_openrouter_client
 
 # --- CONFIGURATION ---
 MODEL = "llama3.1-8b-instruct"
-LAMBDA_API = "https://api.lambda.ai/v1/chat/completions"
 
 class CompendiumAwareAgent:
     """
@@ -24,14 +22,8 @@ class CompendiumAwareAgent:
         self.tools = {tool.name: tool for tool in tools}
         self.vector_search_filter = VectorSearchFilter()
         
-        api_key = os.environ.get("LAMDA_API_KEY")
-        if not api_key:
-            raise ValueError("LAMDA_API_KEY not found in environment. Please set it in your .env file.")
-        
-        self.headers = {
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        }
+        # Ensure the OpenRouter client can be constructed early.
+        get_openrouter_client()
 
     def route_query(self, query: str, data_item: Optional[dict] = None):
         """
@@ -97,12 +89,13 @@ class CompendiumAwareAgent:
         Analyze the query and the tool descriptions carefully. Respond with ONLY the number of the best tool option (e.g., "1", "2", "3").
         """
         
-        payload = {"model": MODEL, "messages": [{"role": "user", "content": prompt}], "max_tokens": 5}
-        
         try:
-            res = requests.post(LAMBDA_API, json=payload, headers=self.headers)
-            res.raise_for_status()
-            response_text = res.json()['choices'][0]['message']['content'].strip()
+            completion = chat_completion(
+                model=MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=5,
+            )
+            response_text = completion.choices[0].message.content.strip()
             
             match = re.search(r'\d+', response_text)
             if match:
@@ -142,17 +135,14 @@ class CompendiumAwareAgent:
         Respond with ONLY the valid JSON object.
         """
         
-        payload = {
-            "model": MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 1024,
-            "response_format": {"type": "json_object"}
-        }
-        
         try:
-            res = requests.post(LAMBDA_API, json=payload, headers=self.headers)
-            res.raise_for_status()
-            response_text = res.json()['choices'][0]['message']['content']
+            completion = chat_completion(
+                model=MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=1024,
+                response_format={"type": "json_object"},
+            )
+            response_text = completion.choices[0].message.content
             return json.loads(response_text)
         except Exception as e:
             print(f"[!] LLM coordination analysis failed: {e}")

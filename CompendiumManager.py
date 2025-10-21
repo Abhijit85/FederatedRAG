@@ -1,15 +1,13 @@
 import json
 import os
-import requests
 from typing import List, Dict
 from CompendiumBuilder import CompendiumBuilder
 from pymongo import MongoClient
+from openrouter_client import chat_completion, get_openrouter_client
 
 # --- CONFIG ---
-API_KEY = os.environ.get("LAMDA_API_KEY")
 MODEL = "llama3.1-8b-instruct"
-LAMBDA_API = "https://api.lambdalabs.com/v1/chat/completions"
-HEADERS = {"Authorization": f"Bearer {API_KEY}", "Content-Type": "application/json"}
+get_openrouter_client()
 
 # --- DATABASE CONFIG ---
 MONGO_URI = os.environ.get("MONGO_URI")
@@ -48,14 +46,15 @@ class CompendiumManager:
         Scenarios: {json.dumps(unique_scenarios, indent=2)}
         """
         
-        payload = {"model": MODEL, "messages": [{"role": "user", "content": prompt}], "max_tokens": 4096, "response_format": {"type": "json_object"}}
-
         try:
-            res = requests.post(LAMBDA_API, json=payload, headers=HEADERS)
-            res.raise_for_status()
-            
-            response_json = res.json()
-            merged_scenarios_data = json.loads(response_json['choices'][0]['message']['content'])
+            completion = chat_completion(
+                model=MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=4096,
+                response_format={"type": "json_object"},
+            )
+            response_json = completion.choices[0].message.content
+            merged_scenarios_data = json.loads(response_json)
             merged_scenarios = merged_scenarios_data.get("merged_scenarios", [])
 
             base_structure["Textual_Compendium"]["Usage_Scenarios"] = merged_scenarios
@@ -77,7 +76,7 @@ class CompendiumManager:
 
             return base_structure
 
-        except (requests.RequestException, json.JSONDecodeError, KeyError) as e:
+        except (json.JSONDecodeError, KeyError, Exception) as e:
             print(f"❌ LLM-driven merge failed: {e}")
             return None
 
@@ -110,17 +109,14 @@ class CompendiumManager:
         """
         
         # Enforce JSON object response for reliability
-        payload = {
-            "model": MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 8192,
-            "response_format": {"type": "json_object"}
-        }
-
         try:
-            res = requests.post(LAMBDA_API, json=payload, headers=HEADERS)
-            res.raise_for_status()
-            updated_compendium_str = res.json()['choices'][0]['message']['content']
+            completion = chat_completion(
+                model=MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=8192,
+                response_format={"type": "json_object"},
+            )
+            updated_compendium_str = completion.choices[0].message.content
             
             # Validate and save the new compendium
             updated_compendium = json.loads(updated_compendium_str)

@@ -16,6 +16,7 @@ if not API_KEY:
 
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
+MATHQA_COLLECTION = os.environ.get("MATHQA_COLLECTION", "math_problems")
 
 JINA_EMBED_API_URL = "https://api.jina.ai/v1/embeddings"
 JINA_RERANK_API_URL = "https://api.jina.ai/v1/rerank"
@@ -58,7 +59,7 @@ class JinaAIClient:
 
 class MongoRAGManager:
     """A manager for the MathQA RAG system using MongoDB."""
-    def __init__(self, jina_client, collection_name="math_problems"):
+    def __init__(self, jina_client, collection_name=MATHQA_COLLECTION):
         self.vector_store = MongoVectorStore(MONGO_URI, DB_NAME, collection_name)
         self.jina_client = jina_client
         print(f"✅ MongoDB RAG collection '{collection_name}' is ready.")
@@ -88,8 +89,15 @@ class MongoRAGManager:
 
     def query(self, user_query, n_results=3):
         query_embedding = self.jina_client.get_embeddings([user_query])[0]
-        # Use the manual search for testing, as no Atlas index is set up for this collection
-        return self.vector_store.search(query_embedding)
+        try:
+            results = self.vector_store.search(query_embedding, num_results=n_results)
+            if results:
+                return results
+        except Exception as exc:
+            print(f"[!] Vector search failed ({exc}). Falling back to manual search.")
+
+        print("[!] No vector-search results found; using manual cosine similarity.")
+        return self.vector_store.search_manual(query_embedding, num_results=n_results)
 
 class RAGSystem:
     """Orchestrates the RAG process using MongoDB."""
@@ -130,19 +138,29 @@ class RAGSystem:
         """Answers a user's question using the full RAG pipeline."""
         print(f"\n🔎 Querying RAG system for: '{user_query}'")
         retrieved_docs = self.db_manager.query(user_query, n_results=3)
-        
-        if not retrieved_docs:
-            return "Could not find relevant documents."
 
-        docs_to_rerank = [doc['text'] for doc in retrieved_docs]
-        print(f"\n🔄 Reranking {len(docs_to_rerank)} documents for relevance...")
-        reranked_results = self.jina_client.rerank_documents(user_query, docs_to_rerank)
-        print("✅ Reranking complete.")
+        if retrieved_docs:
+            docs_to_rerank = [doc.get('text', '') for doc in retrieved_docs]
+            docs_to_rerank = [txt for txt in docs_to_rerank if txt]
+            print(f"\n🔄 Reranking {len(docs_to_rerank)} documents for relevance...")
+            reranked_results = self.jina_client.rerank_documents(user_query, docs_to_rerank)
+            print("✅ Reranking complete.")
 
-        context_str = "\n---\n".join(
-            f"Example {i+1} (Relevance: {doc['relevance_score']:.2f}):\n{doc['document']['text']}"
-            for i, doc in enumerate(reranked_results)
-        )
+            context_chunks = []
+            for i, doc in enumerate(reranked_results):
+                relevance = doc.get('relevance_score', 0.0)
+                document_payload = doc.get('document')
+                if isinstance(document_payload, dict):
+                    text = document_payload.get('text', '')
+                else:
+                    text = document_payload or doc.get('text', '') or ''
+                context_chunks.append(
+                    f"Example {i+1} (Relevance: {relevance:.2f}):\n{text}"
+                )
+            context_str = "\n---\n".join(context_chunks) if context_chunks else "No relevant examples found."
+        else:
+            print("[!] No relevant documents retrieved; proceeding with direct reasoning.")
+            context_str = "No relevant examples were retrieved from the knowledge base."
         
         # Create a guidance sentence only if a scenario was provided
         scenario_guidance = ""
