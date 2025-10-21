@@ -25,6 +25,7 @@ MATHQA_COLLECTION=math_problems           # use 'vectors' if your Atlas collecti
 SYNAPSE_SECRET=shared_encryption_secret
 OPENROUTER_SITE_URL=https://your-app.example   # optional – used for OpenRouter rankings
 OPENROUTER_SITE_NAME=FederatedRAG             # optional – used for OpenRouter rankings
+SYNAPSE_CLIENT_COUNT=4.    # modify to set the number of clients for federation.
 # Optional privacy controls
 SYNAPSE_ENABLE_DP=1
 SYNAPSE_DP_EPSILON=1.0
@@ -68,6 +69,8 @@ python scripts/build_mixed_queries.py --math-count 10 --science-count 10 --seed 
 
 # Math-only benchmark
 python scripts/build_mixed_queries.py --datasets math --math-count 20
+# Math-only benchmark (alternate)
+python scripts/build_mixed_queries.py --math-count 20 --science-count 0
 
 # Science-only benchmark
 python scripts/build_mixed_queries.py --datasets science --science-count 15
@@ -89,19 +92,49 @@ python scripts/build_mixed_queries.py \
 
 `--datasets` accepts `math`, `science`, or both. Any `--*-count` option for an omitted dataset is ignored automatically. Use `--distribution noniid` to focus each dataset on a single dominant category/topic (`--math-category` or `--science-topic` can pin that choice). Outputs are written to `mixed_queries.json` unless you override `--output`.
 
+### Client-Specific Evaluation Splits
+Create per-client benchmark files (IID or non-IID) with the new generator:
+
+```bash
+# Two clients, IID sampling, 10 math + 10 science each
+python scripts/build_client_datasets.py --clients 2 --math-per-client 10 --science-per-client 10
+
+# Four clients, math-only IID splits
+python scripts/build_client_datasets.py --clients 4 --datasets math --math-per-client 8
+# Four clients, math-only IID splits (full-size example)
+python scripts/build_client_datasets.py --clients 4 --datasets math --math-per-client 20 --science-per-client 0
+
+# Three clients, non-IID categories/topics provided explicitly
+python scripts/build_client_datasets.py \
+  --clients 3 \
+  --distribution noniid \
+  --math-per-client 12 --science-per-client 12 \
+  --math-categories algebra,geometry,probability \
+  --science-topics physics,chemistry,earth\ science
+```
+
+Outputs land in `client_datasets/` by default (`summary.json` lists the allocation for reproducibility). Each `client_k_mixed_queries.json` can be fed directly into the evaluation pipeline.
+
 ## Running the Agent
 1. Install dependencies:
    ```bash
    pip install requests numpy pandas chromadb openai datasets pillow python-dotenv
    ```
 2. Ensure the `.env` file and compendium JSON files are present.
-3. Optionally rebuild `mixed_queries.json` (see above).
-4. Execute the evaluation script:
+3. Optionally rebuild `mixed_queries.json` or generate client-specific datasets.
+4. Execute the evaluation script (CLI options shown below):
    ```bash
+   # Default run uses mixed_queries.json and the SYNAPSE_CLIENT_COUNT env (defaults to 2)
    python main.py
+
+   # Spawn 4 federated clients and use a custom global benchmark
+   python main.py --client-count 4 --test-file custom_mixed.json
+
+   # Evaluate per-client datasets alongside the global run
+   python main.py --client-count 4 --client-data-dir client_datasets
    ```
    This runs a SYNAPSE federation round (clients → edges → server), exports `synapse_global_snapshot.json`, and evaluates the federated agent on `mixed_queries.json`. Output is written to `evaluation_log.txt`.
-5. Review the accuracy metrics printed near the end of the run. You can also recompute them offline:
+5. When `--client-data-dir` is supplied, the script reports per-client accuracy, macro averages, and fairness dispersion (spread and σ) to highlight cross-client performance. Review the accuracy metrics printed near the end of the run. You can also recompute them offline:
    ```bash
    python scripts/eval_log_metrics.py
    ```

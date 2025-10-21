@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import time
 import requests
 import pandas as pd
 from dotenv import load_dotenv
@@ -49,13 +50,34 @@ class JinaAIClient:
         response.raise_for_status()
         return response.json()['results']
 
-    def generate_chat_response(self, prompt):
-        response = requests.post(
-            JINA_CHAT_API_URL, headers=self.headers,
-            json={"model": "jina-deepsearch-v1", "messages": [{"role": "user", "content": prompt}], "stream": False}
-        )
-        response.raise_for_status()
-        return response.json()['choices'][0]['message']['content']
+    def generate_chat_response(self, prompt, *, max_retries: int = 3, base_delay: float = 2.0):
+        last_error = None
+        for attempt in range(1, max_retries + 1):
+            try:
+                response = requests.post(
+                    JINA_CHAT_API_URL,
+                    headers=self.headers,
+                    json={
+                        "model": "jina-deepsearch-v1",
+                        "messages": [{"role": "user", "content": prompt}],
+                        "stream": False,
+                    },
+                    timeout=60,
+                )
+                if response.status_code == 524:
+                    raise requests.exceptions.RequestException(
+                        "Gateway timeout (524) from Jina chat endpoint."
+                    )
+                response.raise_for_status()
+                return response.json()['choices'][0]['message']['content']
+            except requests.exceptions.RequestException as exc:
+                last_error = exc
+                if attempt == max_retries:
+                    break
+                delay = base_delay * (2 ** (attempt - 1))
+                print(f"[!] Jina chat call failed (attempt {attempt}/{max_retries}): {exc}. Retrying in {delay:.1f}s...")
+                time.sleep(delay)
+        raise last_error
 
 class MongoRAGManager:
     """A manager for the MathQA RAG system using MongoDB."""

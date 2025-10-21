@@ -1,0 +1,26 @@
+[
+  {
+    "type": "math",
+    "Problem": "the perimeter of an equilateral triangle is 60 . if one of the sides of the equilateral triangle is the side of an isosceles triangle of perimeter 45 , then how long is the base of isosceles triangle ?",
+    "options": "a ) 5 units , b ) 10 units , c ) 15 units , d ) 20 units , e ) 25 units",
+    "Rationale": "\"the base of the isosceles triangle is 45 - 20 - 20 = 5 units the answer is a .\"",
+    "category": "geometry",
+    "correct": "a"
+  },
+  {
+    "type": "math",
+    "Problem": "there are 2 available positions and 50 candidates , one half of whom are democrats and another half are republicans . if it was decided that the positions would be filled at random , then what is the probability e that the both positions will be taken by members of just one party ?",
+    "options": "a ) 1 / 25 , b ) 12 / 49 , c ) 1 / 4 , d ) 24 / 49 , e ) 1 / 2",
+    "Rationale": "e probability of one party having both spots : ( 1 / 2 ) * ( 24 / 49 ) = 12 / 49 ( 1 / 2 ) or ( 25 / 50 ) because it does not matter which party or which person gets the first spot . ( 24 / 49 ) because after one person from a particular party is chosen , there are 24 members of the same party left out of 49 total candidates . since this result can happen for both parties , ( 12 / 49 ) + ( 12 / 49 ) = ( 24 / 49 ) answer : d",
+    "category": "other",
+    "correct": "d"
+  },
+  {
+    "type": "math",
+    "Problem": "for any positive integer n , the sum of the first n positive integers equals n ( n + 1 ) / 2 . what is the sum of all the even integers between 99 and 181 ?",
+    "options": "a ) 3820 , b ) 5740 , c ) 6580 , d ) 7360 , e ) 9200",
+    "Rationale": "\"100 + 102 + . . . + 180 = 100 * 41 + ( 2 + 4 + . . . + 80 ) = 100 * 41 + 2 * ( 1 + 2 + . . . + 40 ) = 100 * 41 + 2 ( 40 ) ( 41 ) / 2 = 100 * 41 + 40 * 41 = 140 ( 41 ) = 5740 the answer is b .\"",
+    "category": "general",
+    "correct": "b"
+  }
+]

@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
-from synapse.clients import ClientMetadata, MathQAClient, ScienceQAClient, SynapseClient
+from synapse.clients import ClientMetadata, SynapseClient, UnifiedQAClient
 from synapse.config import ApiCredentials, FederationTopology, SynapseConfig
 from synapse.edge import EdgeAggregator, EdgeConfig
 from synapse.knowledge import KnowledgeArtifact, SynapseCompendium
@@ -59,16 +59,27 @@ class SynapseRuntime:
         cls,
         base_path: Path,
         credentials: ApiCredentials,
+        client_count: Optional[int] = None,
     ) -> "SynapseRuntime":
         """
         Construct a runtime instance using repository data for MathQA and ScienceQA.
         """
+        if client_count is None:
+            env_client_count = os.environ.get("SYNAPSE_CLIENT_COUNT")
+            if env_client_count:
+                try:
+                    client_count = max(1, int(env_client_count))
+                except ValueError:
+                    client_count = None
+        if client_count is None:
+            client_count = 2
+
+        client_ids = [f"general-client-{i+1}" for i in range(client_count)]
+        edge_clusters = {"edge-general": client_ids}
+
         topology = FederationTopology(
-            client_ids=["mathqa-client", "scienceqa-client"],
-            edge_clusters={
-                "edge-math": ["mathqa-client"],
-                "edge-science": ["scienceqa-client"],
-            },
+            client_ids=client_ids,
+            edge_clusters=edge_clusters,
             central_server_id="synapse-central",
         )
         config = SynapseConfig(topology=topology, credentials=credentials)
@@ -81,33 +92,22 @@ class SynapseRuntime:
 
         clients: Dict[str, SynapseClient] = {}
 
-        math_client = MathQAClient(
-            metadata=ClientMetadata(
-                client_id="mathqa-client",
-                domain_tags=["math", "numerical_reasoning"],
-                capabilities={"modality": "text"},
-            ),
-            compendium_path=base_path / "mathqa_tools_compendium.json",
-            training_data_path=base_path / "train_new.json",
-            privacy_policy=PrivacyPolicy(dp_epsilon=dp_epsilon),
-        )
-        clients["mathqa-client"] = math_client
-
-        science_client = ScienceQAClient(
-            metadata=ClientMetadata(
-                client_id="scienceqa-client",
-                domain_tags=["science", "multimodal"],
-                capabilities={"modality": "image+text"},
-            ),
-            compendium_path=base_path / "scienceqa_tools_compendium.json",
-            dataset_path=base_path / "scienceqa_dataset.json",
-            privacy_policy=PrivacyPolicy(dp_epsilon=dp_epsilon),
-        )
-        clients["scienceqa-client"] = science_client
+        for client_id in topology.client_ids:
+            clients[client_id] = UnifiedQAClient(
+                metadata=ClientMetadata(
+                    client_id=client_id,
+                    domain_tags=["math", "science", "multimodal"],
+                    capabilities={"modality": "image+text"},
+                ),
+                math_compendium_path=base_path / "mathqa_tools_compendium.json",
+                math_training_path=base_path / "train_new.json",
+                science_compendium_path=base_path / "scienceqa_tools_compendium.json",
+                science_dataset_path=base_path / "scienceqa_dataset.json",
+                privacy_policy=PrivacyPolicy(dp_epsilon=dp_epsilon),
+            )
 
         edges: Dict[str, EdgeAggregator] = {
-            "edge-math": EdgeAggregator(EdgeConfig(edge_id="edge-math", domains=["math"])),
-            "edge-science": EdgeAggregator(EdgeConfig(edge_id="edge-science", domains=["science"])),
+            "edge-general": EdgeAggregator(EdgeConfig(edge_id="edge-general", domains=["math", "science"])),
         }
 
         server = SynapseServer(ServerConfig(server_id="synapse-central"))

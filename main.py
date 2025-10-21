@@ -1,8 +1,11 @@
+import argparse
 import json
 import logging
 import os
 import sys
+import statistics
 from pathlib import Path
+from typing import Optional
 
 from dotenv import load_dotenv
 
@@ -45,16 +48,21 @@ sys.stderr = LoggerWriter(logger.error)
 # --- END LOGGING SETUP ---
 
 
-def evaluate_mixed_queries(agent: SynapseAgent, test_file: str = "mixed_queries.json"):
+def evaluate_mixed_queries(
+    agent: SynapseAgent,
+    test_file: str = "mixed_queries.json",
+    dataset_label: Optional[str] = None,
+):
     """Evaluate the SYNAPSE agent on the mixed benchmark file and compute accuracy."""
-    print("\n--- 3. EVALUATING SYNAPSE AGENT ON MIXED DATASET ---")
+    label = dataset_label or Path(test_file).name
+    print(f"\n--- 3. EVALUATING SYNAPSE AGENT ON DATASET: {label} ---")
     try:
         with open(test_file, "r", encoding="utf-8") as f:
             test_data = json.load(f)
         print(f"[✓] Successfully loaded '{test_file}'.")
     except Exception as e:
         print(f"❌ Error loading test file: {e}")
-        return
+        return None
 
     metrics = {
         "math": {"correct": 0, "total": 0},
@@ -125,6 +133,11 @@ def evaluate_mixed_queries(agent: SynapseAgent, test_file: str = "mixed_queries.
     total_correct = metrics["math"]["correct"] + metrics["science"]["correct"]
     total_questions = metrics["math"]["total"] + metrics["science"]["total"]
 
+    def _accuracy(correct: int, total: int) -> Optional[float]:
+        if total == 0:
+            return None
+        return correct / total
+
     def _format_accuracy(correct: int, total: int) -> str:
         if total == 0:
             return "n/a"
@@ -138,11 +151,53 @@ def evaluate_mixed_queries(agent: SynapseAgent, test_file: str = "mixed_queries.
     print("\n--- AGENT EVALUATION COMPLETE ---")
     print("Full output has been saved to evaluation_log.txt")
 
+    return {
+        "label": label,
+        "math": {
+            "correct": metrics["math"]["correct"],
+            "total": metrics["math"]["total"],
+            "accuracy": _accuracy(metrics["math"]["correct"], metrics["math"]["total"]),
+        },
+        "science": {
+            "correct": metrics["science"]["correct"],
+            "total": metrics["science"]["total"],
+            "accuracy": _accuracy(metrics["science"]["correct"], metrics["science"]["total"]),
+        },
+        "overall": {
+            "correct": total_correct,
+            "total": total_questions,
+            "accuracy": _accuracy(total_correct, total_questions),
+        },
+    }
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run a SYNAPSE federation round and evaluate the agent.")
+    parser.add_argument(
+        "--test-file",
+        type=Path,
+        default=Path("mixed_queries.json"),
+        help="Primary evaluation dataset for the global run.",
+    )
+    parser.add_argument(
+        "--client-data-dir",
+        type=Path,
+        help="Directory containing per-client evaluation datasets (JSON files). Each file is evaluated individually.",
+    )
+    parser.add_argument(
+        "--client-count",
+        type=int,
+        help="Number of synthetic clients to spawn locally. Overrides SYNAPSE_CLIENT_COUNT if provided.",
+    )
+    return parser.parse_args()
+
 
 def main():
     """
     Run a full SYNAPSE federation round and evaluate the resulting agent.
     """
+    args = parse_args()
+
     lambda_key = os.environ.get("API_KEY")
     if not lambda_key:
         lambda_key = os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY", "")
@@ -168,7 +223,11 @@ def main():
         lambda_api_base="https://openrouter.ai/api/v1/chat/completions",
     )
 
-    runtime = SynapseRuntime.build_local_runtime(Path.cwd(), credentials)
+    runtime = SynapseRuntime.build_local_runtime(
+        Path.cwd(),
+        credentials,
+        client_count=args.client_count,
+    )
     print("\n--- 1. SYNAPSE FEDERATION ROUND ---")
     runtime.run_round()
     summary = runtime.summarize_round()
@@ -183,7 +242,50 @@ def main():
     runtime.export_snapshot(Path("synapse_global_snapshot.json"))
     print("✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.")
 
-    evaluate_mixed_queries(agent, test_file="mixed_queries.json")
+    evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=args.test_file.name)
+
+    client_metrics = []
+    if args.client_data_dir:
+        dataset_dir = args.client_data_dir
+        if not dataset_dir.exists():
+            print(f"⚠️ Client data directory '{dataset_dir}' does not exist; skipping per-client evaluations.")
+        else:
+            dataset_paths = sorted(p for p in dataset_dir.glob("*.json") if p.is_file())
+            if not dataset_paths:
+                print(f"⚠️ No JSON datasets found in '{dataset_dir}'.")
+            for data_path in dataset_paths:
+                metrics = evaluate_mixed_queries(agent, test_file=str(data_path), dataset_label=data_path.stem)
+                if metrics:
+                    client_metrics.append(metrics)
+
+    if client_metrics:
+        def _format_percent(value: Optional[float]) -> str:
+            return f"{value * 100:.1f}%" if value is not None else "n/a"
+
+        print("\n--- FEDERATED CLIENT BENCHMARK SUMMARY ---")
+        overall_values = [m["overall"]["accuracy"] for m in client_metrics if m["overall"]["accuracy"] is not None]
+        math_values = [m["math"]["accuracy"] for m in client_metrics if m["math"]["accuracy"] is not None]
+        science_values = [m["science"]["accuracy"] for m in client_metrics if m["science"]["accuracy"] is not None]
+
+        if overall_values:
+            macro = sum(overall_values) / len(overall_values)
+            spread = max(overall_values) - min(overall_values)
+            stdev = statistics.pstdev(overall_values) if len(overall_values) > 1 else 0.0
+            print(f"Macro overall accuracy: {_format_percent(macro)}")
+            print(f"Overall accuracy spread: {_format_percent(spread)} (max - min)")
+            print(f"Overall accuracy σ: {_format_percent(stdev)}")
+        if math_values:
+            print(f"Macro math accuracy: {_format_percent(sum(math_values) / len(math_values))}")
+        if science_values:
+            print(f"Macro science accuracy: {_format_percent(sum(science_values) / len(science_values))}")
+
+        for metrics in client_metrics:
+            print(
+                f"  · {metrics['label']}: "
+                f"overall={_format_percent(metrics['overall']['accuracy'])}, "
+                f"math={_format_percent(metrics['math']['accuracy'])}, "
+                f"science={_format_percent(metrics['science']['accuracy'])}"
+            )
 
 
 if __name__ == "__main__":
