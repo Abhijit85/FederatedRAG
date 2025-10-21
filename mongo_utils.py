@@ -1,14 +1,26 @@
-import pymongo
-from pymongo import MongoClient
 import datetime
 import numpy as np
+from pymongo import MongoClient
+
+try:
+    import certifi
+except ImportError:  # pragma: no cover - certifi is optional but recommended for TLS
+    certifi = None
 
 class MongoVectorStore:
     def __init__(self, db_uri, db_name, collection_name):
         """
         Initializes the MongoDB vector store.
         """
-        self.client = MongoClient(db_uri)
+        tls_kwargs = {}
+        normalized_uri = (db_uri or "").lower()
+        uses_tls = normalized_uri.startswith("mongodb+srv://") or "tls=true" in normalized_uri or "ssl=true" in normalized_uri
+        if uses_tls and certifi:
+            tls_kwargs["tlsCAFile"] = certifi.where()
+        elif uses_tls and not certifi:
+            print("⚠️ TLS connection requested but 'certifi' package is missing. Install it to avoid certificate errors.")
+
+        self.client = MongoClient(db_uri, **tls_kwargs)
         self.db = self.client[db_name]
         self.collection = self.db[collection_name]
 
@@ -73,7 +85,15 @@ class MongoVectorStore:
 class MongoLogger:
     def __init__(self, db_uri, db_name, collection_name="logs"):
         """Initializes the MongoDB logger."""
-        self.client = MongoClient(db_uri)
+        tls_kwargs = {}
+        normalized_uri = (db_uri or "").lower()
+        uses_tls = normalized_uri.startswith("mongodb+srv://") or "tls=true" in normalized_uri or "ssl=true" in normalized_uri
+        if uses_tls and certifi:
+            tls_kwargs["tlsCAFile"] = certifi.where()
+        elif uses_tls and not certifi:
+            print("⚠️ TLS connection requested but 'certifi' package is missing. Install it to avoid certificate errors.")
+
+        self.client = MongoClient(db_uri, **tls_kwargs)
         self.db = self.client[db_name]
         self.collection = self.db[collection_name]
 

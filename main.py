@@ -153,6 +153,14 @@ def main():
     if not lambda_key or not jina_key:
         print("⚠️ Warning: API keys are missing; downstream tool calls may fail.")
 
+    # Ensure downstream libraries receive the keys even if they import later.
+    if lambda_key:
+        os.environ["API_KEY"] = lambda_key
+    if jina_key:
+        os.environ["JINA_API_KEY"] = jina_key
+    if mongo_uri:
+        os.environ["MONGO_URI"] = mongo_uri
+
     credentials = ApiCredentials(
         lambda_api_key=lambda_key,
         jina_api_key=jina_key,

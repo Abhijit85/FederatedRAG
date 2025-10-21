@@ -1,10 +1,13 @@
-from typing import List, Optional
-from pydantic import BaseModel
 import os
+from typing import List, Optional
+
+from dotenv import load_dotenv
+from pydantic import BaseModel
 
 from openrouter_client import chat_completion
 
 # -------------- CONFIG --------------
+load_dotenv()
 if not os.environ.get("API_KEY") and not (
     os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
 ):

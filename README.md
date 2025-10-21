@@ -60,11 +60,34 @@ The repository contains example resources used by the agent:
 - `mathqa_tools_compendium.json` and `scienceqa_tools_compendium.json` – structured tool descriptions.
 - `mixed_queries.json` – evaluation set with math and science questions.
 
-Regenerate the mixed evaluation set at any time:
+Regenerate the evaluation set to match your needs:
 
 ```bash
+# Math + Science (default)
 python scripts/build_mixed_queries.py --math-count 10 --science-count 10 --seed 123
+
+# Math-only benchmark
+python scripts/build_mixed_queries.py --datasets math --math-count 20
+
+# Science-only benchmark
+python scripts/build_mixed_queries.py --datasets science --science-count 15
+
+# Math-only, non-IID slice (e.g., only "geometry" problems)
+python scripts/build_mixed_queries.py --datasets math --math-count 20 --distribution noniid --math-category geometry
+
+# Science-only, non-IID slice (e.g., focus on "earth science")
+python scripts/build_mixed_queries.py --datasets science --science-count 20 --distribution noniid --science-topic "earth science"
+
+# Mixed non-IID slice (Math: geometry, Science: physics)
+python scripts/build_mixed_queries.py \
+  --datasets math science \
+  --math-count 15 --science-count 15 \
+  --distribution noniid \
+  --math-category geometry \
+  --science-topic physics
 ```
+
+`--datasets` accepts `math`, `science`, or both. Any `--*-count` option for an omitted dataset is ignored automatically. Use `--distribution noniid` to focus each dataset on a single dominant category/topic (`--math-category` or `--science-topic` can pin that choice). Outputs are written to `mixed_queries.json` unless you override `--output`.
 
 ## Running the Agent
 1. Install dependencies:
