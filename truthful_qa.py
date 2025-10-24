@@ -1,18 +1,21 @@
-import os
 import json
+import os
 import re
-import requests
+from typing import Dict, Optional, Sequence
+
 import pandas as pd
+import requests
 from dotenv import load_dotenv
+
 from agenttools import BaseTool, ToolUsageExample
-from mongo_utils import MongoVectorStore # Re-use the connection utility
-from typing import Dict, Optional
+from jina_key_manager import JinaAPIKeyRotator, get_available_jina_api_keys
+from mongo_utils import MongoVectorStore  # Re-use the connection utility
 
 # --- 1. CONFIGURATION ---
 load_dotenv()
-API_KEY = os.environ.get("JINA_API_KEY")
-if not API_KEY:
-    raise ValueError("JINA_API_KEY environment variable not set.")
+API_KEYS = get_available_jina_api_keys()
+if not API_KEYS:
+    raise ValueError("At least one JINA_API_KEY environment variable must be set.")
 
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
@@ -25,36 +28,60 @@ JINA_CHAT_API_URL = "https://api.jina.ai/v1/chat/completions"
 
 class JinaAIClient:
     """A client to interact with Jina AI APIs for embeddings and reranking."""
-    def __init__(self, api_key):
-        self.api_key = api_key
-        self.headers = {
+
+    def __init__(self, api_keys: Sequence[str] | Sequence[tuple[str, str]] | None):
+        self._rotator = JinaAPIKeyRotator(api_keys)
+
+    @staticmethod
+    def _build_headers(api_key: str) -> dict:
+        return {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
+            "Authorization": f"Bearer {api_key}",
         }
 
+    def _post_json(self, url: str, payload: dict, *, timeout: float | None = None):
+        return self._rotator.execute(
+            lambda api_key: requests.post(
+                url,
+                headers=self._build_headers(api_key),
+                json=payload,
+                timeout=timeout,
+            )
+        )
+
     def get_embeddings(self, texts):
-        response = requests.post(
-            JINA_EMBED_API_URL, headers=self.headers,
-            json={"model": "jina-embeddings-v2-base-en", "input": texts}
+        response = self._post_json(
+            JINA_EMBED_API_URL,
+            {"model": "jina-embeddings-v2-base-en", "input": texts},
         )
         response.raise_for_status()
-        return [item['embedding'] for item in response.json()['data']]
+        return [item["embedding"] for item in response.json()["data"]]
 
     def rerank_documents(self, query, documents):
-        response = requests.post(
-            JINA_RERANK_API_URL, headers=self.headers,
-            json={"model": "jina-reranker-v2-base-multilingual", "query": query, "documents": documents, "top_n": len(documents)}
+        response = self._post_json(
+            JINA_RERANK_API_URL,
+            {
+                "model": "jina-reranker-v2-base-multilingual",
+                "query": query,
+                "documents": documents,
+                "top_n": len(documents),
+            },
         )
         response.raise_for_status()
-        return response.json()['results']
+        return response.json()["results"]
 
     def generate_chat_response(self, prompt):
-        response = requests.post(
-            JINA_CHAT_API_URL, headers=self.headers,
-            json={"model": "jina-deepsearch-v1", "messages": [{"role": "user", "content": prompt}], "stream": False}
+        response = self._post_json(
+            JINA_CHAT_API_URL,
+            {
+                "model": "jina-deepsearch-v1",
+                "messages": [{"role": "user", "content": prompt}],
+                "stream": False,
+            },
+            timeout=60,
         )
         response.raise_for_status()
-        return response.json()['choices'][0]['message']['content']
+        return response.json()["choices"][0]["message"]["content"]
 
 class MongoRAGManager:
     """A manager for the TruthfulQA RAG system using MongoDB."""
@@ -92,8 +119,9 @@ class MongoRAGManager:
 
 class RAGSystem:
     """Orchestrates the RAG process using MongoDB."""
-    def __init__(self, training_data, api_key):
-        self.jina_client = JinaAIClient(api_key)
+
+    def __init__(self, training_data, api_keys: Sequence[str]):
+        self.jina_client = JinaAIClient(api_keys)
         self.db_manager = MongoRAGManager(self.jina_client)
         
         if self.db_manager.count() == 0:
@@ -216,7 +244,7 @@ class TruthfulQATool(BaseTool):
             with open('truthfulqa_challenge_test.json', 'r') as f:
                 training_data = json.load(f)
             print("✅ Successfully loaded 'truthfulqa_challenge_test.json' for TruthfulQATool.")
-            self.rag_system = RAGSystem(training_data, API_KEY)
+            self.rag_system = RAGSystem(training_data, API_KEYS)
         except Exception as e:
             print(f"❌ CRITICAL ERROR: Could not initialize RAG system for TruthfulQATool: {e}")
             self.rag_system = None

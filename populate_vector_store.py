@@ -1,13 +1,16 @@
-import os
 import json
+import os
+import time
+from typing import List, Sequence
+
 import requests
 from dotenv import load_dotenv
+
+from jina_key_manager import JinaAPIKeyRotator, get_named_jina_api_keys
 from mongo_utils import MongoVectorStore
-import time
 
 # --- CONFIGURATION ---
 load_dotenv()
-JINA_API_KEY = os.environ.get("JINA_API_KEY")
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
 VECTOR_COLLECTION_NAME = "vectors"
@@ -15,19 +18,17 @@ JINA_EMBED_API_URL = "https://api.jina.ai/v1/embeddings"
 
 class JinaAIClient:
     """A client to interact with Jina AI APIs for embeddings."""
-    # Add this validation to your JinaAIClient initialization
-    def __init__(self, api_key):
-        if not api_key:
-            raise ValueError("JINA_API_KEY not found in environment.")
-        if not api_key.startswith('jina_'):
-            print("⚠️ Warning: API key format doesn't look like a valid Jina AI key")
-        self.api_key = api_key
-        self.headers = {
+    def __init__(self, api_keys: Sequence[str] | Sequence[tuple[str, str]] | None = None):
+        self._rotator = JinaAPIKeyRotator(api_keys)
+
+    @staticmethod
+    def _build_headers(api_key: str) -> dict:
+        return {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
+            "Authorization": f"Bearer {api_key}",
         }
 
-    def get_embeddings(self, texts):
+    def _post_embeddings(self, texts: List[str]) -> requests.Response:
         """
         Generates embeddings for a list of texts using Jina AI.
         The correct payload structure expects a simple list of strings.
@@ -36,16 +37,26 @@ class JinaAIClient:
             "model": "jina-embeddings-v2-base-en",
             "input": texts  # Just the list of strings, not objects
         }
+        return self._rotator.execute(
+            lambda api_key: requests.post(
+                JINA_EMBED_API_URL,
+                headers=self._build_headers(api_key),
+                json=payload,
+            )
+        )
 
-        retries = 3
-        backoff_factor = 0.5
+    def get_embeddings(self, texts: List[str]):
+        response = self._post_embeddings(texts)
+        response.raise_for_status()
+        return [item["embedding"] for item in response.json()["data"]]
 
+    def get_embeddings_with_retry(self, texts: List[str], *, retries: int = 3, backoff_factor: float = 0.5):
         for i in range(retries):
             try:
-                response = requests.post(JINA_EMBED_API_URL, headers=self.headers, json=payload)
+                response = self._post_embeddings(texts)
                 response.raise_for_status()
-                return [item['embedding'] for item in response.json()['data']]
-            except requests.exceptions.RequestException as e:
+                return [item["embedding"] for item in response.json()["data"]]
+            except (requests.exceptions.RequestException, RuntimeError) as e:
                 print(f"Error getting embeddings from Jina AI: {e}")
                 if i < retries - 1:
                     sleep_time = backoff_factor * (2 ** i)
@@ -65,7 +76,7 @@ def populate_vectors(compendium_data: dict):
     vector_store = MongoVectorStore(MONGO_URI, DB_NAME, VECTOR_COLLECTION_NAME)
     
     try:
-        jina_client = JinaAIClient(JINA_API_KEY)
+        jina_client = JinaAIClient(get_named_jina_api_keys())
         
         scenarios = compendium_data.get("Textual_Compendium", {}).get("Usage_Scenarios", [])
         if not scenarios:
@@ -86,7 +97,7 @@ def populate_vectors(compendium_data: dict):
         print(f"Found {len(texts_to_embed)} scenarios to embed.")
 
         print("Generating embeddings with Jina AI...")
-        vectors = jina_client.get_embeddings(texts_to_embed)
+        vectors = jina_client.get_embeddings_with_retry(texts_to_embed)
 
         if not vectors:
             print("[!] Failed to generate embeddings. Aborting population.")

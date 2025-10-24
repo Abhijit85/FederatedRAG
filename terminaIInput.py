@@ -13,6 +13,8 @@ from CompendiumAwareAgent import CompendiumAwareAgent
 from math_qa import MathQATool
 from science_qa import ScienceQATool
 from CompendiumBuilder import CompendiumEntry
+from openrouter_client import get_available_api_keys
+from jina_key_manager import get_available_jina_api_keys
 
 # Load environment variables from a .env file at the start
 load_dotenv()
@@ -180,12 +182,17 @@ def main():
     
     logger = setup_logging(username)
 
-    lambda_key = os.environ.get("API_KEY")
+    available_lambda_keys = get_available_api_keys(allow_empty=True)
+    lambda_key = available_lambda_keys[0] if available_lambda_keys else None
     if not lambda_key:
         lambda_key = os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
         if lambda_key:
-            print("⚠️ Detected deprecated env var for Lambda API key. Please rename it to API_KEY.")
-    if not lambda_key or not os.environ.get("JINA_API_KEY"):
+            print("⚠️ Detected deprecated env var for Lambda API key. Please rename it to API_KEY or API_KEY_<n>.")
+    jina_keys = get_available_jina_api_keys(allow_empty=True)
+    jina_key = jina_keys[0] if jina_keys else ""
+    if jina_key:
+        os.environ["JINA_API_KEY"] = jina_key
+    if not lambda_key or not jina_key:
         print("❌ Error: API keys must be set in your .env file.")
         return
     

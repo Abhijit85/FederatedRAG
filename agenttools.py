@@ -4,14 +4,14 @@ from typing import List, Optional
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-from openrouter_client import chat_completion
+from openrouter_client import chat_completion, get_available_api_keys
 
 # -------------- CONFIG --------------
 load_dotenv()
-if not os.environ.get("API_KEY") and not (
+if not get_available_api_keys(allow_empty=True) and not (
     os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
 ):
-    raise ValueError("API_KEY environment variable not set.")
+    raise ValueError("At least one API_KEY environment variable must be set.")
 MODEL = "llama3.1-8b-instruct"
 
 # -------------- PYDANTIC MODEL FOR TOOL USAGE LOGGING --------------

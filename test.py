@@ -7,12 +7,13 @@ from vector_search import VectorSearchFilter
 from math_qa import MongoRAGManager as MathRAGManager
 from science_qa import MongoRAGManager as ScienceRAGManager
 from populate_vector_store import JinaAIClient
+from jina_key_manager import get_available_jina_api_keys, get_named_jina_api_keys
 
 # --- TEST CONFIGURATION ---
 load_dotenv()
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
-JINA_API_KEY = os.environ.get("JINA_API_KEY")
+JINA_API_KEYS = get_available_jina_api_keys(allow_empty=True)
 
 class TestMongoDatabaseSetup(unittest.TestCase):
 
@@ -23,8 +24,8 @@ class TestMongoDatabaseSetup(unittest.TestCase):
         It runs the main database setup process to populate the collections.
         """
         print("--- (SETUP) Running the full database setup process... ---")
-        if not all([MONGO_URI, DB_NAME, JINA_API_KEY]):
-            raise unittest.SkipTest("MONGO_URI, DB_NAME, or JINA_API_KEY not set. Skipping tests.")
+        if not all([MONGO_URI, DB_NAME]) or not JINA_API_KEYS:
+            raise unittest.SkipTest("MONGO_URI, DB_NAME, or a JINA_API_KEY not set. Skipping tests.")
         
         run_database_setup()
         
@@ -99,7 +100,7 @@ class TestMongoDatabaseSetup(unittest.TestCase):
         Test 4: Perform a live RAG search on the 'math_problems' collection.
         """
         print("\n--- TEST 4: Testing Math RAG Vector Search ---")
-        jina_client = JinaAIClient(JINA_API_KEY)
+        jina_client = JinaAIClient(get_named_jina_api_keys())
         math_rag = MathRAGManager(jina_client)
         test_query = "A train travels at 60 mph for 3 hours. How far did it go?"
         

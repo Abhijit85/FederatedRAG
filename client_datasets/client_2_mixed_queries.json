@@ -9,18 +9,34 @@
   },
   {
     "type": "math",
-    "Problem": "average age of students of an adult school is 40 years . 120 new students whose average age is 32 years joined the school . as a result the average age is decreased by 4 years . find the number of students of the school after joining of the new students .",
-    "options": "a ) 1200 , b ) 120 , c ) 360 , d ) 240 , e ) none of these",
-    "Rationale": "\"explanation : let the original no . of students be x . according to situation , 40 x + 120 * 32 = ( x + 120 ) 36 \u21d2 x = 120 so , required no . of students after joining the new students = x + 120 = 240 . answer : d\"",
-    "category": "general",
+    "Problem": "there are 2 available positions and 50 candidates , one half of whom are democrats and another half are republicans . if it was decided that the positions would be filled at random , then what is the probability e that the both positions will be taken by members of just one party ?",
+    "options": "a ) 1 / 25 , b ) 12 / 49 , c ) 1 / 4 , d ) 24 / 49 , e ) 1 / 2",
+    "Rationale": "e probability of one party having both spots : ( 1 / 2 ) * ( 24 / 49 ) = 12 / 49 ( 1 / 2 ) or ( 25 / 50 ) because it does not matter which party or which person gets the first spot . ( 24 / 49 ) because after one person from a particular party is chosen , there are 24 members of the same party left out of 49 total candidates . since this result can happen for both parties , ( 12 / 49 ) + ( 12 / 49 ) = ( 24 / 49 ) answer : d",
+    "category": "other",
     "correct": "d"
   },
   {
     "type": "math",
-    "Problem": "a vessel of capacity 2 litre has 30 % of alcohol and another vessel of capacity 6 litre had 40 % alcohol . the total liquid of 8 litre was poured out in a vessel of capacity 10 litre and thus the rest part of the vessel was filled with the water . what is the new concentration of mixture ?",
-    "options": "a ) 30 % . , b ) 71 % . , c ) 49 % . , d ) 29 % . , e ) 51 % .",
-    "Rationale": "\"30 % of 2 litres = 0.6 litres 40 % of 6 litres = 2.4 litres therefore , total quantity of alcohol is 3.0 litres . this mixture is in a 10 litre vessel . hence , the concentration of alcohol in this 10 litre vessel is 30 % answer : a\"",
-    "category": "general",
+    "Problem": "the perimeter of an equilateral triangle is 60 . if one of the sides of the equilateral triangle is the side of an isosceles triangle of perimeter 45 , then how long is the base of isosceles triangle ?",
+    "options": "a ) 5 units , b ) 10 units , c ) 15 units , d ) 20 units , e ) 25 units",
+    "Rationale": "\"the base of the isosceles triangle is 45 - 20 - 20 = 5 units the answer is a .\"",
+    "category": "geometry",
     "correct": "a"
+  },
+  {
+    "type": "math",
+    "Problem": "30 men can do a work in 40 days . when should 12 men leave the work so that the entire work is completed in 40 days after they leave the work ?",
+    "options": "a ) 18 days , b ) 10 days , c ) 55 days , d ) 44 days , e ) 22 days",
+    "Rationale": "\"total work to be done = 30 * 40 = 1200 let 12 men leave the work after ' p ' days , so that the remaining work is completed in 40 days after they leave the work . 40 p + ( 12 * 40 ) = 1200 40 p = 720 = > p = 18 days answer : a\"",
+    "category": "physics",
+    "correct": "a"
+  },
+  {
+    "type": "math",
+    "Problem": "for any positive integer n , the sum of the first n positive integers equals n ( n + 1 ) / 2 . what is the sum of all the even integers between 99 and 181 ?",
+    "options": "a ) 3820 , b ) 5740 , c ) 6580 , d ) 7360 , e ) 9200",
+    "Rationale": "\"100 + 102 + . . . + 180 = 100 * 41 + ( 2 + 4 + . . . + 80 ) = 100 * 41 + 2 * ( 1 + 2 + . . . + 40 ) = 100 * 41 + 2 ( 40 ) ( 41 ) / 2 = 100 * 41 + 40 * 41 = 140 ( 41 ) = 5740 the answer is b .\"",
+    "category": "general",
+    "correct": "b"
   }
 ]

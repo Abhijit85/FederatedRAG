@@ -1,22 +1,25 @@
-import os
-import json
-import re
-import requests
-import pandas as pd
-from dotenv import load_dotenv
-from agenttools import BaseTool, ToolUsageExample
-from mongo_utils import MongoVectorStore
-from typing import Dict, Optional
 import base64
-from PIL import Image
+import json
+import os
+import re
 from io import BytesIO
+from typing import Dict, Optional, Sequence
+
+import pandas as pd
+import requests
+from PIL import Image
+from dotenv import load_dotenv
+
+from agenttools import BaseTool, ToolUsageExample
+from jina_key_manager import JinaAPIKeyRotator, get_available_jina_api_keys
+from mongo_utils import MongoVectorStore
 from openrouter_client import chat_completion
 
 # --- 1. CONFIGURATION ---
 load_dotenv()
-JINA_API_KEY = os.environ.get("JINA_API_KEY")
-if not JINA_API_KEY:
-    raise ValueError("JINA_API_KEY environment variable not set.")
+JINA_API_KEYS = get_available_jina_api_keys()
+if not JINA_API_KEYS:
+    raise ValueError("At least one JINA_API_KEY environment variable must be set.")
 
 MONGO_URI = os.environ.get("MONGO_URI")
 DB_NAME = "FredRag"
@@ -34,31 +37,50 @@ if not VLM_MODEL:
 
 class JinaAIClient:
     """A client to interact with Jina AI APIs for embeddings and reranking."""
-    def __init__(self, api_key):
-        self.api_key = api_key
-        self.headers = {
+
+    def __init__(self, api_keys: Sequence[str] | Sequence[tuple[str, str]] | None):
+        self._rotator = JinaAPIKeyRotator(api_keys)
+
+    @staticmethod
+    def _build_headers(api_key: str) -> dict:
+        return {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_key}"
+            "Authorization": f"Bearer {api_key}",
         }
+
+    def _post_json(self, url: str, payload: dict, *, timeout: float | None = None):
+        return self._rotator.execute(
+            lambda api_key: requests.post(
+                url,
+                headers=self._build_headers(api_key),
+                json=payload,
+                timeout=timeout,
+            )
+        )
 
     def get_multimodal_embeddings(self, texts, images):
         """Generates multimodal embeddings for text-image pairs."""
         # NOTE: This is a conceptual implementation. The actual Jina API might differ.
         # For this example, we will embed text only as a placeholder for a true multimodal model.
-        response = requests.post(
-            JINA_MULTIMODAL_EMBED_API_URL, headers=self.headers,
-            json={"model": "jina-embeddings-v2-base-en", "input": texts}
+        response = self._post_json(
+            JINA_MULTIMODAL_EMBED_API_URL,
+            {"model": "jina-embeddings-v2-base-en", "input": texts},
         )
         response.raise_for_status()
-        return [item['embedding'] for item in response.json()['data']]
+        return [item["embedding"] for item in response.json()["data"]]
 
     def rerank_documents(self, query, documents):
-        response = requests.post(
-            JINA_RERANK_API_URL, headers=self.headers,
-            json={"model": "jina-reranker-v2-base-multilingual", "query": query, "documents": documents, "top_n": len(documents)}
+        response = self._post_json(
+            JINA_RERANK_API_URL,
+            {
+                "model": "jina-reranker-v2-base-multilingual",
+                "query": query,
+                "documents": documents,
+                "top_n": len(documents),
+            },
         )
         response.raise_for_status()
-        return response.json()['results']
+        return response.json()["results"]
 
 class VLMClient:
     """A client for the Vision Language Model."""
@@ -119,8 +141,9 @@ class MongoRAGManager:
 
 class RAGSystem:
     """Orchestrates the Science RAG process using MongoDB."""
-    def __init__(self, training_data, api_key):
-        self.jina_client = JinaAIClient(api_key)
+
+    def __init__(self, training_data, api_keys: Sequence[str]):
+        self.jina_client = JinaAIClient(api_keys)
         self.db_manager = MongoRAGManager(self.jina_client)
         
         if self.db_manager.count() == 0:
@@ -206,7 +229,7 @@ class ScienceQATool(BaseTool):
             with open('scienceqa_challenge_test.json', 'r') as f:
                 training_data = json.load(f)
             print("✅ Successfully loaded 'scienceqa_challenge_test.json' for ScienceQATool.")
-            self.rag_system = RAGSystem(training_data, JINA_API_KEY)
+            self.rag_system = RAGSystem(training_data, JINA_API_KEYS)
         except FileNotFoundError:
             print("❌ CRITICAL ERROR: 'scienceqa_challenge_test.json' not found. ScienceQATool will not work.")
             self.rag_system = None

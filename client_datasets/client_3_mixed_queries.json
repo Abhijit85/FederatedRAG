@@ -1,26 +1,42 @@
 [
   {
     "type": "math",
-    "Problem": "the perimeter of an equilateral triangle is 60 . if one of the sides of the equilateral triangle is the side of an isosceles triangle of perimeter 45 , then how long is the base of isosceles triangle ?",
-    "options": "a ) 5 units , b ) 10 units , c ) 15 units , d ) 20 units , e ) 25 units",
-    "Rationale": "\"the base of the isosceles triangle is 45 - 20 - 20 = 5 units the answer is a .\"",
-    "category": "geometry",
-    "correct": "a"
-  },
-  {
-    "type": "math",
-    "Problem": "there are 2 available positions and 50 candidates , one half of whom are democrats and another half are republicans . if it was decided that the positions would be filled at random , then what is the probability e that the both positions will be taken by members of just one party ?",
-    "options": "a ) 1 / 25 , b ) 12 / 49 , c ) 1 / 4 , d ) 24 / 49 , e ) 1 / 2",
-    "Rationale": "e probability of one party having both spots : ( 1 / 2 ) * ( 24 / 49 ) = 12 / 49 ( 1 / 2 ) or ( 25 / 50 ) because it does not matter which party or which person gets the first spot . ( 24 / 49 ) because after one person from a particular party is chosen , there are 24 members of the same party left out of 49 total candidates . since this result can happen for both parties , ( 12 / 49 ) + ( 12 / 49 ) = ( 24 / 49 ) answer : d",
-    "category": "other",
-    "correct": "d"
-  },
-  {
-    "type": "math",
-    "Problem": "for any positive integer n , the sum of the first n positive integers equals n ( n + 1 ) / 2 . what is the sum of all the even integers between 99 and 181 ?",
-    "options": "a ) 3820 , b ) 5740 , c ) 6580 , d ) 7360 , e ) 9200",
-    "Rationale": "\"100 + 102 + . . . + 180 = 100 * 41 + ( 2 + 4 + . . . + 80 ) = 100 * 41 + 2 * ( 1 + 2 + . . . + 40 ) = 100 * 41 + 2 ( 40 ) ( 41 ) / 2 = 100 * 41 + 40 * 41 = 140 ( 41 ) = 5740 the answer is b .\"",
+    "Problem": "if k is an integer and 0.0010101 x 10 ^ k is greater than 10 , what is the least possible value of k ?",
+    "options": "a ) 2 , b ) 3 , c ) 4 , d ) 5 , e ) 6",
+    "Rationale": "\"0.0010101 * 10 ^ k > 10 we need to move the decimal point to the right 4 places to get 10.101 this is equivalent to multiplying by 10 ^ 4 . the answer is c .\"",
     "category": "general",
+    "correct": "c"
+  },
+  {
+    "type": "math",
+    "Problem": "if a and b are positive integers and ( 3 ^ a ) ^ b = 3 ^ 3 , what is the value of 3 ^ a * 3 ^ b ?",
+    "options": "a ) 3 , b ) 9 , c ) 81 , d ) 27 , e ) 243",
+    "Rationale": "3 ^ ab = 3 ^ 3 therefore ab = 3 either a = 1 or 3 or b = 3 or 1 therefore 3 ^ a * 3 ^ b = 3 ^ ( a + b ) = 3 ^ 4 = 81 c",
+    "category": "general",
+    "correct": "c"
+  },
+  {
+    "type": "math",
+    "Problem": "a certain company \u2019 s profit in 1996 was 15 percent greater than its profit in 1995 , and its profit in 1997 was 35 percent greater than its profit in 1996 . the company \u2019 s profit in 1997 was what percent greater than its profit in 1995 ?",
+    "options": "a ) 5 % , b ) 18 % , c ) 33 % , d ) 35 % , e ) 55.25 %",
+    "Rationale": "\"profit in 1995 - 100 profit in 1996 - 115 % increae profit in 1997 in comparison to 1995 = 15 + 115 * 35 % = 55.25 correct option : e\"",
+    "category": "gain",
+    "correct": "e"
+  },
+  {
+    "type": "math",
+    "Problem": "in a family 13 people eat only vegetarian , 7 people eat only non veg . , 8 people eat both veg and non veg . . how many people eat veg in the family ?",
+    "options": "a ) 20 , b ) 11 , c ) 9 , d ) 31 , e ) 21",
+    "Rationale": "\"total people eat veg = only veg + both veg and non veg total = 13 + 8 = 21 answer = e\"",
+    "category": "other",
+    "correct": "e"
+  },
+  {
+    "type": "math",
+    "Problem": "5 women can do a work in two days . 10 men can complete the same work in five days . what is the ratio between the capacity of a man and a woman ?",
+    "options": "a ) 1 : 2 , b ) 1 : 5 , c ) 2 : 3 , d ) 3 : 2 , e ) none of these",
+    "Rationale": "\"explanation : ( 5 \u00e3 \u2014 2 ) women can complete the work in 1 day . \u00e2 \u02c6 \u00b4 1 woman ' s 1 day ' s work = 1 / 10 ( 10 \u00e3 \u2014 5 ) men can complete the work in 1 day . \u00e2 \u02c6 \u00b4 1 man ' s 1 day ' s work = 1 / 50 so , required ratio = 1 / 10 : 1 / 50 = 1 : 5 answer : b\"",
+    "category": "physics",
     "correct": "b"
   }
 ]

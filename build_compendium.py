@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from CompendiumManager import CompendiumManager
 from populate_vector_store import populate_vectors
 from pymongo import MongoClient
+from openrouter_client import get_available_api_keys
+from jina_key_manager import get_available_jina_api_keys
 
 # --- CONFIGURATION ---
 load_dotenv()
@@ -28,16 +30,24 @@ def main():
 
     # Check for necessary environment variables
     mongo_uri = os.environ.get("MONGO_URI")
-    lambda_api_key = os.environ.get("API_KEY")
+    available_keys = get_available_api_keys(allow_empty=True)
+    lambda_api_key = available_keys[0] if available_keys else None
     if not lambda_api_key:
         lambda_api_key = os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
         if lambda_api_key:
-            print("⚠️ Detected deprecated env var for Lambda API key. Please rename it to API_KEY.")
-    jina_api_key = os.environ.get("JINA_API_KEY")
+            print("⚠️ Detected deprecated env var for Lambda API key. Please rename it to API_KEY or API_KEY_<n>.")
+    jina_keys = get_available_jina_api_keys(allow_empty=True)
+    jina_api_key = jina_keys[0] if jina_keys else None
 
     if not all([mongo_uri, lambda_api_key, jina_api_key]):
-        print("❌ Error: MONGO_URI, API_KEY, and JINA_API_KEY must be set in your .env file.")
+        print("❌ Error: MONGO_URI, an API_KEY, and at least one JINA_API_KEY must be set in your .env file.")
         return
+
+    # Keep backwards compatibility for libraries expecting the primary env var.
+    if lambda_api_key:
+        os.environ["API_KEY"] = lambda_api_key
+    if jina_api_key:
+        os.environ["JINA_API_KEY"] = jina_api_key
 
     # --- Step 1: Build and Save the Master Compendium ---
     print("\n--- Building Master Compendium ---")

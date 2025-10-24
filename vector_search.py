@@ -1,8 +1,10 @@
 # vector_search.py
 
 import os
+
 from mongo_utils import MongoVectorStore
-from populate_vector_store import JinaAIClient # Re-use the Jina client for embeddings
+from populate_vector_store import JinaAIClient  # Re-use the Jina client for embeddings
+from jina_key_manager import get_named_jina_api_keys
 
 class VectorSearchFilter:
     """
@@ -11,15 +13,18 @@ class VectorSearchFilter:
     """
     def __init__(self):
         # Load environment variables
-        JINA_API_KEY = os.environ.get("JINA_API_KEY")
+        jina_keys = get_named_jina_api_keys(allow_empty=True)
+        JINA_API_KEY = jina_keys[0][1] if jina_keys else None
         MONGO_URI = os.environ.get("MONGO_URI")
         DB_NAME = "FredRag"
         VECTOR_COLLECTION_NAME = "vectors"
 
         if not all([JINA_API_KEY, MONGO_URI]):
-            raise ValueError("JINA_API_KEY and MONGO_URI must be set in your .env file.")
+            raise ValueError(
+                "At least one JINA_API_KEY (JINA_API_KEY or JINA_API_KEY_<n>) and MONGO_URI must be set in your .env file."
+            )
             
-        self.jina_client = JinaAIClient(JINA_API_KEY)
+        self.jina_client = JinaAIClient(jina_keys if jina_keys else None)
         # Connect to the 'vectors' collection via MongoVectorStore
         self.vector_store = MongoVectorStore(MONGO_URI, DB_NAME, VECTOR_COLLECTION_NAME)
 

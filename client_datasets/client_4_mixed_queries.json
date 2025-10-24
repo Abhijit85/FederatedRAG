@@ -1,26 +1,42 @@
 [
   {
     "type": "math",
-    "Problem": "30 men can do a work in 40 days . when should 12 men leave the work so that the entire work is completed in 40 days after they leave the work ?",
-    "options": "a ) 18 days , b ) 10 days , c ) 55 days , d ) 44 days , e ) 22 days",
-    "Rationale": "\"total work to be done = 30 * 40 = 1200 let 12 men leave the work after ' p ' days , so that the remaining work is completed in 40 days after they leave the work . 40 p + ( 12 * 40 ) = 1200 40 p = 720 = > p = 18 days answer : a\"",
+    "Problem": "the sum of the first 50 positive even integers is 2550 . what is the sum of the even integers from 602 to 700 inclusive ?",
+    "options": "a ) 24,550 , b ) 28,550 , c ) 32,550 , d ) 36,550 , e ) 40,550",
+    "Rationale": "\"2 + 4 + 6 + 8 + . . . + 100 = 2550 602 + 604 + . . . + 700 = 50 ( 600 ) + ( 2 + 4 + . . . + 100 ) = 30,000 + 2550 = 32,550 the answer is c .\"",
+    "category": "general",
+    "correct": "c"
+  },
+  {
+    "type": "math",
+    "Problem": "how many of the positive factors of 25 , 15 and how many common factors are there in numbers ?",
+    "options": "a ) 1 , b ) 2 , c ) 3 , d ) 4 , e ) 5",
+    "Rationale": "\"factors of 25 - 1 , 5 , and 25 factors of 15 - 1 , 3 , 5 and 15 comparing both , we have three common factors of 45,16 - 2 answer b\"",
+    "category": "other",
+    "correct": "b"
+  },
+  {
+    "type": "math",
+    "Problem": "a small table has a length of 12 inches and a breadth of b inches . cubes are placed on the surface of the table so as to cover the entire surface . the maximum side of such cubes is found to be 4 inches . also , a few such tables are arranged to form a square . the minimum length of side possible for such a square is 80 inches . find b .",
+    "options": "['a ) 8', 'b ) 16', 'c ) 24', 'd ) 32', 'e ) 48']",
+    "Rationale": "from the info that the maximum sides of the cubes is 4 , we know that the gcf of 12 ( = 2 ^ 2 * 3 ) andbis 4 ( = 2 ^ 2 ) , sob = 2 ^ x , where x > = 2 . from the second premise , we know that the lcm of 12 ( 2 ^ 2 * 3 ) andbis 80 ( 2 ^ 4 * 5 ) , sob = 2 ^ 4 or 2 ^ 4 * 5 ( 16 or 80 ) . combining 2 premises shows the answer is b ( 16 ) .",
+    "category": "geometry",
+    "correct": "b"
+  },
+  {
+    "type": "math",
+    "Problem": "d and e are two points respectively on sides ab and ac of triangle abc such that de is parallel to bc . if the ratio of area of triangle ade to that of the trapezium decb is 144 : 25 and bc = 13 cm , then find the length of de .",
+    "options": "a ) 12 , b ) 13 , c ) 14 , d ) 11 , e ) 15",
+    "Rationale": "\"abc and ade are similar triangles . so ( side of abc / side of ade ) ^ 2 = 25 / 169 side of abc / side of ade = 5 / 13 so the length of de = 5 answer - c\"",
+    "category": "geometry",
+    "correct": "c"
+  },
+  {
+    "type": "math",
+    "Problem": "the length of a rectangular plot is 20 metres more than its breadth . if the cost of fencing the plot @ rs . 26.50 per metre is rs . 7420 , what is the length of the plot in metres ?",
+    "options": "a ) 20 , b ) 200 , c ) 300 , d ) 400 , e ) 80",
+    "Rationale": "\"let length of plot = l meters , then breadth = l - 20 meters and perimeter = 2 [ l + l - 20 ] = [ 4 l - 40 ] meters [ 4 l - 40 ] * 26.50 = 7420 [ 4 l - 40 ] = 7420 / 26.50 = 280 4 l = 320 l = 320 / 4 = 80 meters . answer : e\"",
     "category": "physics",
-    "correct": "a"
-  },
-  {
-    "type": "math",
-    "Problem": "if k is an integer and 0.0010101 x 10 ^ k is greater than 10 , what is the least possible value of k ?",
-    "options": "a ) 2 , b ) 3 , c ) 4 , d ) 5 , e ) 6",
-    "Rationale": "\"0.0010101 * 10 ^ k > 10 we need to move the decimal point to the right 4 places to get 10.101 this is equivalent to multiplying by 10 ^ 4 . the answer is c .\"",
-    "category": "general",
-    "correct": "c"
-  },
-  {
-    "type": "math",
-    "Problem": "if a and b are positive integers and ( 3 ^ a ) ^ b = 3 ^ 3 , what is the value of 3 ^ a * 3 ^ b ?",
-    "options": "a ) 3 , b ) 9 , c ) 81 , d ) 27 , e ) 243",
-    "Rationale": "3 ^ ab = 3 ^ 3 therefore ab = 3 either a = 1 or 3 or b = 3 or 1 therefore 3 ^ a * 3 ^ b = 3 ^ ( a + b ) = 3 ^ 4 = 81 c",
-    "category": "general",
-    "correct": "c"
+    "correct": "e"
   }
 ]
