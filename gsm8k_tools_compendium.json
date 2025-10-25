@@ -1,0 +1,232 @@
+{
+    "Textual_Compendium": {
+        "Tool_Description": "A specialized grade-school mathematical reasoning tool designed to solve multi-step numerical word problems through chain-of-thought reasoning. The tool interprets natural language math problems, breaks them down into logical steps, performs sequential arithmetic operations, and provides free-form numerical answers with complete solution explanations.",
+        "Usage_Scenarios": [
+            {
+                "scenario": "Multi-Step Arithmetic Reasoning",
+                "context": "Solves problems requiring sequential arithmetic operations (addition, subtraction, multiplication, division) across multiple steps. Handles cumulative calculations, running totals, and problems where intermediate results feed into subsequent steps. Example: 'Janet's ducks lay 16 eggs per day. She eats 3 for breakfast and uses 4 for baking. She sells the rest for $2 each. How much does she make daily?'"
+            },
+            {
+                "scenario": "Ratio, Grouping, and Distribution",
+                "context": "Handles problems involving equal distribution, per-unit calculations, splitting quantities among groups, and proportional relationships. Solves scenarios with 'each', 'per', 'every', 'divide equally', and sharing contexts. Example: 'A baker has 120 cookies to pack into boxes. Each box holds 8 cookies. How many boxes does he need?'"
+            },
+            {
+                "scenario": "Temporal and Age Reasoning",
+                "context": "Processes time-based calculations including age differences, time intervals, schedules, and future/past projections. Handles problems with 'years from now', 'years ago', duration calculations, and relative age comparisons. Example: 'John is 3 times as old as his son. In 12 years, John will be twice as old as his son. How old is John now?'"
+            },
+            {
+                "scenario": "Money and Cost Analysis",
+                "context": "Calculates monetary transactions, pricing, budgeting, savings, spending patterns, and profit/loss scenarios. Handles currency operations, change calculations, and financial planning problems typical in everyday contexts. Example: 'Sarah bought 5 notebooks at $3 each and 3 pens at $2 each. If she paid with a $50 bill, how much change did she receive?'"
+            },
+            {
+                "scenario": "Counting, Comparison, and Logical Inference",
+                "context": "Solves problems requiring comparative logic ('more than', 'less than', 'fewer'), counting with constraints, and numerical inference from described relationships. Handles problems where quantities must be derived from relative statements. Example: 'Amy has 15 more apples than Bob. Bob has 8 apples. How many apples do they have together?'"
+            },
+            {
+                "scenario": "Unit Conversion and Measurement",
+                "context": "Performs conversions between compatible units (hours to minutes, feet to inches, dollars to cents) and solves measurement problems. Handles real-world scenarios requiring unit transformation within the same measurement system. Example: 'A rope is 15 feet long. If each piece must be 18 inches, how many pieces can be cut?'"
+            }
+        ],
+        "Precautions": [
+            {
+                "precaution": "Natural Language Comprehension Accuracy",
+                "details": "The tool's effectiveness depends on accurate parsing of grade-school level natural language. Ambiguous phrasing, complex grammatical structures, or implicit assumptions may lead to misinterpretation. Problems should be stated clearly with all necessary information explicitly provided. Missing context or unclear referents (e.g., 'he', 'it', 'them' without clear antecedents) can cause reasoning errors."
+            },
+            {
+                "precaution": "Sequential Reasoning Validation",
+                "details": "Multi-step problems require maintaining logical consistency across all calculation steps. The tool must correctly identify the order of operations and ensure intermediate results are properly carried forward. Each step's output must be validated before being used in subsequent calculations. Errors compound through the chain, so early-step mistakes can cascade into incorrect final answers."
+            },
+            {
+                "precaution": "Numerical Answer Extraction",
+                "details": "Unlike multiple-choice formats, GSM8K requires extracting free-form numerical values. The tool must produce answers in the standardized format '#### [number]' for reliable parsing. Answers may be integers, decimals, or fractions depending on problem context. The extraction mechanism must handle various numerical formats and identify the correct final answer even when multiple numbers appear in the solution text."
+            },
+            {
+                "precaution": "Real-World Context Validation",
+                "details": "Solutions must make practical sense within real-world constraints. The tool should validate that answers are feasible (e.g., no negative ages, no fractional people unless contextually appropriate, reasonable magnitudes for everyday quantities). Answers that violate common sense should trigger verification checks. Grade-school problems assume realistic scenarios that children would encounter."
+            },
+            {
+                "precaution": "Arithmetic Operation Accuracy",
+                "details": "The tool must perform basic arithmetic (addition, subtraction, multiplication, division) with perfect accuracy. Floating-point precision errors, rounding mistakes, or calculation bugs directly compromise answer correctness. All intermediate calculations should maintain appropriate precision, and final answers should match expected numerical formats (whole numbers vs. decimals as contextually appropriate)."
+            },
+            {
+                "precaution": "Chain-of-Thought Completeness",
+                "details": "The tool must generate complete step-by-step explanations showing all reasoning stages. Skipped steps or unexplained logical jumps reduce solution transparency and make error diagnosis difficult. Each calculation step should be explicitly shown with clear transitions. The solution narrative should be comprehensible to a grade-school student or teacher reviewing the work."
+            }
+        ],
+        "Multi_tool_Coordination": {
+            "Description": "The GSM8K Problem Solver operates as a retrieval-augmented generation (RAG) system that coordinates multiple specialized components. It interfaces with a MongoDB Vector Store for semantic retrieval of similar solved problems, uses Jina AI Embeddings for query understanding, employs a Reranker for relevance optimization, and leverages a Language Model for chain-of-thought generation. The system maintains a knowledge base of 7,500+ training examples with complete solutions, enabling few-shot learning from retrieved contexts.",
+            "Examples": [
+                {
+                    "example": "Multi-Step Arithmetic Workflow: For a problem involving sequential calculations (e.g., egg production minus consumption minus usage plus sales), the RAG system retrieves 3-5 similar problems from the vector store, reranks them by relevance, constructs a context-rich prompt with worked examples, and generates a step-by-step solution showing: (1) initial quantity calculation, (2) subtraction of consumed amounts, (3) multiplication by unit price, (4) final revenue computation. The solution concludes with '#### [number]' format for automated extraction."
+                },
+                {
+                    "example": "Ratio and Distribution Processing: For grouping problems (e.g., packing items into boxes with capacity constraints), the system identifies similar ratio-based problems via vector similarity, extracts their solution patterns, and applies the reasoning chain: (1) identify total items and per-group capacity, (2) perform division operation, (3) handle remainder logic (rounding up if partial groups count), (4) validate answer against problem constraints. The Explanation Engine ensures each step is clearly articulated with numerical justifications."
+                },
+                {
+                    "example": "Temporal Reasoning Coordination: For age or time-based problems requiring equation setup, the Problem Categorizer identifies the scenario type (temporal_reasoning), retrieves examples with algebraic setups, and the Algebraic Engine translates relationships into equations. The Calculator solves the system of equations step-by-step, and the Answer Verifier checks that resulting ages/times are non-negative and contextually reasonable before final output."
+                }
+            ]
+        }
+    },
+    "Structured_Annex": {
+        "Entities": [
+            "GSM8K_Problem_Solver",
+            "RAG_System",
+            "Vector_Store",
+            "Embedding_Generator",
+            "Reranker",
+            "Language_Model",
+            "Chain_of_Thought_Generator",
+            "Arithmetic_Calculator",
+            "Problem_Categorizer",
+            "Context_Builder",
+            "Answer_Extractor",
+            "Solution_Validator",
+            "Numerical_Parser",
+            "Step_Sequencer",
+            "Explanation_Engine",
+            "Similarity_Searcher",
+            "MongoDB_Manager",
+            "JinaAI_Client",
+            "Multi_Step_Arithmetic",
+            "Ratio_Grouping",
+            "Temporal_Reasoning",
+            "Money_Cost_Reasoning",
+            "Count_Compare_Logic",
+            "Unit_Conversion",
+            "Grade_School_Math_Problem"
+        ],
+        "Relations": [
+            {
+                "source": "GSM8K_Problem_Solver",
+                "link": "orchestrates",
+                "target": "RAG_System"
+            },
+            {
+                "source": "RAG_System",
+                "link": "queries",
+                "target": "Vector_Store"
+            },
+            {
+                "source": "Embedding_Generator",
+                "link": "encodes",
+                "target": "Grade_School_Math_Problem"
+            },
+            {
+                "source": "Vector_Store",
+                "link": "retrieves",
+                "target": "Grade_School_Math_Problem"
+            },
+            {
+                "source": "Reranker",
+                "link": "optimizes_relevance_of",
+                "target": "Grade_School_Math_Problem"
+            },
+            {
+                "source": "Context_Builder",
+                "link": "assembles",
+                "target": "Chain_of_Thought_Generator"
+            },
+            {
+                "source": "Language_Model",
+                "link": "generates",
+                "target": "Chain_of_Thought_Generator"
+            },
+            {
+                "source": "Chain_of_Thought_Generator",
+                "link": "produces",
+                "target": "Step_Sequencer"
+            },
+            {
+                "source": "Arithmetic_Calculator",
+                "link": "executes_operations_in",
+                "target": "Step_Sequencer"
+            },
+            {
+                "source": "Answer_Extractor",
+                "link": "parses",
+                "target": "Numerical_Parser"
+            },
+            {
+                "source": "Numerical_Parser",
+                "link": "extracts_from",
+                "target": "Chain_of_Thought_Generator"
+            },
+            {
+                "source": "Solution_Validator",
+                "link": "verifies",
+                "target": "Numerical_Parser"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "classifies",
+                "target": "Grade_School_Math_Problem"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "identifies",
+                "target": "Multi_Step_Arithmetic"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "identifies",
+                "target": "Ratio_Grouping"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "identifies",
+                "target": "Temporal_Reasoning"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "identifies",
+                "target": "Money_Cost_Reasoning"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "identifies",
+                "target": "Count_Compare_Logic"
+            },
+            {
+                "source": "Problem_Categorizer",
+                "link": "identifies",
+                "target": "Unit_Conversion"
+            },
+            {
+                "source": "MongoDB_Manager",
+                "link": "manages",
+                "target": "Vector_Store"
+            },
+            {
+                "source": "JinaAI_Client",
+                "link": "provides",
+                "target": "Embedding_Generator"
+            },
+            {
+                "source": "JinaAI_Client",
+                "link": "provides",
+                "target": "Reranker"
+            },
+            {
+                "source": "JinaAI_Client",
+                "link": "provides",
+                "target": "Language_Model"
+            },
+            {
+                "source": "Explanation_Engine",
+                "link": "annotates",
+                "target": "Chain_of_Thought_Generator"
+            },
+            {
+                "source": "Similarity_Searcher",
+                "link": "finds_similar",
+                "target": "Grade_School_Math_Problem"
+            },
+            {
+                "source": "Step_Sequencer",
+                "link": "coordinates",
+                "target": "Arithmetic_Calculator"
+            }
+        ]
+    }
+}
