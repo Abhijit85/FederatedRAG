@@ -11,7 +11,7 @@ from synapse.edge import EdgeAggregator, EdgeConfig
 from synapse.knowledge import KnowledgeArtifact, SynapseCompendium
 from synapse.privacy.policies import PrivacyPolicy
 from synapse.retrieval import RetrievalPlanner, RetrievalConfig
-from synapse.server import SynapseServer, ServerConfig
+from synapse.server import AggregationMode, SynapseServer, ServerConfig
 
 
 class SynapseRuntime:
@@ -33,6 +33,14 @@ class SynapseRuntime:
         self.server = server
         self.retrieval_planner = retrieval_planner or RetrievalPlanner()
         self._last_snapshot: Optional[SynapseCompendium] = None
+        self._last_adapter_bundle = None
+        # Enforce the governance checklist after components are wired.
+        try:
+            from synapse.checks import FederationChecklist
+
+            FederationChecklist.ensure_runtime(self)
+        except ImportError:
+            pass
 
     @staticmethod
     def _dp_enabled_from_env(default: bool = True) -> bool:
@@ -110,7 +118,20 @@ class SynapseRuntime:
             "edge-general": EdgeAggregator(EdgeConfig(edge_id="edge-general", domains=["math", "science"])),
         }
 
-        server = SynapseServer(ServerConfig(server_id="synapse-central"))
+        agg_mode = AggregationMode.from_string(os.environ.get("SYNAPSE_SERVER_AGG_MODE"))
+        secagg_provider = os.environ.get("SYNAPSE_SECAGG_PROVIDER", "simple")
+        secagg_secret = os.environ.get("SYNAPSE_SECAGG_SECRET", "synapse-shared-secret")
+        secagg_attestation = os.environ.get("SYNAPSE_SECAGG_ATTESTATION", "")
+        server = SynapseServer(
+            ServerConfig(
+                server_id="synapse-central",
+                expected_clients=client_count,
+                aggregation_mode=agg_mode,
+                secagg_provider=secagg_provider,
+                secagg_secret=secagg_secret,
+                secagg_attestation=secagg_attestation,
+            )
+        )
         retrieval = RetrievalPlanner(RetrievalConfig(max_artifacts=6))
 
         return cls(config=config, clients=clients, edges=edges, server=server, retrieval_planner=retrieval)
@@ -127,12 +148,22 @@ class SynapseRuntime:
                 package = client.prepare_for_edge()
                 if package.artifacts:
                     packages.append(package)
+                if hasattr(client, "prepare_adapter_update"):
+                    adapter_update = client.prepare_adapter_update()
+                    self.server.ingest_adapter_update(adapter_update)
             if not packages:
                 continue
             merged = edge.merge_packages(packages)
             if merged:
                 self.server.ingest_from_edge(merged)
 
+        adapter_bundle = self.server.flush_pending_updates()
+        if adapter_bundle:
+            for client in self.clients.values():
+                apply_fn = getattr(client, "apply_global_bundle", None)
+                if callable(apply_fn):
+                    apply_fn(adapter_bundle)
+        self._last_adapter_bundle = adapter_bundle
         self._last_snapshot = self.server.compendium
 
     def get_context_for_query(self, query: str, max_items: int = 5) -> List[KnowledgeArtifact]:
@@ -171,10 +202,32 @@ class SynapseRuntime:
         Provide a lightweight summary of the current federation state.
         """
         snapshot = self.server.distribute_snapshot()
-        return {
+        summary = {
             "artifact_count": len(snapshot.artifacts),
             "version_history": self.server.version_history,
         }
+        if self._last_adapter_bundle:
+            summary["adapter_version"] = self._last_adapter_bundle.version
+            summary["privacy_budget"] = self._last_adapter_bundle.privacy_budget_remaining.to_dict()
+        try:
+            trust_scores = self.server.trust_scores
+        except AttributeError:
+            trust_scores = {}
+        if trust_scores:
+            summary["trust_scores"] = trust_scores
+        aggregator_facade = getattr(self.server, "aggregator_facade", None)
+        if aggregator_facade:
+            if aggregator_facade.poisoning_flags:
+                summary["poisoning_flags"] = aggregator_facade.poisoning_flags
+            if aggregator_facade.adapter_norm_zscores:
+                summary["adapter_norm_zscores"] = aggregator_facade.adapter_norm_zscores
+            if aggregator_facade.quarantine_queue:
+                summary["quarantine_queue"] = aggregator_facade.quarantine_queue
+            summary["aggregation_mode"] = getattr(self.server, "aggregation_mode", AggregationMode.ROBUST).value
+            attestation = getattr(self.server, "secagg_attestation", lambda: {})()
+            if attestation:
+                summary["secagg_attestation"] = attestation
+        return summary
 
     def plan_context_for_tool(self, query: str, tool_name: str) -> List[str]:
         """
