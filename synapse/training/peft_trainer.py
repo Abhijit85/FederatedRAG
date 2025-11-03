@@ -10,6 +10,7 @@ from synapse.training.dp import DPConfig
 from synapse.training.gradient import project_gradient
 from synapse.training.lora import LoRALayerConfig
 from synapse.training.texgrad import TexGradHead, TexGradConfig, TexGradSample
+from synapse.training.texgrad_models import CitationAligner, EntailmentScorer
 
 try:  # Optional heavy dependencies
     import torch
@@ -117,6 +118,8 @@ class PEFTTexGradTrainer:
 
         self.optimizer = torch.optim.AdamW(self.base_model.parameters(), lr=1e-4)
         self.texgrad_head = TexGradHead(self.texgrad_config)
+        self.entail_scorer = EntailmentScorer(device=self.device)
+        self.citation_aligner = CitationAligner(device=self.device)
 
     def _build_prompt(self, sample: TexGradSample) -> Tuple[str, str]:
         context_lines = []
@@ -138,6 +141,7 @@ class PEFTTexGradTrainer:
         prompt_tokens: int,
         positives: torch.Tensor,
         negatives: torch.Tensor,
+        sample: TexGradSample,
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         lm_loss = outputs.loss
 
@@ -147,21 +151,31 @@ class PEFTTexGradTrainer:
         answer_summary = answer_states.mean(dim=1)
 
         positive_summary = positives.mean(dim=0, keepdim=True)
-        entail_logits = torch.matmul(answer_summary, positive_summary.t())
-        entail_targets = torch.ones_like(entail_logits)
-        entail_loss = F.binary_cross_entropy_with_logits(entail_logits, entail_targets)
+        entail_target = torch.tensor(
+            self.entail_scorer.score(sample.answer, sample.positive_contexts),
+            device=self.device,
+        )
+        entail_logits = torch.matmul(answer_summary, positive_summary.t()).squeeze(1)
+        entail_pred = torch.sigmoid(entail_logits).mean()
+        entail_loss = F.mse_loss(entail_pred, entail_target)
 
         coverage_scores = torch.matmul(answer_states, positives.t())
         coverage_probs = torch.softmax(coverage_scores, dim=-1)
         citation_loss = torch.relu(1 - coverage_probs.max(dim=-1).values).mean()
 
+        cov_target = torch.tensor(
+            self.citation_aligner.coverage(sample.answer, sample.positive_contexts),
+            device=self.device,
+        )
         if negatives.numel() > 0:
             negative_summary = negatives.mean(dim=0, keepdim=True)
             contrast_logits = torch.matmul(answer_summary, negative_summary.t())
-            contrast_targets = torch.zeros_like(contrast_logits)
-            contrastive_loss = F.binary_cross_entropy_with_logits(contrast_logits, contrast_targets)
+            contrastive_loss = F.softplus(contrast_logits).mean()
         else:
             contrastive_loss = torch.tensor(0.0, device=self.device)
+        cit_logits = torch.matmul(answer_states, positives.t())
+        cit_pred = torch.softmax(cit_logits, dim=-1).max(dim=-1).values.mean()
+        citation_loss = F.mse_loss(cit_pred, cov_target)
 
         return lm_loss, entail_loss, citation_loss, contrastive_loss
 
@@ -284,6 +298,7 @@ class PEFTTexGradTrainer:
                 prompt_tokens,
                 positives,
                 negatives,
+                sample,
             )
 
             lm_total = lm_total + lm_loss

@@ -9,13 +9,16 @@ import numpy as np
 try:
     import torch
     from torch import nn
+    import torch.nn.functional as F
 except ImportError:  # pragma: no cover - torch optional
     torch = None
     nn = object  # type: ignore
+    F = None  # type: ignore
 
 from synapse.training.gradient import project_gradient
 from synapse.training.lora import LoRALayerConfig
 from synapse.training.texgrad import TexGradSample, TexGradHead, TexGradConfig
+from synapse.training.texgrad_models import CitationAligner, EntailmentScorer
 
 
 def _require_torch() -> None:
@@ -101,6 +104,8 @@ class TexGradLoRATrainer:
         self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
         self.texgrad_config = texgrad_config or TexGradConfig()
         self.texgrad_head = TexGradHead(self.texgrad_config)
+        self.entail_scorer = EntailmentScorer(device=self.device)
+        self.citation_aligner = CitationAligner(device=self.device)
 
         base_dim = self.config.base_dimension
         self.modules: Dict[str, _LoRALinear] = {}
@@ -159,8 +164,22 @@ class TexGradLoRATrainer:
 
             # Compute differentiable proxy losses
             lm_loss = 1 - torch.cosine_similarity(primary, a_vec.unsqueeze(0)).mean()
-            entailment_loss = torch.relu(1 - torch.cosine_similarity(primary, a_vec.unsqueeze(0))).mean()
-            citation_loss = torch.relu(1 - torch.cosine_similarity(primary, contrast_vec.unsqueeze(0))).mean()
+
+            ent_target = torch.tensor(
+                self.entail_scorer.score(sample.answer, sample.positive_contexts),
+                device=self.device,
+            )
+            ent_pred = torch.sigmoid((primary * a_vec.unsqueeze(0)).sum(dim=-1)).mean()
+            entailment_loss = F.mse_loss(ent_pred, ent_target)
+
+            cit_target = torch.tensor(
+                self.citation_aligner.coverage(sample.answer, sample.positive_contexts),
+                device=self.device,
+            )
+            dot_scores = torch.matmul(primary, contrast_vec.unsqueeze(0).t()).squeeze(1)
+            coverage_pred = torch.softmax(dot_scores, dim=-1).max()
+            citation_loss = F.mse_loss(coverage_pred, cit_target)
+
             contrastive_loss = torch.relu(torch.cosine_similarity(primary, contrast_vec.unsqueeze(0))).mean()
 
             lm_total = lm_total + lm_loss

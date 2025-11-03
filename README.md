@@ -14,6 +14,7 @@ The project includes two main tools:
 - Python packages: `requests`, `numpy`, `pandas`, `chromadb`, `openai`, `datasets`, `pillow`, `python-dotenv`, `pymongo`
 - Optional for real TexGrad backpropagation: `torch`, `peft`, `accelerate`, `bitsandbytes`
 - Optional for production DP/optimisation: `opacus` (required when `SYNAPSE_CLIENT_USE_PEFT` or `SYNAPSE_CENTRAL_USE_PEFT` is enabled)
+- Optional for richer TexGrad signals: `transformers` + pre-trained entailment (`SYNAPSE_TEXGRAD_ENT_MODEL`) and citation (`SYNAPSE_TEXGRAD_CITATION_MODEL`) classifiers.
 
 ### Environment Variables
 Create a `.env` file in the repository root:
@@ -45,6 +46,7 @@ All major TexGrad/LoRA settings can be changed through `.env` without code edits
 - `SYNAPSE_CLIENT_DP_CLIP`, `SYNAPSE_CLIENT_DP_NOISE`, `SYNAPSE_CLIENT_DP_SAMPLE_RATE` – tune client DP clipping and Gaussian noise.
 - `SYNAPSE_CLIENT_SECAGG_PROTOCOL`, `SYNAPSE_CLIENT_SECAGG_KEY_ROTATION` – swap secure aggregation protocol details.
 - `SYNAPSE_SECAGG_PROVIDER` (`simple`, `tee`) / `SYNAPSE_SECAGG_SECRET` / `SYNAPSE_SECAGG_ATTESTATION` – choose the secure aggregation backend and provide shared secret or attestation handle; same variables with the `SYNAPSE_CENTRAL_` prefix control centralized training.
+- `SYNAPSE_TEXGRAD_ENT_MODEL`, `SYNAPSE_TEXGRAD_CITATION_MODEL` – optional Hugging Face model IDs for entailment and citation scoring used during TexGrad steering.
 - `SYNAPSE_CLIENT_HEARTBEAT_INTERVAL`, `SYNAPSE_CLIENT_RETRY_QUEUE_LIMIT`, `SYNAPSE_CLIENT_OFFLINE_GRACE` – adjust health-monitor heartbeat cadence and retries.
 - `SYNAPSE_CENTRAL_BASE_MODEL`, `SYNAPSE_CENTRAL_QUANTIZATION`, `SYNAPSE_CENTRAL_LORA_TARGETS`, `SYNAPSE_CENTRAL_LORA_RANKS` – control the centralized trainer’s base model and adapter footprint.
 - `SYNAPSE_CENTRAL_EPOCHS`, `SYNAPSE_CENTRAL_STEPS_PER_EPOCH`, `SYNAPSE_CENTRAL_BATCH_SIZE`, `SYNAPSE_CENTRAL_TRAIN_CORPORA` – drive epochs, steps, batch size, and corpus paths for Synapse-Central.
