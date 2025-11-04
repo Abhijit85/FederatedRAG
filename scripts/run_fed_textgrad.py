@@ -78,6 +78,7 @@ def _resolve_runtime_defaults() -> tuple[bool, str, str, int]:
     return online_ready, eval_default, test_default, client_default
 
 
+
 def parse_args() -> argparse.Namespace:
     online_ready, eval_default, test_default, client_default = _resolve_runtime_defaults()
 
@@ -235,19 +236,23 @@ def main() -> None:
     train_splits = make_client_splits(train_set, args.client_count)
 
     for round_idx in range(args.rounds):
+        print(f"[Round {round_idx + 1}] Starting client training …")
         train_clients(runtime, settings, train_splits, eval_fn)
+        print(f"[Round {round_idx + 1}] Finished client training.")
         runtime.run_round()
         runtime.server.distribute_snapshot()
-        print(f"[Round {round_idx + 1}] Completed federation and snapshot export.")
+        print(f"[Round {round_idx + 1}] Snapshot distributed.")
 
     if args.output_snapshot:
         runtime.export_snapshot(args.output_snapshot)
         print(f"✅ Exported TextGrad snapshot to '{args.output_snapshot}'.")
 
+    print("[Eval] Initialising MathQATool and ScienceQATool …")
     tool_registry = {
         "mathqa": MathQATool(),
         "scienceqa": ScienceQATool(),
     }
+    print("[Eval] Tool registry ready. Beginning mixed-query evaluation …")
     agent = SynapseAgent(runtime=runtime, tool_registry=tool_registry)
     try:
         metrics = evaluate_agent(agent, args.mixed_queries)

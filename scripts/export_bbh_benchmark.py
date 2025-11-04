@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 from pathlib import Path
 
 import sys
@@ -23,8 +24,9 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Export BBH task samples to mixed-query format.")
     parser.add_argument("--task", default="BBH_object_counting", help="Name of the BBH task to load.")
     parser.add_argument("--split", choices=["train", "val", "test"], default="test", help="Dataset split to sample from.")
-    parser.add_argument("--limit", type=int, default=50, help="Maximum number of samples to export (0 = all).")
+    parser.add_argument("--limit", type=int, default=0, help="Maximum number of samples to export (0 = all).")
     parser.add_argument("--output", type=Path, default=Path("bbh_object_counting_eval.json"), help="Destination JSON file.")
+    parser.add_argument("--auto", action="store_true", help="Regenerate the output file automatically on import.")
     return parser.parse_args()
 
 
@@ -33,10 +35,14 @@ def main() -> None:
     task_name = args.task.replace("BBH_", "")
     dataset = BigBenchHard(task_name, split=args.split)
 
+    indices = list(range(len(dataset)))
+    random.shuffle(indices)
+
     samples = []
-    for idx, (question, answer) in enumerate(dataset):
-        if args.limit and idx >= args.limit:
+    for idx in indices:
+        if args.limit and len(samples) >= args.limit:
             break
+        question, answer = dataset[idx]
         samples.append(
             {
                 "question": question,

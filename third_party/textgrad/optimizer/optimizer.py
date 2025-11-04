@@ -1,3 +1,4 @@
+import re
 from abc import ABC, abstractmethod
 from typing import List, Union
 from collections import defaultdict
@@ -176,13 +177,8 @@ class TextualGradientDescent(Optimizer):
         for parameter in self.parameters:
             prompt_update_parameter = self._update_prompt(parameter)
             new_text = self.engine(prompt_update_parameter, system_prompt=self.optimizer_system_prompt)
-            logger.info(f"TextualGradientDescent optimizer response", extra={"optimizer.response": new_text})
-            try:
-                new_value = new_text.split(self.new_variable_tags[0])[1].split(self.new_variable_tags[1])[0].strip()
-            # Check if we got a cannot be indexed error
-            except IndexError:
-                logger.error(f"TextualGradientDescent optimizer response could not be indexed", extra={"optimizer.response": new_text})
-                raise IndexError(f"TextualGradientDescent optimizer response could not be indexed. This can happen if the optimizer model cannot follow the instructions. You can try using a stronger model, or somehow reducing the context of the optimization. Response: {new_text}")
+            logger.info("TextualGradientDescent optimizer response", extra={"optimizer.response": new_text})
+            new_value = self._extract_new_variable_value(new_text)
             parameter.set_value(new_value)
             logger.info(f"TextualGradientDescent updated text", extra={"parameter.value": parameter.value})
             if self.verbose:
@@ -191,6 +187,56 @@ class TextualGradientDescent(Optimizer):
             
             if self.do_gradient_memory:
                 self.update_gradient_memory(parameter)
+
+    def _extract_new_variable_value(self, response_text: str) -> str:
+        """
+        Parse the optimizer response and return the improved variable text.
+        Falls back to best-effort heuristics when tags are missing instead of
+        raising, which keeps optimisation running even with imperfect models.
+        """
+        start_tag, end_tag = self.new_variable_tags
+        if start_tag in response_text and end_tag in response_text:
+            return response_text.split(start_tag, 1)[1].split(end_tag, 1)[0].strip()
+
+        logger.warning(
+            "Optimizer response missing %s/%s tags; falling back to heuristic extraction.",
+            start_tag,
+            end_tag,
+            extra={"optimizer.response": response_text},
+        )
+
+        fallback = self._heuristic_variable_from_response(response_text)
+        if fallback:
+            return fallback
+
+        # Absolute fallback: return the raw response trimmed so we at least keep progressing.
+        return response_text.strip()
+
+    @staticmethod
+    def _heuristic_variable_from_response(response_text: str) -> str:
+        """
+        Attempt to pull a reasonable variable text from models that ignore the
+        tagging instructions. Looks for common phrases like "The improved variable is".
+        """
+        heuristics = [
+            r"[Tt]he improved variable is\s*[:\-]\s*(.*)",
+            r"[Ii]mproved prompt\s*[:\-]\s*(.*)",
+            r"[Ff]inal answer\s*[:\-]\s*(.*)",
+            r"[Aa]nswer\s*[:\-]\s*(.*)",
+        ]
+        for pattern in heuristics:
+            match = re.search(pattern, response_text)
+            if match:
+                candidate = match.group(1).strip()
+                if candidate:
+                    return candidate
+
+        # Try last non-empty line
+        for line in reversed(response_text.splitlines()):
+            stripped = line.strip()
+            if stripped:
+                return stripped
+        return ""
 
 
 class TextualGradientDescentwithMomentum(Optimizer):
