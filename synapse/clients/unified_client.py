@@ -2,10 +2,14 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Dict, List, Sequence
+from typing import Dict, List, Optional, Sequence
+
+from third_party.textgrad import Variable
+from third_party.textgrad_utils.prompt_complexity import calculate_text_complexity
 
 from synapse.clients.client import ClientMetadata, SynapseClient
 from synapse.knowledge.compendium import KnowledgeArtifact
+from synapse.textgrad_support import TextGradSettings
 
 
 class UnifiedQAClient(SynapseClient):
@@ -24,6 +28,7 @@ class UnifiedQAClient(SynapseClient):
         *,
         privacy_policy=None,
         training_sample_limit: int = 20,
+        textgrad_settings: Optional[TextGradSettings] = None,
     ) -> None:
         super().__init__(metadata, privacy_policy=privacy_policy)
         self.math_compendium_path = math_compendium_path
@@ -31,6 +36,12 @@ class UnifiedQAClient(SynapseClient):
         self.science_compendium_path = science_compendium_path
         self.science_dataset_path = science_dataset_path
         self.training_sample_limit = training_sample_limit
+        self._textgrad_settings = textgrad_settings
+        self._cached_artifacts: Optional[List[KnowledgeArtifact]] = None
+
+    def set_textgrad_settings(self, settings: TextGradSettings) -> None:
+        self._textgrad_settings = settings
+        self._cached_artifacts = None
 
     def _load_json_file(self, path: Path) -> Dict[str, object] | List[Dict[str, object]]:
         with path.open("r", encoding="utf-8") as fh:
@@ -68,6 +79,9 @@ class UnifiedQAClient(SynapseClient):
         return []
 
     def collect_local_artifacts(self):
+        if self._textgrad_settings and self._textgrad_settings.enabled and self._cached_artifacts is not None:
+            return self._cached_artifacts
+
         artifacts: List[KnowledgeArtifact] = []
 
         # Math usage scenarios
@@ -81,15 +95,16 @@ class UnifiedQAClient(SynapseClient):
                 "difficulty": scenario.get("difficulty", "medium"),
             }
             artifacts.append(
-                KnowledgeArtifact(
+                self._create_textgrad_artifact(
                     signature=f"unified::math::scenario::{scenario_name}",
                     text=f"{scenario_name}: {context}",
-                    structured_payload={
+                    metadata=metadata,
+                    payload={
                         "type": "usage_scenario",
                         "skills": scenario.get("skills", []),
                         "example": scenario.get("example"),
                     },
-                    metadata=metadata,
+                    role_description="structured system prompt for math QA scenarios",
                 )
             )
 
@@ -110,11 +125,12 @@ class UnifiedQAClient(SynapseClient):
                 "difficulty": difficulty,
             }
             artifacts.append(
-                KnowledgeArtifact(
+                self._create_textgrad_artifact(
                     signature=f"unified::math::example::{hash(question)}",
                     text=f"Problem: {question}\nSolution: {solution}",
-                    structured_payload=structured,
                     metadata=metadata,
+                    payload=structured,
+                    role_description="instructional prompt describing a math QA training example",
                 )
             )
 
@@ -137,11 +153,12 @@ class UnifiedQAClient(SynapseClient):
                 "textual_skills": scenario.get("skills", []),
             }
             artifacts.append(
-                KnowledgeArtifact(
+                self._create_textgrad_artifact(
                     signature=f"unified::science::scenario::{scenario_name}",
                     text=f"{scenario_name}: {context}",
-                    structured_payload=payload,
                     metadata=metadata,
+                    payload=payload,
+                    role_description="structured system prompt for science QA scenarios",
                 )
             )
 
@@ -166,12 +183,58 @@ class UnifiedQAClient(SynapseClient):
             }
             text_block = f"Question: {question}\nLecture: {lecture}"
             artifacts.append(
-                KnowledgeArtifact(
+                self._create_textgrad_artifact(
                     signature=f"unified::science::example::{hash(question)}",
                     text=text_block,
-                    structured_payload=payload,
                     metadata=metadata,
+                    payload=payload,
+                    role_description="instructional prompt describing a science QA training example",
                 )
             )
 
+        if self._textgrad_settings and self._textgrad_settings.enabled:
+            self._cached_artifacts = artifacts
+
         return artifacts
+
+    def _create_textgrad_artifact(
+        self,
+        *,
+        signature: str,
+        text: str,
+        metadata: Dict[str, object],
+        payload: Dict[str, object],
+        role_description: str,
+    ) -> KnowledgeArtifact:
+        metadata_copy = dict(metadata)
+        payload_copy = dict(payload)
+        textgrad_variable: Optional[Variable] = None
+
+        if self._textgrad_settings and self._textgrad_settings.enabled:
+            textgrad_variable = Variable(
+                text,
+                requires_grad=True,
+                role_description=role_description,
+            )
+            complexity = calculate_text_complexity(text)
+            metadata_copy["textgrad_enabled"] = True
+            metadata_copy["textgrad_complexity"] = complexity
+            metadata_copy["textgrad_role"] = role_description
+
+            textgrad_payload = dict(payload_copy.get("textgrad", {}))
+            textgrad_payload.update(
+                {
+                    "role": role_description,
+                    "complexity": complexity,
+                    "aggregate_method": self._textgrad_settings.aggregate_method,
+                }
+            )
+            payload_copy["textgrad"] = textgrad_payload
+
+        return KnowledgeArtifact(
+            signature=signature,
+            text=text,
+            structured_payload=payload_copy,
+            metadata=metadata_copy,
+            textgrad_variable=textgrad_variable,
+        )

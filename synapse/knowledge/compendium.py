@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -20,6 +20,7 @@ class KnowledgeArtifact:
     text: str
     structured_payload: Optional[Dict[str, object]] = None
     metadata: Dict[str, object] = field(default_factory=dict)
+    textgrad_variable: Optional[Any] = None
 
 
 @dataclass
