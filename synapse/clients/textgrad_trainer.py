@@ -40,6 +40,7 @@ class TextGradPromptTrainer:
         optimizer: TextualGradientDescent,
         eval_fn,
         system_prompt: Variable,
+        validation_samples: Sequence[Tuple[str, str]] | None = None,
     ) -> List[BatchTrainingResult]:
         """
         Execute a lightweight TextGrad training loop using proximal updates.
@@ -47,6 +48,11 @@ class TextGradPromptTrainer:
         results: List[BatchTrainingResult] = []
         max_steps = self.settings.max_steps
         step_counter = 0
+
+        baseline_prompt = system_prompt.get_value()
+        baseline_validation_score = None
+        if validation_samples:
+            baseline_validation_score = self._evaluate_on_samples(model, eval_fn, validation_samples)
 
         for batch_x, batch_y in dataloader:
             optimizer.zero_grad()
@@ -68,7 +74,6 @@ class TextGradPromptTrainer:
 
             batch_loss /= max(len(batch_x), 1)
 
-            baseline_prompt = system_prompt.get_value()
             total_loss = tg_sum(losses)
             total_loss.backward(engine=optimizer.engine)
             optimizer.step()
@@ -88,8 +93,18 @@ class TextGradPromptTrainer:
             updated_loss /= max(len(batch_x), 1)
 
             accepted_update = self._accept_update(batch_loss, updated_loss)
-            if not accepted_update:
+            validation_accept = True
+            if validation_samples:
+                new_validation_score = self._evaluate_on_samples(model, eval_fn, validation_samples)
+                if baseline_validation_score is not None and new_validation_score < baseline_validation_score:
+                    validation_accept = False
+                else:
+                    baseline_validation_score = new_validation_score
+
+            if not (accepted_update and validation_accept):
                 system_prompt.set_value(baseline_prompt)
+            else:
+                baseline_prompt = system_prompt.get_value()
 
             complexity = calculate_text_complexity(system_prompt.get_value())
             results.append(
@@ -144,3 +159,25 @@ class TextGradPromptTrainer:
             if matches:
                 return int(matches[-1])
         raise ValueError(f"Unable to parse label from value: {label!r}")
+
+    @staticmethod
+    def _evaluate_on_samples(model: BlackboxLLM, eval_fn, samples: Sequence[Tuple[str, str]]) -> float:
+        """
+        Evaluate the current prompt on a set of (question, answer) pairs.
+        """
+        if not samples:
+            return 0.0
+        total = 0.0
+        count = 0
+        for question, answer in samples:
+            x_var = Variable(question, requires_grad=False, role_description="validation query")
+            y_val = TextGradPromptTrainer._coerce_label(answer)
+            y_var = Variable(y_val, requires_grad=False, role_description="validation ground truth")
+            response = model(x_var)
+            try:
+                eval_output = eval_fn(inputs={"prediction": response, "ground_truth_answer": y_var})
+            except Exception:
+                eval_output = eval_fn([x_var, y_var, response])
+            total += TextGradPromptTrainer._extract_accuracy(eval_output)
+            count += 1
+        return total / max(count, 1)

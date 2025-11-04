@@ -11,7 +11,7 @@ import sys
 from typing import Dict, List
 
 from dotenv import load_dotenv
-from torch.utils.data import random_split
+from torch.utils.data import random_split, Subset
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -184,6 +184,7 @@ def train_clients(
     settings: TextGradSettings,
     train_splits,
     eval_fn,
+    validation_dataset=None,
 ) -> None:
     trainer = TextGradPromptTrainer(settings)
     settings.ensure_engines()
@@ -197,6 +198,11 @@ def train_clients(
             continue
         dataloader = DataLoader(train_subset, batch_size=settings.batch_size, shuffle=True)
 
+        validation_samples = None
+        if validation_dataset:
+            sample_count = min(len(validation_dataset), settings.batch_size)
+            validation_samples = [validation_dataset[i] for i in range(sample_count)]
+
         for artifact in artifacts:
             if artifact.textgrad_variable is None:
                 continue
@@ -204,7 +210,14 @@ def train_clients(
             model = BlackboxLLM(test_engine, system_prompt)
             optimizer = TextualGradientDescent(engine=evaluation_engine, parameters=[system_prompt])
 
-            results = trainer.train_batches(dataloader, model, optimizer, eval_fn, system_prompt)
+            results = trainer.train_batches(
+                dataloader,
+                model,
+                optimizer,
+                eval_fn,
+                system_prompt,
+                validation_samples=validation_samples,
+            )
             if not results:
                 continue
             last_result = results[-1]
@@ -232,12 +245,14 @@ def main() -> None:
     settings.proximal_update = not args.disable_proximal
     settings.ensure_engines()
 
-    train_set, _, _, eval_fn = load_task(args.task, evaluation_api=settings.evaluation_engine)
-    train_splits = make_client_splits(train_set, args.client_count)
+    train_set, val_set, _, eval_fn = load_task(args.task, evaluation_api=settings.evaluation_engine)
+    train_limit = min(len(train_set), 20)
+    train_subset = Subset(train_set, list(range(train_limit)))
+    train_splits = make_client_splits(train_subset, args.client_count)
 
     for round_idx in range(args.rounds):
         print(f"[Round {round_idx + 1}] Starting client training …")
-        train_clients(runtime, settings, train_splits, eval_fn)
+        train_clients(runtime, settings, train_splits, eval_fn, validation_dataset=val_set)
         print(f"[Round {round_idx + 1}] Finished client training.")
         runtime.run_round()
         runtime.server.distribute_snapshot()
