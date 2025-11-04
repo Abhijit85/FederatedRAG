@@ -33,7 +33,7 @@ def sync_tool_model_env() -> None:
     Ensure downstream tools have a default model before heavy imports that
     read EVAL_MODEL/VLM_MODEL.
     """
-    test_engine = os.environ.get("TEXTGRAD_TEST_ENGINE")
+    test_engine = os.environ.get("TEXTGRAD_TEST_ENGINE") or os.environ.get("MODEL_NAME")
     if test_engine:
         os.environ.setdefault("EVAL_MODEL", test_engine)
         os.environ.setdefault("VLM_MODEL", test_engine)
@@ -55,17 +55,16 @@ from third_party.textgrad.tasks import DataLoader, load_task
 def _resolve_runtime_defaults() -> tuple[bool, str, str, int]:
     """
     Decide whether we should default to online models or offline mocks.
-    Online defaults are only enabled when both TEXTGRAD_EVAL_ENGINE and
+    Online defaults are only enabled when both MODEL_NAME and
     SYNAPSE_CLIENT_COUNT are populated in the environment.
     """
-    env_eval = os.environ.get("TEXTGRAD_EVAL_ENGINE", "").strip()
+    env_model = os.environ.get("MODEL_NAME", "").strip()
     env_client = os.environ.get("SYNAPSE_CLIENT_COUNT", "").strip()
-    env_test = os.environ.get("TEXTGRAD_TEST_ENGINE", "").strip()
-    online_ready = bool(env_eval and env_client)
+    online_ready = bool(env_model and env_client)
 
     if online_ready:
-        eval_default = env_eval
-        test_default = env_test if env_test else "gpt-3.5-turbo-0125"
+        eval_default = env_model
+        test_default = env_model
         try:
             client_default = int(env_client)
         except ValueError:
@@ -96,11 +95,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-snapshot", type=Path, default=Path("synapse_textgrad_snapshot.json"), help="Path to export the final compendium snapshot.")
 
     args = parser.parse_args()
+    args.test_engine = args.evaluation_engine  # enforce single-model usage
     setattr(args, "online_ready", online_ready)
 
     if not online_ready:
         if args.evaluation_engine != "offline-mock" or args.test_engine != "offline-mock":
-            print("⚠️ TEXTGRAD_EVAL_ENGINE/SYNAPSE_CLIENT_COUNT not populated; forcing offline mock engines.")
+            print("⚠️ MODEL_NAME/SYNAPSE_CLIENT_COUNT not populated; forcing offline mock engines.")
             args.evaluation_engine = "offline-mock"
             args.test_engine = "offline-mock"
     return args
@@ -208,7 +208,7 @@ def train_clients(
                 continue
             system_prompt = artifact.textgrad_variable
             model = BlackboxLLM(test_engine, system_prompt)
-            optimizer = TextualGradientDescent(engine=evaluation_engine, parameters=[system_prompt])
+            optimizer = TextualGradientDescent(engine=test_engine, parameters=[system_prompt])
 
             results = trainer.train_batches(
                 dataloader,
