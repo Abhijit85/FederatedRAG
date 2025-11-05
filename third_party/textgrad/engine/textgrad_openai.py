@@ -8,6 +8,10 @@ import os
 import json
 import base64
 import platformdirs
+try:
+    from dotenv import load_dotenv
+except ImportError:  # pragma: no cover - optional dependency
+    load_dotenv = None
 from tenacity import (
     retry,
     stop_after_attempt,
@@ -33,23 +37,19 @@ if os.getenv("OLLAMA_API_KEY"):
     OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY")
 
 
-# Default base URL for VLLM
-VLLM_BASE_URL = 'http://localhost:8000/v1'
-
-# Check if the user set the VLLM_BASE_URL environment variable
-if os.getenv("VLLM_BASE_URL"):
-    VLLM_BASE_URL = os.getenv("VLLM_BASE_URL")
-
-# Default base URL for VLLM
-VLLM_API_KEY = 'vllm'
-
-# Check if the user set the VLLM_BASE_URL environment variable
-if os.getenv("VLLM_API_KEY"):
-    VLLM_API_KEY = os.getenv("VLLM_API_KEY")
-
 OPENROUTER_BASE_URL = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
 
 logger = logging.getLogger(__name__)
+
+_DOTENV_LOADED = False
+
+
+def _ensure_dotenv_loaded() -> None:
+    global _DOTENV_LOADED
+    if _DOTENV_LOADED or load_dotenv is None:
+        return
+    load_dotenv()
+    _DOTENV_LOADED = True
 
 
 def _resolve_cache_root() -> str:
@@ -98,6 +98,7 @@ class ChatOpenAI(EngineLM, CachedEngine):
         :param system_prompt:
         :param base_url: Used to support Ollama
         """
+        _ensure_dotenv_loaded()
         root = _resolve_cache_root()
         cache_path = os.path.join(root, f"cache_openai_{model_string}.db")
 
@@ -106,23 +107,14 @@ class ChatOpenAI(EngineLM, CachedEngine):
         self.system_prompt = system_prompt
         self.base_url = base_url
 
-        using_vllm = False
         using_azure = False
-        if "using_vllm" in kwargs:
-            using_vllm = kwargs["using_vllm"]
         if "using_azure" in kwargs:
             using_azure = kwargs["using_azure"]
          
         if using_azure:
             return
         
-        if using_vllm:
-            self.client = OpenAI(
-                base_url=base_url,
-                api_key=VLLM_API_KEY
-            )
-            return
-        elif base_url and base_url == OLLAMA_BASE_URL:
+        if base_url and base_url == OLLAMA_BASE_URL:
             self.client = OpenAI(
                 base_url=base_url,
                 api_key=OLLAMA_API_KEY

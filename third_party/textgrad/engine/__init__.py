@@ -6,8 +6,6 @@ __ENGINE_NAME_SHORTCUTS__ = {
     "sonnet": "claude-3-sonnet-20240229",
     "sonnet-3.5": "claude-3-5-sonnet-20240620",
     "together-llama-3-70b": "together-meta-llama/Llama-3-70b-chat-hf",
-    "vllm-llama-3-8b": "vllm-meta-llama/Meta-Llama-3-8B-Instruct",
-    "vllm-llama-3.2-11b": "vllm-meta-llama/Meta-Llama-3.2-11B-Instruct",
     "llama-4-maverick": "meta-llama/llama-4-maverick",
     "llama-guard-4-12b": "meta-llama/llama-guard-4-12b",
 }
@@ -50,23 +48,6 @@ def get_engine(engine_name: str, **kwargs) -> EngineLM:
             base_url=OLLAMA_BASE_URL,
             **kwargs
         )
-    elif engine_name.startswith("vllm-api"):
-        from .textgrad_openai import ChatOpenAI, VLLM_BASE_URL
-        model_string = engine_name.replace("vllm-api-", "")
-
-        if model_string == "llama3":
-            model_string = "meta-llama/Meta-Llama-3-8B-Instruct"
-        elif model_string == "llama3.1":
-            model_string = "meta-llama/Meta-Llama-3.1-8B-Instruct"
-        else:
-            raise ValueError("Not supported vllm model.")
-
-        return ChatOpenAI(
-            model_string=model_string,
-            base_url=VLLM_BASE_URL,
-            using_vllm=True,
-            **kwargs
-        )
     elif (("gpt-4" in engine_name) or ("gpt-3.5" in engine_name)):
         from .textgrad_openai import ChatOpenAI
         return ChatOpenAI(model_string=engine_name, is_multimodal=_check_if_multimodal(engine_name), **kwargs)
@@ -89,9 +70,5 @@ def get_engine(engine_name: str, **kwargs) -> EngineLM:
     elif engine_name in ["command-r-plus", "command-r", "command", "command-light"]:
         from .cohere import ChatCohere
         return ChatCohere(model_string=engine_name, **kwargs)
-    elif "vllm" in engine_name:
-        from textgrad.engine.textgrad_vllm import ChatVLLM
-        engine_name = engine_name.replace("vllm-", "")
-        return ChatVLLM(model_string=engine_name, **kwargs)
     else:
         raise ValueError(f"Engine {engine_name} not supported")

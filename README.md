@@ -19,8 +19,8 @@ Create a `.env` file in the repository root:
 ```env
 API_KEY=your_openrouter_api_key
 VLM_MODEL=openai/gpt-4o-mini              # vision-capable model
-EVAL_MODEL=llama3.1-8b-instruct           # text model for Math/Science tools
-MODEL_NAME=vllm-llama-3.2-11b             # optional – auto-syncs evaluation/test engines
+EVAL_MODEL=gpt-4o-mini                    # text model for Math/Science tools
+MODEL_NAME=gpt-4o-mini                    # auto-syncs evaluation/test engines
 TEXTGRAD_EVAL_ENGINE=gpt-4o               # LLM that supplies textual gradients
 JINA_API_KEY=your_jina_api_key
 MONGO_URI=mongodb://localhost:27017       # or your Atlas connection string
@@ -32,9 +32,10 @@ SYNAPSE_CLIENT_COUNT=4.    # modify to set the number of clients for federation.
 # Optional privacy controls
 SYNAPSE_ENABLE_DP=1
 SYNAPSE_DP_EPSILON=1.0
+TEXTGRAD_SAMPLE_WITH_REPLACEMENT=0
 ```
 
-The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. After editing `.env`, run `set -a; source .env; set +a` (or the equivalent in your shell) before launching any scripts.
+The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. After editing `.env`, run `set -a; source .env; set +a` (or the equivalent in your shell) before launching any scripts. Toggle `TEXTGRAD_SAMPLE_WITH_REPLACEMENT` to `1` when you want TextGrad’s mini-batches to sample with replacement (allowing repeated questions within an epoch); leave it `0` for the default shuffle-without-replacement behavior.
 
 ### MongoDB Atlas Vector Search
 MathQA retrieval expects a MongoDB Atlas vector index on the collection that stores embeddings (`math_problems` by default, or `vectors` if you prefer). Create the index from the Atlas UI (Search/Vector Search tab) with this JSON definition:
@@ -142,29 +143,6 @@ Outputs land in `client_datasets/` by default (`summary.json` lists the allocati
    python scripts/eval_log_metrics.py
    ```
 
-### Using a local vLLM server
-
-To point the agent at a self-hosted OpenAI-compatible endpoint (e.g., `vllm.entrypoints.openai.api_server`):
-
-- Launch the server:
-  ```bash
-  python -m vllm.entrypoints.openai.api_server \
-      --model mistralai/Mistral-7B-Instruct-v0.2 \
-      --tensor-parallel-size 1 \
-      --port 8000
-  ```
-- Set the base URL (and a dummy API key if your server does not enforce auth):
-  ```bash
-  export LLM_BASE_URL="http://127.0.0.1:8000/v1"
-  export API_KEY="local"
-  ```
-- Point the runtime at the bundled LLaMA 3.2 11B vLLM preset (the script mirrors this to evaluation/test engines automatically):
-  ```bash
-  export MODEL_NAME=vllm-llama-3.2-11b
-  ```
-- Run the usual entrypoint (`python main.py`, `python scripts/run_fed_textgrad.py`, etc.). The client automatically routes requests to the local endpoint when `LLM_BASE_URL` is set.
-
-
 ### Example Runs
 
 - **Baseline federation + MathQA focus**
@@ -183,13 +161,14 @@ To point the agent at a self-hosted OpenAI-compatible endpoint (e.g., `vllm.entr
 - **FedTextGrad-enabled run**
   ```bash
   # Optimise prompts with TextGrad, federate, then evaluate on math-only data
-  python scripts/run_fed_textgrad.py \
-      --task BBH_object_counting \
-      --client-count 4 \
-      --rounds 1 \
-      --aggregate-method summarization \
-      --mixed-queries math_only.json
-  ```
+python scripts/run_fed_textgrad.py \
+    --task BBH_object_counting \
+    --client-count 4 \
+    --rounds 1 \
+    --aggregate-method summarization \
+    --mixed-queries math_only.json
+```
+Each TextGrad run appends its evaluation summary (central benchmark + any per-client datasets) to `evaluation_on_textgrad_log.txt`, so you can track metrics across runs without rerunning the script.
   Set `TEXTGRAD_EVAL_ENGINE`, `SYNAPSE_TEXTGRAD_TEST_ENGINE`, and other knobs in `.env` (or via CLI flags) to choose the LLMs that supply textual gradients and client-side inference.
 
 ## Project Structure

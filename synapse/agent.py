@@ -25,6 +25,9 @@ class SynapseAgent:
         self.tool_registry = tool_registry
 
     def _choose_tool(self, query: str, data_item: Optional[dict]) -> str:
+        dataset = (data_item or {}).get("dataset") or (data_item or {}).get("domain")
+        if dataset and str(dataset).lower().startswith("bbh"):
+            return "mathqa"
         if data_item and data_item.get("image"):
             return "scienceqa"
         numeric_tokens = sum(token.isdigit() for token in query.split())
@@ -32,8 +35,11 @@ class SynapseAgent:
             return "mathqa"
         return "scienceqa"
 
-    def _prepare_augmented_query(self, query: str, tool_name: str) -> QueryContext:
-        artifacts = self.runtime.get_context_for_query(query, max_items=5)
+    def _prepare_augmented_query(self, query: str, tool_name: str, dataset: Optional[str]) -> QueryContext:
+        if dataset and dataset.lower().startswith("bbh"):
+            artifacts = []
+        else:
+            artifacts = self.runtime.get_context_for_query(query, max_items=5)
         context_snippets = [
             artifact.text
             for artifact in artifacts
@@ -54,11 +60,12 @@ class SynapseAgent:
         return QueryContext(tool_name=tool_name, augmented_query=augmented, recommended_scenario=recommended)
 
     def run(self, query: str, data_item: Optional[dict] = None) -> ToolUsageExample:
+        dataset = (data_item or {}).get("dataset")
         tool_name = self._choose_tool(query, data_item)
         if tool_name not in self.tool_registry:
             raise ValueError(f"No registered tool named '{tool_name}'.")
 
-        query_context = self._prepare_augmented_query(query, tool_name)
+        query_context = self._prepare_augmented_query(query, tool_name, dataset)
         tool = self.tool_registry[tool_name]
 
         if tool_name == "scienceqa":

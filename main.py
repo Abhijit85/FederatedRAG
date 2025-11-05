@@ -4,6 +4,7 @@ import logging
 import os
 import sys
 import statistics
+import re
 from pathlib import Path
 from typing import Optional
 
@@ -72,11 +73,15 @@ def evaluate_mixed_queries(
         return None
 
     per_dataset = collections.defaultdict(lambda: {"correct": 0, "total": 0})
+    bbh_metrics = {"correct": 0, "total": 0}
 
     def _record(dataset_name: str, hit: int) -> None:
         bucket = per_dataset[dataset_name]
         bucket["correct"] += hit
         bucket["total"] += 1
+        if _is_bbh_dataset(dataset_name):
+            bbh_metrics["correct"] += hit
+            bbh_metrics["total"] += 1
 
     metrics = {
         "math": {"correct": 0, "total": 0},
@@ -93,15 +98,24 @@ def evaluate_mixed_queries(
         return answer
 
     for item in test_data:
-        is_science_query = item.get("type") == "science" or "question" in item
+        is_science_query = (
+            item.get("type") == "science"
+            or item.get("domain") == "science"
+            or bool(item.get("image"))
+        )
         if is_science_query:
             query_text = item["question"]
             data_payload = item
             metrics["science"]["total"] += 1
             print(f"\n--- Processing ScienceQA Query: '{query_text[:80]}...' ---")
         else:
-            query_text = f"{item.get('Problem', '')}\nOptions: {item.get('options', '')}"
-            data_payload = None
+            question_text = item.get("question") or item.get("Problem") or ""
+            options = item.get("options")
+            if options:
+                query_text = f"{question_text}\nOptions: {options}"
+            else:
+                query_text = question_text
+            data_payload = item
             metrics["math"]["total"] += 1
             print(f"\n--- Processing MathQA Query: '{query_text[:80]}...' ---")
 
@@ -140,12 +154,13 @@ def evaluate_mixed_queries(
                 if not gold:
                     gold = item.get("answer")
                 if isinstance(gold, str):
-                    hit = int(_normalize_answer(gold) == final_answer)
+                    hit = int(_answers_match(gold, final_answer, dataset_name))
                     metrics["math"]["correct"] += hit
                     _record(dataset_name, hit)
                 elif isinstance(gold, (list, tuple)):
-                    if any(_normalize_answer(g) == final_answer for g in gold):
+                    if any(_answers_match(g, final_answer, dataset_name) for g in gold):
                         metrics["math"]["correct"] += 1
+                        _record(dataset_name, 1)
         else:
             print("[✗] Agent failed to produce a final result for this query.")
 
@@ -170,6 +185,8 @@ def evaluate_mixed_queries(
         print("Dataset accuracies:")
         for name, bucket in per_dataset.items():
             print(f"  · {name}: {_format_accuracy(bucket['correct'], bucket['total'])}")
+    if bbh_metrics["total"]:
+        print(f"BBH Accuracy: {_format_accuracy(bbh_metrics['correct'], bbh_metrics['total'])}")
 
     print("\n--- AGENT EVALUATION COMPLETE ---")
     print("Full output has been saved to evaluation_log.txt")
@@ -188,6 +205,11 @@ def evaluate_mixed_queries(
                 "accuracy": (bucket["correct"] / bucket["total"]) if bucket["total"] else None,
             }
             for name, bucket in per_dataset.items()
+        },
+        "bbh": {
+            "correct": bbh_metrics["correct"],
+            "total": bbh_metrics["total"],
+            "accuracy": _accuracy(bbh_metrics["correct"], bbh_metrics["total"]),
         },
         "science": {
             "correct": metrics["science"]["correct"],
@@ -335,11 +357,13 @@ def main():
             )
             if not dataset_summary:
                 dataset_summary = "datasets=n/a"
+            bbh_acc = metrics.get("bbh", {}).get("accuracy")
             print(
                 f"  · {metrics['label']}: "
                 f"overall={_format_percent(metrics['overall']['accuracy'])}, "
                 f"math={_format_percent(metrics['math']['accuracy'])}, "
                 f"science={_format_percent(metrics['science']['accuracy'])}, "
+                f"bbh={_format_percent(bbh_acc)}, "
                 f"{dataset_summary}"
             )
 def _normalize_answer(text: str) -> str:
@@ -350,6 +374,28 @@ def _normalize_answer(text: str) -> str:
     cleaned = cleaned.replace("Final Answer:", "").replace("Answer:", "")
     cleaned = cleaned.strip().lower().strip(".")
     return cleaned
+
+
+def _is_bbh_dataset(name: str | None) -> bool:
+    return isinstance(name, str) and name.upper().startswith("BBH")
+
+
+def _extract_numeric_value(text: str) -> Optional[int]:
+    match = re.findall(r"-?\d+", text)
+    if not match:
+        return None
+    try:
+        return int(match[-1])
+    except ValueError:
+        return None
+
+
+def _answers_match(gold: str, prediction: str, dataset_name: str) -> bool:
+    if _is_bbh_dataset(dataset_name):
+        gold_val = _extract_numeric_value(gold)
+        pred_val = _extract_numeric_value(prediction)
+        return gold_val is not None and pred_val == gold_val
+    return _normalize_answer(gold) == prediction
 
 
 if __name__ == "__main__":

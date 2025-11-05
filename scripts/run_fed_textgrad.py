@@ -6,12 +6,14 @@ from __future__ import annotations
 import argparse
 import json
 import os
-from pathlib import Path
 import sys
-from typing import Dict, List
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+import re
 
 from dotenv import load_dotenv
-from torch.utils.data import random_split, Subset
+from torch.utils.data import RandomSampler, Subset, random_split
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -78,8 +80,34 @@ def _resolve_runtime_defaults() -> tuple[bool, str, str, int]:
 
 
 
+def _env_flag(name: str, default: bool = False) -> bool:
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _append_textgrad_log(section: str, payload: Dict[str, Any]) -> None:
+    """
+    Append a JSON record describing TextGrad evaluation output.
+    """
+    log_path = Path("evaluation_on_textgrad_log.txt")
+    record = {
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "section": section,
+        "payload": payload,
+    }
+    try:
+        with log_path.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(record))
+            fh.write("\n")
+    except OSError as exc:
+        print(f"⚠️ Failed to write TextGrad log: {exc}")
+
+
 def parse_args() -> argparse.Namespace:
     online_ready, eval_default, test_default, client_default = _resolve_runtime_defaults()
+    sample_default = _env_flag("TEXTGRAD_SAMPLE_WITH_REPLACEMENT", default=False)
 
     parser = argparse.ArgumentParser(description="Run TextGrad-enabled SYNAPSE federation.")
     parser.add_argument("--task", type=str, default="BBH_object_counting", help="TextGrad task to optimise.")
@@ -93,6 +121,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--disable-proximal", action="store_true", help="Disable proximal rejection of harmful updates.")
     parser.add_argument("--mixed-queries", type=Path, default=Path("mixed_queries.json"), help="Benchmark file for post-round evaluation.")
     parser.add_argument("--output-snapshot", type=Path, default=Path("synapse_textgrad_snapshot.json"), help="Path to export the final compendium snapshot.")
+    parser.add_argument(
+        "--client-data-dir",
+        type=Path,
+        help="Optional directory of per-client evaluation JSON files (e.g., BBH slices) to score after training.",
+    )
+    parser.add_argument(
+        "--evaluate-clients",
+        action="store_true",
+        help="Evaluate the aggregated agent on each dataset found in --client-data-dir.",
+    )
+    parser.add_argument(
+        "--sample-with-replacement",
+        action="store_true",
+        default=sample_default,
+        help="Draw TextGrad batches with replacement (samples may repeat before epoch ends).",
+    )
 
     args = parser.parse_args()
     args.test_engine = args.evaluation_engine  # enforce single-model usage
@@ -136,6 +180,7 @@ def ensure_textgrad_env(args: argparse.Namespace) -> None:
     os.environ["SYNAPSE_CLIENT_COUNT"] = str(args.client_count)
     os.environ["EVAL_MODEL"] = args.test_engine
     os.environ["VLM_MODEL"] = args.test_engine
+    os.environ["TEXTGRAD_SAMPLE_WITH_REPLACEMENT"] = "1" if args.sample_with_replacement else "0"
 
 
 def make_client_splits(dataset, client_count: int) -> List:
@@ -146,7 +191,7 @@ def make_client_splits(dataset, client_count: int) -> List:
     return list(random_split(dataset, lengths))
 
 
-def evaluate_agent(agent: SynapseAgent, mixed_queries: Path) -> Dict[str, float]:
+def evaluate_agent(agent: SynapseAgent, mixed_queries: Path, dataset_label: str | None = None) -> Dict[str, Any]:
     if not mixed_queries.exists():
         raise FileNotFoundError(f"Benchmark file '{mixed_queries}' not found.")
     with mixed_queries.open("r", encoding="utf-8") as fh:
@@ -156,26 +201,59 @@ def evaluate_agent(agent: SynapseAgent, mixed_queries: Path) -> Dict[str, float]
         "math": {"correct": 0, "total": 0},
         "science": {"correct": 0, "total": 0},
     }
+    dataset_metrics: Dict[str, Dict[str, int]] = {}
 
     for item in benchmark:
         question = item.get("question") or item.get("Problem") or ""
         domain = item.get("domain") or item.get("dataset") or "math"
+        dataset_name = item.get("dataset") or dataset_label or mixed_queries.name
+        dataset_bucket = dataset_metrics.setdefault(dataset_name, {"correct": 0, "total": 0})
         try:
             result = agent.run(question, data_item=item)
             prediction = result.llm_response or ""
         except Exception as exc:
             print(f"[!] Agent failed to answer '{question[:50]}...': {exc}")
             continue
-        final_answer = item.get("answer") or item.get("Answer") or ""
-        if not final_answer:
+        gold_answer = item.get("answer") or item.get("Answer") or item.get("correct")
+        if not gold_answer:
             continue
+        normalized_prediction = _normalize_answer_text(_extract_final_answer(prediction or ""))
         metrics.setdefault(domain, {"correct": 0, "total": 0})
         metrics[domain]["total"] += 1
-        metrics[domain]["correct"] += int(str(final_answer).strip().lower() in prediction.lower())
+        hit = int(_answers_match_textgrad(gold_answer, normalized_prediction, dataset_name))
+        metrics[domain]["correct"] += hit
+        dataset_bucket["total"] += 1
+        dataset_bucket["correct"] += hit
+
+    def _to_accuracy(bucket: Dict[str, int]) -> Dict[str, float | int | None]:
+        total = bucket["total"]
+        correct = bucket["correct"]
+        accuracy = (correct / total) if total else None
+        return {"correct": correct, "total": total, "accuracy": accuracy}
+
+    dataset_breakdown = {name: _to_accuracy(bucket) for name, bucket in dataset_metrics.items()}
+    if dataset_breakdown:
+        print("[Eval] Dataset accuracy breakdown:")
+        for name, bucket in dataset_breakdown.items():
+            acc = bucket["accuracy"]
+            if acc is None:
+                print(f"  · {name}: n/a (0 samples)")
+            else:
+                print(f"  · {name}: {bucket['correct']}/{bucket['total']} ({acc * 100:.1f}%)")
+
+    overall_bucket = {
+        "correct": sum(bucket["correct"] for bucket in metrics.values()),
+        "total": sum(bucket["total"] for bucket in metrics.values()),
+    }
+    overall_bucket["accuracy"] = (
+        overall_bucket["correct"] / overall_bucket["total"] if overall_bucket["total"] else None
+    )
 
     return {
-        domain: (bucket["correct"] / bucket["total"]) if bucket["total"] else 0.0
-        for domain, bucket in metrics.items()
+        "label": dataset_label or mixed_queries.name,
+        "domains": {domain: _to_accuracy(bucket) for domain, bucket in metrics.items()},
+        "datasets": dataset_breakdown,
+        "overall": overall_bucket,
     }
 
 
@@ -185,6 +263,7 @@ def train_clients(
     train_splits,
     eval_fn,
     validation_dataset=None,
+    sample_with_replacement: bool = False,
 ) -> None:
     trainer = TextGradPromptTrainer(settings)
     settings.ensure_engines()
@@ -196,7 +275,11 @@ def train_clients(
         train_subset = train_splits[min(idx, len(train_splits) - 1)]
         if len(train_subset) == 0:
             continue
-        dataloader = DataLoader(train_subset, batch_size=settings.batch_size, shuffle=True)
+        if sample_with_replacement:
+            sampler = RandomSampler(train_subset, replacement=True)
+            dataloader = DataLoader(train_subset, batch_size=settings.batch_size, sampler=sampler)
+        else:
+            dataloader = DataLoader(train_subset, batch_size=settings.batch_size, shuffle=True)
 
         validation_samples = None
         if validation_dataset:
@@ -252,7 +335,14 @@ def main() -> None:
 
     for round_idx in range(args.rounds):
         print(f"[Round {round_idx + 1}] Starting client training …")
-        train_clients(runtime, settings, train_splits, eval_fn, validation_dataset=val_set)
+        train_clients(
+            runtime,
+            settings,
+            train_splits,
+            eval_fn,
+            validation_dataset=val_set,
+            sample_with_replacement=args.sample_with_replacement,
+        )
         print(f"[Round {round_idx + 1}] Finished client training.")
         runtime.run_round()
         runtime.server.distribute_snapshot()
@@ -269,12 +359,103 @@ def main() -> None:
     }
     print("[Eval] Tool registry ready. Beginning mixed-query evaluation …")
     agent = SynapseAgent(runtime=runtime, tool_registry=tool_registry)
+    def _format_accuracy(value: float | None) -> str:
+        return f"{value * 100:.1f}%" if value is not None else "n/a"
+
     try:
         metrics = evaluate_agent(agent, args.mixed_queries)
-        print("Federated TextGrad evaluation metrics:", metrics)
+        domain_summary = {domain: bucket["accuracy"] for domain, bucket in metrics["domains"].items()}
+        print("Federated TextGrad domain accuracies:", {k: _format_accuracy(v) for k, v in domain_summary.items()})
+        if metrics["datasets"]:
+            dataset_summary = {
+                name: _format_accuracy(bucket["accuracy"]) for name, bucket in metrics["datasets"].items()
+            }
+            print("Federated TextGrad dataset accuracies:", dataset_summary)
+        if metrics["overall"]["accuracy"] is not None:
+            print(f"Federated TextGrad overall accuracy: {_format_accuracy(metrics['overall']['accuracy'])}")
+        _append_textgrad_log(
+            "central",
+            {
+                "mixed_queries": str(args.mixed_queries),
+                "domains": metrics["domains"],
+                "datasets": metrics["datasets"],
+                "overall": metrics["overall"],
+            },
+        )
     except Exception as exc:
         print(f"⚠️ Skipping mixed-query evaluation: {exc}")
+
+    client_metrics = []
+    if args.evaluate_clients:
+        if not args.client_data_dir:
+            print("⚠️ --evaluate-clients was set but --client-data-dir is missing; skipping per-client evaluations.")
+        elif not args.client_data_dir.exists():
+            print(f"⚠️ Client data directory '{args.client_data_dir}' does not exist; skipping per-client evaluations.")
+        else:
+            dataset_paths = sorted(p for p in args.client_data_dir.glob("*.json") if p.is_file())
+            if not dataset_paths:
+                print(f"⚠️ No JSON datasets found in '{args.client_data_dir}'.")
+            for data_path in dataset_paths:
+                try:
+                    result = evaluate_agent(agent, data_path, dataset_label=data_path.stem)
+                    client_metrics.append(result)
+                    _append_textgrad_log(
+                        "client",
+                        {
+                            "dataset_path": str(data_path),
+                            "label": result["label"],
+                            "domains": result["domains"],
+                            "datasets": result["datasets"],
+                            "overall": result["overall"],
+                        },
+                    )
+                except Exception as exc:
+                    print(f"[!] Failed to evaluate {data_path}: {exc}")
+
+    if client_metrics:
+        print("\n--- TextGrad Client Benchmark Summary ---")
+        for entry in client_metrics:
+            overall = _format_accuracy(entry["overall"]["accuracy"])
+            dataset_snippets = ", ".join(
+                f"{name}={_format_accuracy(bucket['accuracy'])}" for name, bucket in entry["datasets"].items()
+            ) or "no dataset metrics"
+            print(f"  · {entry['label']}: overall={overall}; datasets: {dataset_snippets}")
 
 
 if __name__ == "__main__":
     main()
+def _normalize_answer_text(text: str) -> str:
+    cleaned = text.strip()
+    cleaned = cleaned.replace("Final Answer:", "").replace("Answer:", "")
+    cleaned = cleaned.strip().lower().strip(".")
+    return cleaned
+
+
+def _extract_final_answer(response: str) -> str:
+    marker = "Final Answer:"
+    idx = response.rfind(marker)
+    if idx == -1:
+        return response
+    return response[idx + len(marker):].strip()
+
+
+def _is_bbh_dataset(name: Optional[str]) -> bool:
+    return isinstance(name, str) and name.upper().startswith("BBH")
+
+
+def _extract_numeric_value(text: str) -> Optional[int]:
+    match = re.findall(r"-?\d+", text)
+    if not match:
+        return None
+    try:
+        return int(match[-1])
+    except ValueError:
+        return None
+
+
+def _answers_match_textgrad(gold: str, prediction: str, dataset_name: str) -> bool:
+    if _is_bbh_dataset(dataset_name):
+        gold_val = _extract_numeric_value(gold)
+        pred_val = _extract_numeric_value(prediction)
+        return gold_val is not None and pred_val == gold_val
+    return _normalize_answer_text(gold) == prediction
