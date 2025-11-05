@@ -59,6 +59,7 @@ class SynapseClient:
                     text=artifact.text,
                     structured_payload=artifact.structured_payload,
                     metadata=artifact.metadata,
+                    textgrad_variable=artifact.textgrad_variable,
                 )
             )
 

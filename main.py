@@ -191,6 +191,16 @@ def parse_args() -> argparse.Namespace:
         type=int,
         help="Number of synthetic clients to spawn locally. Overrides SYNAPSE_CLIENT_COUNT if provided.",
     )
+    parser.add_argument(
+        "--skip-global-eval",
+        action="store_true",
+        help="Skip evaluation of the aggregated (central) SYNAPSE agent after the federation round.",
+    )
+    parser.add_argument(
+        "--evaluate-clients",
+        action="store_true",
+        help="Evaluate per-client datasets (requires --client-data-dir).",
+    )
     return parser.parse_args()
 
 
@@ -246,21 +256,27 @@ def main():
     runtime.export_snapshot(Path("synapse_global_snapshot.json"))
     print("✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.")
 
-    evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=args.test_file.name)
+    if args.skip_global_eval:
+        print("ℹ️ Skipping global evaluation as requested.")
+    else:
+        evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=args.test_file.name)
 
     client_metrics = []
-    if args.client_data_dir:
-        dataset_dir = args.client_data_dir
-        if not dataset_dir.exists():
-            print(f"⚠️ Client data directory '{dataset_dir}' does not exist; skipping per-client evaluations.")
+    if args.evaluate_clients:
+        if not args.client_data_dir:
+            print("⚠️ --evaluate-clients was set but no --client-data-dir provided; skipping client evaluations.")
         else:
-            dataset_paths = sorted(p for p in dataset_dir.glob("*.json") if p.is_file())
-            if not dataset_paths:
-                print(f"⚠️ No JSON datasets found in '{dataset_dir}'.")
-            for data_path in dataset_paths:
-                metrics = evaluate_mixed_queries(agent, test_file=str(data_path), dataset_label=data_path.stem)
-                if metrics:
-                    client_metrics.append(metrics)
+            dataset_dir = args.client_data_dir
+            if not dataset_dir.exists():
+                print(f"⚠️ Client data directory '{dataset_dir}' does not exist; skipping per-client evaluations.")
+            else:
+                dataset_paths = sorted(p for p in dataset_dir.glob("*.json") if p.is_file())
+                if not dataset_paths:
+                    print(f"⚠️ No JSON datasets found in '{dataset_dir}'.")
+                for data_path in dataset_paths:
+                    metrics = evaluate_mixed_queries(agent, test_file=str(data_path), dataset_label=data_path.stem)
+                    if metrics:
+                        client_metrics.append(metrics)
 
     if client_metrics:
         def _format_percent(value: Optional[float]) -> str:
@@ -290,7 +306,5 @@ def main():
                 f"math={_format_percent(metrics['math']['accuracy'])}, "
                 f"science={_format_percent(metrics['science']['accuracy'])}"
             )
-
-
 if __name__ == "__main__":
     main()

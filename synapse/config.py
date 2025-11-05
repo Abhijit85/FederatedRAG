@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, List
 
+from synapse.textgrad_support import TextGradSettings
+
 
 @dataclass
 class FederationTopology:
@@ -39,3 +41,4 @@ class SynapseConfig:
     credentials: ApiCredentials
     enable_privacy: bool = True
     snapshot_interval: int = 1  # number of rounds between server snapshots
+    textgrad: TextGradSettings = field(default_factory=TextGradSettings)

@@ -12,6 +12,7 @@ from synapse.knowledge import KnowledgeArtifact, SynapseCompendium
 from synapse.privacy.policies import PrivacyPolicy
 from synapse.retrieval import RetrievalPlanner, RetrievalConfig
 from synapse.server import SynapseServer, ServerConfig
+from synapse.textgrad_support import TextGradSettings, textgrad_enabled_from_env
 
 
 class SynapseRuntime:
@@ -26,6 +27,7 @@ class SynapseRuntime:
         edges: Dict[str, EdgeAggregator],
         server: SynapseServer,
         retrieval_planner: Optional[RetrievalPlanner] = None,
+        textgrad_settings: Optional[TextGradSettings] = None,
     ) -> None:
         self.config = config
         self.clients = clients
@@ -33,6 +35,7 @@ class SynapseRuntime:
         self.server = server
         self.retrieval_planner = retrieval_planner or RetrievalPlanner()
         self._last_snapshot: Optional[SynapseCompendium] = None
+        self.textgrad_settings = textgrad_settings or TextGradSettings()
 
     @staticmethod
     def _dp_enabled_from_env(default: bool = True) -> bool:
@@ -84,6 +87,34 @@ class SynapseRuntime:
         )
         config = SynapseConfig(topology=topology, credentials=credentials)
 
+        config.textgrad.enabled = config.textgrad.enabled or textgrad_enabled_from_env()
+        eval_override = os.environ.get("SYNAPSE_TEXTGRAD_EVAL_ENGINE") or os.environ.get("TEXTGRAD_EVAL_ENGINE")
+        test_override = os.environ.get("SYNAPSE_TEXTGRAD_TEST_ENGINE")
+        aggregate_override = os.environ.get("SYNAPSE_TEXTGRAD_AGGREGATE")
+        proximal_override = os.environ.get("SYNAPSE_TEXTGRAD_PROXIMAL")
+        batch_override = os.environ.get("SYNAPSE_TEXTGRAD_BATCH_SIZE")
+        max_steps_override = os.environ.get("SYNAPSE_TEXTGRAD_MAX_STEPS")
+
+        if eval_override:
+            config.textgrad.evaluation_engine_name = eval_override
+        if test_override:
+            config.textgrad.test_engine_name = test_override
+        if aggregate_override:
+            config.textgrad.aggregate_method = aggregate_override
+        if proximal_override:
+            config.textgrad.proximal_update = proximal_override.strip().lower() not in {"0", "false", "no", "off"}
+        if batch_override:
+            try:
+                config.textgrad.batch_size = max(1, int(batch_override))
+            except ValueError:
+                pass
+        if max_steps_override:
+            try:
+                parsed = int(max_steps_override)
+            except ValueError:
+                parsed = None
+            config.textgrad.max_steps = parsed
+
         dp_epsilon: Optional[float]
         if config.enable_privacy:
             dp_epsilon = cls._resolve_dp_epsilon(1.0)
@@ -104,21 +135,34 @@ class SynapseRuntime:
                 science_compendium_path=base_path / "scienceqa_tools_compendium.json",
                 science_dataset_path=base_path / "scienceqa_dataset.json",
                 privacy_policy=PrivacyPolicy(dp_epsilon=dp_epsilon),
+                textgrad_settings=config.textgrad,
             )
 
         edges: Dict[str, EdgeAggregator] = {
-            "edge-general": EdgeAggregator(EdgeConfig(edge_id="edge-general", domains=["math", "science"])),
+            "edge-general": EdgeAggregator(
+                EdgeConfig(edge_id="edge-general", domains=["math", "science"]),
+                textgrad_settings=config.textgrad,
+            ),
         }
 
         server = SynapseServer(ServerConfig(server_id="synapse-central"))
         retrieval = RetrievalPlanner(RetrievalConfig(max_artifacts=6))
 
-        return cls(config=config, clients=clients, edges=edges, server=server, retrieval_planner=retrieval)
+        return cls(
+            config=config,
+            clients=clients,
+            edges=edges,
+            server=server,
+            retrieval_planner=retrieval,
+            textgrad_settings=config.textgrad,
+        )
 
     def run_round(self) -> None:
         """
         Execute a full round of client -> edge -> server knowledge propagation.
         """
+        self._prepare_textgrad_round()
+
         for edge_id, client_ids in self.config.topology.edge_clusters.items():
             edge = self.edges[edge_id]
             packages = []
@@ -187,3 +231,20 @@ class SynapseRuntime:
                 continue
             snippets.append(artifact.text)
         return snippets
+
+    def _prepare_textgrad_round(self) -> None:
+        """
+        Ensure shared TextGrad settings are active before the round begins.
+        """
+        if not self.textgrad_settings.enabled:
+            return
+
+        self.textgrad_settings.ensure_engines()
+
+        for edge in self.edges.values():
+            edge.textgrad_settings = self.textgrad_settings
+
+        for client in self.clients.values():
+            configure = getattr(client, "set_textgrad_settings", None)
+            if callable(configure):
+                configure(self.textgrad_settings)
