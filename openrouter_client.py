@@ -9,7 +9,8 @@ try:
 except ImportError:  # pragma: no cover - fallback for older openai releases
     APIConnectionError = APIStatusError = APITimeoutError = RateLimitError = ()  # type: ignore[misc]
 
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
+DEFAULT_BASE_URL = "https://openrouter.ai/api/v1"
+OPENROUTER_BASE_URL = os.environ.get("LLM_BASE_URL", DEFAULT_BASE_URL).rstrip("/")
 RETRYABLE_STATUS_CODES = {408, 409, 425, 429, 500, 502, 503, 504}
 _RETRYABLE_MESSAGE_TOKENS = (
     "busy",

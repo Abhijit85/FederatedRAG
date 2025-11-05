@@ -7,6 +7,7 @@ __ENGINE_NAME_SHORTCUTS__ = {
     "sonnet-3.5": "claude-3-5-sonnet-20240620",
     "together-llama-3-70b": "together-meta-llama/Llama-3-70b-chat-hf",
     "vllm-llama-3-8b": "vllm-meta-llama/Meta-Llama-3-8B-Instruct",
+    "vllm-llama-3.2-11b": "vllm-meta-llama/Meta-Llama-3.2-11B-Instruct",
     "llama-4-maverick": "meta-llama/llama-4-maverick",
     "llama-guard-4-12b": "meta-llama/llama-guard-4-12b",
 }

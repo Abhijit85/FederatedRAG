@@ -55,18 +55,18 @@ from third_party.textgrad.tasks import DataLoader, load_task
 def _resolve_runtime_defaults() -> tuple[bool, str, str, int]:
     """
     Decide whether we should default to online models or offline mocks.
-    Online defaults are only enabled when both MODEL_NAME and
-    SYNAPSE_CLIENT_COUNT are populated in the environment.
+    Online defaults are enabled as soon as MODEL_NAME is populated. If
+    SYNAPSE_CLIENT_COUNT is missing, fall back to 4 clients.
     """
     env_model = os.environ.get("MODEL_NAME", "").strip()
     env_client = os.environ.get("SYNAPSE_CLIENT_COUNT", "").strip()
-    online_ready = bool(env_model and env_client)
+    online_ready = bool(env_model)
 
     if online_ready:
         eval_default = env_model
         test_default = env_model
         try:
-            client_default = int(env_client)
+            client_default = int(env_client) if env_client else 4
         except ValueError:
             client_default = 4
     else:
@@ -100,7 +100,7 @@ def parse_args() -> argparse.Namespace:
 
     if not online_ready:
         if args.evaluation_engine != "offline-mock" or args.test_engine != "offline-mock":
-            print("⚠️ MODEL_NAME/SYNAPSE_CLIENT_COUNT not populated; forcing offline mock engines.")
+            print("⚠️ MODEL_NAME not populated; forcing offline mock engines.")
             args.evaluation_engine = "offline-mock"
             args.test_engine = "offline-mock"
     return args
