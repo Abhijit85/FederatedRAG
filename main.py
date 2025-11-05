@@ -9,6 +9,11 @@ from typing import Optional
 
 from dotenv import load_dotenv
 
+# Load environment variables from a .env file at the start
+load_dotenv()
+model_name_env = os.environ.get("MODEL_NAME", "").strip()
+os.environ.setdefault("VLM_MODEL", model_name_env or "gpt-4o-mini")
+
 from math_qa import MathQATool
 from science_qa import ScienceQATool
 from synapse.agent import SynapseAgent
@@ -16,9 +21,6 @@ from synapse.config import ApiCredentials
 from synapse.runtime import SynapseRuntime
 from openrouter_client import get_available_api_keys
 from jina_key_manager import get_available_jina_api_keys
-
-# Load environment variables from a .env file at the start
-load_dotenv()
 
 # --- 1. LOGGING SETUP ---
 class LoggerWriter:
@@ -50,6 +52,9 @@ sys.stderr = LoggerWriter(logger.error)
 # --- END LOGGING SETUP ---
 
 
+import collections
+
+
 def evaluate_mixed_queries(
     agent: SynapseAgent,
     test_file: str = "mixed_queries.json",
@@ -65,6 +70,13 @@ def evaluate_mixed_queries(
     except Exception as e:
         print(f"❌ Error loading test file: {e}")
         return None
+
+    per_dataset = collections.defaultdict(lambda: {"correct": 0, "total": 0})
+
+    def _record(dataset_name: str, hit: int) -> None:
+        bucket = per_dataset[dataset_name]
+        bucket["correct"] += hit
+        bucket["total"] += 1
 
     metrics = {
         "math": {"correct": 0, "total": 0},
@@ -93,6 +105,7 @@ def evaluate_mixed_queries(
             metrics["math"]["total"] += 1
             print(f"\n--- Processing MathQA Query: '{query_text[:80]}...' ---")
 
+        dataset_name = item.get("dataset") or dataset_label or Path(test_file).name
         try:
             result = agent.run(query=query_text, data_item=data_payload)
         except Exception as exc:
@@ -106,7 +119,7 @@ def evaluate_mixed_queries(
             print("=" * 80)
             print("[✓] Query processed successfully.")
 
-            final_answer = _extract_final_answer(llm_output)
+            final_answer = _normalize_answer(_extract_final_answer(llm_output))
             if is_science_query:
                 gold_idx = item.get("answer")
                 gold_text = item.get("choices")
@@ -119,15 +132,19 @@ def evaluate_mixed_queries(
                 else:
                     # fall back to matching the first choice containing the final answer
                     correct = any(choice.strip().lower() in final_answer.lower() for choice in gold_text or [])
-                if correct:
-                    metrics["science"]["correct"] += 1
+                hit = int(bool(correct))
+                metrics["science"]["correct"] += hit
+                _record(dataset_name, hit)
             else:
                 gold = item.get("correct")
+                if not gold:
+                    gold = item.get("answer")
                 if isinstance(gold, str):
-                    if gold.strip().lower() in final_answer.lower():
-                        metrics["math"]["correct"] += 1
+                    hit = int(_normalize_answer(gold) == final_answer)
+                    metrics["math"]["correct"] += hit
+                    _record(dataset_name, hit)
                 elif isinstance(gold, (list, tuple)):
-                    if any(g.strip().lower() in final_answer.lower() for g in gold):
+                    if any(_normalize_answer(g) == final_answer for g in gold):
                         metrics["math"]["correct"] += 1
         else:
             print("[✗] Agent failed to produce a final result for this query.")
@@ -149,6 +166,10 @@ def evaluate_mixed_queries(
     print(f"Math Accuracy: {_format_accuracy(metrics['math']['correct'], metrics['math']['total'])}")
     print(f"Science Accuracy: {_format_accuracy(metrics['science']['correct'], metrics['science']['total'])}")
     print(f"Overall Accuracy: {_format_accuracy(total_correct, total_questions)}")
+    if per_dataset:
+        print("Dataset accuracies:")
+        for name, bucket in per_dataset.items():
+            print(f"  · {name}: {_format_accuracy(bucket['correct'], bucket['total'])}")
 
     print("\n--- AGENT EVALUATION COMPLETE ---")
     print("Full output has been saved to evaluation_log.txt")
@@ -159,6 +180,14 @@ def evaluate_mixed_queries(
             "correct": metrics["math"]["correct"],
             "total": metrics["math"]["total"],
             "accuracy": _accuracy(metrics["math"]["correct"], metrics["math"]["total"]),
+        },
+        "datasets": {
+            name: {
+                "correct": bucket["correct"],
+                "total": bucket["total"],
+                "accuracy": (bucket["correct"] / bucket["total"]) if bucket["total"] else None,
+            }
+            for name, bucket in per_dataset.items()
         },
         "science": {
             "correct": metrics["science"]["correct"],
@@ -300,11 +329,28 @@ def main():
             print(f"Macro science accuracy: {_format_percent(sum(science_values) / len(science_values))}")
 
         for metrics in client_metrics:
+            dataset_details = metrics.get("datasets", {})
+            dataset_summary = ", ".join(
+                f"{name}={_format_percent(bucket['accuracy'])}" for name, bucket in dataset_details.items()
+            )
+            if not dataset_summary:
+                dataset_summary = "datasets=n/a"
             print(
                 f"  · {metrics['label']}: "
                 f"overall={_format_percent(metrics['overall']['accuracy'])}, "
                 f"math={_format_percent(metrics['math']['accuracy'])}, "
-                f"science={_format_percent(metrics['science']['accuracy'])}"
+                f"science={_format_percent(metrics['science']['accuracy'])}, "
+                f"{dataset_summary}"
             )
+def _normalize_answer(text: str) -> str:
+    """
+    Normalize answer strings by removing common prefixes and punctuation.
+    """
+    cleaned = text.strip()
+    cleaned = cleaned.replace("Final Answer:", "").replace("Answer:", "")
+    cleaned = cleaned.strip().lower().strip(".")
+    return cleaned
+
+
 if __name__ == "__main__":
     main()
