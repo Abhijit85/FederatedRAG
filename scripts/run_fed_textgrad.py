@@ -87,9 +87,78 @@ def _env_flag(name: str, default: bool = False) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
+def _format_accuracy_value(value: Optional[float]) -> str:
+    if value is None:
+        return "n/a"
+    try:
+        return f"{value * 100:.1f}%"
+    except TypeError:
+        return "n/a"
+
+
+def _format_metric_bucket(name: str, bucket: Dict[str, Any]) -> str:
+    correct = bucket.get("correct")
+    total = bucket.get("total")
+    accuracy = bucket.get("accuracy")
+    return (
+        f"  · {name}: {correct}/{total} ({_format_accuracy_value(accuracy)})"
+        if correct is not None and total is not None
+        else f"  · {name}: {bucket}"
+    )
+
+
+def _format_textgrad_log_entry(record: Dict[str, Any]) -> str:
+    timestamp = record.get("timestamp", "")
+    section = record.get("section", "")
+    payload: Dict[str, Any] = record.get("payload", {}) or {}
+
+    lines = ["=" * 72, f"[{timestamp}] TextGrad evaluation ({section})"]
+
+    mixed_queries = payload.get("mixed_queries")
+    if mixed_queries:
+        lines.append(f"Benchmark: {mixed_queries}")
+
+    label = payload.get("label")
+    if label:
+        lines.append(f"Dataset label: {label}")
+
+    dataset_path = payload.get("dataset_path")
+    if dataset_path:
+        lines.append(f"Dataset path: {dataset_path}")
+
+    domains = payload.get("domains")
+    if isinstance(domains, dict) and domains:
+        lines.append("Domain metrics:")
+        for name in sorted(domains.keys()):
+            bucket = domains[name] or {}
+            lines.append(_format_metric_bucket(name, bucket))
+
+    datasets = payload.get("datasets")
+    if isinstance(datasets, dict) and datasets:
+        lines.append("Dataset breakdown:")
+        for name in sorted(datasets.keys()):
+            bucket = datasets[name] or {}
+            lines.append(_format_metric_bucket(name, bucket))
+
+    overall = payload.get("overall")
+    if isinstance(overall, dict) and overall:
+        lines.append("Overall:")
+        lines.append(_format_metric_bucket("aggregate", overall))
+
+    extra_keys = {"mixed_queries", "label", "dataset_path", "domains", "datasets", "overall"}
+    other_items = {k: v for k, v in payload.items() if k not in extra_keys}
+    if other_items:
+        lines.append("Additional details:")
+        for key, value in other_items.items():
+            lines.append(f"  · {key}: {value}")
+
+    lines.append("")
+    return "\n".join(lines)
+
+
 def _append_textgrad_log(section: str, payload: Dict[str, Any]) -> None:
     """
-    Append a JSON record describing TextGrad evaluation output.
+    Append a human-readable and JSON record describing TextGrad evaluation output.
     """
     log_path = Path("evaluation_on_textgrad_log.txt")
     record = {
@@ -99,8 +168,9 @@ def _append_textgrad_log(section: str, payload: Dict[str, Any]) -> None:
     }
     try:
         with log_path.open("a", encoding="utf-8") as fh:
+            fh.write(_format_textgrad_log_entry(record))
             fh.write(json.dumps(record))
-            fh.write("\n")
+            fh.write("\n\n")
     except OSError as exc:
         print(f"⚠️ Failed to write TextGrad log: {exc}")
 
@@ -257,6 +327,43 @@ def evaluate_agent(agent: SynapseAgent, mixed_queries: Path, dataset_label: str 
     }
 
 
+def _normalize_answer_text(text: str) -> str:
+    cleaned = text.strip()
+    cleaned = cleaned.replace("Final Answer:", "").replace("Answer:", "")
+    cleaned = cleaned.strip().lower().strip(".")
+    return cleaned
+
+
+def _extract_final_answer(response: str) -> str:
+    marker = "Final Answer:"
+    idx = response.rfind(marker)
+    if idx == -1:
+        return response
+    return response[idx + len(marker):].strip()
+
+
+def _is_bbh_dataset(name: Optional[str]) -> bool:
+    return isinstance(name, str) and name.upper().startswith("BBH")
+
+
+def _extract_numeric_value(text: str) -> Optional[int]:
+    match = re.findall(r"-?\d+", text)
+    if not match:
+        return None
+    try:
+        return int(match[-1])
+    except ValueError:
+        return None
+
+
+def _answers_match_textgrad(gold: str, prediction: str, dataset_name: str) -> bool:
+    if _is_bbh_dataset(dataset_name):
+        gold_val = _extract_numeric_value(gold)
+        pred_val = _extract_numeric_value(prediction)
+        return gold_val is not None and pred_val == gold_val
+    return _normalize_answer_text(gold) == prediction
+
+
 def train_clients(
     runtime: SynapseRuntime,
     settings: TextGradSettings,
@@ -273,7 +380,8 @@ def train_clients(
     for idx, (client_id, client) in enumerate(runtime.clients.items()):
         artifacts = client.collect_local_artifacts()
         train_subset = train_splits[min(idx, len(train_splits) - 1)]
-        if len(train_subset) == 0:
+        total_questions = len(train_subset)
+        if total_questions == 0:
             continue
         if sample_with_replacement:
             sampler = RandomSampler(train_subset, replacement=True)
@@ -293,6 +401,14 @@ def train_clients(
             model = BlackboxLLM(test_engine, system_prompt)
             optimizer = TextualGradientDescent(engine=test_engine, parameters=[system_prompt])
 
+            def _log_progress(processed: int, total: int, *, client_id=client_id, signature=artifact.signature) -> None:
+                remaining = max(total - processed, 0)
+                short_sig = signature[:8]
+                print(
+                    f"[TextGrad][{client_id}:{short_sig}] Processed {processed}/{total} questions "
+                    f"({remaining} remaining)."
+                )
+
             results = trainer.train_batches(
                 dataloader,
                 model,
@@ -300,6 +416,8 @@ def train_clients(
                 eval_fn,
                 system_prompt,
                 validation_samples=validation_samples,
+                total_questions=total_questions,
+                progress_callback=_log_progress,
             )
             if not results:
                 continue
@@ -424,38 +542,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-def _normalize_answer_text(text: str) -> str:
-    cleaned = text.strip()
-    cleaned = cleaned.replace("Final Answer:", "").replace("Answer:", "")
-    cleaned = cleaned.strip().lower().strip(".")
-    return cleaned
-
-
-def _extract_final_answer(response: str) -> str:
-    marker = "Final Answer:"
-    idx = response.rfind(marker)
-    if idx == -1:
-        return response
-    return response[idx + len(marker):].strip()
-
-
-def _is_bbh_dataset(name: Optional[str]) -> bool:
-    return isinstance(name, str) and name.upper().startswith("BBH")
-
-
-def _extract_numeric_value(text: str) -> Optional[int]:
-    match = re.findall(r"-?\d+", text)
-    if not match:
-        return None
-    try:
-        return int(match[-1])
-    except ValueError:
-        return None
-
-
-def _answers_match_textgrad(gold: str, prediction: str, dataset_name: str) -> bool:
-    if _is_bbh_dataset(dataset_name):
-        gold_val = _extract_numeric_value(gold)
-        pred_val = _extract_numeric_value(prediction)
-        return gold_val is not None and pred_val == gold_val
-    return _normalize_answer_text(gold) == prediction
