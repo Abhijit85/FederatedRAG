@@ -41,7 +41,7 @@ log_formatter = logging.Formatter('%(message)s')
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler("evaluation_log.txt", mode='w')
+file_handler = logging.FileHandler("evaluation_log.txt", mode='a')
 file_handler.setFormatter(log_formatter)
 logger.addHandler(file_handler)
 
@@ -52,6 +52,13 @@ logger.addHandler(console_handler)
 sys.stdout = LoggerWriter(logger.info)
 sys.stderr = LoggerWriter(logger.error)
 # --- END LOGGING SETUP ---
+
+log_path = Path("evaluation_log.txt")
+delimiter = "===== New Evaluation Run ====="
+if log_path.exists() and log_path.stat().st_size > 0:
+    logger.info("\n" + delimiter)
+else:
+    logger.info(delimiter)
 
 
 import collections

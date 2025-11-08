@@ -6,11 +6,12 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
+import statistics
 import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-import re
 
 from dotenv import load_dotenv
 from torch.utils.data import RandomSampler, Subset, random_split
@@ -145,7 +146,63 @@ def _format_textgrad_log_entry(record: Dict[str, Any]) -> str:
         lines.append("Overall:")
         lines.append(_format_metric_bucket("aggregate", overall))
 
-    extra_keys = {"mixed_queries", "label", "dataset_path", "domains", "datasets", "overall"}
+    central = payload.get("central")
+    if isinstance(central, dict):
+        label = central.get("label")
+        if label:
+            lines.append(f"Central dataset: {label}")
+        central_overall = central.get("overall")
+        if isinstance(central_overall, dict):
+            lines.append("Central overall:")
+            lines.append(_format_metric_bucket("overall", central_overall))
+        central_domains = central.get("domains")
+        if isinstance(central_domains, dict) and central_domains:
+            lines.append("Central domains:")
+            for name, bucket in central_domains.items():
+                lines.append(_format_metric_bucket(name, bucket))
+        central_datasets = central.get("datasets")
+        if isinstance(central_datasets, dict) and central_datasets:
+            lines.append("Central datasets:")
+            for name, bucket in central_datasets.items():
+                lines.append(_format_metric_bucket(name, bucket))
+
+    client_summary = payload.get("client_summary")
+    if isinstance(client_summary, dict):
+        lines.append("Client summary:")
+        macro_overall = client_summary.get("macro_overall")
+        if macro_overall is not None:
+            lines.append(f"  Macro overall accuracy: {_format_accuracy_value(macro_overall)}")
+        spread = client_summary.get("overall_spread")
+        if spread is not None:
+            lines.append(f"  Overall spread: {_format_accuracy_value(spread)}")
+        stdev = client_summary.get("overall_stdev")
+        if stdev is not None:
+            lines.append(f"  Overall σ: {_format_accuracy_value(stdev)}")
+        macro_math = client_summary.get("macro_math")
+        if macro_math is not None:
+            lines.append(f"  Macro math accuracy: {_format_accuracy_value(macro_math)}")
+        macro_science = client_summary.get("macro_science")
+        if macro_science is not None:
+            lines.append(f"  Macro science accuracy: {_format_accuracy_value(macro_science)}")
+
+        details = client_summary.get("details") or []
+        if details:
+            lines.append("  Per-client accuracies:")
+            for detail in details:
+                lines.append(
+                    "    · "
+                    + f"{detail.get('label', 'client')}: overall={_format_accuracy_value(detail.get('overall'))}, "
+                    + f"math={_format_accuracy_value(detail.get('math'))}, "
+                    + f"science={_format_accuracy_value(detail.get('science'))}"
+                )
+                dataset_map = detail.get("datasets") or {}
+                if dataset_map:
+                    dataset_str = ", ".join(
+                        f"{name}={_format_accuracy_value(value)}" for name, value in dataset_map.items()
+                    )
+                    lines.append(f"       datasets: {dataset_str}")
+
+    extra_keys = {"mixed_queries", "label", "dataset_path", "domains", "datasets", "overall", "central", "client_summary"}
     other_items = {k: v for k, v in payload.items() if k not in extra_keys}
     if other_items:
         lines.append("Additional details:")
@@ -480,8 +537,11 @@ def main() -> None:
     def _format_accuracy(value: float | None) -> str:
         return f"{value * 100:.1f}%" if value is not None else "n/a"
 
+    central_metrics: Dict[str, Any] | None = None
+
     try:
         metrics = evaluate_agent(agent, args.mixed_queries)
+        central_metrics = metrics
         domain_summary = {domain: bucket["accuracy"] for domain, bucket in metrics["domains"].items()}
         print("Federated TextGrad domain accuracies:", {k: _format_accuracy(v) for k, v in domain_summary.items()})
         if metrics["datasets"]:
@@ -504,6 +564,7 @@ def main() -> None:
         print(f"⚠️ Skipping mixed-query evaluation: {exc}")
 
     client_metrics = []
+    client_summary_payload: Optional[Dict[str, Any]] = None
     if args.evaluate_clients:
         if not args.client_data_dir:
             print("⚠️ --evaluate-clients was set but --client-data-dir is missing; skipping per-client evaluations.")
@@ -532,12 +593,66 @@ def main() -> None:
 
     if client_metrics:
         print("\n--- TextGrad Client Benchmark Summary ---")
+
+        overall_values = [entry["overall"]["accuracy"] for entry in client_metrics if entry["overall"]["accuracy"] is not None]
+        math_values = [entry["domains"].get("math", {}).get("accuracy") for entry in client_metrics]
+        math_values = [value for value in math_values if value is not None]
+        science_values = [entry["domains"].get("science", {}).get("accuracy") for entry in client_metrics]
+        science_values = [value for value in science_values if value is not None]
+
+        macro = spread = stdev = None
+        if overall_values:
+            macro = sum(overall_values) / len(overall_values)
+            spread = max(overall_values) - min(overall_values)
+            stdev = statistics.pstdev(overall_values) if len(overall_values) > 1 else 0.0
+            print(f"Macro overall accuracy: {_format_accuracy(macro)}")
+            print(f"Overall accuracy spread: {_format_accuracy(spread)} (max - min)")
+            print(f"Overall accuracy σ: {_format_accuracy(stdev)}")
+        if math_values:
+            print(f"Macro math accuracy: {_format_accuracy(sum(math_values) / len(math_values))}")
+        if science_values:
+            print(f"Macro science accuracy: {_format_accuracy(sum(science_values) / len(science_values))}")
+
+        client_details = []
         for entry in client_metrics:
             overall = _format_accuracy(entry["overall"]["accuracy"])
             dataset_snippets = ", ".join(
                 f"{name}={_format_accuracy(bucket['accuracy'])}" for name, bucket in entry["datasets"].items()
             ) or "no dataset metrics"
             print(f"  · {entry['label']}: overall={overall}; datasets: {dataset_snippets}")
+
+            domains = entry.get("domains", {})
+            client_details.append(
+                {
+                    "label": entry["label"],
+                    "overall": entry["overall"].get("accuracy"),
+                    "math": domains.get("math", {}).get("accuracy"),
+                    "science": domains.get("science", {}).get("accuracy"),
+                    "datasets": {name: bucket.get("accuracy") for name, bucket in entry["datasets"].items()},
+                }
+            )
+
+        client_summary_payload = {
+            "macro_overall": macro,
+            "overall_spread": spread,
+            "overall_stdev": stdev,
+            "macro_math": (sum(math_values) / len(math_values)) if math_values else None,
+            "macro_science": (sum(science_values) / len(science_values)) if science_values else None,
+            "details": client_details,
+        }
+
+    summary_payload: Dict[str, Any] = {}
+    if central_metrics:
+        summary_payload["central"] = {
+            "label": central_metrics.get("label"),
+            "domains": central_metrics.get("domains"),
+            "datasets": central_metrics.get("datasets"),
+            "overall": central_metrics.get("overall"),
+        }
+    if client_summary_payload:
+        summary_payload["client_summary"] = client_summary_payload
+    if summary_payload:
+        _append_textgrad_log("run_summary", summary_payload)
 
 
 if __name__ == "__main__":
