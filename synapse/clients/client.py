@@ -32,6 +32,8 @@ class SynapseClient:
         self.metadata = metadata
         self._last_package: Optional[KnowledgePackage] = None
         self._shared_signatures: Set[str] = set()
+        self._last_raw_artifacts: List[KnowledgeArtifact] = []
+        self._last_sanitized_artifacts: List[KnowledgeArtifact] = []
         self.privacy_policy = privacy_policy or PrivacyPolicy()
 
     def collect_local_artifacts(self) -> List[KnowledgeArtifact]:
@@ -73,6 +75,7 @@ class SynapseClient:
             },
         )
         self._last_package = package
+        self._last_raw_artifacts = normalized
         return package
 
     def _derive_signature(self, artifact: KnowledgeArtifact) -> str:
@@ -128,12 +131,31 @@ class SynapseClient:
         for artifact in sanitized:
             self._shared_signatures.add(artifact.signature)
 
+        self._last_sanitized_artifacts = sanitized
+
         return KnowledgePackage(
             source_id=package.source_id,
             artifacts=sanitized,
             created_at=package.created_at,
             metadata=package.metadata,
         )
+
+    def get_attack_artifacts(self) -> List[Dict[str, str]]:
+        """
+        Return paired raw/sanitized artifacts for privacy attack evaluation.
+        """
+        raw_lookup = {artifact.signature: artifact.text for artifact in self._last_raw_artifacts}
+        paired: List[Dict[str, str]] = []
+        for artifact in self._last_sanitized_artifacts:
+            raw_text = raw_lookup.get(artifact.signature)
+            if not raw_text:
+                continue
+            paired.append({
+                "signature": artifact.signature,
+                "raw_text": raw_text,
+                "observed_text": artifact.text,
+            })
+        return paired
 
     def prepare_for_edge(self) -> KnowledgePackage:
         """

@@ -20,6 +20,7 @@ from science_qa import ScienceQATool
 from synapse.agent import SynapseAgent
 from synapse.config import ApiCredentials
 from synapse.runtime import SynapseRuntime
+from synapse.privacy.attacks import run_prompt_extraction_attack
 from openrouter_client import get_available_api_keys
 from jina_key_manager import get_available_jina_api_keys
 
@@ -252,6 +253,35 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Evaluate per-client datasets (requires --client-data-dir).",
     )
+    parser.add_argument(
+        "--rounds",
+        type=int,
+        default=1,
+        help="Number of SYNAPSE federation rounds to execute before evaluation.",
+    )
+    parser.add_argument(
+        "--prompt-attack",
+        action="store_true",
+        help="Run a prompt extraction attack after federation to gauge privacy leakage.",
+    )
+    parser.add_argument(
+        "--prompt-attack-model",
+        type=str,
+        default=None,
+        help="LLM to use for the prompt extraction attack (defaults to MODEL_NAME).",
+    )
+    parser.add_argument(
+        "--prompt-attack-samples",
+        type=int,
+        default=5,
+        help="Maximum number of artifacts per client to probe during the attack.",
+    )
+    parser.add_argument(
+        "--prompt-attack-output",
+        type=Path,
+        default=Path("prompt_attack_results.json"),
+        help="Path to write the prompt attack report (JSON).",
+    )
     return parser.parse_args()
 
 
@@ -293,10 +323,20 @@ def main():
         credentials,
         client_count=args.client_count,
     )
-    print("\n--- 1. SYNAPSE FEDERATION ROUND ---")
-    runtime.run_round()
-    summary = runtime.summarize_round()
-    print(f"SYNAPSE Round Summary: {summary}")
+    first_client = next(iter(runtime.clients.values()), None)
+    dp_epsilon = None
+    if first_client and getattr(first_client, "privacy_policy", None):
+        dp_epsilon = first_client.privacy_policy.dp_epsilon
+    if dp_epsilon is not None:
+        print(f"[Privacy] Differential privacy ENABLED (epsilon={dp_epsilon})")
+    else:
+        print("[Privacy] Differential privacy DISABLED")
+    total_rounds = max(1, args.rounds)
+    for round_idx in range(total_rounds):
+        print(f"\n--- 1. SYNAPSE FEDERATION ROUND {round_idx + 1}/{total_rounds} ---")
+        runtime.run_round()
+        summary = runtime.summarize_round()
+        print(f"SYNAPSE Round Summary: {summary}")
 
     tool_registry = {
         "mathqa": MathQATool(),
@@ -366,6 +406,30 @@ def main():
                 f"bbh={_format_percent(bbh_acc)}, "
                 f"{dataset_summary}"
             )
+
+    if args.prompt_attack:
+        attack_model = (
+            args.prompt_attack_model
+            or os.environ.get("PROMPT_ATTACK_MODEL")
+            or os.environ.get("MODEL_NAME")
+            or model_name_env
+            or "gpt-4o-mini"
+        )
+        print("\n--- PROMPT EXTRACTION ATTACK ---")
+        report = run_prompt_extraction_attack(
+            list(runtime.clients.values()),
+            model=attack_model,
+            max_samples=max(1, args.prompt_attack_samples),
+            output_path=args.prompt_attack_output,
+        )
+        avg = report.get("average_similarity")
+        if avg is not None:
+            print(f"Samples attacked: {report['samples']}; average similarity={avg * 100:.1f}%")
+        else:
+            print("No artifacts available for attack (perhaps clients shared nothing).")
+        print(f"Attack model: {attack_model}")
+        if args.prompt_attack_output:
+            print(f"Detailed attack report saved to '{args.prompt_attack_output}'.")
 def _normalize_answer(text: str) -> str:
     """
     Normalize answer strings by removing common prefixes and punctuation.
