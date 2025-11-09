@@ -86,7 +86,10 @@ def _parse_list(option_value: Optional[str]) -> List[str]:
 
 def _load_json(path: Path):
     with path.open("r", encoding="utf-8") as fh:
-        return json.load(fh)
+        payload = json.load(fh)
+    if isinstance(payload, dict) and "examples" in payload and isinstance(payload["examples"], list):
+        return payload["examples"]
+    return payload
 
 
 def _ensure_capacity(total_needed: int, available: int, label: str):
@@ -187,13 +190,23 @@ def _noniid_splits(
 
 
 def _transform_math_entry(item: Dict[str, object]) -> Dict[str, object]:
+    problem = item.get("Problem") or item.get("problem")
+    options = item.get("options") or item.get("Options", "")
+    rationale = item.get("Rationale", "")
+    correct = item.get("correct") or item.get("Answer")
+
+    if not problem and item.get("input"):
+        problem = item.get("input")
+    if not correct and item.get("target"):
+        correct = item.get("target")
+
     return {
         "type": "math",
-        "Problem": item.get("Problem") or item.get("problem"),
-        "options": item.get("options") or item.get("Options", ""),
-        "Rationale": item.get("Rationale", ""),
+        "Problem": problem,
+        "options": options,
+        "Rationale": rationale,
         "category": item.get("category") or item.get("Category", "general"),
-        "correct": item.get("correct") or item.get("Answer"),
+        "correct": correct,
     }
 
 

@@ -45,8 +45,8 @@ def main() -> None:
         question, answer = dataset[idx]
         samples.append(
             {
-                "question": question,
-                "answer": answer,
+                "question": str(question),
+                "answer": str(answer),
                 "dataset": args.task,
                 "domain": "math",
             }

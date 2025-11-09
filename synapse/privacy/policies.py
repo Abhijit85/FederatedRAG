@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 import random
 import re
+import os
 from dataclasses import dataclass
 from typing import Iterable, List, Optional
 
@@ -26,6 +27,44 @@ class PrivacyPolicy:
     redact_sensitive_metadata: bool = True
     drop_pii_text: bool = True
     dp_epsilon: Optional[float] = None
+    adaptive_text_noise: bool = True
+    adaptive_digit_weight: float = 0.6
+    adaptive_length_weight: float = 0.3
+    adaptive_upper_weight: float = 0.2
+    adaptive_title_weight: float = 0.1
+    adaptive_probability_multiplier: float = 1.0
+    adaptive_distortion_multiplier: float = 1.0
+
+    def __post_init__(self) -> None:
+        self._load_env_overrides()
+
+    def _load_env_overrides(self) -> None:
+        env = os.environ
+
+        def _flag(name: str, default: bool) -> bool:
+            value = env.get(name)
+            if value is None:
+                return default
+            return value.strip().lower() in {"1", "true", "yes", "on"}
+
+        if "SYNAPSE_ADAPTIVE_TEXT_NOISE" in env:
+            self.adaptive_text_noise = _flag("SYNAPSE_ADAPTIVE_TEXT_NOISE", self.adaptive_text_noise)
+
+        for attr, var in (
+            ("adaptive_digit_weight", "SYNAPSE_ADAPTIVE_DIGIT_WEIGHT"),
+            ("adaptive_length_weight", "SYNAPSE_ADAPTIVE_LENGTH_WEIGHT"),
+            ("adaptive_upper_weight", "SYNAPSE_ADAPTIVE_UPPER_WEIGHT"),
+            ("adaptive_title_weight", "SYNAPSE_ADAPTIVE_TITLE_WEIGHT"),
+            ("adaptive_probability_multiplier", "SYNAPSE_ADAPTIVE_PROBABILITY_MULT"),
+            ("adaptive_distortion_multiplier", "SYNAPSE_ADAPTIVE_DISTORT_MULT"),
+        ):
+            value = env.get(var)
+            if value is None:
+                continue
+            try:
+                setattr(self, attr, float(value))
+            except ValueError:
+                continue
 
     def enforce(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
         """
@@ -57,7 +96,7 @@ class PrivacyPolicy:
             )
 
         if self.dp_epsilon and self.dp_epsilon > 0:
-            return self._apply_dp_noise(sanitized)
+            sanitized = self._apply_dp_noise(sanitized)
         return sanitized
 
     def _apply_dp_noise(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
@@ -92,7 +131,67 @@ class PrivacyPolicy:
                     metadata=metadata,
                 )
             )
+        if self.adaptive_text_noise:
+            return self._apply_adaptive_text_noise(privatized, scale)
         return privatized
+
+    def _apply_adaptive_text_noise(self, artifacts: Iterable[KnowledgeArtifact], scale: float) -> List[KnowledgeArtifact]:
+        processed: List[KnowledgeArtifact] = []
+        for artifact in artifacts:
+            text = artifact.text or ""
+            noisy_text = self._noisify_text(text, scale)
+            processed.append(
+                KnowledgeArtifact(
+                    signature=artifact.signature,
+                    text=noisy_text,
+                    structured_payload=artifact.structured_payload,
+                    metadata=artifact.metadata,
+                )
+            )
+        return processed
+
+    def _noisify_text(self, text: str, scale: float) -> str:
+        if not text.strip():
+            return text
+        tokens = re.split(r"(\s+)", text)
+        result: List[str] = []
+        for token in tokens:
+            if not token or token.isspace():
+                result.append(token)
+                continue
+            saliency = self._token_saliency(token)
+            if saliency <= 0:
+                result.append(token)
+                continue
+            probability = min(1.0, saliency * self.adaptive_probability_multiplier)
+            if random.random() < probability:
+                result.append(self._distort_token(token, scale))
+            else:
+                result.append(token)
+        return "".join(result)
+
+    def _token_saliency(self, token: str) -> float:
+        score = 0.0
+        if any(ch.isdigit() for ch in token):
+            score += self.adaptive_digit_weight
+        if len(token) >= 6:
+            score += self.adaptive_length_weight
+        if token.isupper():
+            score += self.adaptive_upper_weight
+        if token and token[0].isupper():
+            score += self.adaptive_title_weight
+        return min(score, 1.0)
+
+    def _distort_token(self, token: str, scale: float) -> str:
+        if not token:
+            return token
+        chars = list(token)
+        noise = max(0.1, abs(_laplace(scale))) * max(self.adaptive_distortion_multiplier, 0.1)
+        replacements = max(1, min(len(chars), int(round(noise * len(chars)))))
+        indices = random.sample(range(len(chars)), replacements)
+        for idx in indices:
+            chars[idx] = "#"
+        return "".join(chars)
 
     def _looks_like_pii(self, text: str) -> bool:
         """

@@ -297,6 +297,23 @@ def main():
     Run a full SYNAPSE federation round and evaluate the resulting agent.
     """
     args = parse_args()
+    # Allow .env to control prompt attack settings when flags are omitted.
+    env_prompt_attack = os.environ.get("PROMPT_ATTACK")
+    if env_prompt_attack and not args.prompt_attack:
+        if env_prompt_attack.strip().lower() in {"1", "true", "yes", "on"}:
+            args.prompt_attack = True
+
+    if os.environ.get("PROMPT_ATTACK_MODEL") and not args.prompt_attack_model:
+        args.prompt_attack_model = os.environ.get("PROMPT_ATTACK_MODEL")
+
+    if os.environ.get("PROMPT_ATTACK_SAMPLES") and args.prompt_attack_samples == 5:
+        try:
+            args.prompt_attack_samples = int(os.environ.get("PROMPT_ATTACK_SAMPLES"))
+        except ValueError:
+            pass
+
+    if os.environ.get("PROMPT_ATTACK_OUTPUT") and args.prompt_attack_output == Path("prompt_attack_results.json"):
+        args.prompt_attack_output = Path(os.environ.get("PROMPT_ATTACK_OUTPUT"))
 
     available_lambda_keys = get_available_api_keys(allow_empty=True)
     lambda_key = available_lambda_keys[0] if available_lambda_keys else None

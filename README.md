@@ -37,6 +37,24 @@ TEXTGRAD_SAMPLE_WITH_REPLACEMENT=0
 
 The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. After editing `.env`, run `set -a; source .env; set +a` (or the equivalent in your shell) before launching any scripts. Toggle `TEXTGRAD_SAMPLE_WITH_REPLACEMENT` to `1` when you want TextGrad’s mini-batches to sample with replacement (allowing repeated questions within an epoch); leave it `0` for the default shuffle-without-replacement behavior.
 
+### Differential privacy & adaptive text noise
+
+When `SYNAPSE_ENABLE_DP=1`, every client applies differential privacy to the artifacts it shares with the federation. Numeric metadata is perturbed with Laplace noise controlled by `SYNAPSE_DP_EPSILON`, and high-saliency tokens inside the artifact text are selectively obfuscated (“adaptive token-level Laplace”). Only tokens that carry obvious signals (numbers, long identifiers, capitalized terms, etc.) receive noise, which preserves utility for the receiving agents while materially reducing prompt-reconstruction attacks. Decrease `SYNAPSE_DP_EPSILON` to strengthen both numeric and token-level noise; increase it or disable DP entirely when maximum fidelity is more important than privacy.
+
+The adaptive masking can be tuned via environment variables:
+
+```env
+SYNAPSE_ADAPTIVE_TEXT_NOISE=1          # set to 0 to disable token masking
+SYNAPSE_ADAPTIVE_DIGIT_WEIGHT=0.6      # contribution when a token contains digits
+SYNAPSE_ADAPTIVE_LENGTH_WEIGHT=0.3     # contribution for long tokens (>=6 chars)
+SYNAPSE_ADAPTIVE_UPPER_WEIGHT=0.2      # contribution for ALL-CAPS tokens
+SYNAPSE_ADAPTIVE_TITLE_WEIGHT=0.1      # contribution when a token starts uppercase
+SYNAPSE_ADAPTIVE_PROBABILITY_MULT=1.0  # scales the probability of masking
+SYNAPSE_ADAPTIVE_DISTORT_MULT=1.0      # scales how many characters get replaced
+```
+
+Increase the weights or multipliers to mask more aggressively; decrease them for higher fidelity.
+
 ### MongoDB Atlas Vector Search
 MathQA retrieval expects a MongoDB Atlas vector index on the collection that stores embeddings (`math_problems` by default, or `vectors` if you prefer). Create the index from the Atlas UI (Search/Vector Search tab) with this JSON definition:
 

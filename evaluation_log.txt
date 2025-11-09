@@ -5289,3 +5289,4209 @@ Macro math accuracy: 98.5%
 · client_2_object_counting: overall=100.0%, math=100.0%, science=n/a, bbh=100.0%, BBH_object_counting=100.0%
 · client_3_object_counting: overall=98.0%, math=98.0%, science=n/a, bbh=98.0%, BBH_object_counting=98.0%
 · client_4_object_counting: overall=98.0%, math=98.0%, science=n/a, bbh=98.0%, BBH_object_counting=98.0%
+
+===== New Evaluation Run =====
+usage: main.py [-h] [--test-file TEST_FILE] [--client-data-dir CLIENT_DATA_DIR] [--client-count CLIENT_COUNT] [--skip-global-eval] [--evaluate-clients] [--rounds ROUNDS] [--prompt-attack]
+               [--prompt-attack-model PROMPT_ATTACK_MODEL] [--prompt-attack-samples PROMPT_ATTACK_SAMPLES] [--prompt-attack-output PROMPT_ATTACK_OUTPUT]
+main.py: error: unrecognized arguments: --task BBH_object_counting --mixed-queries bbh_object_counting_eval_v3.json
+
+===== New Evaluation Run =====
+[Privacy] Differential privacy ENABLED (epsilon=0.05)
+--- 1. SYNAPSE FEDERATION ROUND 1/1 ---
+SYNAPSE Round Summary: {'artifact_count': 10, 'version_history': [{'timestamp': '2025-11-09T18:12:31.835586', 'edge_id': 'edge-general', 'artifact_count': '10'}]}
+✅ Successfully loaded 'train_new.json' for MathQATool.
+✅ MongoDB RAG collection 'vectors' is ready.
+MathQA RAG system is already populated.
+✅ Successfully loaded 'scienceqa_challenge_test.json' for ScienceQATool.
+✅ MongoDB RAG collection 'science_problems' is ready.
+ScienceQA RAG system is already populated.
+✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: bbh_object_counting_eval_v3.json ---
+[✓] Successfully loaded 'bbh_object_counting_eval_v3.json'.
+--- Processing MathQA Query: 'In a puzzle, 5 triangles, 2 squares, and 15 circles are drawn. What is the total...' ---
+🔎 Querying RAG system for: 'In a puzzle, 5 triangles, 2 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 5, 2, and 15 to get 22.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I must sum the quantity of each distinct shape provided in the puzzle. The puzzle contains 5 triangles, 2 squares, and 15 circles. The calculation proceeds as follows:
+
+Step 1: Identify the number of each type of shape.
+- Number of triangles = 5
+- Number of squares = 2
+- Number of circles = 15
+
+Step 2: Add the quantities of all shapes together to find the total.
+Total number of shapes = Number of triangles + Number of squares + Number of circles
+Total number of shapes = 5 + 2 + 15
+Total number of shapes = 22
+
+Final Answer: 22
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 5 bronze coins, 4 silver coins, and 11 gold coi...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 5 bronze coins, 4 silver coins, and 11 gold coins. How many coins has the player collected?
+Add 5, 4, and 11 to get 20.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected by the player, it is necessary to sum the quantities of each type of coin. The player collected:
+
+1.  5 bronze coins
+2.  4 silver coins
+3.  11 gold coins
+
+Step-by-step calculation:
+
+1.  Identify the number of bronze coins: 5
+2.  Identify the number of silver coins: 4
+3.  Identify the number of gold coins: 11
+4.  Add these quantities together: 5 + 4 + 11 = 20
+
+Therefore, the total number of coins collected is 20.
+
+Final Answer: 20
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 11 bronze coins, 9 silver coins, and 1 gold coi...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 11 bronze coins, 9 silver coins, and 1 gold coins. How many coins has the player collected?
+Add 11, 9, and 1 to get 21.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins the player has collected, I will sum the quantities of each type of coin.
+
+**Step 1: Identify the number of each type of coin.**
+*   Bronze coins: 11
+*   Silver coins: 9
+*   Gold coins: 1
+
+**Step 2: Add the number of coins of each type together.**
+Total coins = Number of bronze coins + Number of silver coins + Number of gold coins
+Total coins = 11 + 9 + 1
+Total coins = 20 + 1
+Total coins = 21
+
+The player has collected a total of 21 coins.
+
+Final Answer: 21
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 5 triangles, 3 squares, and 15 circles are drawn. What is the total...' ---
+🔎 Querying RAG system for: 'In a puzzle, 5 triangles, 3 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 5, 3, and 15 to get 23.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I will sum the quantity of each type of shape provided in the puzzle.
+
+**Step-by-step rationale:**
+1.  Identify the number of triangles: 5
+2.  Identify the number of squares: 3
+3.  Identify the number of circles: 15
+4.  Add these quantities together: 5 + 3 + 15
+5.  Perform the addition: 5 + 3 = 8
+6.  Continue the addition: 8 + 15 = 23
+
+The total number of shapes is 23.
+
+Final Answer: 23
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 14 wooden blocks, then adds 1 plastic blocks and 15 foam blocks. ...' ---
+🔎 Querying RAG system for: 'A child stacks 14 wooden blocks, then adds 1 plastic blocks and 15 foam blocks. How many blocks are stacked now?
+Add 14, 1, and 15 to get 30.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I must sum the quantity of each type of block. The child initially stacks 14 wooden blocks. Subsequently, 1 plastic block and 15 foam blocks are added. The calculation proceeds as follows:
+
+Step 1: Identify the initial number of blocks.
+Initial wooden blocks = 14
+
+Step 2: Identify the number of blocks added.
+Plastic blocks added = 1
+Foam blocks added = 15
+
+Step 3: Sum all quantities to find the total number of blocks.
+Total blocks = Wooden blocks + Plastic blocks + Foam blocks
+Total blocks = 14 + 1 + 15
+Total blocks = 15 + 15
+Total blocks = 30
+
+Therefore, the total number of blocks stacked is 30.
+
+Final Answer: 30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 6 red balloons, 10 blue balloons, and 9 green balloons in a classroom....' ---
+🔎 Querying RAG system for: 'There are 6 red balloons, 10 blue balloons, and 9 green balloons in a classroom. How many balloons are there in total?
+Add 6, 10, and 9 to get 25.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, I sum the quantities of each color of balloon provided in the problem statement. I have 6 red balloons, 10 blue balloons, and 9 green balloons. The calculation is as follows:
+
+1. Identify the number of red balloons: 6
+2. Identify the number of blue balloons: 10
+3. Identify the number of green balloons: 9
+4. Add these quantities together to find the total:
+   Total balloons = 6 + 10 + 9
+   Total balloons = 16 + 9
+   Total balloons = 25
+
+Therefore, the total number of balloons is 25.
+
+Final Answer: 25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 7 cows in one field, 14 sheep in another, and 5 goats near the b...' ---
+🔎 Querying RAG system for: 'A farmer counts 7 cows in one field, 14 sheep in another, and 5 goats near the barn. How many animals does the farmer see altogether?
+Add 7, 14, and 5 to get 26.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, I will sum the count of each type of animal. 
+
+1.  **Identify the quantities:** The farmer counts 7 cows, 14 sheep, and 5 goats.
+2.  **Perform the addition:** Add these quantities together: 7 + 14 + 5.
+3.  **Calculate the sum:** 7 + 14 = 21. Then, 21 + 5 = 26.
+
+Therefore, the farmer sees 26 animals altogether.
+
+Final Answer: 26
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 5 red balloons, 7 blue balloons, and 3 green balloons in a classroom. ...' ---
+🔎 Querying RAG system for: 'There are 5 red balloons, 7 blue balloons, and 3 green balloons in a classroom. How many balloons are there in total?
+Add 5, 7, and 3 to get 15.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, a fundamental arithmetic operation of summation is required. The problem presents three distinct categories of balloons, each with a specified quantity: 5 red balloons, 7 blue balloons, and 3 green balloons. The objective is to aggregate these individual counts into a single total.
+
+Step 1: Identify the quantities of each type of balloon.
+- Red balloons: 5
+- Blue balloons: 7
+- Green balloons: 3
+
+Step 2: Apply the addition operation to combine these quantities.
+Total balloons = Quantity of red balloons + Quantity of blue balloons + Quantity of green balloons
+Total balloons = 5 + 7 + 3
+
+Step 3: Perform the addition.
+First, add the quantities of red and blue balloons: 5 + 7 = 12.
+Next, add the quantity of green balloons to this subtotal: 12 + 3 = 15.
+
+Therefore, the total number of balloons in the classroom is 15.
+
+Final Answer: A
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 2 triangles, 2 squares, and 15 circles are drawn. What is the total...' ---
+🔎 Querying RAG system for: 'In a puzzle, 2 triangles, 2 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 2, 2, and 15 to get 19.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I will sum the count of each distinct type of shape provided in the puzzle. The problem states there are 2 triangles, 2 squares, and 15 circles. The calculation is as follows:
+
+Step 1: Identify the number of each type of shape.
+- Number of triangles = 2
+- Number of squares = 2
+- Number of circles = 15
+
+Step 2: Add the quantities of all shapes together to find the total.
+Total number of shapes = Number of triangles + Number of squares + Number of circles
+Total number of shapes = 2 + 2 + 15
+Total number of shapes = 4 + 15
+Total number of shapes = 19
+
+The total number of shapes drawn in the puzzle is 19.
+
+Final Answer: 19
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 13 bronze coins, 3 silver coins, and 11 gold co...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 13 bronze coins, 3 silver coins, and 11 gold coins. How many coins has the player collected?
+Add 13, 3, and 11 to get 27.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins the player has collected, I will sum the quantity of each type of coin. The player collected:
+
+1.  13 bronze coins
+2.  3 silver coins
+3.  11 gold coins
+
+Adding these quantities together: 13 + 3 + 11 = 27.
+
+Therefore, the player has collected a total of 27 coins.
+
+Final Answer: 27
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 5 triangles, 10 squares, and 13 circles are drawn. What is the tota...' ---
+🔎 Querying RAG system for: 'In a puzzle, 5 triangles, 10 squares, and 13 circles are drawn. What is the total number of shapes?
+Add 5, 10, and 13 to get 28.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I will sum the quantities of each type of shape provided in the puzzle. 
+
+**Step-by-step rationale:**
+1. Identify the number of triangles: 5
+2. Identify the number of squares: 10
+3. Identify the number of circles: 13
+4. Add these numbers together to find the total: 5 + 10 + 13 = 28
+
+**Final Answer:** 28
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 15 wooden blocks, then adds 15 plastic blocks and 14 foam blocks....' ---
+🔎 Querying RAG system for: 'A child stacks 15 wooden blocks, then adds 15 plastic blocks and 14 foam blocks. How many blocks are stacked now?
+Add 15, 15, and 14 to get 44.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, we must sum the quantity of each type of block. Initially, there are 15 wooden blocks. Subsequently, 15 plastic blocks are added, followed by 14 foam blocks. Therefore, the total number of blocks is calculated by adding these individual quantities:
+
+1.  Number of wooden blocks: 15
+2.  Number of plastic blocks: 15
+3.  Number of foam blocks: 14
+
+Total blocks = 15 (wooden) + 15 (plastic) + 14 (foam) = 44 blocks.
+
+Final Answer: 44
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 4 cows in one field, 11 sheep in another, and 2 goats near the b...' ---
+🔎 Querying RAG system for: 'A farmer counts 4 cows in one field, 11 sheep in another, and 2 goats near the barn. How many animals does the farmer see altogether?
+Add 4, 11, and 2 to get 17.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, one must sum the individual counts of each type of animal. The farmer counts 4 cows, 11 sheep, and 2 goats. The operation required is addition.
+
+Step 1: Identify the quantities to be added.
+- Number of cows = 4
+- Number of sheep = 11
+- Number of goats = 2
+
+Step 2: Perform the addition operation.
+Total animals = Number of cows + Number of sheep + Number of goats
+Total animals = 4 + 11 + 2
+Total animals = 15 + 2
+Total animals = 17
+
+Therefore, the farmer sees 17 animals altogether.
+
+Final Answer: 17
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 9 cows in one field, 4 sheep in another, and 9 goats near the ba...' ---
+🔎 Querying RAG system for: 'A farmer counts 9 cows in one field, 4 sheep in another, and 9 goats near the barn. How many animals does the farmer see altogether?
+Add 9, 4, and 9 to get 22.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees, we need to sum the number of cows, sheep, and goats. 
+
+**Step-by-step rationale:**
+1.  Identify the number of cows: The farmer counts 9 cows.
+2.  Identify the number of sheep: The farmer counts 4 sheep.
+3.  Identify the number of goats: The farmer counts 9 goats.
+4.  Add these quantities together: 9 (cows) + 4 (sheep) + 9 (goats) = 22 animals.
+
+Therefore, the farmer sees a total of 22 animals.
+
+Final Answer: 22
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 8 red balloons, 9 blue balloons, and 12 green balloons in a classroom....' ---
+🔎 Querying RAG system for: 'There are 8 red balloons, 9 blue balloons, and 12 green balloons in a classroom. How many balloons are there in total?
+Add 8, 9, and 12 to get 29.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, one must sum the individual counts of each color of balloon. 
+
+**Step-by-by Rationale:**
+1.  Identify the number of red balloons: 8.
+2.  Identify the number of blue balloons: 9.
+3.  Identify the number of green balloons: 12.
+4.  Add the number of red balloons and blue balloons: 8 + 9 = 17.
+5.  Add the sum from step 4 to the number of green balloons: 17 + 12 = 29.
+
+Final Answer: 29
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 12 wooden blocks, then adds 6 plastic blocks and 4 foam blocks. H...' ---
+🔎 Querying RAG system for: 'A child stacks 12 wooden blocks, then adds 6 plastic blocks and 4 foam blocks. How many blocks are stacked now?
+Add 12, 6, and 4 to get 22.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, we need to sum the quantities of each type of block. The child initially stacks 12 wooden blocks. Subsequently, 6 plastic blocks are added, and then 4 foam blocks are added. The total number of blocks is the sum of these individual quantities.
+
+Step 1: Identify the number of wooden blocks.
+Number of wooden blocks = 12
+
+Step 2: Identify the number of plastic blocks.
+Number of plastic blocks = 6
+
+Step 3: Identify the number of foam blocks.
+Number of foam blocks = 4
+
+Step 4: Add the quantities of all blocks together.
+Total blocks = Number of wooden blocks + Number of plastic blocks + Number of foam blocks
+Total blocks = 12 + 6 + 4
+Total blocks = 18 + 4
+Total blocks = 22
+
+Final Answer: 22
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 2 bronze coins, 12 silver coins, and 9 gold coi...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 2 bronze coins, 12 silver coins, and 9 gold coins. How many coins has the player collected?
+Add 2, 12, and 9 to get 23.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected by the player, a simple summation of the quantities of each type of coin is required.
+
+**Step-by-step rationale:**
+1.  Identify the number of bronze coins collected: 2.
+2.  Identify the number of silver coins collected: 12.
+3.  Identify the number of gold coins collected: 9.
+4.  Sum these individual quantities to find the total: 2 + 12 + 9 = 23.
+
+The player has collected a total of 23 coins.
+
+Final Answer: 23
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 6 triangles, 13 squares, and 9 circles are drawn. What is the total...' ---
+🔎 Querying RAG system for: 'In a puzzle, 6 triangles, 13 squares, and 9 circles are drawn. What is the total number of shapes?
+Add 6, 13, and 9 to get 28.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+Jina API key JINA_API_KEY encountered a transient error (HTTPSConnectionPool(host='api.jina.ai', port=443): Read timed out. (read timeout=60)). Trying next key.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, we need to sum the quantities of each type of shape provided in the puzzle. 
+
+**Step 1: Identify the given quantities.**
+There are 6 triangles.
+There are 13 squares.
+There are 9 circles.
+
+**Step 2: Add the quantities together.**
+Total number of shapes = Number of triangles + Number of squares + Number of circles
+Total number of shapes = 6 + 13 + 9
+
+**Step 3: Perform the addition.**
+6 + 13 = 19
+19 + 9 = 28
+
+Therefore, the total number of shapes is 28.
+
+Final Answer: 28
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 15 bronze coins, 14 silver coins, and 7 gold co...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 15 bronze coins, 14 silver coins, and 7 gold coins. How many coins has the player collected?
+Add 15, 14, and 7 to get 36.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected by the player, it is necessary to sum the quantities of each type of coin. The player collected 15 bronze coins, 14 silver coins, and 7 gold coins. The calculation is as follows:
+
+1.  Identify the number of bronze coins: 15
+2.  Identify the number of silver coins: 14
+3.  Identify the number of gold coins: 7
+4.  Add these quantities together: 15 + 14 + 7 = 36
+
+Therefore, the player collected a total of 36 coins.
+
+Final Answer: 36
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 6 red balloons, 4 blue balloons, and 11 green balloons in a classroom....' ---
+🔎 Querying RAG system for: 'There are 6 red balloons, 4 blue balloons, and 11 green balloons in a classroom. How many balloons are there in total?
+Add 6, 4, and 11 to get 21.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To find the total number of balloons, I need to sum the quantities of each color of balloon. 
+
+1.  Identify the number of red balloons: 6.
+2.  Identify the number of blue balloons: 4.
+3.  Identify the number of green balloons: 11.
+4.  Add these quantities together: 6 + 4 + 11 = 21.
+
+Therefore, there are 21 balloons in total.
+
+Final Answer: 21
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 11 cows in one field, 10 sheep in another, and 10 goats near the...' ---
+🔎 Querying RAG system for: 'A farmer counts 11 cows in one field, 10 sheep in another, and 10 goats near the barn. How many animals does the farmer see altogether?
+Add 11, 10, and 10 to get 31.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees, I will perform a summation of the individual counts for each type of animal. 
+
+**Step-by-step rationale:**
+1.  **Identify the quantities of each animal type:**
+    *   Cows: 11
+    *   Sheep: 10
+    *   Goats: 10
+2.  **Formulate the addition expression:** To find the total, these quantities must be added together: 11 + 10 + 10.
+3.  **Perform the addition:**
+    *   11 + 10 = 21
+    *   21 + 10 = 31
+
+Therefore, the total number of animals the farmer sees altogether is 31.
+
+Final Answer: 31
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 14 cows in one field, 9 sheep in another, and 12 goats near the ...' ---
+🔎 Querying RAG system for: 'A farmer counts 14 cows in one field, 9 sheep in another, and 12 goats near the barn. How many animals does the farmer see altogether?
+Add 14, 9, and 12 to get 35.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, we need to sum the number of cows, sheep, and goats. 
+
+Step 1: Identify the number of cows, which is 14.
+Step 2: Identify the number of sheep, which is 9.
+Step 3: Identify the number of goats, which is 12.
+Step 4: Add these numbers together: 14 + 9 + 12.
+Step 5: Perform the addition: 14 + 9 = 23.
+Step 6: Continue the addition: 23 + 12 = 35.
+
+Therefore, the farmer sees a total of 35 animals.
+
+Final Answer: 35
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 6 cows in one field, 4 sheep in another, and 11 goats near the b...' ---
+🔎 Querying RAG system for: 'A farmer counts 6 cows in one field, 4 sheep in another, and 11 goats near the barn. How many animals does the farmer see altogether?
+Add 6, 4, and 11 to get 21.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, I will sum the number of cows, sheep, and goats. 
+
+1.  Identify the number of cows: 6
+2.  Identify the number of sheep: 4
+3.  Identify the number of goats: 11
+4.  Add these quantities together: 6 + 4 + 11 = 21
+
+The farmer sees a total of 21 animals.
+
+Final Answer: 21
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 10 wooden blocks, then adds 12 plastic blocks and 3 foam blocks. ...' ---
+🔎 Querying RAG system for: 'A child stacks 10 wooden blocks, then adds 12 plastic blocks and 3 foam blocks. How many blocks are stacked now?
+Add 10, 12, and 3 to get 25.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I must sum the quantities of each type of block. The problem states that there are 10 wooden blocks, 12 plastic blocks, and 3 foam blocks.
+
+Step 1: Identify the initial number of blocks.
+Initial blocks = 10 wooden blocks.
+
+Step 2: Identify the first set of added blocks.
+Added blocks (plastic) = 12 plastic blocks.
+
+Step 3: Identify the second set of added blocks.
+Added blocks (foam) = 3 foam blocks.
+
+Step 4: Sum all quantities to find the total number of blocks.
+Total blocks = 10 (wooden) + 12 (plastic) + 3 (foam)
+Total blocks = 22 + 3
+Total blocks = 25
+
+Therefore, the total number of blocks stacked is 25.
+
+Final Answer: 25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 1 triangles, 5 squares, and 6 circles are drawn. What is the total ...' ---
+🔎 Querying RAG system for: 'In a puzzle, 1 triangles, 5 squares, and 6 circles are drawn. What is the total number of shapes?
+Add 1, 5, and 6 to get 12.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, we must sum the quantity of each type of shape provided in the puzzle. The puzzle specifies:
+
+1.  1 triangle
+2.  5 squares
+3.  6 circles
+
+Step 1: Identify the number of each type of shape.
+    - Triangles: 1
+    - Squares: 5
+    - Circles: 6
+
+Step 2: Add the number of each shape together to find the total.
+    - Total shapes = Number of triangles + Number of squares + Number of circles
+    - Total shapes = 1 + 5 + 6
+
+Step 3: Perform the addition.
+    - 1 + 5 = 6
+    - 6 + 6 = 12
+
+Therefore, the total number of shapes is 12.
+
+Final Answer: 12
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 15 wooden blocks, then adds 4 plastic blocks and 6 foam blocks. H...' ---
+🔎 Querying RAG system for: 'A child stacks 15 wooden blocks, then adds 4 plastic blocks and 6 foam blocks. How many blocks are stacked now?
+Add 15, 4, and 6 to get 25.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I must sum the quantities of each type of block. The child initially stacks 15 wooden blocks. Subsequently, 4 plastic blocks are added, followed by 6 foam blocks. Therefore, the total number of blocks is calculated as the sum of these quantities:
+
+1.  Initial wooden blocks: 15
+2.  Added plastic blocks: 4
+3.  Added foam blocks: 6
+
+Total blocks = 15 + 4 + 6 = 25
+
+Thus, there are 25 blocks stacked now.
+
+Final Answer: 25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 3 wooden blocks, then adds 5 plastic blocks and 5 foam blocks. Ho...' ---
+🔎 Querying RAG system for: 'A child stacks 3 wooden blocks, then adds 5 plastic blocks and 5 foam blocks. How many blocks are stacked now?
+Add 3, 5, and 5 to get 13.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I will sum the quantities of each type of block. The child initially stacks 3 wooden blocks. Subsequently, 5 plastic blocks are added, and then 5 foam blocks are added. The total number of blocks is the sum of these individual quantities.
+
+Step 1: Identify the initial number of blocks.
+Initial blocks = 3 (wooden blocks)
+
+Step 2: Identify the number of blocks added next.
+Added blocks = 5 (plastic blocks)
+
+Step 3: Identify the number of blocks added last.
+Added blocks = 5 (foam blocks)
+
+Step 4: Sum all the quantities to find the total number of blocks.
+Total blocks = 3 + 5 + 5 = 13
+
+Therefore, the total number of blocks stacked is 13.
+
+Final Answer: 13
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 6 bronze coins, 15 silver coins, and 2 gold coi...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 6 bronze coins, 15 silver coins, and 2 gold coins. How many coins has the player collected?
+Add 6, 15, and 2 to get 23.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected by the player, I performed a summation of the quantities of each type of coin. The player collected 6 bronze coins, 15 silver coins, and 2 gold coins. The calculation is as follows:
+
+Step 1: Identify the number of bronze coins.
+Number of bronze coins = 6
+
+Step 2: Identify the number of silver coins.
+Number of silver coins = 15
+
+Step 3: Identify the number of gold coins.
+Number of gold coins = 2
+
+Step 4: Add the quantities of all types of coins to find the total.
+Total coins = Number of bronze coins + Number of silver coins + Number of gold coins
+Total coins = 6 + 15 + 2
+Total coins = 23
+
+Therefore, the player collected a total of 23 coins.
+
+Final Answer: 23
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 1 triangles, 1 squares, and 6 circles are drawn. What is the total ...' ---
+🔎 Querying RAG system for: 'In a puzzle, 1 triangles, 1 squares, and 6 circles are drawn. What is the total number of shapes?
+Add 1, 1, and 6 to get 8.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I will sum the quantity of each type of shape provided in the puzzle. The puzzle states there is 1 triangle, 1 square, and 6 circles. Therefore, the total number of shapes is calculated by adding these quantities together: 1 (triangles) + 1 (squares) + 6 (circles) = 8 shapes. This direct summation yields the total count.
+
+Final Answer: 8
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 15 bronze coins, 15 silver coins, and 13 gold c...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 15 bronze coins, 15 silver coins, and 13 gold coins. How many coins has the player collected?
+Add 15, 15, and 13 to get 43.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected, I will sum the quantities of each type of coin. The player collected 15 bronze coins, 15 silver coins, and 13 gold coins.
+
+Step 1: Identify the number of bronze coins: 15
+Step 2: Identify the number of silver coins: 15
+Step 3: Identify the number of gold coins: 13
+Step 4: Add these quantities together to find the total number of coins: 15 + 15 + 13 = 43
+
+Final Answer: 43
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 12 bronze coins, 15 silver coins, and 3 gold co...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 12 bronze coins, 15 silver coins, and 3 gold coins. How many coins has the player collected?
+Add 12, 15, and 3 to get 30.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected, I will sum the quantity of each type of coin. The player collected 12 bronze coins, 15 silver coins, and 3 gold coins. The calculation is as follows:
+
+1. Identify the number of bronze coins: 12
+2. Identify the number of silver coins: 15
+3. Identify the number of gold coins: 3
+4. Add these quantities together: 12 + 15 + 3 = 30
+
+The total number of coins collected by the player is 30.
+
+Final Answer: 30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 10 red balloons, 2 blue balloons, and 2 green balloons in a classroom....' ---
+🔎 Querying RAG system for: 'There are 10 red balloons, 2 blue balloons, and 2 green balloons in a classroom. How many balloons are there in total?
+Add 10, 2, and 2 to get 14.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, I will sum the quantity of each color of balloon present in the classroom. This involves adding the number of red balloons, blue balloons, and green balloons.
+
+**Step-by-step rationale:**
+1.  Identify the number of red balloons: 10
+2.  Identify the number of blue balloons: 2
+3.  Identify the number of green balloons: 2
+4.  Add these quantities together: 10 + 2 + 2 = 14
+
+Therefore, the total number of balloons in the classroom is 14.
+
+Final Answer: 14
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 7 cows in one field, 9 sheep in another, and 1 goats near the ba...' ---
+🔎 Querying RAG system for: 'A farmer counts 7 cows in one field, 9 sheep in another, and 1 goats near the barn. How many animals does the farmer see altogether?
+Add 7, 9, and 1 to get 17.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, the quantities of each type of animal must be summed.The farmer counts 7 cows, 9 sheep, and 1 goat.The calculation is as follows:
+1.  Start with the number of cows: 7
+2.  Add the number of sheep: 7 + 9 = 16
+3.  Add the number of goats: 16 + 1 = 17
+
+Therefore, the total number of animals the farmer sees is 17.Final Answer: 17
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 1 red balloons, 2 blue balloons, and 11 green balloons in a classroom....' ---
+🔎 Querying RAG system for: 'There are 1 red balloons, 2 blue balloons, and 11 green balloons in a classroom. How many balloons are there in total?
+Add 1, 2, and 11 to get 14.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, I will sum the quantities of each color of balloon present in the classroom.
+
+Step 1: Identify the number of red balloons, which is 1.
+Step 2: Identify the number of blue balloons, which is 2.
+Step 3: Identify the number of green balloons, which is 11.
+Step 4: Add these quantities together: 1 + 2 + 11 = 14.
+
+Therefore, there are 14 balloons in total.
+
+Final Answer: 14
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 5 red balloons, 15 blue balloons, and 11 green balloons in a classroom...' ---
+🔎 Querying RAG system for: 'There are 5 red balloons, 15 blue balloons, and 11 green balloons in a classroom. How many balloons are there in total?
+Add 5, 15, and 11 to get 31.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, I must sum the quantity of each color of balloon. The problem states there are 5 red balloons, 15 blue balloons, and 11 green balloons. Therefore, the calculation is as follows:
+
+1.  Identify the number of red balloons: 5
+2.  Identify the number of blue balloons: 15
+3.  Identify the number of green balloons: 11
+4.  Add these quantities together: 5 + 15 + 11 = 31
+
+Thus, the total number of balloons is 31.
+
+Final Answer: 31
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 3 cows in one field, 7 sheep in another, and 3 goats near the ba...' ---
+🔎 Querying RAG system for: 'A farmer counts 3 cows in one field, 7 sheep in another, and 3 goats near the barn. How many animals does the farmer see altogether?
+Add 3, 7, and 3 to get 13.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees, I perform a summation of the animals counted in each location.
+
+Step 1: Identify the number of animals in each group.
+- The farmer counts 3 cows.
+- The farmer counts 7 sheep.
+- The farmer counts 3 goats.
+
+Step 2: Add these quantities together to find the total.
+Total animals = Number of cows + Number of sheep + Number of goats
+Total animals = 3 + 7 + 3
+Total animals = 10 + 3
+Total animals = 13
+
+Therefore, the farmer sees 13 animals altogether.
+
+Final Answer: 13
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 10 red balloons, 2 blue balloons, and 7 green balloons in a classroom....' ---
+🔎 Querying RAG system for: 'There are 10 red balloons, 2 blue balloons, and 7 green balloons in a classroom. How many balloons are there in total?
+Add 10, 2, and 7 to get 19.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, I performed the following steps:
+
+1.  **Identify the quantities:** The problem states there are 10 red balloons, 2 blue balloons, and 7 green balloons.
+2.  **Determine the operation:** To find the total quantity, the appropriate mathematical operation is addition.
+3.  **Perform the calculation:** I added the number of balloons of each color: 10 + 2 + 7.
+4.  **Calculate the sum:** The sum of 10, 2, and 7 is 19.
+
+Therefore, the total number of balloons in the classroom is 19.
+
+Final Answer: 19
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 9 triangles, 6 squares, and 15 circles are drawn. What is the total...' ---
+🔎 Querying RAG system for: 'In a puzzle, 9 triangles, 6 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 9, 6, and 15 to get 30.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I will sum the quantity of each distinct type of shape provided in the puzzle. 
+
+**Step 1: Identify the quantities of each shape.**
+*   Number of triangles: 9
+*   Number of squares: 6
+*   Number of circles: 15
+
+**Step 2: Add the quantities together to find the total.**
+*   Total shapes = Number of triangles + Number of squares + Number of circles
+*   Total shapes = 9 + 6 + 15
+*   Total shapes = 30
+
+Therefore, the total number of shapes drawn in the puzzle is 30.
+
+Final Answer: 30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 8 triangles, 6 squares, and 15 circles are drawn. What is the total...' ---
+🔎 Querying RAG system for: 'In a puzzle, 8 triangles, 6 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 8, 6, and 15 to get 29.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+Jina API key JINA_API_KEY encountered a transient error (HTTPSConnectionPool(host='api.jina.ai', port=443): Read timed out. (read timeout=60)). Trying next key.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, one must sum the quantities of each individual type of shape present in the puzzle. The puzzle contains 8 triangles, 6 squares, and 15 circles. The calculation proceeds as follows:
+
+1. Identify the number of each shape: 8 triangles, 6 squares, and 15 circles.
+2. Add these quantities together to find the total:
+   Total Shapes = Number of Triangles + Number of Squares + Number of Circles
+   Total Shapes = 8 + 6 + 15
+   Total Shapes = 14 + 15
+   Total Shapes = 29
+
+Therefore, the total number of shapes drawn in the puzzle is 29.
+
+Final Answer: 29
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'In a puzzle, 11 triangles, 14 squares, and 5 circles are drawn. What is the tota...' ---
+🔎 Querying RAG system for: 'In a puzzle, 11 triangles, 14 squares, and 5 circles are drawn. What is the total number of shapes?
+Add 11, 14, and 5 to get 30.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of shapes, I will sum the individual counts of each type of shape provided in the puzzle.
+
+Step 1: Identify the number of each shape.
+- Number of triangles: 11
+- Number of squares: 14
+- Number of circles: 5
+
+Step 2: Add the quantities together to find the total.
+Total number of shapes = Number of triangles + Number of squares + Number of circles
+Total number of shapes = 11 + 14 + 5
+Total number of shapes = 25 + 5
+Total number of shapes = 30
+
+The total number of shapes drawn in the puzzle is 30.
+
+Final Answer: 30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 10 red balloons, 4 blue balloons, and 12 green balloons in a classroom...' ---
+🔎 Querying RAG system for: 'There are 10 red balloons, 4 blue balloons, and 12 green balloons in a classroom. How many balloons are there in total?
+Add 10, 4, and 12 to get 26.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, I will sum the quantities of each color of balloon. There are 10 red balloons, 4 blue balloons, and 12 green balloons. The calculation is as follows:
+
+1.  Identify the number of red balloons: 10
+2.  Identify the number of blue balloons: 4
+3.  Identify the number of green balloons: 12
+4.  Add these quantities together: 10 + 4 + 12 = 26
+
+Therefore, the total number of balloons in the classroom is 26.
+
+Final Answer: 26
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 9 bronze coins, 8 silver coins, and 5 gold coin...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 9 bronze coins, 8 silver coins, and 5 gold coins. How many coins has the player collected?
+Add 9, 8, and 5 to get 22.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected by the player, it is necessary to sum the quantities of each type of coin. The player collected 9 bronze coins, 8 silver coins, and 5 gold coins. The calculation is as follows:
+
+1.  Identify the number of bronze coins: 9
+2.  Identify the number of silver coins: 8
+3.  Identify the number of gold coins: 5
+4.  Add these quantities together: 9 + 8 + 5 = 22
+
+Therefore, the player collected a total of 22 coins.
+
+Final Answer: 22
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 2 cows in one field, 15 sheep in another, and 3 goats near the b...' ---
+🔎 Querying RAG system for: 'A farmer counts 2 cows in one field, 15 sheep in another, and 3 goats near the barn. How many animals does the farmer see altogether?
+Add 2, 15, and 3 to get 20.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, I will perform a simple addition of the quantities of each type of animal observed.
+
+**Step-by-step rationale:**
+1.  **Identify the quantities of each animal type:** The farmer counts 2 cows, 15 sheep, and 3 goats.
+2.  **Determine the operation required:** The question asks "How many animals does the farmer see altogether?", which indicates a summation of all observed animals.
+3.  **Perform the addition:** Add the number of cows, sheep, and goats: 2 + 15 + 3.
+4.  **Calculate the sum:** 2 + 15 = 17. Then, 17 + 3 = 20.
+
+Therefore, the total number of animals is 20.
+
+Final Answer: 20
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 5 wooden blocks, then adds 3 plastic blocks and 12 foam blocks. H...' ---
+🔎 Querying RAG system for: 'A child stacks 5 wooden blocks, then adds 3 plastic blocks and 12 foam blocks. How many blocks are stacked now?
+Add 5, 3, and 12 to get 20.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I will sum the quantities of each type of block. The child initially stacks 5 wooden blocks. Subsequently, 3 plastic blocks are added, and then 12 foam blocks are added. Therefore, the total number of blocks is the sum of these individual quantities.
+
+Step 1: Identify the number of wooden blocks: 5
+Step 2: Identify the number of plastic blocks: 3
+Step 3: Identify the number of foam blocks: 12
+Step 4: Add the quantities together: 5 + 3 + 12
+Step 5: Perform the addition: 5 + 3 = 8. Then, 8 + 12 = 20.
+
+Final Answer: 20
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'There are 5 red balloons, 3 blue balloons, and 8 green balloons in a classroom. ...' ---
+🔎 Querying RAG system for: 'There are 5 red balloons, 3 blue balloons, and 8 green balloons in a classroom. How many balloons are there in total?
+Add 5, 3, and 8 to get 16.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of balloons, a summation operation is performed on the quantities of each color of balloon. The given quantities are 5 red balloons, 3 blue balloons, and 8 green balloons. The calculation proceeds as follows:
+
+1. Identify the number of red balloons: 5.
+2. Identify the number of blue balloons: 3.
+3. Identify the number of green balloons: 8.
+4. Sum these quantities: 5 + 3 + 8.
+5. Execute the addition: 5 + 3 = 8. Then, 8 + 8 = 16.
+
+Therefore, the total number of balloons is 16. The final answer is presented in the specified format.
+
+Final Answer: 16
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A farmer counts 11 cows in one field, 11 sheep in another, and 5 goats near the ...' ---
+🔎 Querying RAG system for: 'A farmer counts 11 cows in one field, 11 sheep in another, and 5 goats near the barn. How many animals does the farmer see altogether?
+Add 11, 11, and 5 to get 27.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of animals the farmer sees altogether, I will sum the number of cows, sheep, and goats. The farmer counts 11 cows, 11 sheep, and 5 goats. Therefore, the calculation is as follows:
+
+1. Number of cows: 11
+2. Number of sheep: 11
+3. Number of goats: 5
+
+Total animals = 11 (cows) + 11 (sheep) + 5 (goats) = 27 animals.
+
+Final Answer: 27
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 11 wooden blocks, then adds 14 plastic blocks and 9 foam blocks. ...' ---
+🔎 Querying RAG system for: 'A child stacks 11 wooden blocks, then adds 14 plastic blocks and 9 foam blocks. How many blocks are stacked now?
+Add 11, 14, and 9 to get 34.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I will sum the quantity of each type of block. The child initially stacks 11 wooden blocks. Subsequently, 14 plastic blocks are added, followed by 9 foam blocks. The operation required is addition.
+
+Step 1: Identify the quantities of each type of block.
+- Wooden blocks: 11
+- Plastic blocks: 14
+- Foam blocks: 9
+
+Step 2: Add these quantities together to find the total.
+Total blocks = 11 + 14 + 9
+
+Step 3: Perform the addition.
+11 + 14 = 25
+25 + 9 = 34
+
+Therefore, the total number of blocks stacked is 34.
+
+Final Answer: 34
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 9 wooden blocks, then adds 1 plastic blocks and 14 foam blocks. H...' ---
+🔎 Querying RAG system for: 'A child stacks 9 wooden blocks, then adds 1 plastic blocks and 14 foam blocks. How many blocks are stacked now?
+Add 9, 1, and 14 to get 24.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, I will sum the quantities of each type of block. 
+
+Step 1: Identify the number of wooden blocks, which is 9.
+Step 2: Identify the number of plastic blocks, which is 1.
+Step 3: Identify the number of foam blocks, which is 14.
+Step 4: Add these quantities together: 9 + 1 + 14.
+Step 5: Perform the addition: 9 + 1 = 10. Then, 10 + 14 = 24.
+
+Therefore, the total number of blocks stacked is 24.
+
+Final Answer: 24
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'A child stacks 1 wooden blocks, then adds 8 plastic blocks and 10 foam blocks. H...' ---
+🔎 Querying RAG system for: 'A child stacks 1 wooden blocks, then adds 8 plastic blocks and 10 foam blocks. How many blocks are stacked now?
+Add 1, 8, and 10 to get 19.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of blocks stacked, we need to sum the initial number of wooden blocks with the additional plastic and foam blocks. 
+
+1.  **Initial blocks:** The child stacks 1 wooden block.
+2.  **Added blocks:** The child adds 8 plastic blocks.
+3.  **Further added blocks:** The child adds 10 foam blocks.
+
+To find the total, we add these quantities together: 1 + 8 + 10 = 19.
+
+Therefore, the total number of blocks stacked is 19.
+
+Final Answer: 19
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: 'During a game, a player collects 13 bronze coins, 15 silver coins, and 2 gold co...' ---
+🔎 Querying RAG system for: 'During a game, a player collects 13 bronze coins, 15 silver coins, and 2 gold coins. How many coins has the player collected?
+Add 13, 15, and 2 to get 30.'
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To determine the total number of coins collected by the player, I will sum the quantities of each type of coin. The player collected 13 bronze coins, 15 silver coins, and 2 gold coins.
+
+Step 1: Identify the number of each type of coin.
+Bronze coins: 13
+Silver coins: 15
+Gold coins: 2
+
+Step 2: Add the quantities of all the coins together.
+Total coins = Bronze coins + Silver coins + Gold coins
+Total coins = 13 + 15 + 2
+
+Step 3: Perform the addition.
+13 + 15 = 28
+28 + 2 = 30
+
+The player collected a total of 30 coins.
+
+Final Answer: 30
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 49/50 (98.0%)
+Science Accuracy: n/a
+Overall Accuracy: 49/50 (98.0%)
+Dataset accuracies:
+· BBH_object_counting: 49/50 (98.0%)
+BBH Accuracy: 49/50 (98.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: client_1_mixed_queries ---
+[✓] Successfully loaded 'client_datasets/object_counting/client_1_mixed_queries.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/16 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/16 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: client_2_mixed_queries ---
+[✓] Successfully loaded 'client_datasets/object_counting/client_2_mixed_queries.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/16 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/16 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: client_3_mixed_queries ---
+[✓] Successfully loaded 'client_datasets/object_counting/client_3_mixed_queries.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/16 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/16 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: summary ---
+[✓] Successfully loaded 'client_datasets/object_counting/summary.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/3 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/3 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- FEDERATED CLIENT BENCHMARK SUMMARY ---
+Macro overall accuracy: 0.0%
+Overall accuracy spread: 0.0% (max - min)
+Overall accuracy σ: 0.0%
+Macro math accuracy: 0.0%
+· client_1_mixed_queries: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+· client_2_mixed_queries: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+· client_3_mixed_queries: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+· summary: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+--- PROMPT EXTRACTION ATTACK ---
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+Samples attacked: 15; average similarity=37.2%
+Attack model: meta-llama/llama-4-maverick
+Detailed attack report saved to 'prompt_attack_results.json'.
+
+===== New Evaluation Run =====
+[Privacy] Differential privacy ENABLED (epsilon=0.005)
+--- 1. SYNAPSE FEDERATION ROUND 1/1 ---
+SYNAPSE Round Summary: {'artifact_count': 10, 'version_history': [{'timestamp': '2025-11-09T19:58:49.824757', 'edge_id': 'edge-general', 'artifact_count': '10'}]}
+✅ Successfully loaded 'train_new.json' for MathQATool.
+✅ MongoDB RAG collection 'vectors' is ready.
+MathQA RAG system is already populated.
+✅ Successfully loaded 'scienceqa_challenge_test.json' for ScienceQATool.
+✅ MongoDB RAG collection 'science_problems' is ready.
+ScienceQA RAG system is already populated.
+✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: bbh_multi_step_arithmetic_eval.json ---
+[✓] Successfully loaded 'bbh_multi_step_arithmetic_eval.json'.
+--- Processing MathQA Query: '((-5 + -8 - -6 * 7) + (9 * -7 - -5 - -4)) =...' ---
+🔎 Querying RAG system for: '((-5 + -8 - -6 * 7) + (9 * -7 - -5 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-5 + -8 - -6 * 7) + (9 * -7 - -5 - -4))`, I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first set of parentheses `(-5 + -8 - -6 * 7)`**
+
+*   **Multiplication first:** `-6 * 7 = -42`
+*   Now the expression inside the first parenthesis becomes: `-5 + -8 - (-42)`
+*   Simplify the double negative: `-5 + -8 + 42`
+*   Perform addition/subtraction from left to right:
+    *   `-5 + -8 = -13`
+    *   `-13 + 42 = 29`
+    So, the value of the first set of parentheses is `29`.
+
+**Step 2: Evaluate the second set of parentheses `(9 * -7 - -5 - -4)`**
+
+*   **Multiplication first:** `9 * -7 = -63`
+*   Now the expression inside the second parenthesis becomes: `-63 - -5 - -4`
+*   Simplify the double negatives: `-63 + 5 + 4`
+*   Perform addition/subtraction from left to right:
+    *   `-63 + 5 = -58`
+    *   `-58 + 4 = -54`
+    So, the value of the second set of parentheses is `-54`.
+
+**Step 3: Add the results from Step 1 and Step 2**
+
+*   `29 + (-54)`
+*   `29 - 54 = -25`
+
+Final Answer: -25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 + 0 - 3 + 0) - (-7 - 9 * 1 + -3)) =...' ---
+🔎 Querying RAG system for: '((1 + 0 - 3 + 0) - (-7 - 9 * 1 + -3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 + 0 - 3 + 0) - (-7 - 9 * 1 + -3)), I will follow the order of operations (PEMDAS/BODMAS):
+
+**Step 1: Evaluate the first set of inner parentheses (1 + 0 - 3 + 0)**
+1 + 0 = 1
+1 - 3 = -2
+-2 + 0 = -2
+So, (1 + 0 - 3 + 0) simplifies to -2.
+
+**Step 2: Evaluate the second set of inner parentheses (-7 - 9 * 1 + -3)**
+First, perform the multiplication: 9 * 1 = 9.
+The expression becomes (-7 - 9 + -3).
+Now, perform the additions/subtractions from left to right:
+-7 - 9 = -16
+-16 + -3 = -16 - 3 = -19
+So, (-7 - 9 * 1 + -3) simplifies to -19.
+
+**Step 3: Perform the final subtraction**
+Now substitute the simplified values back into the original expression:
+(-2) - (-19)
+Subtracting a negative number is equivalent to adding its positive counterpart:
+-2 + 19 = 17
+
+Final Answer: 17
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)) =...' ---
+🔎 Querying RAG system for: '((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)), I will evaluate each set of parentheses separately, adhering to the order of operations (multiplication before addition and subtraction).
+
+**Step 1: Evaluate the first set of parentheses (1 - 2 + 5 * 2)**
+*   First, perform the multiplication: 5 * 2 = 10.
+*   The expression becomes: 1 - 2 + 10.
+*   Next, perform the additions and subtractions from left to right:
+    *   1 - 2 = -1.
+    *   -1 + 10 = 9.
+*   So, the first part evaluates to 9.
+
+**Step 2: Evaluate the second set of parentheses (-2 - -7 + 3 * -8)**
+*   First, perform the multiplication: 3 * -8 = -24.
+*   The expression becomes: -2 - -7 + (-24).
+*   Simplify the double negative: -2 - -7 is equivalent to -2 + 7.
+*   The expression is now: -2 + 7 - 24.
+*   Next, perform the additions and subtractions from left to right:
+    *   -2 + 7 = 5.
+    *   5 - 24 = -19.
+*   So, the second part evaluates to -19.
+
+**Step 3: Combine the results from Step 1 and Step 2**
+*   The original expression simplifies to: 9 + (-19).
+*   9 + (-19) = 9 - 19 = -10.
+
+Therefore, the final result of the expression is -10.
+
+Final Answer: -10
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-2 * 9 * -8 + 8) - (0 * -4 - -6 * 4)) =...' ---
+🔎 Querying RAG system for: '((-2 * 9 * -8 + 8) - (0 * -4 - -6 * 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-2 * 9 * -8 + 8) - (0 * -4 - -6 * 4))`, I will follow the order of operations (PEMDAS/BODMAS):
+
+**Step 1: Evaluate the first set of parentheses: `(-2 * 9 * -8 + 8)`**
+*   First, perform the multiplications from left to right:
+    *   `-2 * 9 = -18`
+    *   `-18 * -8 = 144`
+*   Next, perform the addition:
+    *   `144 + 8 = 152`
+    The first part of the expression simplifies to `152`.
+
+**Step 2: Evaluate the second set of parentheses: `(0 * -4 - -6 * 4)`**
+*   First, perform the multiplications from left to right:
+    *   `0 * -4 = 0`
+    *   `-6 * 4 = -24`
+*   Next, perform the subtraction. Note that subtracting a negative number is equivalent to adding a positive number:
+    *   `0 - (-24) = 0 + 24 = 24`
+    The second part of the expression simplifies to `24`.
+
+**Step 3: Perform the final subtraction between the results from Step 1 and Step 2.**
+*   `152 - 24 = 128`
+
+The final answer is `128`.
+
+Final Answer: 128
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-3 + -4 * 4 + -8) + (1 - -3 + 4 - -9)) =...' ---
+🔎 Querying RAG system for: '((-3 + -4 * 4 + -8) + (1 - -3 + 4 - -9)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-3 + -4 * 4 + -8) + (1 - -3 + 4 - -9))`, I will evaluate each parenthetical expression separately and then sum their results.
+
+**Step 1: Evaluate the first parenthetical expression `(-3 + -4 * 4 + -8)`**
+*   First, perform the multiplication: `-4 * 4 = -16`.
+*   Substitute this back into the expression: `(-3 + -16 + -8)`.
+*   Now, perform the additions from left to right:
+    *   `-3 + -16 = -19`
+    *   `-19 + -8 = -27`
+So, the first parenthetical expression evaluates to `-27`.
+
+**Step 2: Evaluate the second parenthetical expression `(1 - -3 + 4 - -9)`**
+*   First, simplify the double negatives: `- -3` becomes `+3`, and `- -9` becomes `+9`.
+*   Substitute these back into the expression: `(1 + 3 + 4 + 9)`.
+*   Now, perform the additions from left to right:
+    *   `1 + 3 = 4`
+    *   `4 + 4 = 8`
+    *   `8 + 9 = 17`
+So, the second parenthetical expression evaluates to `17`.
+
+**Step 3: Add the results of the two parenthetical expressions**
+*   Sum the results from Step 1 and Step 2: `-27 + 17`.
+*   `-27 + 17 = -10`.
+
+Therefore, the final result of the expression is `-10`.
+
+Final Answer: -10
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 * -3 * 3 * 7) * (0 + -9 - -5 - -2)) =...' ---
+🔎 Querying RAG system for: '((5 * -3 * 3 * 7) * (0 + -9 - -5 - -2)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+Step-by-step rationale:
+
+First, evaluate the expression within the first set of parentheses:
+(5 * -3 * 3 * 7)
+= (-15 * 3 * 7)
+= (-45 * 7)
+= -315
+
+Next, evaluate the expression within the second set of parentheses:
+(0 + -9 - -5 - -2)
+Recall that subtracting a negative number is equivalent to adding its positive counterpart.
+= (0 - 9 + 5 + 2)
+= (-9 + 5 + 2)
+= (-4 + 2)
+= -2
+
+Finally, multiply the results from both sets of parentheses:
+(-315 * -2)
+When multiplying two negative numbers, the result is a positive number.
+= 630
+
+Final Answer: 630
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 * 6 + -6 - 8) * (-5 - 6 - 5 - -4)) =...' ---
+🔎 Querying RAG system for: '((5 * 6 + -6 - 8) * (-5 - 6 - 5 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the given mathematical expression, we will evaluate each set of parentheses first, following the order of operations (multiplication before addition/subtraction).
+
+**Step 1: Evaluate the first set of parentheses (5 * 6 + -6 - 8)**
+1. Perform the multiplication: `5 * 6 = 30`
+2. Substitute the result back into the expression: `(30 + -6 - 8)`
+3. Perform additions and subtractions from left to right:
+   `30 + (-6) = 30 - 6 = 24`
+   `24 - 8 = 16`
+So, the first part of the expression evaluates to `16`.
+
+**Step 2: Evaluate the second set of parentheses (-5 - 6 - 5 - -4)**
+1. Perform additions and subtractions from left to right:
+   `-5 - 6 = -11`
+   `-11 - 5 = -16`
+   `-16 - (-4) = -16 + 4 = -12`
+So, the second part of the expression evaluates to `-12`.
+
+**Step 3: Multiply the results of the two parentheses**
+1. Multiply the result from Step 1 by the result from Step 2: `16 * -12`
+2. The product of a positive number and a negative number is a negative number:
+   `16 * 12 = 192`
+   `16 * -12 = -192`
+
+Therefore, the final result of the expression is -192.
+
+Final Answer: -192
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 - 7 + -6 + 4) * (2 - -9 + 3 - 6)) =...' ---
+🔎 Querying RAG system for: '((5 - 7 + -6 + 4) * (2 - -9 + 3 - 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 - 7 + -6 + 4) * (2 - -9 + 3 - 6)), I will break it down into two parts, evaluating each set of parentheses first.
+
+**Part 1: Evaluate the first set of parentheses (5 - 7 + -6 + 4)**
+1. Start with 5 - 7 = -2
+2. Add -6 to the result: -2 + (-6) = -2 - 6 = -8
+3. Add 4 to the result: -8 + 4 = -4
+So, the value of the first set of parentheses is -4.
+
+**Part 2: Evaluate the second set of parentheses (2 - -9 + 3 - 6)**
+1. Start with 2 - -9, which is equivalent to 2 + 9 = 11
+2. Add 3 to the result: 11 + 3 = 14
+3. Subtract 6 from the result: 14 - 6 = 8
+So, the value of the second set of parentheses is 8.
+
+**Part 3: Multiply the results from Part 1 and Part 2**
+Now, I multiply the two results: -4 * 8 = -32.
+
+Final Answer: -32
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-3 + 2 * -7 * 5) * (-9 - 9 - -9 + -7)) =...' ---
+🔎 Querying RAG system for: '((-3 + 2 * -7 * 5) * (-9 - 9 - -9 + -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-3 + 2 * -7 * 5) * (-9 - 9 - -9 + -7))`, I will proceed step-by-step:
+
+**Step 1: Evaluate the first parenthetical expression `(-3 + 2 * -7 * 5)`**
+   a. Perform the multiplication first: `2 * -7 * 5`
+      - `2 * -7 = -14`
+      - `-14 * 5 = -70`
+   b. Substitute this result back into the parenthesis: `(-3 + -70)`
+   c. Perform the addition: `-3 + -70 = -73`
+
+**Step 2: Evaluate the second parenthetical expression `(-9 - 9 - -9 + -7)`**
+   a. Simplify the double negative: `- -9` becomes `+9`
+   b. The expression transforms to: `(-9 - 9 + 9 - 7)`
+   c. Perform the operations from left to right:
+      - `-9 - 9 = -18`
+      - `-18 + 9 = -9`
+      - `-9 - 7 = -16`
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+   a. Result from the first parenthesis: `-73`
+   b. Result from the second parenthesis: `-16`
+   c. Multiply these two values: `-73 * -16`
+      - Since the product of two negative numbers is a positive number, I calculate `73 * 16`:
+      - `73 * 10 = 730`
+      - `73 * 6 = 438`
+      - `730 + 438 = 1168`
+
+Therefore, `-73 * -16 = 1168`.
+
+Final Answer: 1168
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((4 + 3 + -9 + -2) * (7 * 2 + 8 - 1)) =...' ---
+🔎 Querying RAG system for: '((4 + 3 + -9 + -2) * (7 * 2 + 8 - 1)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((4 + 3 + -9 + -2) * (7 * 2 + 8 - 1)), I will break it down into two parts, solving each set of parentheses first, and then multiplying the results.
+
+**Step 1: Solve the first set of parentheses (4 + 3 + -9 + -2)**
+*   First, sum the positive numbers: 4 + 3 = 7
+*   Next, sum the negative numbers: -9 + -2 = -11
+*   Then, combine these sums: 7 + (-11) = 7 - 11 = -4
+
+**Step 2: Solve the second set of parentheses (7 * 2 + 8 - 1)**
+*   First, perform the multiplication: 7 * 2 = 14
+*   Next, perform the addition: 14 + 8 = 22
+*   Then, perform the subtraction: 22 - 1 = 21
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+*   Multiply the result from the first set of parentheses (-4) by the result from the second set of parentheses (21):
+    -4 * 21 = -84
+
+Therefore, the final answer is -84.
+
+Final Answer: -84
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((4 * -4 + -6 - -2) - (9 + -7 + -8 * 6)) =...' ---
+🔎 Querying RAG system for: '((4 * -4 + -6 - -2) - (9 + -7 + -8 * 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((4 * -4 + -6 - -2) - (9 + -7 + -8 * 6)), I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first set of parentheses (4 * -4 + -6 - -2)**
+*   First, perform the multiplication: 4 * -4 = -16
+*   The expression becomes: -16 + -6 - -2
+*   Next, perform the additions and subtractions from left to right:
+    *   -16 + -6 = -22
+    *   -22 - -2 = -22 + 2 = -20
+    So, the value of the first set of parentheses is -20.
+
+**Step 2: Evaluate the second set of parentheses (9 + -7 + -8 * 6)**
+*   First, perform the multiplication: -8 * 6 = -48
+*   The expression becomes: 9 + -7 + -48
+*   Next, perform the additions from left to right:
+    *   9 + -7 = 2
+    *   2 + -48 = -46
+    So, the value of the second set of parentheses is -46.
+
+**Step 3: Perform the final subtraction**
+*   Subtract the result of the second set of parentheses from the result of the first set of parentheses:
+    *   -20 - (-46)
+    *   -20 + 46 = 26
+
+Therefore, the final answer is 26.
+
+Final Answer: 26
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-5 * -6 + 3 * -3) - (-1 + -8 * 8 * -9)) =...' ---
+🔎 Querying RAG system for: '((-5 * -6 + 3 * -3) - (-1 + -8 * 8 * -9)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-5 * -6 + 3 * -3) - (-1 + -8 * 8 * -9))`, I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first inner parenthesis `(-5 * -6 + 3 * -3)`**
+*   First, perform the multiplications:
+    *   `-5 * -6 = 30`
+    *   `3 * -3 = -9`
+*   Next, perform the addition:
+    *   `30 + (-9) = 30 - 9 = 21`
+    So, the first part of the expression simplifies to `21`.
+
+**Step 2: Evaluate the second inner parenthesis `(-1 + -8 * 8 * -9)`**
+*   First, perform the multiplications:
+    *   `-8 * 8 = -64`
+    *   `-64 * -9 = 576`
+*   Next, perform the addition:
+    *   `-1 + 576 = 575`
+    So, the second part of the expression simplifies to `575`.
+
+**Step 3: Perform the final subtraction**
+*   Now, substitute the simplified values back into the original expression:
+    *   `(21) - (575)`
+    *   `21 - 575 = -554`
+
+Therefore, the final result of the expression is -554.
+
+Final Answer: -554
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8)) =...' ---
+🔎 Querying RAG system for: '((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8))`, I will break it down into two main parts, evaluating each set of parentheses independently, and then multiplying their results.
+
+**Step 1: Evaluate the first set of parentheses: `(-8 - -1 * -8 * -2)`**
+
+First, perform the multiplication within this set: `-1 * -8 * -2`
+*   `-1 * -8 = 8`
+*   `8 * -2 = -16`
+
+Now, substitute this back into the first set of parentheses:
+*   `(-8 - (-16))`
+*   Subtracting a negative number is equivalent to adding its positive counterpart:
+*   `-8 + 16 = 8`
+
+So, the value of the first set of parentheses is `8`.
+
+**Step 2: Evaluate the second set of parentheses: `(-6 + 8 + -5 * -8)`**
+
+First, perform the multiplication within this set: `-5 * -8`
+*   `-5 * -8 = 40`
+
+Now, substitute this back into the second set of parentheses:
+*   `(-6 + 8 + 40)`
+
+Perform the addition from left to right:
+*   `-6 + 8 = 2`
+*   `2 + 40 = 42`
+
+So, the value of the second set of parentheses is `42`.
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+
+*   `8 * 42`
+*   `8 * 40 = 320`
+*   `8 * 2 = 16`
+*   `320 + 16 = 336`
+
+The final result of the expression is `336`.
+
+Final Answer: 336
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4)) =...' ---
+🔎 Querying RAG system for: '((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4))`, I will evaluate each parenthetical expression separately, following the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first parenthetical expression: `(-2 * 5 + -3 + 0)`**
+*   First, perform the multiplication: `-2 * 5 = -10`.
+*   Next, perform the additions from left to right: `-10 + -3 = -13`.
+*   Then, `-13 + 0 = -13`.
+    So, the first part of the expression simplifies to **-13**.
+
+**Step 2: Evaluate the second parenthetical expression: `(-9 + 2 + 5 * 4)`**
+*   First, perform the multiplication: `5 * 4 = 20`.
+*   Next, perform the additions from left to right: `-9 + 2 = -7`.
+*   Then, `-7 + 20 = 13`.
+    So, the second part of the expression simplifies to **13**.
+
+**Step 3: Multiply the results of the two parenthetical expressions**
+*   Multiply the result from Step 1 by the result from Step 2: `-13 * 13 = -169`.
+
+Final Answer: -169
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)) =...' ---
+🔎 Querying RAG system for: '((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)), I will evaluate each set of parentheses separately, starting from the innermost operations, and then perform the final subtraction.
+
+**Step 1: Evaluate the first set of parentheses (5 + -7 + 1 - 5)**
+*   5 + (-7) = -2
+*   -2 + 1 = -1
+*   -1 - 5 = -6
+So, (5 + -7 + 1 - 5) = -6.
+
+**Step 2: Evaluate the second set of parentheses (-3 * -1 * 7 + -1)**
+*   First, perform the multiplication: -3 * -1 = 3
+*   Then, continue multiplication: 3 * 7 = 21
+*   Finally, perform the addition: 21 + (-1) = 20
+So, (-3 * -1 * 7 + -1) = 20.
+
+**Step 3: Perform the final subtraction**
+*   Now, substitute the results back into the original expression: -6 - 20
+*   -6 - 20 = -26
+
+Therefore, the value of the expression is -26.
+
+Final Answer: -26
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-1 + 5 * 4 + 9) - (-7 - 6 * -8 - 0)) =...' ---
+🔎 Querying RAG system for: '((-1 + 5 * 4 + 9) - (-7 - 6 * -8 - 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-1 + 5 * 4 + 9) - (-7 - 6 * -8 - 0)), I will proceed with the following steps, adhering to the order of operations:
+
+**Step 1: Evaluate the first set of parentheses.**
+Inside the first set of parentheses: (-1 + 5 * 4 + 9)
+
+First, perform the multiplication:
+5 * 4 = 20
+
+Now, substitute this back into the expression:
+(-1 + 20 + 9)
+
+Perform the additions:
+-1 + 20 = 19
+19 + 9 = 28
+
+So, the value of the first set of parentheses is 28.
+
+**Step 2: Evaluate the second set of parentheses.**
+Inside the second set of parentheses: (-7 - 6 * -8 - 0)
+
+First, perform the multiplication:
+-6 * -8 = 48
+
+Now, substitute this back into the expression:
+(-7 + 48 - 0)
+
+Perform the additions and subtractions:
+-7 + 48 = 41
+41 - 0 = 41
+
+So, the value of the second set of parentheses is 41.
+
+**Step 3: Perform the final subtraction.**
+Now, substitute the results back into the original expression:
+28 - 41
+
+Perform the subtraction:
+28 - 41 = -13
+
+Final Answer: -13
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 - -2 * 7 + -2) - (0 * 9 * -6 - -7)) =...' ---
+🔎 Querying RAG system for: '((5 - -2 * 7 + -2) - (0 * 9 * -6 - -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 - -2 * 7 + -2) - (0 * 9 * -6 - -7)), I will break it down into two main parts, the left parenthesis and the right parenthesis, and then subtract the result of the right from the left.
+
+**Step 1: Evaluate the first set of parentheses (5 - -2 * 7 + -2)**
+
+*   First, perform the multiplication: -2 * 7 = -14
+*   Substitute this back into the expression: 5 - (-14) + (-2)
+*   Simplify the double negatives: 5 + 14 - 2
+*   Perform the additions and subtractions from left to right: 5 + 14 = 19
+*   Then, 19 - 2 = 17
+*   So, the value of the first set of parentheses is 17.
+
+**Step 2: Evaluate the second set of parentheses (0 * 9 * -6 - -7)**
+
+*   First, perform the multiplication: 0 * 9 * -6. Any number multiplied by zero is zero, so 0 * 9 * -6 = 0.
+*   Substitute this back into the expression: 0 - (-7)
+*   Simplify the double negative: 0 + 7
+*   Perform the addition: 0 + 7 = 7
+*   So, the value of the second set of parentheses is 7.
+
+**Step 3: Subtract the result of the second part from the first part**
+
+*   Now, I have 17 - 7.
+*   17 - 7 = 10.
+
+Final Answer: 10
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 * 1 * -1 + -5) + (-2 - -3 + 1 * -7)) =...' ---
+🔎 Querying RAG system for: '((-8 * 1 * -1 + -5) + (-2 - -3 + 1 * -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+Jina API key JINA_API_KEY encountered a transient error (HTTPSConnectionPool(host='api.jina.ai', port=443): Read timed out. (read timeout=60)). Trying next key.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-8 * 1 * -1 + -5) + (-2 - -3 + 1 * -7))`, I will proceed step-by-step:
+
+**Step 1: Evaluate the first set of parentheses `(-8 * 1 * -1 + -5)`**
+*   First, perform the multiplication: `-8 * 1 * -1`
+    *   `-8 * 1 = -8`
+    *   `-8 * -1 = 8`
+*   Now, substitute this back into the first part of the expression: `8 + -5`
+*   Perform the addition: `8 + -5 = 3`
+So, the first set of parentheses simplifies to `3`.
+
+**Step 2: Evaluate the second set of parentheses `(-2 - -3 + 1 * -7)`**
+*   First, perform the multiplication: `1 * -7 = -7`
+*   Now, substitute this back into the second part of the expression: `-2 - -3 + -7`
+*   Simplify the double negative: `-2 + 3 + -7`
+*   Perform addition and subtraction from left to right:
+    *   `-2 + 3 = 1`
+    *   `1 + -7 = -6`
+So, the second set of parentheses simplifies to `-6`.
+
+**Step 3: Add the results from both sets of parentheses**
+*   Add the result from Step 1 and Step 2: `3 + (-6)`
+*   Perform the addition: `3 - 6 = -3`
+
+**Final Answer: -3**
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-1 + 6 + 9 + 3) - (-5 - 9 - -3 + 4)) =...' ---
+🔎 Querying RAG system for: '((-1 + 6 + 9 + 3) - (-5 - 9 - -3 + 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-1 + 6 + 9 + 3) - (-5 - 9 - -3 + 4)), I will follow the order of operations:
+
+Step 1: Simplify the first set of parentheses:
+(-1 + 6 + 9 + 3)
+-1 + 6 = 5
+5 + 9 = 14
+14 + 3 = 17
+So, the first part simplifies to 17.
+
+Step 2: Simplify the second set of parentheses:
+(-5 - 9 - -3 + 4)
+First, address the double negative: - -3 becomes +3.
+So the expression becomes (-5 - 9 + 3 + 4)
+-5 - 9 = -14
+-14 + 3 = -11
+-11 + 4 = -7
+So, the second part simplifies to -7.
+
+Step 3: Perform the subtraction between the simplified results from Step 1 and Step 2:
+17 - (-7)
+Subtracting a negative number is equivalent to adding its positive counterpart:
+17 + 7 = 24
+
+Final Answer: 24
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3)) =...' ---
+🔎 Querying RAG system for: '((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3))`, I will follow the order of operations (PEMDAS/BODMAS):
+
+**Step 1: Evaluate the first set of parentheses.**
+`(-4 + -7 - 3 + 3)`
+Combine the numbers: `-4 - 7 - 3 + 3`
+`-11 - 3 + 3`
+`-14 + 3`
+`-11`
+
+**Step 2: Evaluate the second set of parentheses, starting with multiplication.**
+`(-3 + -2 - -3 * -3)`
+First, perform the multiplication: `-3 * -3 = 9`
+Substitute this back into the expression: `(-3 + -2 - 9)`
+
+**Step 3: Continue evaluating the second set of parentheses.**
+`(-3 + -2 - 9)`
+Combine the numbers: `-5 - 9`
+`-14`
+
+**Step 4: Perform the final subtraction.**
+Now substitute the results from Step 1 and Step 3 back into the original expression:
+`(-11 - (-14))`
+Subtracting a negative number is equivalent to adding its positive counterpart:
+`-11 + 14`
+`3`
+
+Final Answer: 3
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 * -9 - 4 + -9) + (-1 + -6 + 9 - 5)) =...' ---
+🔎 Querying RAG system for: '((1 * -9 - 4 + -9) + (-1 + -6 + 9 - 5)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 * -9 - 4 + -9) + (-1 + -6 + 9 - 5)), I will break it down into two main parts, evaluating each set of inner parentheses separately before performing the final addition.
+
+**Step 1: Evaluate the first set of parentheses (1 * -9 - 4 + -9)**
+*   First, perform the multiplication: `1 * -9 = -9`
+*   Next, perform the subtractions and additions from left to right:
+    *   `-9 - 4 = -13`
+    *   `-13 + -9 = -13 - 9 = -22`
+    So, the value of the first part is `-22`.
+
+**Step 2: Evaluate the second set of parentheses (-1 + -6 + 9 - 5)**
+*   Perform the additions and subtractions from left to right:
+    *   `-1 + -6 = -7`
+    *   `-7 + 9 = 2`
+    *   `2 - 5 = -3`
+    So, the value of the second part is `-3`.
+
+**Step 3: Add the results of the two parts**
+*   Now, substitute the calculated values back into the original expression: `(-22) + (-3)`
+*   `-22 + (-3) = -22 - 3 = -25`
+
+Therefore, the final result of the expression is -25.
+
+Final Answer: -25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-9 * 6 - -3 * -3) + (-4 - -9 + 4 - -4)) =...' ---
+🔎 Querying RAG system for: '((-9 * 6 - -3 * -3) + (-4 - -9 + 4 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+Step-by-step rationale:
+
+1.  **Evaluate the first set of parentheses:** `(-9 * 6 - -3 * -3)`
+    *   Perform multiplication: `-9 * 6 = -54`
+    *   Perform multiplication: `-3 * -3 = 9`
+    *   Substitute these values back into the expression: `(-54 - 9)`
+    *   Perform subtraction: `-54 - 9 = -63`
+
+2.  **Evaluate the second set of parentheses:** `(-4 - -9 + 4 - -4)`
+    *   Simplify double negatives: `-4 + 9 + 4 + 4`
+    *   Perform addition/subtraction from left to right: 
+        *   `-4 + 9 = 5`
+        *   `5 + 4 = 9`
+        *   `9 + 4 = 13`
+
+3.  **Combine the results of the two sets of parentheses:** `(-63 + 13)`
+    *   Perform addition: `-63 + 13 = -50`
+
+Final Answer: -50
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7)) =...' ---
+🔎 Querying RAG system for: '((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7))`, I will proceed step-by-step:
+
+**Step 1: Evaluate the first set of parentheses `(-2 - -7 - 5 * 2)`**
+*   First, perform the multiplication: `5 * 2 = 10`
+*   The expression becomes: `(-2 - -7 - 10)`
+*   Simplify the double negative: `- -7` becomes `+ 7`
+*   The expression is now: `(-2 + 7 - 10)`
+*   Perform additions and subtractions from left to right:
+    *   `-2 + 7 = 5`
+    *   `5 - 10 = -5`
+*   So, the value of the first set of parentheses is `-5`.
+
+**Step 2: Evaluate the second set of parentheses `(-3 - 5 * 3 + -7)`**
+*   First, perform the multiplication: `5 * 3 = 15`
+*   The expression becomes: `(-3 - 15 + -7)`
+*   Simplify the `+ -7` to `- 7`
+*   The expression is now: `(-3 - 15 - 7)`
+*   Perform subtractions from left to right:
+    *   `-3 - 15 = -18`
+    *   `-18 - 7 = -25`
+*   So, the value of the second set of parentheses is `-25`.
+
+**Step 3: Add the results of the two sets of parentheses**
+*   We have `(-5) + (-25)`
+*   `(-5) + (-25) = -5 - 25 = -30`
+
+Therefore, the final answer is -30.
+
+Final Answer: -30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 - -7 + 0 + 3) + (-3 + 5 - -5 * -8)) =...' ---
+🔎 Querying RAG system for: '((-8 - -7 + 0 + 3) + (-3 + 5 - -5 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-8 - -7 + 0 + 3) + (-3 + 5 - -5 * -8))`, I will break it down into steps:
+
+**Step 1: Evaluate the first set of parentheses.**
+`(-8 - -7 + 0 + 3)`
+`= (-8 + 7 + 0 + 3)` (Subtracting a negative is the same as adding a positive)
+`= (-1 + 0 + 3)`
+`= (-1 + 3)`
+`= 2`
+
+**Step 2: Evaluate the second set of parentheses.**
+`(-3 + 5 - -5 * -8)`
+First, perform the multiplication:
+`-5 * -8 = 40`
+Now substitute this back into the expression:
+`= (-3 + 5 - 40)`
+`= (2 - 40)`
+`= -38`
+
+**Step 3: Add the results from Step 1 and Step 2.**
+`2 + (-38)`
+`= 2 - 38`
+`= -36`
+
+Final Answer: -36
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6)) =...' ---
+🔎 Querying RAG system for: '((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6)), I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first parenthetical expression: (-7 * -2 + -4 + -4)**
+
+*   First, perform the multiplication: -7 * -2 = 14
+*   Then, perform the additions: 14 + (-4) + (-4)
+*   14 - 4 = 10
+*   10 - 4 = 6
+    So, the first parenthetical expression evaluates to 6.
+
+**Step 2: Evaluate the second parenthetical expression: (9 * 1 * -6 * 6)**
+
+*   Perform the multiplications from left to right:
+*   9 * 1 = 9
+*   9 * -6 = -54
+*   -54 * 6 = -324
+    So, the second parenthetical expression evaluates to -324.
+
+**Step 3: Perform the final subtraction**
+
+*   Now, substitute the evaluated values back into the original expression: 6 - (-324)
+*   Subtracting a negative number is equivalent to adding its positive counterpart: 6 + 324
+*   6 + 324 = 330
+
+Therefore, the final answer is 330.
+
+Final Answer: 330
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((2 + 7 - -5 - 1) - (0 - 5 - 9 + 0)) =...' ---
+🔎 Querying RAG system for: '((2 + 7 - -5 - 1) - (0 - 5 - 9 + 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((2 + 7 - -5 - 1) - (0 - 5 - 9 + 0)), I will break it down into two parts, evaluating each set of parentheses separately.
+
+**Step 1: Evaluate the first set of parentheses (2 + 7 - -5 - 1)**
+*   Start with 2 + 7 = 9
+*   Next, 9 - -5 is equivalent to 9 + 5 = 14 (subtracting a negative number is the same as adding the positive number).
+*   Finally, 14 - 1 = 13.
+    So, the first part of the expression simplifies to 13.
+
+**Step 2: Evaluate the second set of parentheses (0 - 5 - 9 + 0)**
+*   Start with 0 - 5 = -5.
+*   Next, -5 - 9 = -14.
+*   Finally, -14 + 0 = -14.
+    So, the second part of the expression simplifies to -14.
+
+**Step 3: Perform the final subtraction**
+*   Now, substitute the simplified values back into the original expression: 13 - (-14).
+*   Subtracting a negative number is equivalent to adding the positive number: 13 + 14.
+*   13 + 14 = 27.
+
+Therefore, the final answer is 27.
+
+Final Answer: 27
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 - -1 + -8 + -3) * (-4 * 6 - 2 - 3)) =...' ---
+🔎 Querying RAG system for: '((-8 - -1 + -8 + -3) * (-4 * 6 - 2 - 3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-8 - -1 + -8 + -3) * (-4 * 6 - 2 - 3)), I will proceed in a step-by-step manner, evaluating each parenthetical term first.
+
+**Step 1: Evaluate the first set of parentheses.**
+(-8 - -1 + -8 + -3)
+First, simplify '- -1' to '+ 1':
+(-8 + 1 + -8 + -3)
+Now, perform the additions and subtractions from left to right:
+-8 + 1 = -7
+-7 + -8 = -15
+-15 + -3 = -18
+So, the value of the first set of parentheses is -18.
+
+**Step 2: Evaluate the second set of parentheses.**
+(-4 * 6 - 2 - 3)
+First, perform the multiplication:
+-4 * 6 = -24
+Now, perform the subtractions from left to right:
+-24 - 2 = -26
+-26 - 3 = -29
+So, the value of the second set of parentheses is -29.
+
+**Step 3: Multiply the results from Step 1 and Step 2.**
+(-18 * -29)
+When multiplying two negative numbers, the result is a positive number.
+18 * 29 = 522
+
+Therefore, the final result of the expression is 522.
+
+Final Answer: 522
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((8 - 4 - -8 - -7) + (6 - 5 - -1 - 4)) =...' ---
+🔎 Querying RAG system for: '((8 - 4 - -8 - -7) + (6 - 5 - -1 - 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((8 - 4 - -8 - -7) + (6 - 5 - -1 - 4)), I will evaluate each set of parentheses separately, applying the rule that subtracting a negative number is equivalent to adding a positive number.
+
+**Step 1: Evaluate the first set of parentheses (8 - 4 - -8 - -7)**
+*   8 - 4 = 4
+*   4 - -8 = 4 + 8 = 12
+*   12 - -7 = 12 + 7 = 19
+So, the first part of the expression simplifies to 19.
+
+**Step 2: Evaluate the second set of parentheses (6 - 5 - -1 - 4)**
+*   6 - 5 = 1
+*   1 - -1 = 1 + 1 = 2
+*   2 - 4 = -2
+So, the second part of the expression simplifies to -2.
+
+**Step 3: Add the results from Step 1 and Step 2**
+*   19 + (-2) = 19 - 2 = 17
+
+Final Answer: 17
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((8 - 3 + 0 + 7) + (-9 * -6 * 2 - 0)) =...' ---
+🔎 Querying RAG system for: '((8 - 3 + 0 + 7) + (-9 * -6 * 2 - 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((8 - 3 + 0 + 7) + (-9 * -6 * 2 - 0)), I will break it down into two main parts, evaluating each set of parentheses separately, and then sum their results.
+
+**Step 1: Evaluate the first set of parentheses (8 - 3 + 0 + 7)**
+*   8 - 3 = 5
+*   5 + 0 = 5
+*   5 + 7 = 12
+So, the first part simplifies to 12.
+
+**Step 2: Evaluate the second set of parentheses (-9 * -6 * 2 - 0)**
+*   First, perform the multiplication: -9 * -6 = 54 (A negative number multiplied by a negative number yields a positive number).
+*   Next, multiply by 2: 54 * 2 = 108.
+*   Finally, subtract 0: 108 - 0 = 108.
+So, the second part simplifies to 108.
+
+**Step 3: Add the results from Step 1 and Step 2**
+*   12 + 108 = 120
+
+Therefore, the final answer is 120.
+
+Final Answer: 120
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 * 0 - -5 - 3) + (9 * 6 + -4 - 0)) =...' ---
+🔎 Querying RAG system for: '((1 * 0 - -5 - 3) + (9 * 6 + -4 - 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 * 0 - -5 - 3) + (9 * 6 + -4 - 0)), I will follow the order of operations:
+
+First, evaluate the operations within the first set of parentheses:
+1. Perform the multiplication: 1 * 0 = 0
+2. The expression becomes: (0 - -5 - 3)
+3. Subtracting a negative number is equivalent to adding its positive counterpart: 0 - -5 = 0 + 5 = 5
+4. The expression becomes: (5 - 3)
+5. Perform the subtraction: 5 - 3 = 2
+So, the first part of the expression evaluates to 2.
+
+Next, evaluate the operations within the second set of parentheses:
+1. Perform the multiplication: 9 * 6 = 54
+2. The expression becomes: (54 + -4 - 0)
+3. Adding a negative number is equivalent to subtracting its positive counterpart: 54 + -4 = 54 - 4 = 50
+4. The expression becomes: (50 - 0)
+5. Perform the subtraction: 50 - 0 = 50
+So, the second part of the expression evaluates to 50.
+
+Finally, add the results of the two parenthetical expressions:
+2 + 50 = 52
+
+Final Answer: 52
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((9 + 6 - 9 + 8) * (9 - -9 * -6 + -2)) =...' ---
+🔎 Querying RAG system for: '((9 + 6 - 9 + 8) * (9 - -9 * -6 + -2)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((9 + 6 - 9 + 8) * (9 - -9 * -6 + -2)), I will follow the order of operations (PEMDAS/BODMAS):
+
+**Step 1: Evaluate the first set of parentheses.**
+(9 + 6 - 9 + 8)
+= (15 - 9 + 8)
+= (6 + 8)
+= 14
+
+**Step 2: Evaluate the second set of parentheses.**
+(9 - -9 * -6 + -2)
+First, perform the multiplication within these parentheses:
+-9 * -6 = 54
+Now substitute this back into the expression:
+(9 - 54 + -2)
+= (9 - 54 - 2)
+= (-45 - 2)
+= -47
+
+**Step 3: Multiply the results from Step 1 and Step 2.**
+14 * -47
+= -658
+
+Final Answer: -658
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 * -1 - 7 * 5) - (6 - -5 * 3 * 7)) =...' ---
+🔎 Querying RAG system for: '((5 * -1 - 7 * 5) - (6 - -5 * 3 * 7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 * -1 - 7 * 5) - (6 - -5 * 3 * 7)), I will follow the order of operations:
+
+**Step 1: Evaluate the first inner parenthesis (5 * -1 - 7 * 5)**
+*   Perform the multiplications first:
+    *   5 * -1 = -5
+    *   7 * 5 = 35
+*   Substitute these values back into the first parenthesis:
+    *   -5 - 35
+*   Perform the subtraction:
+    *   -5 - 35 = -40
+
+**Step 2: Evaluate the second inner parenthesis (6 - -5 * 3 * 7)**
+*   Perform the multiplication first:
+    *   -5 * 3 = -15
+    *   -15 * 7 = -105
+*   Substitute this value back into the second parenthesis:
+    *   6 - (-105)
+*   Remember that subtracting a negative number is equivalent to adding the positive number:
+    *   6 + 105 = 111
+
+**Step 3: Substitute the results of the inner parentheses back into the main expression**
+*   The expression now becomes:
+    *   -40 - 111
+
+**Step 4: Perform the final subtraction**
+*   -40 - 111 = -151
+
+Final Answer: -151
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 * -1 + 5 * -4) + (-2 - 5 * 4 - 5)) =...' ---
+🔎 Querying RAG system for: '((1 * -1 + 5 * -4) + (-2 - 5 * 4 - 5)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 * -1 + 5 * -4) + (-2 - 5 * 4 - 5)), I will follow the order of operations (PEMDAS/BODMAS):
+
+**Step 1: Evaluate the first inner parenthesis (1 * -1 + 5 * -4)**
+*   First, perform the multiplications:
+    *   1 * -1 = -1
+    *   5 * -4 = -20
+*   Next, perform the addition:
+    *   -1 + (-20) = -1 - 20 = -21
+    So, (1 * -1 + 5 * -4) = -21
+
+**Step 2: Evaluate the second inner parenthesis (-2 - 5 * 4 - 5)**
+*   First, perform the multiplication:
+    *   5 * 4 = 20
+*   Next, perform the subtractions from left to right:
+    *   -2 - 20 = -22
+    *   -22 - 5 = -27
+    So, (-2 - 5 * 4 - 5) = -27
+
+**Step 3: Add the results from Step 1 and Step 2**
+*   -21 + (-27) = -21 - 27 = -48
+
+Final Answer: -48
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((9 + 7 - 4 - 7) - (-5 + 6 + -1 * 0)) =...' ---
+🔎 Querying RAG system for: '((9 + 7 - 4 - 7) - (-5 + 6 + -1 * 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((9 + 7 - 4 - 7) - (-5 + 6 + -1 * 0)) = , I will break it down into two main parts, corresponding to the two sets of inner parentheses, and then perform the subtraction between the results.
+
+**Step 1: Evaluate the first inner parenthesis (9 + 7 - 4 - 7)**
+*   First, perform the additions and subtractions from left to right:
+    *   9 + 7 = 16
+    *   16 - 4 = 12
+    *   12 - 7 = 5
+*   So, the first part simplifies to 5.
+
+**Step 2: Evaluate the second inner parenthesis (-5 + 6 + -1 * 0)**
+*   First, perform the multiplication:
+    *   -1 * 0 = 0
+*   Now, substitute this back into the parenthesis:
+    *   -5 + 6 + 0
+*   Perform the additions from left to right:
+    *   -5 + 6 = 1
+    *   1 + 0 = 1
+*   So, the second part simplifies to 1.
+
+**Step 3: Perform the final subtraction**
+*   Now, substitute the simplified values back into the original expression:
+    *   (5) - (1)
+    *   5 - 1 = 4
+
+Therefore, the final answer is 4.
+
+Final Answer: 4
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((7 + 7 * 3 - 3) - (-3 + 4 - -6 + -3)) =...' ---
+🔎 Querying RAG system for: '((7 + 7 * 3 - 3) - (-3 + 4 - -6 + -3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the given expression, I will evaluate each parenthetical group separately, adhering to the order of operations (PEMDAS/BODMAS).
+
+**First Parenthetical Group: (7 + 7 * 3 - 3)**
+1. Perform multiplication: 7 * 3 = 21
+2. The expression becomes: (7 + 21 - 3)
+3. Perform addition from left to right: 7 + 21 = 28
+4. The expression becomes: (28 - 3)
+5. Perform subtraction: 28 - 3 = 25
+
+So, the first group simplifies to 25.
+
+**Second Parenthetical Group: (-3 + 4 - -6 + -3)**
+1. Simplify the double negative: - -6 becomes +6
+2. Simplify the plus negative: + -3 becomes -3
+3. The expression becomes: (-3 + 4 + 6 - 3)
+4. Perform operations from left to right:
+   -3 + 4 = 1
+   1 + 6 = 7
+   7 - 3 = 4
+
+So, the second group simplifies to 4.
+
+**Final Calculation:**
+Now, substitute the simplified values back into the original expression:
+25 - 4
+
+Perform the final subtraction:
+25 - 4 = 21
+
+Final Answer: 21
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((7 * -5 * -9 + 7) - (2 + -8 * 6 * 3)) =...' ---
+🔎 Querying RAG system for: '((7 * -5 * -9 + 7) - (2 + -8 * 6 * 3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((7 * -5 * -9 + 7) - (2 + -8 * 6 * 3))`, I will proceed by evaluating each set of parentheses separately, following the order of operations (multiplication before addition).
+
+**Step 1: Evaluate the first set of parentheses: (7 * -5 * -9 + 7)**
+*   First, perform the multiplications:
+    *   `7 * -5 = -35`
+    *   `-35 * -9 = 315`
+*   Next, perform the addition:
+    *   `315 + 7 = 322`
+    So, the first part of the expression simplifies to `322`.
+
+**Step 2: Evaluate the second set of parentheses: (2 + -8 * 6 * 3)**
+*   First, perform the multiplications:
+    *   `-8 * 6 = -48`
+    *   `-48 * 3 = -144`
+*   Next, perform the addition:
+    *   `2 + (-144) = 2 - 144 = -142`
+    So, the second part of the expression simplifies to `-142`.
+
+**Step 3: Perform the final subtraction**
+*   Now, subtract the result of the second part from the result of the first part:
+    *   `322 - (-142)`
+    *   `322 + 142 = 464`
+
+Therefore, the value of the expression is 464.
+
+Final Answer: 464
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((4 + 5 - 7 + 9) * (-1 - -4 + -7 - -5)) =...' ---
+🔎 Querying RAG system for: '((4 + 5 - 7 + 9) * (-1 - -4 + -7 - -5)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((4 + 5 - 7 + 9) * (-1 - -4 + -7 - -5)), I will break it down into two parts, evaluating each set of parentheses separately.
+
+**Step 1: Evaluate the first parenthesis (4 + 5 - 7 + 9)**
+*   4 + 5 = 9
+*   9 - 7 = 2
+*   2 + 9 = 11
+So, the value of the first parenthesis is 11.
+
+**Step 2: Evaluate the second parenthesis (-1 - -4 + -7 - -5)**
+*   Recall that subtracting a negative number is equivalent to adding the positive number. So, - -4 becomes +4, and - -5 becomes +5.
+*   The expression transforms to: -1 + 4 - 7 + 5
+*   -1 + 4 = 3
+*   3 - 7 = -4
+*   -4 + 5 = 1
+So, the value of the second parenthesis is 1.
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+*   Now, I multiply the results: 11 * 1
+*   11 * 1 = 11
+
+Therefore, the final answer is 11.
+
+Final Answer: 11
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((3 * -9 * 3 - 7) - (-9 + 4 * 8 + 2)) =...' ---
+🔎 Querying RAG system for: '((3 * -9 * 3 - 7) - (-9 + 4 * 8 + 2)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((3 * -9 * 3 - 7) - (-9 + 4 * 8 + 2)), I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first set of parentheses (3 * -9 * 3 - 7)**
+*   First, perform the multiplications: 3 * -9 = -27
+*   Then, continue with the multiplication: -27 * 3 = -81
+*   Finally, perform the subtraction: -81 - 7 = -88
+
+So, the first part of the expression simplifies to -88.
+
+**Step 2: Evaluate the second set of parentheses (-9 + 4 * 8 + 2)**
+*   First, perform the multiplication: 4 * 8 = 32
+*   Then, perform the additions and subtractions from left to right: -9 + 32 = 23
+*   Finally, complete the addition: 23 + 2 = 25
+
+So, the second part of the expression simplifies to 25.
+
+**Step 3: Perform the final subtraction**
+*   Now, substitute the simplified values back into the original expression: -88 - 25
+*   Perform the subtraction: -88 - 25 = -113
+
+Therefore, the value of the expression is -113.
+
+Final Answer: -113
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-9 + 6 + 1 - 7) * (2 - -2 + -9 + -2)) =...' ---
+🔎 Querying RAG system for: '((-9 + 6 + 1 - 7) * (2 - -2 + -9 + -2)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-9 + 6 + 1 - 7) * (2 - -2 + -9 + -2))`, I will proceed by evaluating each parenthetical expression independently and then multiplying the results.
+
+**Step 1: Evaluate the first parenthesis (-9 + 6 + 1 - 7)**
+
+*   -9 + 6 = -3
+*   -3 + 1 = -2
+*   -2 - 7 = -9
+
+So, the first parenthetical expression evaluates to **-9**.
+
+**Step 2: Evaluate the second parenthesis (2 - -2 + -9 + -2)**
+
+*   2 - -2 is equivalent to 2 + 2 = 4
+*   4 + -9 is equivalent to 4 - 9 = -5
+*   -5 + -2 is equivalent to -5 - 2 = -7
+
+So, the second parenthetical expression evaluates to **-7**.
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+
+*   (-9) * (-7) = 63
+
+Therefore, the final result of the entire expression is 63.
+
+Final Answer: 63
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-5 - -7 - 4 - 8) - (-4 + 4 + 1 + 0)) =...' ---
+🔎 Querying RAG system for: '((-5 - -7 - 4 - 8) - (-4 + 4 + 1 + 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-5 - -7 - 4 - 8) - (-4 + 4 + 1 + 0))`, I will proceed step-by-step:
+
+**Step 1: Evaluate the first set of parentheses.**
+`(-5 - -7 - 4 - 8)`
+First, simplify `- -7` to `+ 7`:
+`(-5 + 7 - 4 - 8)`
+Now, perform the additions and subtractions from left to right:
+`-5 + 7 = 2`
+`2 - 4 = -2`
+`-2 - 8 = -10`
+So, the first part simplifies to `-10`.
+
+**Step 2: Evaluate the second set of parentheses.**
+`(-4 + 4 + 1 + 0)`
+Perform the additions from left to right:
+`-4 + 4 = 0`
+`0 + 1 = 1`
+`1 + 0 = 1`
+So, the second part simplifies to `1`.
+
+**Step 3: Perform the final subtraction.**
+Now substitute the simplified values back into the original expression:
+`(-10) - (1)`
+`-10 - 1 = -11`
+
+Final Answer: -11
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-6 + -9 - -6 + -1) + (-8 * 5 * -6 + 7)) =...' ---
+🔎 Querying RAG system for: '((-6 + -9 - -6 + -1) + (-8 * 5 * -6 + 7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-6 + -9 - -6 + -1) + (-8 * 5 * -6 + 7))`, I will evaluate each parenthetical expression separately and then sum their results.
+
+**Step 1: Evaluate the first parenthetical expression: (-6 + -9 - -6 + -1)**
+
+*   First, simplify the double negative: `- -6` becomes `+ 6`.
+*   The expression becomes: `-6 + -9 + 6 + -1`.
+*   Combine the terms from left to right:
+    *   `-6 + (-9) = -15`
+    *   `-15 + 6 = -9`
+    *   `-9 + (-1) = -10`
+*   So, the value of the first parenthesis is `-10`.
+
+**Step 2: Evaluate the second parenthetical expression: (-8 * 5 * -6 + 7)**
+
+*   Perform the multiplication first:
+    *   `-8 * 5 = -40`
+    *   `-40 * -6 = 240` (A negative times a negative equals a positive)
+*   Now, add the remaining term:
+    *   `240 + 7 = 247`
+*   So, the value of the second parenthesis is `247`.
+
+**Step 3: Add the results of the two parenthetical expressions**
+
+*   Add the result from Step 1 and Step 2: `-10 + 247`.
+*   `-10 + 247 = 237`
+
+Final Answer: 237
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((4 - -6 + -9 + -7) - (9 + -3 - -7 * -8)) =...' ---
+🔎 Querying RAG system for: '((4 - -6 + -9 + -7) - (9 + -3 - -7 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((4 - -6 + -9 + -7) - (9 + -3 - -7 * -8)), I will break it down into steps:
+
+**Step 1: Evaluate the first set of parentheses (4 - -6 + -9 + -7)**
+*   4 - -6 is equivalent to 4 + 6, which equals 10.
+*   10 + -9 is equivalent to 10 - 9, which equals 1.
+*   1 + -7 is equivalent to 1 - 7, which equals -6.
+So, the first part of the expression simplifies to -6.
+
+**Step 2: Evaluate the second set of parentheses (9 + -3 - -7 * -8)**
+*   First, perform the multiplication: -7 * -8. A negative number multiplied by a negative number results in a positive number, so -7 * -8 = 56.
+*   Now substitute this back into the expression: (9 + -3 - 56).
+*   9 + -3 is equivalent to 9 - 3, which equals 6.
+*   6 - 56 equals -50.
+So, the second part of the expression simplifies to -50.
+
+**Step 3: Perform the final subtraction**
+*   Now I have (-6) - (-50).
+*   Subtracting a negative number is equivalent to adding the positive number, so -6 - -50 is equal to -6 + 50.
+*   -6 + 50 equals 44.
+
+Final Answer: 44
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-4 + 5 - 4 - -6) * (-3 * -1 * 2 - -4)) =...' ---
+🔎 Querying RAG system for: '((-4 + 5 - 4 - -6) * (-3 * -1 * 2 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-4 + 5 - 4 - -6) * (-3 * -1 * 2 - -4)):
+
+**Step 1: Evaluate the first set of parentheses.**
+(-4 + 5 - 4 - -6)
+= (-4 + 5 - 4 + 6)  (Subtracting a negative is equivalent to adding a positive)
+= (1 - 4 + 6)
+= (-3 + 6)
+= 3
+
+**Step 2: Evaluate the second set of parentheses.**
+(-3 * -1 * 2 - -4)
+= (3 * 2 - -4)  (Multiplying two negative numbers results in a positive number)
+= (6 - -4)
+= (6 + 4)  (Subtracting a negative is equivalent to adding a positive)
+= 10
+
+**Step 3: Multiply the results from Step 1 and Step 2.**
+3 * 10
+= 30
+
+Final Answer: 30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((8 - 7 - -3 + -9) - (-6 * -6 + -4 * -4)) =...' ---
+🔎 Querying RAG system for: '((8 - 7 - -3 + -9) - (-6 * -6 + -4 * -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+Let's break down the problem step-by-step:
+
+**Step 1: Evaluate the first inner parenthesis (8 - 7 - -3 + -9)**
+*   8 - 7 = 1
+*   1 - -3 = 1 + 3 = 4
+*   4 + -9 = 4 - 9 = -5
+So, the first part simplifies to: (-5)
+
+**Step 2: Evaluate the second inner parenthesis (-6 * -6 + -4 * -4)**
+*   First, perform the multiplications:
+    *   -6 * -6 = 36
+    *   -4 * -4 = 16
+*   Next, perform the addition:
+    *   36 + 16 = 52
+So, the second part simplifies to: (52)
+
+**Step 3: Substitute the simplified parts back into the original expression**
+The expression becomes: (-5) - (52)
+
+**Step 4: Perform the final subtraction**
+*   -5 - 52 = -57
+
+Final Answer: -57
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((3 - 2 - 3 * 3) + (-8 * -1 * -9 * 3)) =...' ---
+🔎 Querying RAG system for: '((3 - 2 - 3 * 3) + (-8 * -1 * -9 * 3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((3 - 2 - 3 * 3) + (-8 * -1 * -9 * 3)), I will evaluate each set of parentheses separately and then add the results.
+
+**Step 1: Evaluate the first set of parentheses (3 - 2 - 3 * 3)**
+*   First, perform the multiplication: 3 * 3 = 9.
+*   The expression becomes: 3 - 2 - 9.
+*   Perform the subtractions from left to right: (3 - 2) = 1.
+*   Then: 1 - 9 = -8.
+
+**Step 2: Evaluate the second set of parentheses (-8 * -1 * -9 * 3)**
+*   Perform the multiplications from left to right.
+*   -8 * -1 = 8 (a negative times a negative is a positive).
+*   8 * -9 = -72 (a positive times a negative is a negative).
+*   -72 * 3 = -216 (a negative times a positive is a negative).
+
+**Step 3: Add the results from Step 1 and Step 2**
+*   The expression now is: -8 + (-216).
+*   -8 - 216 = -224.
+
+Final Answer: -224
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((3 - 1 + -3 * -4) - (8 * 9 - -7 - -6)) =...' ---
+🔎 Querying RAG system for: '((3 - 1 + -3 * -4) - (8 * 9 - -7 - -6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((3 - 1 + -3 * -4) - (8 * 9 - -7 - -6)), I will break it down into steps, adhering to the order of operations (Parentheses, Exponents, Multiplication and Division, Addition and Subtraction).
+
+**Step 1: Evaluate the first set of parentheses (3 - 1 + -3 * -4)**
+*   First, perform the multiplication: -3 * -4 = 12.
+*   The expression inside the first parentheses becomes: 3 - 1 + 12.
+*   Perform subtraction and addition from left to right: 3 - 1 = 2.
+*   Then: 2 + 12 = 14.
+    So, the first part of the expression simplifies to 14.
+
+**Step 2: Evaluate the second set of parentheses (8 * 9 - -7 - -6)**
+*   First, perform the multiplication: 8 * 9 = 72.
+*   Next, address the double negatives: - -7 becomes +7, and - -6 becomes +6.
+*   The expression inside the second parentheses becomes: 72 + 7 + 6.
+*   Perform addition from left to right: 72 + 7 = 79.
+*   Then: 79 + 6 = 85.
+    So, the second part of the expression simplifies to 85.
+
+**Step 3: Subtract the result of the second set of parentheses from the result of the first set of parentheses.**
+*   The overall expression is now: 14 - 85.
+*   Performing the subtraction: 14 - 85 = -71.
+
+Final Answer: -71
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 + 4 - -1 * -1) + (-6 - -7 + -1 * 6)) =...' ---
+🔎 Querying RAG system for: '((5 + 4 - -1 * -1) + (-6 - -7 + -1 * 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 + 4 - -1 * -1) + (-6 - -7 + -1 * 6)), I will evaluate each set of parentheses separately, adhering to the order of operations (multiplication before addition/subtraction).
+
+**Step 1: Evaluate the first set of parentheses (5 + 4 - -1 * -1)**
+*   First, perform the multiplication: -1 * -1 = 1.
+*   Substitute this value back into the expression: 5 + 4 - 1.
+*   Perform the addition and subtraction from left to right: 5 + 4 = 9, then 9 - 1 = 8.
+*   So, the first part simplifies to 8.
+
+**Step 2: Evaluate the second set of parentheses (-6 - -7 + -1 * 6)**
+*   First, perform the multiplication: -1 * 6 = -6.
+*   Next, address the subtraction of a negative number, which is equivalent to addition: -6 - -7 = -6 + 7 = 1.
+*   Substitute these values back into the expression: 1 + (-6).
+*   Perform the addition: 1 + (-6) = 1 - 6 = -5.
+*   So, the second part simplifies to -5.
+
+**Step 3: Combine the results from Step 1 and Step 2**
+*   The original expression becomes: 8 + (-5).
+*   Perform the addition: 8 + (-5) = 8 - 5 = 3.
+
+Final Answer: 3
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 * -8 - -5 * -6) * (3 + -9 - 5 - -1)) =...' ---
+🔎 Querying RAG system for: '((-8 * -8 - -5 * -6) * (3 + -9 - 5 - -1)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-8 * -8 - -5 * -6) * (3 + -9 - 5 - -1))`, I will break it down into two main parts, corresponding to the two sets of parentheses, and then multiply their results.
+
+**Step 1: Evaluate the first set of parentheses `(-8 * -8 - -5 * -6)`**
+
+*   First, calculate the multiplications:
+    *   `-8 * -8 = 64` (A negative number multiplied by a negative number results in a positive number).
+    *   `-5 * -6 = 30` (A negative number multiplied by a negative number results in a positive number).
+
+*   Now, substitute these values back into the expression within the first set of parentheses:
+    *   `64 - 30`
+
+*   Perform the subtraction:
+    *   `64 - 30 = 34`
+
+**Step 2: Evaluate the second set of parentheses `(3 + -9 - 5 - -1)`**
+
+*   Perform the additions and subtractions from left to right:
+    *   `3 + -9 = 3 - 9 = -6`
+    *   `-6 - 5 = -11`
+    *   `-11 - -1 = -11 + 1 = -10` (Subtracting a negative number is equivalent to adding its positive counterpart).
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+
+*   Multiply the result of the first parenthesis (34) by the result of the second parenthesis (-10):
+    *   `34 * -10 = -340` (A positive number multiplied by a negative number results in a negative number).
+
+Therefore, the final answer is -340.
+
+Final Answer: -340
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((8 * -6 + -9 + 9) * (0 - 4 - 0 - -9)) =...' ---
+🔎 Querying RAG system for: '((8 * -6 + -9 + 9) * (0 - 4 - 0 - -9)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((8 * -6 + -9 + 9) * (0 - 4 - 0 - -9)), I will break it down into two parts, evaluating each set of parentheses first.
+
+**Part 1: Evaluate the first set of parentheses (8 * -6 + -9 + 9)**
+1. Perform the multiplication: 8 * -6 = -48
+2. Perform the additions/subtractions from left to right: -48 + -9 = -57
+3. Continue the addition: -57 + 9 = -48
+So, the first part evaluates to -48.
+
+**Part 2: Evaluate the second set of parentheses (0 - 4 - 0 - -9)**
+1. Perform the subtractions from left to right: 0 - 4 = -4
+2. Continue the subtraction: -4 - 0 = -4
+3. Handle the double negative: -4 - -9 = -4 + 9 = 5
+So, the second part evaluates to 5.
+
+**Part 3: Multiply the results of Part 1 and Part 2**
+1. Multiply -48 by 5: -48 * 5 = -240
+
+Final Answer: -240
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((0 * -7 - 6 * 3) * (-9 + -5 - 2 * -1)) =...' ---
+🔎 Querying RAG system for: '((0 * -7 - 6 * 3) * (-9 + -5 - 2 * -1)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((0 * -7 - 6 * 3) * (-9 + -5 - 2 * -1))`, I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first set of parentheses `(0 * -7 - 6 * 3)`**
+*   First, perform the multiplications:
+    *   `0 * -7 = 0`
+    *   `6 * 3 = 18`
+*   Next, perform the subtraction:
+    *   `0 - 18 = -18`
+    So, the first part simplifies to `-18`.
+
+**Step 2: Evaluate the second set of parentheses `(-9 + -5 - 2 * -1)`**
+*   First, perform the multiplication:
+    *   `2 * -1 = -2`
+*   Next, perform the additions and subtractions from left to right:
+    *   `-9 + -5 - (-2)`
+    *   `-9 - 5 + 2`
+    *   `-14 + 2 = -12`
+    So, the second part simplifies to `-12`.
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+*   `(-18) * (-12)`
+*   When multiplying two negative numbers, the result is positive.
+*   `18 * 12 = 216`
+
+Therefore, the final result of the expression is 216.
+
+Final Answer: 216
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 50/50 (100.0%)
+Science Accuracy: n/a
+Overall Accuracy: 50/50 (100.0%)
+Dataset accuracies:
+· BBH_multi_step_arithmetic: 50/50 (100.0%)
+BBH Accuracy: 50/50 (100.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: client_1_mixed_queries ---
+[✓] Successfully loaded 'client_datasets/multi_step_arithmetic/client_1_mixed_queries.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/8 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/8 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: client_2_mixed_queries ---
+[✓] Successfully loaded 'client_datasets/multi_step_arithmetic/client_2_mixed_queries.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/8 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/8 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: client_3_mixed_queries ---
+[✓] Successfully loaded 'client_datasets/multi_step_arithmetic/client_3_mixed_queries.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/8 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/8 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: summary ---
+[✓] Successfully loaded 'client_datasets/multi_step_arithmetic/summary.json'.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '...' ---
+❌ No image provided for ScienceQATool.
+========================= AGENT REASONING & FINAL OUTPUT =========================
+No image provided for ScienceQATool.
+================================================================================
+[✓] Query processed successfully.
+--- METRICS ---
+Math Accuracy: 0/3 (0.0%)
+Science Accuracy: n/a
+Overall Accuracy: 0/3 (0.0%)
+--- AGENT EVALUATION COMPLETE ---
+Full output has been saved to evaluation_log.txt
+--- FEDERATED CLIENT BENCHMARK SUMMARY ---
+Macro overall accuracy: 0.0%
+Overall accuracy spread: 0.0% (max - min)
+Overall accuracy σ: 0.0%
+Macro math accuracy: 0.0%
+· client_1_mixed_queries: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+· client_2_mixed_queries: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+· client_3_mixed_queries: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+· summary: overall=0.0%, math=0.0%, science=n/a, bbh=n/a, datasets=n/a
+--- PROMPT EXTRACTION ATTACK ---
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST https://openrouter.ai/api/v1/chat/completions "HTTP/1.1 200 OK"
+Samples attacked: 15; average similarity=46.8%
+Attack model: meta-llama/llama-4-maverick
+Detailed attack report saved to 'prompt_attack_results.json'.
+
+===== New Evaluation Run =====
+[Privacy] Differential privacy ENABLED (epsilon=0.005)
+--- 1. SYNAPSE FEDERATION ROUND 1/1 ---
+SYNAPSE Round Summary: {'artifact_count': 10, 'version_history': [{'timestamp': '2025-11-09T20:32:09.486627', 'edge_id': 'edge-general', 'artifact_count': '10'}]}
+✅ Successfully loaded 'train_new.json' for MathQATool.
+✅ MongoDB RAG collection 'vectors' is ready.
+MathQA RAG system is already populated.
+✅ Successfully loaded 'scienceqa_challenge_test.json' for ScienceQATool.
+✅ MongoDB RAG collection 'science_problems' is ready.
+ScienceQA RAG system is already populated.
+✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.
+--- 3. EVALUATING SYNAPSE AGENT ON DATASET: bbh_multi_step_arithmetic_eval.json ---
+[✓] Successfully loaded 'bbh_multi_step_arithmetic_eval.json'.
+--- Processing MathQA Query: '((-5 + -8 - -6 * 7) + (9 * -7 - -5 - -4)) =...' ---
+🔎 Querying RAG system for: '((-5 + -8 - -6 * 7) + (9 * -7 - -5 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-5 + -8 - -6 * 7) + (9 * -7 - -5 - -4)), I will proceed with the following steps:
+
+Step 1: Evaluate the first set of parentheses: (-5 + -8 - -6 * 7)
+    a. Perform multiplication first: -6 * 7 = -42
+    b. Substitute back into the expression: -5 + -8 - (-42)
+    c. Simplify the double negative: -5 + -8 + 42
+    d. Perform addition and subtraction from left to right: -5 + (-8) = -13
+    e. Continue: -13 + 42 = 29
+    So, the first part evaluates to 29.
+
+Step 2: Evaluate the second set of parentheses: (9 * -7 - -5 - -4)
+    a. Perform multiplication first: 9 * -7 = -63
+    b. Substitute back into the expression: -63 - (-5) - (-4)
+    c. Simplify the double negatives: -63 + 5 + 4
+    d. Perform addition and subtraction from left to right: -63 + 5 = -58
+    e. Continue: -58 + 4 = -54
+    So, the second part evaluates to -54.
+
+Step 3: Add the results of the two sets of parentheses:
+    29 + (-54)
+    29 - 54 = -25
+
+Final Answer: -25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 + 0 - 3 + 0) - (-7 - 9 * 1 + -3)) =...' ---
+🔎 Querying RAG system for: '((1 + 0 - 3 + 0) - (-7 - 9 * 1 + -3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 + 0 - 3 + 0) - (-7 - 9 * 1 + -3)), I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first inner parenthesis (1 + 0 - 3 + 0).**
+1 + 0 = 1
+1 - 3 = -2
+-2 + 0 = -2
+So, the first part simplifies to (-2).
+
+**Step 2: Evaluate the second inner parenthesis (-7 - 9 * 1 + -3).**
+First, perform the multiplication: 9 * 1 = 9.
+The expression becomes (-7 - 9 + -3).
+Now, perform the additions and subtractions from left to right:
+-7 - 9 = -16
+-16 + -3 = -16 - 3 = -19
+So, the second part simplifies to (-19).
+
+**Step 3: Substitute the simplified values back into the original expression.**
+The expression now is (-2) - (-19).
+
+**Step 4: Perform the subtraction.**
+Subtracting a negative number is equivalent to adding the positive version of that number.
+-2 - (-19) = -2 + 19
+-2 + 19 = 17
+
+Therefore, the final result is 17.
+
+Final Answer: 17
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)) =...' ---
+🔎 Querying RAG system for: '((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((1 - 2 + 5 * 2) + (-2 - -7 + 3 * -8)), I will evaluate each set of parentheses separately, adhering to the order of operations (PEMDAS/BODMAS - Parentheses/Brackets, Exponents/Orders, Multiplication and Division, Addition and Subtraction).
+
+**Step 1: Evaluate the first set of parentheses (1 - 2 + 5 * 2)**
+*   First, perform the multiplication: 5 * 2 = 10
+*   The expression becomes: 1 - 2 + 10
+*   Next, perform addition and subtraction from left to right:
+    *   1 - 2 = -1
+    *   -1 + 10 = 9
+So, the value of the first set of parentheses is 9.
+
+**Step 2: Evaluate the second set of parentheses (-2 - -7 + 3 * -8)**
+*   First, handle the double negative: - -7 is equivalent to + 7
+*   The expression becomes: -2 + 7 + 3 * -8
+*   Next, perform the multiplication: 3 * -8 = -24
+*   The expression becomes: -2 + 7 - 24
+*   Finally, perform addition and subtraction from left to right:
+    *   -2 + 7 = 5
+    *   5 - 24 = -19
+So, the value of the second set of parentheses is -19.
+
+**Step 3: Add the results from Step 1 and Step 2**
+*   Add the value of the first set of parentheses (9) to the value of the second set of parentheses (-19):
+    *   9 + (-19) = 9 - 19 = -10
+
+Therefore, the final result of the expression is -10.
+
+Final Answer: -10
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-2 * 9 * -8 + 8) - (0 * -4 - -6 * 4)) =...' ---
+🔎 Querying RAG system for: '((-2 * 9 * -8 + 8) - (0 * -4 - -6 * 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-2 * 9 * -8 + 8) - (0 * -4 - -6 * 4))`, I will break it down into two main parts, corresponding to the two sets of parentheses, and then subtract the second part from the first.
+
+**Part 1: Evaluate the first set of parentheses `(-2 * 9 * -8 + 8)`**
+1. Perform the multiplication: `-2 * 9 = -18`
+2. Continue the multiplication: `-18 * -8 = 144`
+3. Perform the addition: `144 + 8 = 152`
+So, the first part evaluates to `152`.
+
+**Part 2: Evaluate the second set of parentheses `(0 * -4 - -6 * 4)`**
+1. Perform the first multiplication: `0 * -4 = 0`
+2. Perform the second multiplication: `-6 * 4 = -24`
+3. Perform the subtraction: `0 - -24`. Subtracting a negative number is equivalent to adding its positive counterpart, so `0 + 24 = 24`.
+So, the second part evaluates to `24`.
+
+**Final Step: Subtract Part 2 from Part 1**
+1. `152 - 24 = 128`
+
+Final Answer: 128
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-3 + -4 * 4 + -8) + (1 - -3 + 4 - -9)) =...' ---
+🔎 Querying RAG system for: '((-3 + -4 * 4 + -8) + (1 - -3 + 4 - -9)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-3 + -4 * 4 + -8) + (1 - -3 + 4 - -9))`, I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Solve the first set of parentheses: `(-3 + -4 * 4 + -8)`**
+*   First, perform the multiplication: `-4 * 4 = -16`.
+*   Substitute this back into the expression: `(-3 + -16 + -8)`.
+*   Now, perform the additions/subtractions from left to right:
+    *   `-3 + (-16) = -3 - 16 = -19`.
+    *   `-19 + (-8) = -19 - 8 = -27`.
+    So, the value of the first set of parentheses is `-27`.
+
+**Step 2: Solve the second set of parentheses: `(1 - -3 + 4 - -9)`**
+*   First, simplify the double negatives: `1 - -3` becomes `1 + 3`, and `4 - -9` becomes `4 + 9`.
+*   The expression becomes: `(1 + 3 + 4 + 9)`.
+*   Now, perform the additions from left to right:
+    *   `1 + 3 = 4`.
+    *   `4 + 4 = 8`.
+    *   `8 + 9 = 17`.
+    So, the value of the second set of parentheses is `17`.
+
+**Step 3: Add the results from Step 1 and Step 2**
+*   Combine the results: `-27 + 17`.
+*   Perform the addition: `-27 + 17 = -10`.
+
+Final Answer: -10
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 * -3 * 3 * 7) * (0 + -9 - -5 - -2)) =...' ---
+🔎 Querying RAG system for: '((5 * -3 * 3 * 7) * (0 + -9 - -5 - -2)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 * -3 * 3 * 7) * (0 + -9 - -5 - -2)), I will break it down into two main parts and solve each independently.
+
+**Part 1: Evaluate the first set of parentheses (5 * -3 * 3 * 7)**
+1. Multiply 5 by -3: 5 * -3 = -15
+2. Multiply -15 by 3: -15 * 3 = -45
+3. Multiply -45 by 7: -45 * 7 = -315
+So, the first part evaluates to -315.
+
+**Part 2: Evaluate the second set of parentheses (0 + -9 - -5 - -2)**
+1. Simplify the double negatives: - -5 becomes +5, and - -2 becomes +2.
+   The expression becomes: 0 + -9 + 5 + 2
+2. Add 0 and -9: 0 + -9 = -9
+3. Add -9 and 5: -9 + 5 = -4
+4. Add -4 and 2: -4 + 2 = -2
+So, the second part evaluates to -2.
+
+**Final Step: Multiply the results of Part 1 and Part 2**
+Multiply -315 by -2: -315 * -2 = 630
+
+Final Answer: 630
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 * 6 + -6 - 8) * (-5 - 6 - 5 - -4)) =...' ---
+🔎 Querying RAG system for: '((5 * 6 + -6 - 8) * (-5 - 6 - 5 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 * 6 + -6 - 8) * (-5 - 6 - 5 - -4)), I will proceed with the following steps:
+
+**Step 1: Evaluate the first set of parentheses (5 * 6 + -6 - 8)**
+*   Perform the multiplication first: 5 * 6 = 30
+*   Substitute this back into the expression: 30 + -6 - 8
+*   Perform the additions and subtractions from left to right:
+    *   30 + -6 = 30 - 6 = 24
+    *   24 - 8 = 16
+So, the value of the first set of parentheses is 16.
+
+**Step 2: Evaluate the second set of parentheses (-5 - 6 - 5 - -4)**
+*   Simplify the double negative: -5 - 6 - 5 + 4
+*   Perform the additions and subtractions from left to right:
+    *   -5 - 6 = -11
+    *   -11 - 5 = -16
+    *   -16 + 4 = -12
+So, the value of the second set of parentheses is -12.
+
+**Step 3: Multiply the results from Step 1 and Step 2**
+*   Multiply the result of the first parenthesis by the result of the second parenthesis: 16 * -12
+*   16 * -12 = -192
+
+Therefore, the final answer is -192.
+
+Final Answer: -192
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 - 7 + -6 + 4) * (2 - -9 + 3 - 6)) =...' ---
+🔎 Querying RAG system for: '((5 - 7 + -6 + 4) * (2 - -9 + 3 - 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 - 7 + -6 + 4) * (2 - -9 + 3 - 6)), I will follow the order of operations (PEMDAS/BODMAS) by first simplifying the terms within each set of parentheses:
+
+Step 1: Simplify the first set of parentheses:
+(5 - 7 + -6 + 4)
+= (5 - 7 - 6 + 4)
+= (-2 - 6 + 4)
+= (-8 + 4)
+= -4
+
+Step 2: Simplify the second set of parentheses:
+(2 - -9 + 3 - 6)
+= (2 + 9 + 3 - 6)
+= (11 + 3 - 6)
+= (14 - 6)
+= 8
+
+Step 3: Multiply the results from Step 1 and Step 2:
+(-4 * 8)
+= -32
+
+Final Answer: -32
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-3 + 2 * -7 * 5) * (-9 - 9 - -9 + -7)) =...' ---
+🔎 Querying RAG system for: '((-3 + 2 * -7 * 5) * (-9 - 9 - -9 + -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-3 + 2 * -7 * 5) * (-9 - 9 - -9 + -7))`, I will evaluate each set of parentheses separately, following the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first parenthesis (-3 + 2 * -7 * 5)**
+
+*   First, perform the multiplication: `2 * -7 * 5`
+    *   `2 * -7 = -14`
+    *   `-14 * 5 = -70`
+*   Now substitute this back into the parenthesis: `-3 + (-70)`
+*   Perform the addition: `-3 - 70 = -73`
+
+So, the value of the first parenthesis is `-73`.
+
+**Step 2: Evaluate the second parenthesis (-9 - 9 - -9 + -7)**
+
+*   First, simplify the double negative: `- -9` becomes `+ 9`
+*   Also, `+ -7` becomes `- 7`
+*   The expression inside the parenthesis becomes: `-9 - 9 + 9 - 7`
+*   Perform the operations from left to right:
+    *   `-9 - 9 = -18`
+    *   `-18 + 9 = -9`
+    *   `-9 - 7 = -16`
+
+So, the value of the second parenthesis is `-16`.
+
+**Step 3: Multiply the results of the two parentheses**
+
+*   Now, multiply the result from Step 1 by the result from Step 2:
+    *   `-73 * -16`
+*   Multiplying two negative numbers yields a positive number:
+    *   `73 * 16 = 1168`
+
+Therefore, the final answer is `1168`.
+
+Final Answer: 1168
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((4 + 3 + -9 + -2) * (7 * 2 + 8 - 1)) =...' ---
+🔎 Querying RAG system for: '((4 + 3 + -9 + -2) * (7 * 2 + 8 - 1)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((4 + 3 + -9 + -2) * (7 * 2 + 8 - 1)), I will follow the order of operations.
+
+First, I will evaluate the operations within the first set of parentheses:
+1.  4 + 3 = 7
+2.  7 + (-9) = 7 - 9 = -2
+3.  -2 + (-2) = -4
+So, the first part of the expression simplifies to -4.
+
+Next, I will evaluate the operations within the second set of parentheses:
+1.  7 * 2 = 14 (Multiplication is performed before addition or subtraction)
+2.  14 + 8 = 22
+3.  22 - 1 = 21
+So, the second part of the expression simplifies to 21.
+
+Finally, I will multiply the results from both sets of parentheses:
+-4 * 21 = -84
+
+Final Answer: -84
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((4 * -4 + -6 - -2) - (9 + -7 + -8 * 6)) =...' ---
+🔎 Querying RAG system for: '((4 * -4 + -6 - -2) - (9 + -7 + -8 * 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((4 * -4 + -6 - -2) - (9 + -7 + -8 * 6))`, I will evaluate each set of parentheses separately, following the order of operations (multiplication before addition/subtraction).
+
+**Step 1: Evaluate the first set of parentheses (4 * -4 + -6 - -2)**
+*   First, perform the multiplication: `4 * -4 = -16`
+*   The expression becomes: `(-16 + -6 - -2)`
+*   Next, perform the addition: `-16 + -6 = -22`
+*   The expression becomes: `(-22 - -2)`
+*   Finally, perform the subtraction (subtracting a negative is equivalent to adding a positive): `-22 + 2 = -20`
+
+**Step 2: Evaluate the second set of parentheses (9 + -7 + -8 * 6)**
+*   First, perform the multiplication: `-8 * 6 = -48`
+*   The expression becomes: `(9 + -7 + -48)`
+*   Next, perform the addition: `9 + -7 = 2`
+*   The expression becomes: `(2 + -48)`
+*   Finally, perform the addition: `2 + -48 = -46`
+
+**Step 3: Perform the final subtraction**
+*   Now, substitute the results back into the original expression: `(-20) - (-46)`
+*   Subtracting a negative is equivalent to adding a positive: `-20 + 46`
+*   Perform the addition: `-20 + 46 = 26`
+
+Final Answer: 26
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-5 * -6 + 3 * -3) - (-1 + -8 * 8 * -9)) =...' ---
+🔎 Querying RAG system for: '((-5 * -6 + 3 * -3) - (-1 + -8 * 8 * -9)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-5 * -6 + 3 * -3) - (-1 + -8 * 8 * -9))`, I will proceed step-by-step following the order of operations.
+
+**Step 1: Evaluate the first set of inner parentheses: `(-5 * -6 + 3 * -3)`**
+*   First, perform the multiplications:
+    *   `-5 * -6 = 30`
+    *   `3 * -3 = -9`
+*   Next, perform the addition:
+    *   `30 + (-9) = 30 - 9 = 21`
+
+**Step 2: Evaluate the second set of inner parentheses: `(-1 + -8 * 8 * -9)`**
+*   First, perform the multiplications:
+    *   `-8 * 8 = -64`
+    *   `-64 * -9 = 576`
+*   Next, perform the addition:
+    *   `-1 + 576 = 575`
+
+**Step 3: Perform the final subtraction between the results from Step 1 and Step 2**
+*   `21 - 575 = -554`
+
+Final Answer: -554
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8)) =...' ---
+🔎 Querying RAG system for: '((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8))`, I will evaluate each parenthetical expression separately, following the order of operations (multiplication before addition/subtraction).
+
+**Step 1: Evaluate the first parenthetical expression: `(-8 - -1 * -8 * -2)`**
+
+*   First, perform the multiplication within this parenthesis: `-1 * -8 * -2`
+    *   `-1 * -8 = 8`
+    *   `8 * -2 = -16`
+*   Now, substitute this result back into the parenthesis: `-8 - (-16)`
+*   Subtracting a negative number is equivalent to adding its positive counterpart: `-8 + 16`
+*   Result of the first parenthesis: `8`
+
+**Step 2: Evaluate the second parenthetical expression: `(-6 + 8 + -5 * -8)`**
+
+*   First, perform the multiplication within this parenthesis: `-5 * -8`
+    *   `-5 * -8 = 40`
+*   Now, substitute this result back into the parenthesis: `-6 + 8 + 40`
+*   Perform the additions from left to right:
+    *   `-6 + 8 = 2`
+    *   `2 + 40 = 42`
+*   Result of the second parenthesis: `42`
+
+**Step 3: Multiply the results of the two parenthetical expressions**
+
+*   Multiply the result from Step 1 by the result from Step 2: `8 * 42`
+*   `8 * 42 = 336`
+
+The final answer is 336.
+
+Final Answer: 336
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4)) =...' ---
+🔎 Querying RAG system for: '((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4))`, I will proceed step-by-step:
+
+**Step 1: Evaluate the first set of parentheses.**
+`(-2 * 5 + -3 + 0)`
+
+First, perform the multiplication:
+`-2 * 5 = -10`
+
+Substitute this back into the expression:
+`(-10 + -3 + 0)`
+
+Now, perform the additions:
+`-10 + -3 = -13`
+`-13 + 0 = -13`
+
+So, the value of the first set of parentheses is `-13`.
+
+**Step 2: Evaluate the second set of parentheses.**
+`(-9 + 2 + 5 * 4)`
+
+First, perform the multiplication:
+`5 * 4 = 20`
+
+Substitute this back into the expression:
+`(-9 + 2 + 20)`
+
+Now, perform the additions/subtractions from left to right:
+`-9 + 2 = -7`
+`-7 + 20 = 13`
+
+So, the value of the second set of parentheses is `13`.
+
+**Step 3: Multiply the results from both sets of parentheses.**
+`(-13 * 13)`
+
+`-13 * 13 = -169`
+
+Final Answer: -169
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)) =...' ---
+🔎 Querying RAG system for: '((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)), I will break it down into two main parts, the left parenthesis and the right parenthesis, and then subtract the result of the second from the first.
+
+**Step 1: Evaluate the first set of parentheses (5 + -7 + 1 - 5)**
+*   5 + (-7) = 5 - 7 = -2
+*   -2 + 1 = -1
+*   -1 - 5 = -6
+So, the first part evaluates to -6.
+
+**Step 2: Evaluate the second set of parentheses (-3 * -1 * 7 + -1)**
+*   First, perform the multiplication: -3 * -1 = 3
+*   Then, continue the multiplication: 3 * 7 = 21
+*   Finally, perform the addition: 21 + (-1) = 21 - 1 = 20
+So, the second part evaluates to 20.
+
+**Step 3: Subtract the result of the second part from the first part**
+*   -6 - 20 = -26
+
+Therefore, the final answer is -26.
+
+Final Answer: -26
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-1 + 5 * 4 + 9) - (-7 - 6 * -8 - 0)) =...' ---
+🔎 Querying RAG system for: '((-1 + 5 * 4 + 9) - (-7 - 6 * -8 - 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-1 + 5 * 4 + 9) - (-7 - 6 * -8 - 0))`, I will follow the order of operations (PEMDAS/BODMAS):
+
+**Step 1: Evaluate the first set of parentheses.**
+`(-1 + 5 * 4 + 9)`
+  First, perform the multiplication: `5 * 4 = 20`
+  The expression becomes: `(-1 + 20 + 9)`
+  Next, perform the additions from left to right: `-1 + 20 = 19`
+  Then: `19 + 9 = 28`
+  So, the first part evaluates to `28`.
+
+**Step 2: Evaluate the second set of parentheses.**
+`(-7 - 6 * -8 - 0)`
+  First, perform the multiplication: `6 * -8 = -48`
+  The expression becomes: `(-7 - (-48) - 0)`
+  Simplify the double negative: `- (-48)` becomes `+ 48`
+  The expression becomes: `(-7 + 48 - 0)`
+  Next, perform the additions and subtractions from left to right: `-7 + 48 = 41`
+  Then: `41 - 0 = 41`
+  So, the second part evaluates to `41`.
+
+**Step 3: Subtract the result of the second set of parentheses from the first.**
+`28 - 41`
+  `28 - 41 = -13`
+
+Final Answer: -13
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((5 - -2 * 7 + -2) - (0 * 9 * -6 - -7)) =...' ---
+🔎 Querying RAG system for: '((5 - -2 * 7 + -2) - (0 * 9 * -6 - -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((5 - -2 * 7 + -2) - (0 * 9 * -6 - -7)), I will follow the order of operations (PEMDAS/BODMAS), addressing operations within parentheses first.
+
+**Step 1: Evaluate the first inner parenthesis (5 - -2 * 7 + -2)**
+*   First, perform the multiplication: -2 * 7 = -14
+*   The expression becomes: 5 - (-14) + (-2)
+*   Simplify the double negatives: 5 + 14 - 2
+*   Perform addition and subtraction from left to right: 5 + 14 = 19
+*   Then: 19 - 2 = 17
+So, the first parenthesis evaluates to 17.
+
+**Step 2: Evaluate the second inner parenthesis (0 * 9 * -6 - -7)**
+*   First, perform the multiplication: 0 * 9 * -6 = 0
+*   The expression becomes: 0 - (-7)
+*   Simplify the double negative: 0 + 7
+*   Perform addition: 0 + 7 = 7
+So, the second parenthesis evaluates to 7.
+
+**Step 3: Subtract the result of the second parenthesis from the result of the first parenthesis**
+*   The overall expression becomes: 17 - 7
+*   Perform the subtraction: 17 - 7 = 10
+
+Final Answer: 10
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 * 1 * -1 + -5) + (-2 - -3 + 1 * -7)) =...' ---
+🔎 Querying RAG system for: '((-8 * 1 * -1 + -5) + (-2 - -3 + 1 * -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-8 * 1 * -1 + -5) + (-2 - -3 + 1 * -7))`, I will proceed step-by-step following the order of operations.
+
+**Step 1: Evaluate the first inner parenthesis `(-8 * 1 * -1 + -5)`**
+
+*   First, perform the multiplication: `-8 * 1 * -1`
+    *   `-8 * 1 = -8`
+    *   `-8 * -1 = 8`
+*   Now, substitute this back into the parenthesis: `(8 + -5)`
+*   Perform the addition: `8 + (-5) = 3`
+    *   So, the value of the first inner parenthesis is `3`.
+
+**Step 2: Evaluate the second inner parenthesis `(-2 - -3 + 1 * -7)`**
+
+*   First, perform the multiplication: `1 * -7`
+    *   `1 * -7 = -7`
+*   Next, perform the subtraction: `-2 - -3`
+    *   Subtracting a negative number is equivalent to adding its positive counterpart: `-2 + 3 = 1`
+*   Now, substitute these results back into the parenthesis: `(1 + -7)`
+*   Perform the addition: `1 + (-7) = -6`
+    *   So, the value of the second inner parenthesis is `-6`.
+
+**Step 3: Add the results from Step 1 and Step 2**
+
+*   The expression simplifies to `3 + (-6)`
+*   Perform the addition: `3 + (-6) = -3`
+
+**Final Answer: -3**
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-1 + 6 + 9 + 3) - (-5 - 9 - -3 + 4)) =...' ---
+🔎 Querying RAG system for: '((-1 + 6 + 9 + 3) - (-5 - 9 - -3 + 4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-1 + 6 + 9 + 3) - (-5 - 9 - -3 + 4)), I will proceed with the following steps:
+
+**Step 1: Simplify the first set of parentheses.**
+(-1 + 6 + 9 + 3)
+= (5 + 9 + 3)
+= (14 + 3)
+= 17
+
+**Step 2: Simplify the second set of parentheses.**
+(-5 - 9 - -3 + 4)
+Recognize that subtracting a negative number is equivalent to adding a positive number: - -3 becomes +3.
+= (-5 - 9 + 3 + 4)
+= (-14 + 3 + 4)
+= (-11 + 4)
+= -7
+
+**Step 3: Subtract the result of the second set of parentheses from the result of the first set of parentheses.**
+(17) - (-7)
+Subtracting a negative number is equivalent to adding a positive number.
+= 17 + 7
+= 24
+
+Final Answer: 24
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3)) =...' ---
+🔎 Querying RAG system for: '((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3))`, I will follow the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first set of parentheses.**
+`(-4 + -7 - 3 + 3)`
+1. `-4 + -7 = -11`
+2. `-11 - 3 = -14`
+3. `-14 + 3 = -11`
+So, the first part simplifies to `-11`.
+
+**Step 2: Evaluate the second set of parentheses.**
+`(-3 + -2 - -3 * -3)`
+Within this set, multiplication takes precedence:
+1. `-3 * -3 = 9`
+Now substitute this value back into the expression:
+`(-3 + -2 - 9)`
+2. `-3 + -2 = -5`
+3. `-5 - 9 = -14`
+So, the second part simplifies to `-14`.
+
+**Step 3: Perform the final subtraction.**
+Now, substitute the simplified values back into the original expression:
+`(-11) - (-14)`
+Subtracting a negative number is equivalent to adding its positive counterpart:
+`-11 + 14 = 3`
+
+The final answer is 3.
+
+Final Answer: 3
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((1 * -9 - 4 + -9) + (-1 + -6 + 9 - 5)) =...' ---
+🔎 Querying RAG system for: '((1 * -9 - 4 + -9) + (-1 + -6 + 9 - 5)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the given expression, I will follow the standard order of operations (PEMDAS/BODMAS), addressing the operations within the parentheses first.
+
+**Step 1: Evaluate the first set of parentheses.**
+(1 * -9 - 4 + -9)
+
+First, perform the multiplication:
+1 * -9 = -9
+
+The expression inside the first parenthesis becomes:
+-9 - 4 + -9
+
+Next, perform the additions and subtractions from left to right:
+-9 - 4 = -13
+-13 + -9 = -13 - 9 = -22
+
+So, the value of the first set of parentheses is -22.
+
+**Step 2: Evaluate the second set of parentheses.**
+(-1 + -6 + 9 - 5)
+
+Perform the additions and subtractions from left to right:
+-1 + -6 = -7
+-7 + 9 = 2
+2 - 5 = -3
+
+So, the value of the second set of parentheses is -3.
+
+**Step 3: Add the results from Step 1 and Step 2.**
+-22 + (-3)
+-22 - 3 = -25
+
+Therefore, the final result of the expression is -25.
+
+Final Answer: -25
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-9 * 6 - -3 * -3) + (-4 - -9 + 4 - -4)) =...' ---
+🔎 Querying RAG system for: '((-9 * 6 - -3 * -3) + (-4 - -9 + 4 - -4)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-9 * 6 - -3 * -3) + (-4 - -9 + 4 - -4)), I will proceed with a step-by-step simplification:
+
+**Step 1: Simplify the first set of parentheses: (-9 * 6 - -3 * -3)**
+
+*   First, perform the multiplications:
+    *   -9 * 6 = -54
+    *   -3 * -3 = 9
+*   Substitute these values back into the first part of the expression:
+    *   (-54 - 9)
+*   Perform the subtraction:
+    *   -54 - 9 = -63
+
+**Step 2: Simplify the second set of parentheses: (-4 - -9 + 4 - -4)**
+
+*   Recall that subtracting a negative number is equivalent to adding its positive counterpart (e.g., - -9 becomes +9).
+*   The expression becomes:
+    *   (-4 + 9 + 4 + 4)
+*   Perform the additions from left to right:
+    *   -4 + 9 = 5
+    *   5 + 4 = 9
+    *   9 + 4 = 13
+
+**Step 3: Combine the results from Step 1 and Step 2**
+
+*   Add the simplified values of both parts:
+    *   -63 + 13
+*   Perform the addition:
+    *   -63 + 13 = -50
+
+Therefore, the final simplified value of the expression is -50.
+
+Final Answer: -50
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7)) =...' ---
+🔎 Querying RAG system for: '((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7))`, I will proceed step-by-step following the order of operations (PEMDAS/BODMAS).
+
+**Step 1: Evaluate the first set of parentheses `(-2 - -7 - 5 * 2)`**
+
+1.  Perform the multiplication: `5 * 2 = 10`.
+2.  Substitute the result back into the expression: `(-2 - -7 - 10)`.
+3.  Simplify the double negative: `-2 + 7 - 10`.
+4.  Perform the additions and subtractions from left to right:
+    *   `-2 + 7 = 5`
+    *   `5 - 10 = -5`
+    So, the value of the first set of parentheses is `-5`.
+
+**Step 2: Evaluate the second set of parentheses `(-3 - 5 * 3 + -7)`**
+
+1.  Perform the multiplication: `5 * 3 = 15`.
+2.  Substitute the result back into the expression: `(-3 - 15 + -7)`.
+3.  Simplify the addition of a negative: `-3 - 15 - 7`.
+4.  Perform the additions and subtractions from left to right:
+    *   `-3 - 15 = -18`
+    *   `-18 - 7 = -25`
+    So, the value of the second set of parentheses is `-25`.
+
+**Step 3: Add the results from Step 1 and Step 2**
+
+1.  Add the two results: `(-5) + (-25)`.
+2.  Simplify the expression: `-5 - 25 = -30`.
+
+Final Answer: -30
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 - -7 + 0 + 3) + (-3 + 5 - -5 * -8)) =...' ---
+🔎 Querying RAG system for: '((-8 - -7 + 0 + 3) + (-3 + 5 - -5 * -8)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((-8 - -7 + 0 + 3) + (-3 + 5 - -5 * -8)), I will break it down into two main parts, corresponding to the two sets of inner parentheses, and then sum their results.
+
+**Step 1: Evaluate the first set of inner parentheses.**
+(-8 - -7 + 0 + 3)
+-8 - -7 is equivalent to -8 + 7.
+-8 + 7 = -1
+Now, add 0 and 3:
+-1 + 0 = -1
+-1 + 3 = 2
+So, the value of the first part is 2.
+
+**Step 2: Evaluate the second set of inner parentheses.**
+(-3 + 5 - -5 * -8)
+First, perform the multiplication: -5 * -8.
+-5 * -8 = 40 (A negative number multiplied by a negative number yields a positive number).
+Now, substitute this back into the expression:
+-3 + 5 - 40
+Perform the addition and subtraction from left to right:
+-3 + 5 = 2
+2 - 40 = -38
+So, the value of the second part is -38.
+
+**Step 3: Sum the results from Step 1 and Step 2.**
+2 + (-38)
+2 - 38 = -36
+
+Therefore, the final answer is -36.
+
+Final Answer: -36
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6)) =...' ---
+🔎 Querying RAG system for: '((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression `((-7 * -2 + -4 + -4) - (9 * 1 * -6 * 6))`, I will follow the order of operations:
+
+**Step 1: Evaluate the first set of parentheses `(-7 * -2 + -4 + -4)`**
+*   First, perform the multiplication: `-7 * -2 = 14`
+*   Next, perform the additions: `14 + (-4) + (-4)`
+*   `14 - 4 = 10`
+*   `10 - 4 = 6`
+So, the value of the first set of parentheses is `6`.
+
+**Step 2: Evaluate the second set of parentheses `(9 * 1 * -6 * 6)`**
+*   Perform the multiplications from left to right:
+*   `9 * 1 = 9`
+*   `9 * -6 = -54`
+*   `-54 * 6 = -324`
+So, the value of the second set of parentheses is `-324`.
+
+**Step 3: Perform the final subtraction**
+*   Subtract the result of the second set of parentheses from the result of the first set of parentheses: `6 - (-324)`
+*   Subtracting a negative number is equivalent to adding its positive counterpart: `6 + 324`
+*   `6 + 324 = 330`
+
+Final Answer: 330
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((2 + 7 - -5 - 1) - (0 - 5 - 9 + 0)) =...' ---
+🔎 Querying RAG system for: '((2 + 7 - -5 - 1) - (0 - 5 - 9 + 0)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
