@@ -9495,3 +9495,32 @@ Final Answer: 330
 🔄 Reranking 3 documents for relevance...
 ✅ Reranking complete.
 🤖 Generating final answer with Jina DeepSearch...
+========================= AGENT REASONING & FINAL OUTPUT =========================
+To solve the expression ((2 + 7 - -5 - 1) - (0 - 5 - 9 + 0)), I will proceed in a step-by-step manner:
+
+1.  **Evaluate the first set of parentheses (2 + 7 - -5 - 1):**
+    *   2 + 7 = 9
+    *   9 - -5 is equivalent to 9 + 5 = 14
+    *   14 - 1 = 13
+    So, the first part simplifies to 13.
+
+2.  **Evaluate the second set of parentheses (0 - 5 - 9 + 0):**
+    *   0 - 5 = -5
+    *   -5 - 9 = -14
+    *   -14 + 0 = -14
+    So, the second part simplifies to -14.
+
+3.  **Perform the final subtraction:**
+    *   Now, substitute the simplified values back into the original expression: 13 - (-14)
+    *   Subtracting a negative number is equivalent to adding its positive counterpart: 13 + 14 = 27.
+
+Therefore, the final result of the expression is 27.
+
+Final Answer: 27
+================================================================================
+[✓] Query processed successfully.
+--- Processing MathQA Query: '((-8 - -1 + -8 + -3) * (-4 * 6 - 2 - 3)) =...' ---
+🔎 Querying RAG system for: '((-8 - -1 + -8 + -3) * (-4 * 6 - 2 - 3)) ='
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+🤖 Generating final answer with Jina DeepSearch...
