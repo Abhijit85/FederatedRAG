@@ -2,11 +2,12 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 import statistics
-import re
+from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 from dotenv import load_dotenv
 
@@ -59,6 +60,27 @@ if log_path.exists() and log_path.stat().st_size > 0:
     logger.info("\n" + delimiter)
 else:
     logger.info(delimiter)
+
+
+def _append_task_log(
+    dataset_label: str,
+    central_metrics: Optional[dict],
+    client_summary: Optional[dict],
+) -> None:
+    sanitized = re.sub(r"[^A-Za-z0-9_.-]", "_", dataset_label or "mixed_queries")
+    log_path = Path(f"evaluation_log_{sanitized}.txt")
+    record = {
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "dataset": dataset_label,
+        "central": central_metrics,
+        "client_summary": client_summary,
+    }
+    try:
+        with log_path.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(record))
+            fh.write("\n")
+    except OSError as exc:
+        print(f"⚠️ Failed to write per-task log '{log_path}': {exc}")
 
 
 import collections
@@ -371,12 +393,16 @@ def main():
     runtime.export_snapshot(Path("synapse_global_snapshot.json"))
     print("✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.")
 
+    dataset_label = args.test_file.name
+    central_metrics: Optional[dict[str, Any]] = None
+
     if args.skip_global_eval:
         print("ℹ️ Skipping global evaluation as requested.")
     else:
-        evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=args.test_file.name)
+        central_metrics = evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=dataset_label)
 
     client_metrics = []
+    client_summary_payload: Optional[dict[str, Any]] = None
     if args.evaluate_clients:
         if not args.client_data_dir:
             print("⚠️ --evaluate-clients was set but no --client-data-dir provided; skipping client evaluations.")
@@ -414,6 +440,7 @@ def main():
         if science_values:
             print(f"Macro science accuracy: {_format_percent(sum(science_values) / len(science_values))}")
 
+        client_details: list[dict[str, Any]] = []
         for metrics in client_metrics:
             dataset_details = metrics.get("datasets", {})
             dataset_summary = ", ".join(
@@ -430,6 +457,25 @@ def main():
                 f"bbh={_format_percent(bbh_acc)}, "
                 f"{dataset_summary}"
             )
+
+            client_details.append(
+                {
+                    "label": metrics["label"],
+                    "overall": metrics["overall"].get("accuracy"),
+                    "math": metrics["domains"].get("math", {}).get("accuracy"),
+                    "science": metrics["domains"].get("science", {}).get("accuracy"),
+                    "datasets": {name: bucket.get("accuracy") for name, bucket in dataset_details.items()},
+                }
+            )
+
+        client_summary_payload = {
+            "macro_overall": macro,
+            "overall_spread": spread,
+            "overall_stdev": stdev,
+            "macro_math": (sum(math_values) / len(math_values)) if math_values else None,
+            "macro_science": (sum(science_values) / len(science_values)) if science_values else None,
+            "details": client_details,
+        }
 
     if args.prompt_attack:
         attack_model = (
@@ -454,6 +500,8 @@ def main():
         print(f"Attack model: {attack_model}")
         if args.prompt_attack_output:
             print(f"Detailed attack report saved to '{args.prompt_attack_output}'.")
+
+    _append_task_log(dataset_label, central_metrics, client_summary_payload)
 def _normalize_answer(text: str) -> str:
     """
     Normalize answer strings by removing common prefixes and punctuation.

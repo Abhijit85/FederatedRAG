@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import hashlib
+import json
+import os
+import re
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Dict, Iterable, List, Optional, Set
@@ -35,6 +38,15 @@ class SynapseClient:
         self._last_raw_artifacts: List[KnowledgeArtifact] = []
         self._last_sanitized_artifacts: List[KnowledgeArtifact] = []
         self.privacy_policy = privacy_policy or PrivacyPolicy()
+        env = os.environ
+        self._artifact_max_chars = max(40, int(env.get("SYNAPSE_ARTIFACT_MAX_CHARS", "280")))
+        self._artifact_max_sentences = max(1, int(env.get("SYNAPSE_ARTIFACT_MAX_SENTENCES", "1")))
+        self._artifact_include_skills = env.get("SYNAPSE_ARTIFACT_INCLUDE_SKILLS", "1").strip().lower() not in {
+            "0",
+            "false",
+            "no",
+            "off",
+        }
 
     def collect_local_artifacts(self) -> List[KnowledgeArtifact]:
         """
@@ -156,6 +168,64 @@ class SynapseClient:
                 "observed_text": artifact.text,
             })
         return paired
+
+    def _condense_artifact_text(
+        self,
+        text: str,
+        metadata: Optional[Dict[str, object]] = None,
+        payload: Optional[Dict[str, object]] = None,
+    ) -> str:
+        if not text:
+            return ""
+        cleaned = text.strip()
+        if not cleaned:
+            return ""
+
+        segments = re.split(r"(?<=[.!?])\s+", cleaned)
+        summary_parts: List[str] = []
+        for segment in segments:
+            if not segment:
+                continue
+            summary_parts.append(segment.strip())
+            if len(summary_parts) >= self._artifact_max_sentences:
+                break
+        summary = " ".join(summary_parts) if summary_parts else cleaned.splitlines()[0].strip()
+
+        if len(summary) > self._artifact_max_chars:
+            summary = summary[: self._artifact_max_chars].rstrip() + "…"
+
+        if self._artifact_include_skills:
+            skills = []
+            if metadata and isinstance(metadata.get("skills"), list):
+                skills = metadata["skills"]
+            elif payload:
+                for key in ("skills", "visual_skills", "textual_skills"):
+                    value = payload.get(key)
+                    if isinstance(value, list) and value:
+                        skills = value
+                        break
+            if skills:
+                skill_text = ", ".join(str(skill) for skill in skills[:3])
+                summary = f"{summary} | skills: {skill_text}"
+
+        return summary
+
+    def _structured_prompt(self, metadata: Dict[str, object], payload: Dict[str, object], role: str) -> str:
+        template = {
+            "role": role,
+            "tool": metadata.get("tool"),
+            "domain": metadata.get("domain") or metadata.get("scenario"),
+            "scenario": metadata.get("scenario"),
+            "type": payload.get("type"),
+            "difficulty": metadata.get("difficulty"),
+            "skills": payload.get("skills")
+                or payload.get("textual_skills")
+                or payload.get("visual_skills"),
+        }
+        compact = {key: value for key, value in template.items() if value}
+        if not compact:
+            compact = {"role": role}
+        return json.dumps(compact, ensure_ascii=False)
 
     def prepare_for_edge(self) -> KnowledgePackage:
         """

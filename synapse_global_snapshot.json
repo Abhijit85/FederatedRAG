@@ -4,178 +4,146 @@
   },
   "artifacts": [
     {
-      "signature": "unified::science::example::-862672647172378205",
-      "text": "######### Based on this information, what is ####### ######### for the ####### type trait?\n######## All ######### have pieces of ########## material ###### genes, which are ###### from parents to ########## Genes contain ############ for building the parts of an organism. An ########## genes affect its ########## traits, including its appearance, its behavior, and which diseases it may have. ##### may have different alleles, or forms, that can cause different versions of a ######\n### example, ###### color is a trait in pea plants. The gene for this trait has two possible ######## Each allele is represented by an uppercase or ######### letter. The allele F is for purple flowers, and the allele f is for white flowers. Each pea plant has two alleles for the flower color ######## allele ######### from each parent.\nAn organism's genotype for a gene is its combination of alleles for that gene. So, a pea plant may have a genotype of FF, Ff, or ff for the flower color gene.\nAn organism's phenotype for a trait is its observable version of that ###### which depends on the ########## combination of ######## # pea plant may have a phenotype of ###### ####### or white flowers for the flower color trait.\nSome traits, like ###### color in pea ####### are ########## by a single gene. #### plants and ####### have a genotype made up of two alleles for these ####### These two alleles determine whether an organism is ########## or ############ for the gene.\nAn organism with two identical ####### for a gene is homozygous for that gene. A pea plant with the genotype FF or ff is homozygous for the ###### color gene.\nAn organism with two ######### ####### for a gene is heterozygous for that gene. A pea plant with the ######## Ff is ############ for the ###### color gene.\nThe types of ####### in an organism's ######## ######### the organism's phenotype. Some ####### have types called dominant and recessive. These two types can cause different versions of a trait to appear as the organism's phenotype.\nA ######## allele causes its version of the trait to ###### even when the organism also has a recessive allele for the gene. ## pea ####### the # allele, which ###### ###### flowers, is ######## over the f allele. A pea plant with at least one # ###### will have the F allele's version of the flower color ###### ### a plant with the genotype FF or Ff will have purple flowers.\nA recessive allele causes its ####### of the trait to appear only when the organism does not have any dominant alleles for the gene. In pea ####### the f allele, which causes white flowers, is recessive to the F ####### A pea plant with only f alleles will have the f allele's ####### of the ###### color trait. So, a plant with the genotype ff will have white ########",
+      "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ###### ##### and #### ########## ########### ###### ##### and #### ########## ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "straight whiskers",
-          "curved whiskers"
-        ],
-        "answer": 109.00721006744311,
-        "has_image": 136.75039105457924
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology"
-      }
-    },
-    {
-      "signature": "unified::science::example::-6241344106082454263",
-      "text": "######### What is the probability that a goat ######## by this cross will be ########## dominant for the myotonia ######### gene?\n######## ######### genotypes: homozygous or #############\nHow do you determine ####### an ######## is homozygous or ############ for a gene? Look at the alleles in the organism's ######## for that gene.\nAn organism with two identical alleles for a gene is homozygous for that gene.\nIf both ####### are ######### the organism is homozygous dominant for the gene.\nIf both alleles are ########## the organism is homozygous ######### for the gene.\nAn organism with two different ####### for a gene is heterozygous for that gene.\nIn a Punnett square, each box represents a different outcome, or ####### Each of the four outcomes is ####### likely to happen. Each box represents one way the parents' alleles can combine to form an offspring's genotype. \nBecause there are four boxes in the Punnett square, there are four possible #########\nAn event is a set of one or more ######### The probability of an event is a measure of how likely the event is to ####### This ########### is a ###### between # and 1, and it can be written as a fraction:\nprobability of an event = number of ways the event can ###### / ###### of equally likely ########\nYou can use a Punnett square to calculate the probability that a cross will produce certain offspring. ### example, the ####### square below has two boxes with the genotype Ff. It has one box with the genotype ## and one box with the genotype ff. This means there are two ways the parents' ####### can combine to form Ff. ##### is one way they can combine to form FF and one way they can combine to form ff.\n | F | f\n# | FF | Ff\nf | Ff | ff\n######## an event in which this cross ######## an ######### with the genotype ff. The probability of this event is given by the ######### #########\nnumber of ways the event can ###### / ###### of equally likely outcomes = number of boxes with the genotype ff / total ###### of boxes = # / #",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "1/4",
-          "0/4",
-          "4/4",
-          "2/4",
-          "3/4"
-        ],
-        "answer": 211.87358881471377,
-        "has_image": -35.15407322952137
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology"
-      }
-    },
-    {
-      "signature": "unified::science::example::141657796408885142",
-      "text": "Question: #### the following excerpt from a ####### essay. How can the ###### best improve his or her word choice?\nWhen I said that # ###### to take a cooking class, I didn't know what # was getting into. # love cooking, but I'm very shy and hate being in the ########## The first time the ####### asked me to do a culinary technique, my hands were sweating ########## As # held the heavy ####### knife in my sweaty hand, it fell to the ###### ### class had just started, and I had ####### made a terrible first ########### My face was red, but # got the ###### put it in the sink, took a clean one, and cut the slab of raw bluefin tuna into paper-thin ####### Everyone in the class\u2014even the instructor\u2014gave me a round of applause.\n######## ###### peer review, you read and ####### to a fellow student's ######## While there are many ####### and strategies that you can use for ######### a text, it is generally helpful to frame your suggestions in concrete and ############ ways and to consider the following areas for revision:\nIdeas and development: #### the writer express a clear idea and develop it with evidence, examples, or analysis?\nOrganization: #### the ###### order ideas in a clear, ####### way so that they build on one ####### and are easy to #######\n###### Does the writer ######## an ########### ###### such as a ###### and ######### voice in an ######## essay or an ######## and expressive voice in a ######### ######\nSentence fluency: Does the writer use ######### that vary in structure and length to create a sense of rhythm and flow ###### and between ########## or does the writing sound choppy, rambling, or repetitive?\nWord ####### Does the writer use words accurately and precisely to create clear, ########## and ######## writing?\n####### and mechanics: Does the writer ###### appropriate conventions, using accurate ######### ############ and grammar to create writing that is correct and easy to read?",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "by adding technical terms",
-          "by using more precise verbs",
-          "by using words with more appropriate connotations"
-        ],
-        "answer": 28.56583131441797,
-        "has_image": 30.08153990900626
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "writing-strategies"
-      }
-    },
-    {
-      "signature": "unified::science::example::-8976883050120571818",
-      "text": "Question: ######## the question that Tom and Justin's experiment can best answer.\nLecture: Experiments can be ######## to answer specific questions. How can you ######## the questions that a certain ########## can answer? ## order to do this, you need to figure out what was tested and what was measured during the experiment.\nImagine an ########## with two ###### of ######## plants. ### group of ###### was grown in sandy soil, and the other was grown in clay soil. Then, the height of each plant was measured.\n###### identify the part of the ########## that was tested. The part of an ########## that is tested usually involves the part of the experimental setup that is different or changed. In the ########## described ###### each group of ###### was grown in a different type of soil. So, the ###### of growing ###### in different soil types was tested.\nThen, ######## the part of the experiment that was measured. The part of the experiment that is measured may ####### measurements and calculations. In the experiment described ###### the heights of the ###### in each group were measured.\nExperiments can ###### ######### about how the part of the experiment that is tested affects the part that is measured. So, the ########## described above can answer questions about how soil type affects plant height.\n######## of ######### that this ########## can answer include:\nDoes soil type affect the height of ######## plants?\nDo daffodil ###### in sandy soil grow ###### than daffodil ###### in clay soil?\n### daffodil plants grown in sandy soil shorter than ######## plants grown in clay soil?",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Do ping pong balls stop rolling along the ground sooner after being launched from a 30\u00b0 angle or a 45\u00b0 angle?",
-          "Do ping pong balls travel farther when launched from a 30\u00b0 angle compared to a 45\u00b0 angle?"
-        ],
-        "answer": -2.1664923340676854,
-        "has_image": -256.6658398668479
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "science-and-engineering-practices"
-      }
-    },
-    {
-      "signature": "unified::science::example::-8191252004332679415",
-      "text": "######### Identify the question that Kathleen and ######## experiment can best answer.\n######## Experiments can be ######## to answer ######## questions. How can you identify the ######### that a certain ########## can answer? In order to do this, you need to figure out what was ###### and what was measured ###### the experiment.\nImagine an experiment with two ###### of daffodil plants. One group of plants was grown in sandy soil, and the other was grown in clay soil. ##### the height of each plant was measured.\nFirst, identify the part of the experiment that was tested. The part of an ########## that is tested usually involves the part of the ############ setup that is different or changed. In the ########## described ###### each group of plants was grown in a different type of soil. So, the effect of growing plants in different soil types was tested.\nThen, identify the part of the experiment that was measured. The part of the ########## that is measured may include measurements and calculations. In the experiment described above, the heights of the plants in each group were measured.\n########### can answer questions about how the part of the experiment that is tested ####### the part that is measured. So, the experiment described above can ###### ######### about how soil type affects plant height.\nExamples of questions that this ########## can ###### ########\nDoes soil type ###### the height of ######## plants?\nDo daffodil plants in sandy soil grow taller than daffodil plants in clay soil?\nAre daffodil plants grown in sandy soil shorter than ######## ###### grown in clay soil?",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Does Kathleen's snowboard slide down a hill in less time when it has a layer of wax or when it does not have a layer of wax?",
-          "Does Kathleen's snowboard slide down a hill in less time when it has a thin layer of wax or a thick layer of wax?"
-        ],
-        "answer": -68.69638134858882,
-        "has_image": 4.2321345742770164
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "science-and-engineering-practices"
-      }
-    },
-    {
-      "signature": "unified::math::example::-1044166998647477234",
-      "text": "Problem: what is the number of ######## from # to 1100 ( inclusive ) that are divisible by ####### ## nor by ## ?\n######### ######### , i would use the ###### used by bunuel . it ' s the most accurate . but if you are ####### for a speedy solution , you can use another method which will sometimes give you an estimate . looking at the options ( most of them are spread out ) , i wont mind trying it . ( mind you , the method is accurate here since the numbers start from # . ) in #### ########### numbers , number of ######### of ## = #### / ## = 90 ( ignore decimals ) in #### consecutive numbers , number of multiples of ## = #### / ## = ## number of ######### of 11 * ## i . e . ### = 1000 / ### = # ###### of ######## from 1 to #### that are divisible by ####### ## nor by 35 = #### - ( ## + 28 - # ) { using the concept of sets here ) = ### think : why did i say the method is ########### in some cases ? think what ####### if the given range is 11 to #### both inclusive ( again 1000 ####### ) what is the number of ######### in this case ? e\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 884 , b ) 890 , c ) 892 , d ) 910 , e ) 945",
-        "answer": "e"
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null
       },
       "metadata": {
         "tool": "mathqa",
+        "scenario": "Work, Rate, and Time Analyzer",
         "difficulty": "medium"
       }
     },
     {
-      "signature": "unified::science::example::-845451898862403616",
-      "text": "Question: What do these two changes have in common?\ntearing a piece of paper\n######## a piece of glass\n######## Chemical changes and physical changes are two common ways ###### can #######\n## a ######## ####### the type of ###### ######## The types of matter before and after a chemical change are always ##########\nSome chemical changes are caused by ####### or cooling. For example, burning a piece of paper is a chemical ###### caused by heating. When paper gets hot enough, it ####### with ###### in the air and burns. The paper and oxygen ###### into ash and smoke.\nIn a physical change, the type of matter stays the same. The types of matter ###### and after a physical change are ###### the same.\nA change of state is a type of physical ####### ####### of state can be caused by heating or ######## For example, ice ####### is a physical change that can be caused by ######## Ice and liquid water are made of the same type of ####### water.\nThe law of conservation of mass says that all ######## and chemical changes ######## mass. Conserve means to keep the same. So, the total mass before a physical or ######## change is equal to the total mass after the change.",
+      "signature": "unified::math::scenario::Financial and Banking Calculator",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## and ####### ############ ########### ########## and ####### ############ ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Both are only physical changes.",
-          "Both are chemical changes.",
-          "Both are caused by cooling.",
-          "Both are caused by heating."
-        ],
-        "answer": 46.08721618055668,
-        "has_image": -372.9264282019483
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "chemistry"
-      }
-    },
-    {
-      "signature": "unified::science::example::-2623083290964645955",
-      "text": "######### Which of these organisms contains matter that was once part of the phytoplankton?\nLecture: A food web is a model.\nA food web shows where ######### in an ecosystem get their food. ###### can make things in n#ture easier to understand because models can represent complex ###### in a simpler way. If a food web showed every organism in an ecosystem, the food web would be hard to ########### So, each food web shows how some organisms in an ecosystem can get their food.\n###### show how matter moves.\n# food web has ###### that point from one organism to another. Each arrow shows the ######### that ###### moves when one organism eats ####### ######### An arrow ###### from the organism that is eaten. The arrow points to the organism that is doing the #######\nAn organism in a food web can have more than one arrow pointing from it. This shows that the ######## is eaten by more than one other organism in the food web.\nAn organism in a food web can also have more than one arrow pointing to it. This shows that the organism eats more than one other organism in the food web.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "black rockfish",
-          "sea otter"
-        ],
-        "answer": -157.80465302416562,
-        "has_image": 288.127919869476
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology"
-      }
-    },
-    {
-      "signature": "unified::science::example::5430088956644374648",
-      "text": "Question: Which of the ######### ######## a vague pronoun reference?\n######## When writing, make sure to avoid vague pronoun references. # vague pronoun reference ###### when a pronoun could refer to more than one possible antecedent.\n#### Lisa and Kim finally landed, she breathed a sigh of relief.\nThe pronoun she could refer to either Lisa or Kim, so the meaning of the ######## is unclear.\nVague ####### references can be ######### in one of two ways:\n## Replace the pronoun with its ####### ###########\nWhen Lisa and Kim finally landed, Lisa breathed a sigh of relief.\n## Rewrite the sentence:\nLisa breathed a sigh of relief when she and Kim finally #######\n# vague pronoun reference also occurs when they, them, their, theirs, it, or its is used without its ###########\nThey say that this nail ###### dries in less than five ########\nThe pronoun they is used without its antecedent, so the meaning of the sentence is unclear.\nThis problem can be fixed by replacing the pronoun with its missing antecedent.\nThe advertisements say that this nail ###### dries in less than five minutes.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Steven's brother Jim wondered whether he ran fast enough to qualify for the Boston Marathon.",
-          "Steven's brother Jim wondered whether Steven ran fast enough to qualify for the Boston Marathon."
-        ],
-        "answer": -37.31737215043279,
-        "has_image": -78.97439588198138
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "writing-strategies"
-      }
-    },
-    {
-      "signature": "unified::math::example::-1993791571962996659",
-      "text": "######## an empty fuel tank with a capacity of 218 ####### was ###### partially with fuel a and then to capacity with fuel b . fuel a contains 12 % ####### by ###### and fuel b contains 16 % ethanol by ###### . if the full fuel tank ######## 30 ####### of ####### , how many gallons of fuel a were added ?\nSolution: \"say there are a gallons of fuel a in the tank , then there would be ### - a ####### of fuel b . the ###### of ethanol in a ####### of fuel a is #### a ; the amount of ethanol in 218 - a gallons of fuel b is #### ( ### - a ) ; since the total amount of ethanol is ## gallons then #### a + 0.16 ( 218 - a ) = 30 - - > a = 122 . answer : a .\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 122 , b ) 150 , c ) 100 , d ) 80 , e ) 50",
-        "answer": "a"
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null
       },
       "metadata": {
         "tool": "mathqa",
+        "scenario": "Financial and Banking Calculator",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::Percentage and Proportion Solver",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########### and ########## ######## ########### ########### and ########## ######## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Percentage and Proportion Solver",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::Geometry: Shapes and Measurement",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## ###### and ############# ########### ########## ###### and ############# ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Geometry: Shapes and Measurement",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::Algebraic Word Problem Solver",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## #### ####### ######## ########### ########## #### ####### ######## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Algebraic Word Problem Solver",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::General Logic and Counting",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ######## ##### and ########## ########### ######## ##### and ########## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "General Logic and Counting",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ########### ##### ###### and ######### ######## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": []
+      },
+      "metadata": {
+        "tool": "scienceqa",
+        "scenario": "Astronomy: Solar System and Celestial Bodies",
+        "domain": "science",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######## and ######## ########## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": []
+      },
+      "metadata": {
+        "tool": "scienceqa",
+        "scenario": "Biology: Genetics and Heredity Analyzer",
+        "domain": "science",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######### and ############## ############# ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": []
+      },
+      "metadata": {
+        "tool": "scienceqa",
+        "scenario": "Biology: Ecosystem and Classification Interpreter",
+        "domain": "science",
+        "difficulty": "medium"
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######### and ###### ############ ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": []
+      },
+      "metadata": {
+        "tool": "scienceqa",
+        "scenario": "Physics: Mechanics and Forces Calculator",
+        "domain": "science",
         "difficulty": "medium"
       }
     }

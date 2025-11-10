@@ -208,11 +208,12 @@ class UnifiedQAClient(SynapseClient):
     ) -> KnowledgeArtifact:
         metadata_copy = dict(metadata)
         payload_copy = dict(payload)
+        structured_text = self._structured_prompt(metadata_copy, payload_copy, role_description)
         textgrad_variable: Optional[Variable] = None
 
         if self._textgrad_settings and self._textgrad_settings.enabled:
             textgrad_variable = Variable(
-                text,
+                structured_text,
                 requires_grad=True,
                 role_description=role_description,
             )
@@ -233,7 +234,7 @@ class UnifiedQAClient(SynapseClient):
 
         return KnowledgeArtifact(
             signature=signature,
-            text=text,
+            text=structured_text,
             structured_payload=payload_copy,
             metadata=metadata_copy,
             textgrad_variable=textgrad_variable,

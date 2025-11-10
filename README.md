@@ -39,9 +39,11 @@ The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completio
 
 ### Differential privacy & adaptive text noise
 
-When `SYNAPSE_ENABLE_DP=1`, every client applies differential privacy to the artifacts it shares with the federation. Numeric metadata is perturbed with Laplace noise controlled by `SYNAPSE_DP_EPSILON`, and high-saliency tokens inside the artifact text are selectively obfuscated (“adaptive token-level Laplace”). Only tokens that carry obvious signals (numbers, long identifiers, capitalized terms, etc.) receive noise, which preserves utility for the receiving agents while materially reducing prompt-reconstruction attacks. Decrease `SYNAPSE_DP_EPSILON` to strengthen both numeric and token-level noise; increase it or disable DP entirely when maximum fidelity is more important than privacy.
+When `SYNAPSE_ENABLE_DP=1`, every client applies differential privacy before sharing artifacts. Numeric metadata is perturbed with Laplace noise controlled by `SYNAPSE_DP_EPSILON`, and (optionally) the textual content goes through adaptive token-level masking. Lower epsilon values increase both metadata noise and the aggressiveness of text masking.
 
-The adaptive masking can be tuned via environment variables:
+#### Adaptive token-level Laplace noise
+
+Prompt-reconstruction attacks succeed when the server sees long, literal excerpts of the client’s original prompts. To counter this, every artifact’s text is now replaced with a compact template (JSON describing the role/tool/skills) and each token in that template is scored for “saliency.” Whenever a token looks sensitive (contains digits, is long, is uppercase, etc.), Laplace noise is used to decide whether to mask part of it. Only the highest-saliency tokens get obfuscated, so the structured template stays useful while sensitive identifiers are scrambled. You can fine-tune the scoring and masking via environment variables:
 
 ```env
 SYNAPSE_ADAPTIVE_TEXT_NOISE=1          # set to 0 to disable token masking
@@ -54,6 +56,16 @@ SYNAPSE_ADAPTIVE_DISTORT_MULT=1.0      # scales how many characters get replaced
 ```
 
 Increase the weights or multipliers to mask more aggressively; decrease them for higher fidelity.
+
+To further limit leakage, each client now shares condensed artifacts. You can tune the summariser via:
+
+```env
+SYNAPSE_ARTIFACT_MAX_CHARS=280        # max characters kept per artifact text
+SYNAPSE_ARTIFACT_MAX_SENTENCES=1      # number of leading sentences preserved
+SYNAPSE_ARTIFACT_INCLUDE_SKILLS=1     # set to 0 to omit the "skills" tag suffix
+```
+
+Lowering the character/sentence limits shortens every shared exemplar, mirroring Fed-ICL’s minimal-context approach.
 
 ### MongoDB Atlas Vector Search
 MathQA retrieval expects a MongoDB Atlas vector index on the collection that stores embeddings (`math_problems` by default, or `vectors` if you prefer). Create the index from the Atlas UI (Search/Vector Search tab) with this JSON definition:
