@@ -5,7 +5,7 @@ import os
 import re
 import sys
 import statistics
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
@@ -70,7 +70,7 @@ def _append_task_log(
     sanitized = re.sub(r"[^A-Za-z0-9_.-]", "_", dataset_label or "mixed_queries")
     log_path = Path(f"evaluation_log_{sanitized}.txt")
     record = {
-        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "dataset": dataset_label,
         "central": central_metrics,
         "client_summary": client_summary,
@@ -81,6 +81,18 @@ def _append_task_log(
             fh.write("\n")
     except OSError as exc:
         print(f"⚠️ Failed to write per-task log '{log_path}': {exc}")
+
+
+def _domain_accuracy(metrics: dict, domain: str) -> Optional[float]:
+    domains = metrics.get("domains")
+    if isinstance(domains, dict):
+        entry = domains.get(domain)
+        if isinstance(entry, dict):
+            return entry.get("accuracy")
+    fallback = metrics.get(domain)
+    if isinstance(fallback, dict):
+        return fallback.get("accuracy")
+    return None
 
 
 import collections
@@ -418,15 +430,26 @@ def main():
                     metrics = evaluate_mixed_queries(agent, test_file=str(data_path), dataset_label=data_path.stem)
                     if metrics:
                         client_metrics.append(metrics)
+                    else:
+                        print(f"⚠️ Evaluation for '{data_path}' failed; skipping from client summary.")
 
     if client_metrics:
         def _format_percent(value: Optional[float]) -> str:
             return f"{value * 100:.1f}%" if value is not None else "n/a"
 
         print("\n--- FEDERATED CLIENT BENCHMARK SUMMARY ---")
-        overall_values = [m["overall"]["accuracy"] for m in client_metrics if m["overall"]["accuracy"] is not None]
-        math_values = [m["math"]["accuracy"] for m in client_metrics if m["math"]["accuracy"] is not None]
-        science_values = [m["science"]["accuracy"] for m in client_metrics if m["science"]["accuracy"] is not None]
+        valid_clients = [m for m in client_metrics if m and m.get("datasets")]
+
+        overall_values = [m["overall"]["accuracy"] for m in valid_clients if m["overall"]["accuracy"] is not None]
+        math_values = []
+        science_values = []
+        for m in valid_clients:
+            math_val = _domain_accuracy(m, "math")
+            if math_val is not None:
+                math_values.append(math_val)
+            science_val = _domain_accuracy(m, "science")
+            if science_val is not None:
+                science_values.append(science_val)
 
         if overall_values:
             macro = sum(overall_values) / len(overall_values)
@@ -441,7 +464,7 @@ def main():
             print(f"Macro science accuracy: {_format_percent(sum(science_values) / len(science_values))}")
 
         client_details: list[dict[str, Any]] = []
-        for metrics in client_metrics:
+        for metrics in valid_clients:
             dataset_details = metrics.get("datasets", {})
             dataset_summary = ", ".join(
                 f"{name}={_format_percent(bucket['accuracy'])}" for name, bucket in dataset_details.items()
@@ -449,11 +472,13 @@ def main():
             if not dataset_summary:
                 dataset_summary = "datasets=n/a"
             bbh_acc = metrics.get("bbh", {}).get("accuracy")
+            math_acc = _domain_accuracy(metrics, "math")
+            science_acc = _domain_accuracy(metrics, "science")
             print(
                 f"  · {metrics['label']}: "
                 f"overall={_format_percent(metrics['overall']['accuracy'])}, "
-                f"math={_format_percent(metrics['math']['accuracy'])}, "
-                f"science={_format_percent(metrics['science']['accuracy'])}, "
+                f"math={_format_percent(math_acc)}, "
+                f"science={_format_percent(science_acc)}, "
                 f"bbh={_format_percent(bbh_acc)}, "
                 f"{dataset_summary}"
             )
@@ -462,8 +487,8 @@ def main():
                 {
                     "label": metrics["label"],
                     "overall": metrics["overall"].get("accuracy"),
-                    "math": metrics["domains"].get("math", {}).get("accuracy"),
-                    "science": metrics["domains"].get("science", {}).get("accuracy"),
+                    "math": math_acc,
+                    "science": science_acc,
                     "datasets": {name: bucket.get("accuracy") for name, bucket in dataset_details.items()},
                 }
             )
@@ -497,6 +522,12 @@ def main():
             print(f"Samples attacked: {report['samples']}; average similarity={avg * 100:.1f}%")
         else:
             print("No artifacts available for attack (perhaps clients shared nothing).")
+        cosine_avg = report.get("average_cosine_similarity")
+        if cosine_avg is not None:
+            print(f"Average cosine similarity: {cosine_avg * 100:.1f}%")
+        rouge_avg = report.get("average_rouge_l")
+        if rouge_avg is not None:
+            print(f"Average ROUGE-L F1: {rouge_avg * 100:.1f}%")
         print(f"Attack model: {attack_model}")
         if args.prompt_attack_output:
             print(f"Detailed attack report saved to '{args.prompt_attack_output}'.")

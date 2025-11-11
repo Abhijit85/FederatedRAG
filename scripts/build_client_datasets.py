@@ -190,7 +190,7 @@ def _noniid_splits(
 
 
 def _transform_math_entry(item: Dict[str, object]) -> Dict[str, object]:
-    problem = item.get("Problem") or item.get("problem")
+    problem = item.get("Problem") or item.get("problem") or item.get("question")
     options = item.get("options") or item.get("Options", "")
     rationale = item.get("Rationale", "")
     correct = item.get("correct") or item.get("Answer")
@@ -199,6 +199,8 @@ def _transform_math_entry(item: Dict[str, object]) -> Dict[str, object]:
         problem = item.get("input")
     if not correct and item.get("target"):
         correct = item.get("target")
+    if not correct and item.get("answer"):
+        correct = item.get("answer")
 
     return {
         "type": "math",
