@@ -49,6 +49,7 @@ def main() -> None:
                 "answer": str(answer),
                 "dataset": args.task,
                 "domain": "math",
+                "task_type": "math",
             }
         )
 

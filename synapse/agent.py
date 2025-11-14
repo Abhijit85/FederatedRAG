@@ -25,6 +25,13 @@ class SynapseAgent:
         self.tool_registry = tool_registry
 
     def _choose_tool(self, query: str, data_item: Optional[dict]) -> str:
+        task_type = (data_item or {}).get("task_type")
+        if isinstance(task_type, str):
+            normalized = task_type.strip().lower()
+            if normalized == "math":
+                return "mathqa"
+            if normalized in {"science", "image_required"}:
+                return "scienceqa"
         dataset = (data_item or {}).get("dataset") or (data_item or {}).get("domain")
         if dataset and str(dataset).lower().startswith("bbh"):
             return "mathqa"

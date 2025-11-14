@@ -1,75 +1,69 @@
 [
   {
     "type": "math",
-    "Problem": "((8 - 7 - -3 + -9) - (-6 * -6 + -4 * -4)) =",
-    "options": "",
-    "Rationale": "",
-    "category": "general",
-    "correct": "-57"
-  },
-  {
-    "type": "math",
-    "Problem": "((8 - 3 + 0 + 7) + (-9 * -6 * 2 - 0)) =",
-    "options": "",
-    "Rationale": "",
-    "category": "general",
-    "correct": "120"
-  },
-  {
-    "type": "math",
-    "Problem": "((5 * -1 - 7 * 5) - (6 - -5 * 3 * 7)) =",
-    "options": "",
-    "Rationale": "",
-    "category": "general",
-    "correct": "-151"
-  },
-  {
-    "type": "math",
-    "Problem": "((-4 + 5 - 4 - -6) * (-3 * -1 * 2 - -4)) =",
-    "options": "",
-    "Rationale": "",
-    "category": "general",
-    "correct": "30"
-  },
-  {
-    "type": "math",
-    "Problem": "((5 + -7 + 1 - 5) - (-3 * -1 * 7 + -1)) =",
-    "options": "",
-    "Rationale": "",
-    "category": "general",
-    "correct": "-26"
-  },
-  {
-    "type": "math",
     "Problem": "((5 + 4 - -1 * -1) + (-6 - -7 + -1 * 6)) =",
     "options": "",
     "Rationale": "",
     "category": "general",
-    "correct": "3"
+    "correct": "3",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
   },
   {
     "type": "math",
-    "Problem": "((-8 - -1 * -8 * -2) * (-6 + 8 + -5 * -8)) =",
+    "Problem": "((1 * -9 - 4 + -9) + (-1 + -6 + 9 - 5)) =",
     "options": "",
     "Rationale": "",
     "category": "general",
-    "correct": "336"
+    "correct": "-25",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
   },
   {
     "type": "math",
-    "Problem": "((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4)) =",
+    "Problem": "((-2 - -7 - 5 * 2) + (-3 - 5 * 3 + -7)) =",
     "options": "",
     "Rationale": "",
     "category": "general",
-    "correct": "-169"
+    "correct": "-30",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
   },
   {
     "type": "math",
-    "Problem": "((-4 + -7 - 3 + 3) - (-3 + -2 - -3 * -3)) =",
+    "Problem": "((4 - -6 + -9 + -7) - (9 + -3 - -7 * -8)) =",
     "options": "",
     "Rationale": "",
     "category": "general",
-    "correct": "3"
+    "correct": "44",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((3 - 2 - 3 * 3) + (-8 * -1 * -9 * 3)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "-224",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((4 + 5 - 7 + 9) * (-1 - -4 + -7 - -5)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "11",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
   },
   {
     "type": "math",
@@ -77,6 +71,64 @@
     "options": "",
     "Rationale": "",
     "category": "general",
-    "correct": "-658"
+    "correct": "-658",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((1 * -1 + 5 * -4) + (-2 - 5 * 4 - 5)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "-48",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((0 * -7 - 6 * 3) * (-9 + -5 - 2 * -1)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "216",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((8 - 3 + 0 + 7) + (-9 * -6 * 2 - 0)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "120",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((-4 + 5 - 4 - -6) * (-3 * -1 * 2 - -4)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "30",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "((-2 * 5 + -3 + 0) * (-9 + 2 + 5 * 4)) =",
+    "options": "",
+    "Rationale": "",
+    "category": "general",
+    "correct": "-169",
+    "task_type": "math",
+    "dataset": "BBH_multi_step_arithmetic",
+    "domain": "math"
   }
 ]

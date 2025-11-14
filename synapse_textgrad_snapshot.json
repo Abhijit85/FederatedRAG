@@ -1,1152 +1,370 @@
 {
   "metadata": {
-    "artifact_count": 30
+    "artifact_count": 10
   },
   "artifacts": [
     {
-      "signature": "unified::science::example::-6649676590448403566",
-      "text": "Question: Based on this information, what is Holly's phenotype for the whisker type trait?\nLecture: All organisms have pieces of hereditary material called genes, which are passed from parents to offspring. Genes contain instructions for building the parts of an organism. An organism's genes affect its observable traits, including its appearance, its behavior, and which diseases it may have. Genes may have different alleles, or forms, that can cause different versions of a trait.\nFor example, flower color is a trait in pea plants. The gene for this trait has two possible alleles. Each allele is represented by an uppercase or lowercase letter. The allele F is for purple flowers, and the allele f is for white flowers. Each pea plant has two alleles for the flower color gene\u2014one allele inherited from each parent.\nAn organism's genotype for a gene is its combination of alleles for that gene. So, a pea plant may have a genotype of FF, Ff, or ff for the flower color gene.\nAn organism's phenotype for a trait is its observable version of that trait, which depends on the organism's combination of alleles. A pea plant may have a phenotype of purple flowers or white flowers for the flower color trait.\nSome traits, like flower color in pea plants, are controlled by a single gene. Most plants and animals have a genotype made up of two alleles for these traits. These two alleles determine whether an organism is homozygous or heterozygous for the gene.\nAn organism with two identical alleles for a gene is homozygous for that gene. A pea plant with the genotype FF or ff is homozygous for the flower color gene.\nAn organism with two different alleles for a gene is heterozygous for that gene. A pea plant with the genotype Ff is heterozygous for the flower color gene.\nThe types of alleles in an organism's genotype determine the organism's phenotype. Some alleles have types called dominant and recessive. These two types can cause different versions of a trait to appear as the organism's phenotype.\nA dominant allele causes its version of the trait to appear even when the organism also has a recessive allele for the gene. In pea plants, the F allele, which causes purple flowers, is dominant over the f allele. A pea plant with at least one F allele will have the F allele's version of the flower color trait. So, a plant with the genotype FF or Ff will have purple flowers.\nA recessive allele causes its version of the trait to appear only when the organism does not have any dominant alleles for the gene. In pea plants, the f allele, which causes white flowers, is recessive to the F allele. A pea plant with only f alleles will have the f allele's version of the flower color trait. So, a plant with the genotype ff will have white flowers.",
+      "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ###### ##### and #### ########## ########### ###### ##### and #### ########## ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "straight whiskers",
-          "curved whiskers"
-        ],
-        "answer": 17.354785115311856,
-        "has_image": 9.647243769315331,
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null,
         "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
+          "role": "structured system prompt for math QA scenarios",
           "complexity": {
-            "Information Entropy": 4.2360981315685065,
-            "Compression Rate": 0.32717391304347826,
-            "Average TF-IDF": 0.04003256348705431,
-            "Perplexity": 79.27888640161287,
-            "NLTK Token Length": 562,
-            "GPT-2 Token Length": 690
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology",
-        "textgrad_enabled": -35.90328856192339,
-        "textgrad_complexity": {
-          "Information Entropy": 4.2360981315685065,
-          "Compression Rate": 0.32717391304347826,
-          "Average TF-IDF": 0.04003256348705431,
-          "Perplexity": 79.27888640161287,
-          "NLTK Token Length": 562,
-          "GPT-2 Token Length": 690
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::674169878343765783",
-      "text": "Question: What is the probability that a goat produced by this cross will be homozygous dominant for the myotonia congenita gene?\nLecture: Offspring genotypes: homozygous or heterozygous?\nHow do you determine whether an organism is homozygous or heterozygous for a gene? Look at the alleles in the organism's genotype for that gene.\nAn organism with two identical alleles for a gene is homozygous for that gene.\nIf both alleles are dominant, the organism is homozygous dominant for the gene.\nIf both alleles are recessive, the organism is homozygous recessive for the gene.\nAn organism with two different alleles for a gene is heterozygous for that gene.\nIn a Punnett square, each box represents a different outcome, or result. Each of the four outcomes is equally likely to happen. Each box represents one way the parents' alleles can combine to form an offspring's genotype. \nBecause there are four boxes in the Punnett square, there are four possible outcomes.\nAn event is a set of one or more outcomes. The probability of an event is a measure of how likely the event is to happen. This probability is a number between 0 and 1, and it can be written as a fraction:\nprobability of an event = number of ways the event can happen / number of equally likely outcomes\nYou can use a Punnett square to calculate the probability that a cross will produce certain offspring. For example, the Punnett square below has two boxes with the genotype Ff. It has one box with the genotype FF and one box with the genotype ff. This means there are two ways the parents' alleles can combine to form Ff. There is one way they can combine to form FF and one way they can combine to form ff.\n | F | f\nF | FF | Ff\nf | Ff | ff\nConsider an event in which this cross produces an offspring with the genotype ff. The probability of this event is given by the following fraction:\nnumber of ways the event can happen / number of equally likely outcomes = number of boxes with the genotype ff / total number of boxes = 1 / 4",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "1/4",
-          "0/4",
-          "4/4",
-          "2/4",
-          "3/4"
-        ],
-        "answer": -86.63161174346808,
-        "has_image": 16.8327218538103,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.409020641023502,
-            "Compression Rate": 0.36236236236236236,
-            "Average TF-IDF": 0.04642071870070198,
-            "Perplexity": 85.25805502411208,
-            "NLTK Token Length": 403,
-            "GPT-2 Token Length": 500
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology",
-        "textgrad_enabled": -39.91581478633073,
-        "textgrad_complexity": {
-          "Information Entropy": 4.409020641023502,
-          "Compression Rate": 0.36236236236236236,
-          "Average TF-IDF": 0.04642071870070198,
-          "Perplexity": 85.25805502411208,
-          "NLTK Token Length": 403,
-          "GPT-2 Token Length": 500
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::-7156705827041445107",
-      "text": "Question: Read the following excerpt from a student essay. How can the writer best improve his or her word choice?\nWhen I said that I wanted to take a cooking class, I didn't know what I was getting into. I love cooking, but I'm very shy and hate being in the spotlight. The first time the teacher asked me to do a culinary technique, my hands were sweating profusely. As I held the heavy utility knife in my sweaty hand, it fell to the floor. The class had just started, and I had already made a terrible first impression! My face was red, but I got the knife, put it in the sink, took a clean one, and cut the slab of raw bluefin tuna into paper-thin pieces. Everyone in the class\u2014even the instructor\u2014gave me a round of applause.\nLecture: During peer review, you read and respond to a fellow student's writing. While there are many methods and strategies that you can use for reviewing a text, it is generally helpful to frame your suggestions in concrete and constructive ways and to consider the following areas for revision:\nIdeas and development: Does the writer express a clear idea and develop it with evidence, examples, or analysis?\nOrganization: Does the writer order ideas in a clear, logical way so that they build on one another and are easy to follow?\nVoice: Does the writer maintain an appropriate voice, such as a formal and objective voice in an academic essay or an engaging and expressive voice in a narrative essay?\nSentence fluency: Does the writer use sentences that vary in structure and length to create a sense of rhythm and flow within and between sentences, or does the writing sound choppy, rambling, or repetitive?\nWord choice: Does the writer use words accurately and precisely to create clear, effective, and engaging writing?\nGrammar and mechanics: Does the writer follow appropriate conventions, using accurate spelling, punctuation, and grammar to create writing that is correct and easy to read?",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "by adding technical terms",
-          "by using more precise verbs",
-          "by using words with more appropriate connotations"
-        ],
-        "answer": 32.23154859577042,
-        "has_image": 49.227924176841015,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.34534848753212,
-            "Compression Rate": 0.5054263565891473,
-            "Average TF-IDF": 0.027274879377490353,
-            "Perplexity": 124.29933437790366,
-            "NLTK Token Length": 394,
-            "GPT-2 Token Length": 484
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "writing-strategies",
-        "textgrad_enabled": -3.561382663365162,
-        "textgrad_complexity": {
-          "Information Entropy": 4.34534848753212,
-          "Compression Rate": 0.5054263565891473,
-          "Average TF-IDF": 0.027274879377490353,
-          "Perplexity": 124.29933437790366,
-          "NLTK Token Length": 394,
-          "GPT-2 Token Length": 484
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::4836419130327803371",
-      "text": "Question: Identify the question that Tom and Justin's experiment can best answer.\nLecture: Experiments can be designed to answer specific questions. How can you identify the questions that a certain experiment can answer? In order to do this, you need to figure out what was tested and what was measured during the experiment.\nImagine an experiment with two groups of daffodil plants. One group of plants was grown in sandy soil, and the other was grown in clay soil. Then, the height of each plant was measured.\nFirst, identify the part of the experiment that was tested. The part of an experiment that is tested usually involves the part of the experimental setup that is different or changed. In the experiment described above, each group of plants was grown in a different type of soil. So, the effect of growing plants in different soil types was tested.\nThen, identify the part of the experiment that was measured. The part of the experiment that is measured may include measurements and calculations. In the experiment described above, the heights of the plants in each group were measured.\nExperiments can answer questions about how the part of the experiment that is tested affects the part that is measured. So, the experiment described above can answer questions about how soil type affects plant height.\nExamples of questions that this experiment can answer include:\nDoes soil type affect the height of daffodil plants?\nDo daffodil plants in sandy soil grow taller than daffodil plants in clay soil?\nAre daffodil plants grown in sandy soil shorter than daffodil plants grown in clay soil?",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Do ping pong balls stop rolling along the ground sooner after being launched from a 30\u00b0 angle or a 45\u00b0 angle?",
-          "Do ping pong balls travel farther when launched from a 30\u00b0 angle compared to a 45\u00b0 angle?"
-        ],
-        "answer": -1.6900626450327456,
-        "has_image": -48.93310386544491,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.304792239100501,
-            "Compression Rate": 0.348125,
-            "Average TF-IDF": 0.05222009302549026,
-            "Perplexity": 61.09510489798343,
-            "NLTK Token Length": 300,
-            "GPT-2 Token Length": 400
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "science-and-engineering-practices",
-        "textgrad_enabled": -100.98576150660509,
-        "textgrad_complexity": {
-          "Information Entropy": 4.304792239100501,
-          "Compression Rate": 0.348125,
-          "Average TF-IDF": 0.05222009302549026,
-          "Perplexity": 61.09510489798343,
-          "NLTK Token Length": 300,
-          "GPT-2 Token Length": 400
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::-8807842564246426581",
-      "text": "Question: Identify the question that Kathleen and Bryant's experiment can best answer.\nLecture: Experiments can be designed to answer specific questions. How can you identify the questions that a certain experiment can answer? In order to do this, you need to figure out what was tested and what was measured during the experiment.\nImagine an experiment with two groups of daffodil plants. One group of plants was grown in sandy soil, and the other was grown in clay soil. Then, the height of each plant was measured.\nFirst, identify the part of the experiment that was tested. The part of an experiment that is tested usually involves the part of the experimental setup that is different or changed. In the experiment described above, each group of plants was grown in a different type of soil. So, the effect of growing plants in different soil types was tested.\nThen, identify the part of the experiment that was measured. The part of the experiment that is measured may include measurements and calculations. In the experiment described above, the heights of the plants in each group were measured.\nExperiments can answer questions about how the part of the experiment that is tested affects the part that is measured. So, the experiment described above can answer questions about how soil type affects plant height.\nExamples of questions that this experiment can answer include:\nDoes soil type affect the height of daffodil plants?\nDo daffodil plants in sandy soil grow taller than daffodil plants in clay soil?\nAre daffodil plants grown in sandy soil shorter than daffodil plants grown in clay soil?",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Does Kathleen's snowboard slide down a hill in less time when it has a layer of wax or when it does not have a layer of wax?",
-          "Does Kathleen's snowboard slide down a hill in less time when it has a thin layer of wax or a thick layer of wax?"
-        ],
-        "answer": -7.026714425260138,
-        "has_image": 10.43275431054861,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.305236804849706,
-            "Compression Rate": 0.34890965732087226,
-            "Average TF-IDF": 0.05222009302549026,
-            "Perplexity": 61.09510489798343,
-            "NLTK Token Length": 300,
-            "GPT-2 Token Length": 401
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "science-and-engineering-practices",
-        "textgrad_enabled": -3.521131613177748,
-        "textgrad_complexity": {
-          "Information Entropy": 4.305236804849706,
-          "Compression Rate": 0.34890965732087226,
-          "Average TF-IDF": 0.05222009302549026,
-          "Perplexity": 61.09510489798343,
-          "NLTK Token Length": 300,
-          "GPT-2 Token Length": 401
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::870101753973318785",
-      "text": "Problem: what is the number of integers from 1 to 1100 ( inclusive ) that are divisible by neither 11 nor by 35 ?\nSolution: \"normally , i would use the method used by bunuel . it ' s the most accurate . but if you are looking for a speedy solution , you can use another method which will sometimes give you an estimate . looking at the options ( most of them are spread out ) , i wont mind trying it . ( mind you , the method is accurate here since the numbers start from 1 . ) in 1000 consecutive numbers , number of multiples of 11 = 1000 / 11 = 90 ( ignore decimals ) in 1000 consecutive numbers , number of multiples of 35 = 1000 / 35 = 28 number of multiples of 11 * 35 i . e . 385 = 1000 / 385 = 2 number of integers from 1 to 1000 that are divisible by neither 11 nor by 35 = 1000 - ( 90 + 28 - 2 ) { using the concept of sets here ) = 945 think : why did i say the method is approximate in some cases ? think what happens if the given range is 11 to 1010 both inclusive ( again 1000 numbers ) what is the number of multiples in this case ? e\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 884 , b ) 890 , c ) 892 , d ) 910 , e ) 945",
-        "answer": "e",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.462435364104718,
-            "Compression Rate": 0.46476190476190476,
-            "Average TF-IDF": 0.04861519600233902,
-            "Perplexity": 76.95913350634403,
-            "NLTK Token Length": 239,
-            "GPT-2 Token Length": 262
+            "Information Entropy": 4.3290159549482965,
+            "Compression Rate": 0.7214611872146118,
+            "Average TF-IDF": 0.1188522749797747,
+            "Perplexity": 30.38144429758357,
+            "NLTK Token Length": 44,
+            "GPT-2 Token Length": 55
           },
           "aggregate_method": "summarization"
         }
       },
       "metadata": {
         "tool": "mathqa",
+        "scenario": "Work, Rate, and Time Analyzer",
         "difficulty": "medium",
-        "textgrad_enabled": -1.3331034471014278,
+        "textgrad_enabled": 536.5070475637491,
         "textgrad_complexity": {
-          "Information Entropy": 4.462435364104718,
-          "Compression Rate": 0.46476190476190476,
-          "Average TF-IDF": 0.04861519600233902,
-          "Perplexity": 76.95913350634403,
-          "NLTK Token Length": 239,
-          "GPT-2 Token Length": 262
+          "Information Entropy": 4.3290159549482965,
+          "Compression Rate": 0.7214611872146118,
+          "Average TF-IDF": 0.1188522749797747,
+          "Perplexity": 30.38144429758357,
+          "NLTK Token Length": 44,
+          "GPT-2 Token Length": 55
         },
-        "textgrad_role": "instructional prompt describing a math QA training example"
+        "textgrad_role": "structured system prompt for math QA scenarios"
       }
     },
     {
-      "signature": "unified::science::example::184704903569633503",
-      "text": "Question: What do these two changes have in common?\ntearing a piece of paper\nbreaking a piece of glass\nLecture: Chemical changes and physical changes are two common ways matter can change.\nIn a chemical change, the type of matter changes. The types of matter before and after a chemical change are always different.\nSome chemical changes are caused by heating or cooling. For example, burning a piece of paper is a chemical change caused by heating. When paper gets hot enough, it re\u00adacts with oxygen in the air and burns. The paper and oxygen change into ash and smoke.\nIn a physical change, the type of matter stays the same. The types of matter before and after a physical change are always the same.\nA change of state is a type of physical change. Changes of state can be caused by heating or cooling. For example, ice melting is a physical change that can be caused by heating. Ice and liquid water are made of the same type of matter: water.\nThe law of conservation of mass says that all physical and chemical changes conserve mass. Conserve means to keep the same. So, the total mass before a physical or chemical change is equal to the total mass after the change.",
+      "signature": "unified::math::scenario::Financial and Banking Calculator",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## and ####### ############ ########### ########## and ####### ############ ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Both are only physical changes.",
-          "Both are chemical changes.",
-          "Both are caused by cooling.",
-          "Both are caused by heating."
-        ],
-        "answer": 6.10436282114909,
-        "has_image": -31.205065026690917,
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null,
         "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
+          "role": "structured system prompt for math QA scenarios",
           "complexity": {
-            "Information Entropy": 4.256899659420529,
-            "Compression Rate": 0.39641943734015345,
-            "Average TF-IDF": 0.056943038573623775,
-            "Perplexity": 59.753556907334946,
-            "NLTK Token Length": 240,
-            "GPT-2 Token Length": 293
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "chemistry",
-        "textgrad_enabled": -8.515335497614567,
-        "textgrad_complexity": {
-          "Information Entropy": 4.256899659420529,
-          "Compression Rate": 0.39641943734015345,
-          "Average TF-IDF": 0.056943038573623775,
-          "Perplexity": 59.753556907334946,
-          "NLTK Token Length": 240,
-          "GPT-2 Token Length": 293
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::2800249375961847743",
-      "text": "Question: Which of these organisms contains matter that was once part of the phytoplankton?\nLecture: A food web is a model.\nA food web shows where organisms in an ecosystem get their food. Models can make things in nature easier to understand because models can represent complex things in a simpler way. If a food web showed every organism in an ecosystem, the food web would be hard to understand. So, each food web shows how some organisms in an ecosystem can get their food.\nArrows show how matter moves.\nA food web has arrows that point from one organism to another. Each arrow shows the direction that matter moves when one organism eats another organism. An arrow starts from the organism that is eaten. The arrow points to the organism that is doing the eating.\nAn organism in a food web can have more than one arrow pointing from it. This shows that the organism is eaten by more than one other organism in the food web.\nAn organism in a food web can also have more than one arrow pointing to it. This shows that the organism eats more than one other organism in the food web.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "black rockfish",
-          "sea otter"
-        ],
-        "answer": -3.3295146554794464,
-        "has_image": 28.34388716566613,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.149093600714443,
-            "Compression Rate": 0.39262672811059907,
-            "Average TF-IDF": 0.058661923195986676,
-            "Perplexity": 57.56287541515915,
-            "NLTK Token Length": 218,
-            "GPT-2 Token Length": 271
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology",
-        "textgrad_enabled": 21.75545222269737,
-        "textgrad_complexity": {
-          "Information Entropy": 4.149093600714443,
-          "Compression Rate": 0.39262672811059907,
-          "Average TF-IDF": 0.058661923195986676,
-          "Perplexity": 57.56287541515915,
-          "NLTK Token Length": 218,
-          "GPT-2 Token Length": 271
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::-1931063375882667577",
-      "text": "Question: Which of the following contains a vague pronoun reference?\nLecture: When writing, make sure to avoid vague pronoun references. A vague pronoun reference occurs when a pronoun could refer to more than one possible antecedent.\nWhen Lisa and Kim finally landed, she breathed a sigh of relief.\nThe pronoun she could refer to either Lisa or Kim, so the meaning of the sentence is unclear.\nVague pronoun references can be corrected in one of two ways:\n1. Replace the pronoun with its correct antecedent:\nWhen Lisa and Kim finally landed, Lisa breathed a sigh of relief.\n2. Rewrite the sentence:\nLisa breathed a sigh of relief when she and Kim finally landed.\nA vague pronoun reference also occurs when they, them, their, theirs, it, or its is used without its antecedent.\nThey say that this nail polish dries in less than five minutes.\nThe pronoun they is used without its antecedent, so the meaning of the sentence is unclear.\nThis problem can be fixed by replacing the pronoun with its missing antecedent.\nThe advertisements say that this nail polish dries in less than five minutes.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Steven's brother Jim wondered whether he ran fast enough to qualify for the Boston Marathon.",
-          "Steven's brother Jim wondered whether Steven ran fast enough to qualify for the Boston Marathon."
-        ],
-        "answer": 26.20571834193996,
-        "has_image": 13.577112986588016,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.3058221852886405,
-            "Compression Rate": 0.3957759412304867,
-            "Average TF-IDF": 0.058643453636363446,
-            "Perplexity": 67.01836482699703,
-            "NLTK Token Length": 215,
-            "GPT-2 Token Length": 272
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "writing-strategies",
-        "textgrad_enabled": -24.327700850848593,
-        "textgrad_complexity": {
-          "Information Entropy": 4.3058221852886405,
-          "Compression Rate": 0.3957759412304867,
-          "Average TF-IDF": 0.058643453636363446,
-          "Perplexity": 67.01836482699703,
-          "NLTK Token Length": 215,
-          "GPT-2 Token Length": 272
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::-7562647959778419996",
-      "text": "Problem: an empty fuel tank with a capacity of 218 gallons was filled partially with fuel a and then to capacity with fuel b . fuel a contains 12 % ethanol by volume and fuel b contains 16 % ethanol by volume . if the full fuel tank contains 30 gallons of ethanol , how many gallons of fuel a were added ?\nSolution: \"say there are a gallons of fuel a in the tank , then there would be 218 - a gallons of fuel b . the amount of ethanol in a gallons of fuel a is 0.12 a ; the amount of ethanol in 218 - a gallons of fuel b is 0.16 ( 218 - a ) ; since the total amount of ethanol is 30 gallons then 0.12 a + 0.16 ( 218 - a ) = 30 - - > a = 122 . answer : a .\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 122 , b ) 150 , c ) 100 , d ) 80 , e ) 50",
-        "answer": "a",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.333694393021064,
-            "Compression Rate": 0.4405487804878049,
-            "Average TF-IDF": 0.07525571399689476,
-            "Perplexity": 41.095634515155034,
-            "NLTK Token Length": 166,
-            "GPT-2 Token Length": 164
+            "Information Entropy": 4.321247148619808,
+            "Compression Rate": 0.6820083682008368,
+            "Average TF-IDF": 0.1275354055253046,
+            "Perplexity": 25.634712670053396,
+            "NLTK Token Length": 39,
+            "GPT-2 Token Length": 60
           },
           "aggregate_method": "summarization"
         }
       },
       "metadata": {
         "tool": "mathqa",
+        "scenario": "Financial and Banking Calculator",
         "difficulty": "medium",
-        "textgrad_enabled": 0.279469594795865,
+        "textgrad_enabled": -25.479240290403176,
         "textgrad_complexity": {
-          "Information Entropy": 4.333694393021064,
-          "Compression Rate": 0.4405487804878049,
-          "Average TF-IDF": 0.07525571399689476,
-          "Perplexity": 41.095634515155034,
-          "NLTK Token Length": 166,
-          "GPT-2 Token Length": 164
+          "Information Entropy": 4.321247148619808,
+          "Compression Rate": 0.6820083682008368,
+          "Average TF-IDF": 0.1275354055253046,
+          "Perplexity": 25.634712670053396,
+          "NLTK Token Length": 39,
+          "GPT-2 Token Length": 60
         },
-        "textgrad_role": "instructional prompt describing a math QA training example"
+        "textgrad_role": "structured system prompt for math QA scenarios"
       }
     },
     {
-      "signature": "unified::science::example::-7230790422227314672",
-      "text": "Question: Complete the sentence.\nSewing an apron is a ().\nLecture: Chemical changes and physical changes are two common ways matter can change.\nIn a chemical change, the type of matter changes. The types of matter before and after a chemical change are always different.\nBurning a piece of paper is a chemical change. When paper gets hot enough, it reacts with oxygen in the air and burns. The paper and oxygen change into ash and smoke.\nIn a physical change, the type of matter stays the same. The types of matter before and after a physical change are always the same.\nCutting a piece of paper is a physical change. The cut pieces are still made of paper.\nA change of state is a type of physical change. For example, ice melting is a physical change. Ice and liquid water are made of the same type of matter: water.",
+      "signature": "unified::math::scenario::Percentage and Proportion Solver",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########### and ########## ######## ########### ########### and ########## ######## ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "chemical change",
-          "physical change"
-        ],
-        "answer": 26.073095372183975,
-        "has_image": -38.23959076997723,
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null,
         "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
+          "role": "structured system prompt for math QA scenarios",
           "complexity": {
-            "Information Entropy": 4.260277924417418,
-            "Compression Rate": 0.4283965728274174,
-            "Average TF-IDF": 0.069092554680251,
-            "Perplexity": 44.491657842514556,
-            "NLTK Token Length": 173,
-            "GPT-2 Token Length": 204
+            "Information Entropy": 4.467636853708494,
+            "Compression Rate": 0.7777777777777778,
+            "Average TF-IDF": 0.13585009501143117,
+            "Perplexity": 25.92247913958794,
+            "NLTK Token Length": 31,
+            "GPT-2 Token Length": 43
+          },
+          "aggregate_method": "summarization"
+        }
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Percentage and Proportion Solver",
+        "difficulty": "medium",
+        "textgrad_enabled": 23.831461642840882,
+        "textgrad_complexity": {
+          "Information Entropy": 4.467636853708494,
+          "Compression Rate": 0.7777777777777778,
+          "Average TF-IDF": 0.13585009501143117,
+          "Perplexity": 25.92247913958794,
+          "NLTK Token Length": 31,
+          "GPT-2 Token Length": 43
+        },
+        "textgrad_role": "structured system prompt for math QA scenarios"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::Geometry: Shapes and Measurement",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## ###### and ############# ########### ########## ###### and ############# ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null,
+        "textgrad": {
+          "role": "structured system prompt for math QA scenarios",
+          "complexity": {
+            "Information Entropy": 4.299627686448044,
+            "Compression Rate": 0.7169811320754716,
+            "Average TF-IDF": 0.13783219695911647,
+            "Perplexity": 22.5633065494948,
+            "NLTK Token Length": 36,
+            "GPT-2 Token Length": 53
+          },
+          "aggregate_method": "summarization"
+        }
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Geometry: Shapes and Measurement",
+        "difficulty": "medium",
+        "textgrad_enabled": -503.4230656718979,
+        "textgrad_complexity": {
+          "Information Entropy": 4.299627686448044,
+          "Compression Rate": 0.7169811320754716,
+          "Average TF-IDF": 0.13783219695911647,
+          "Perplexity": 22.5633065494948,
+          "NLTK Token Length": 36,
+          "GPT-2 Token Length": 53
+        },
+        "textgrad_role": "structured system prompt for math QA scenarios"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::Algebraic Word Problem Solver",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## #### ####### ######## ########### ########## #### ####### ######## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null,
+        "textgrad": {
+          "role": "structured system prompt for math QA scenarios",
+          "complexity": {
+            "Information Entropy": 4.297861876682053,
+            "Compression Rate": 0.7004405286343612,
+            "Average TF-IDF": 0.12287067662893646,
+            "Perplexity": 31.230941525572316,
+            "NLTK Token Length": 38,
+            "GPT-2 Token Length": 57
+          },
+          "aggregate_method": "summarization"
+        }
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Algebraic Word Problem Solver",
+        "difficulty": "medium",
+        "textgrad_enabled": 234.01668095279942,
+        "textgrad_complexity": {
+          "Information Entropy": 4.297861876682053,
+          "Compression Rate": 0.7004405286343612,
+          "Average TF-IDF": 0.12287067662893646,
+          "Perplexity": 31.230941525572316,
+          "NLTK Token Length": 38,
+          "GPT-2 Token Length": 57
+        },
+        "textgrad_role": "structured system prompt for math QA scenarios"
+      }
+    },
+    {
+      "signature": "unified::math::scenario::General Logic and Counting",
+      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ######## ##### and ########## ########### ######## ##### and ########## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "skills": [],
+        "example": null,
+        "textgrad": {
+          "role": "structured system prompt for math QA scenarios",
+          "complexity": {
+            "Information Entropy": 4.291864256399104,
+            "Compression Rate": 0.7268292682926829,
+            "Average TF-IDF": 0.11446373121231071,
+            "Perplexity": 36.3236711887614,
+            "NLTK Token Length": 39,
+            "GPT-2 Token Length": 51
+          },
+          "aggregate_method": "summarization"
+        }
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "General Logic and Counting",
+        "difficulty": "medium",
+        "textgrad_enabled": 89.48200076829875,
+        "textgrad_complexity": {
+          "Information Entropy": 4.291864256399104,
+          "Compression Rate": 0.7268292682926829,
+          "Average TF-IDF": 0.11446373121231071,
+          "Perplexity": 36.3236711887614,
+          "NLTK Token Length": 39,
+          "GPT-2 Token Length": 51
+        },
+        "textgrad_role": "structured system prompt for math QA scenarios"
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ########### ##### ###### and ######### ######## ####### ################# ############# #########",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": [],
+        "textgrad": {
+          "role": "structured system prompt for science QA scenarios",
+          "complexity": {
+            "Information Entropy": 4.287680631208776,
+            "Compression Rate": 0.6977777777777778,
+            "Average TF-IDF": 0.13340746704338682,
+            "Perplexity": 28.32224569422934,
+            "NLTK Token Length": 39,
+            "GPT-2 Token Length": 56
           },
           "aggregate_method": "summarization"
         }
       },
       "metadata": {
         "tool": "scienceqa",
+        "scenario": "Astronomy: Solar System and Celestial Bodies",
+        "domain": "science",
         "difficulty": "medium",
-        "topic": "chemistry",
-        "textgrad_enabled": 19.024319102790912,
+        "textgrad_enabled": -271.9482523598454,
         "textgrad_complexity": {
-          "Information Entropy": 4.260277924417418,
-          "Compression Rate": 0.4283965728274174,
-          "Average TF-IDF": 0.069092554680251,
-          "Perplexity": 44.491657842514556,
-          "NLTK Token Length": 173,
-          "GPT-2 Token Length": 204
+          "Information Entropy": 4.287680631208776,
+          "Compression Rate": 0.6977777777777778,
+          "Average TF-IDF": 0.13340746704338682,
+          "Perplexity": 28.32224569422934,
+          "NLTK Token Length": 39,
+          "GPT-2 Token Length": 56
         },
-        "textgrad_role": "instructional prompt describing a science QA training example"
+        "textgrad_role": "structured system prompt for science QA scenarios"
       }
     },
     {
-      "signature": "unified::math::example::-4390004187514597108",
-      "text": "Problem: j is 25 % less than p and 20 % less than t . t is q % less than p . what is the value of q ?\nSolution: \"usually we can solve every question of this type by choosing appropriate value of the variable and deriving the value of other related variables . let , p = 400 then j = ( 75 / 100 ) * 400 = 300 also j = ( 80 / 100 ) * t i . e . t = 300 * 100 / 80 = 375 and t = [ 1 - ( q / 100 ) ] * p i . e . 100 - q = 100 * t / p = 100 * 375 / 400 = 93.75 i . e . q = 6.25 answer : option d\"",
+      "signature": "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######## and ######## ########## ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 93.5 , b ) 90 , c ) 6.75 , d ) 6.25 , e ) 2",
-        "answer": "d",
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": [],
         "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
+          "role": "structured system prompt for science QA scenarios",
           "complexity": {
-            "Information Entropy": 4.455245352986863,
-            "Compression Rate": 0.573469387755102,
-            "Average TF-IDF": 0.0716939065865888,
-            "Perplexity": 46.36546172500897,
-            "NLTK Token Length": 150,
-            "GPT-2 Token Length": 122
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 71.52587431716867,
-        "textgrad_complexity": {
-          "Information Entropy": 4.455245352986863,
-          "Compression Rate": 0.573469387755102,
-          "Average TF-IDF": 0.0716939065865888,
-          "Perplexity": 46.36546172500897,
-          "NLTK Token Length": 150,
-          "GPT-2 Token Length": 122
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::-1587501438543254953",
-      "text": "Problem: a rectangular floor that measures 15 meters by 18 meters is to be covered with carpet squares that each measure 3 meters by 3 meters . if the carpet squares cost $ 12 apiece , what is the total cost for the number of carpet squares needed to cover the floor ?\nSolution: \"the width of the rectangular floor ( 15 m ) is a multiple of one side of the square ( 3 m ) , and the length of the floor ( 18 m ) is also a multiple of the side of the square . so the number of carpets to cover the floor is ( 15 / 3 ) * ( 18 / 3 ) = 30 . the total cost is 30 * 12 = $ 360 . the answer is , therefore , c .\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) $ 200 , b ) $ 240 , c ) $ 360 , d ) $ 960 , e ) $ 1,920",
-        "answer": "c",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.292679377523094,
-            "Compression Rate": 0.48344370860927155,
-            "Average TF-IDF": 0.0748011857762425,
-            "Perplexity": 44.90645578502185,
-            "NLTK Token Length": 146,
-            "GPT-2 Token Length": 151
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 87.92722008454416,
-        "textgrad_complexity": {
-          "Information Entropy": 4.292679377523094,
-          "Compression Rate": 0.48344370860927155,
-          "Average TF-IDF": 0.0748011857762425,
-          "Perplexity": 44.90645578502185,
-          "NLTK Token Length": 146,
-          "GPT-2 Token Length": 151
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::-3376070844909862779",
-      "text": "Question: Which tense does the sentence use?\nMona will print her name with care.\nLecture: Present tense verbs tell you about something that is happening now.\nMost present-tense verbs are regular. They have no ending, or they end in -s or -es.\nTwo verbs are irregular in the present tense, to be and to have. You must remember their forms.\nPast tense verbs tell you about something that has already happened.\nMost past-tense verbs are regular. They end in -ed.\nSome verbs are irregular in the past tense. You must remember their past-tense forms.\nFuture tense verbs tell you about something that is going to happen.\nAll future-tense verbs use the word will.\nPresent | Past | Future\nwalk, walks | walked | will walk\ngo, goes | went | will go",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "present tense",
-          "future tense",
-          "past tense"
-        ],
-        "answer": 1.0822904765691193,
-        "has_image": 9.647957280385494,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.35553018368018,
-            "Compression Rate": 0.4506089309878214,
-            "Average TF-IDF": 0.06668449563832878,
-            "Perplexity": 54.932352461535345,
-            "NLTK Token Length": 163,
-            "GPT-2 Token Length": 185
+            "Information Entropy": 4.337450286830766,
+            "Compression Rate": 0.6931407942238267,
+            "Average TF-IDF": 0.10932649035973456,
+            "Perplexity": 34.764001870346604,
+            "NLTK Token Length": 45,
+            "GPT-2 Token Length": 69
           },
           "aggregate_method": "summarization"
         }
       },
       "metadata": {
         "tool": "scienceqa",
+        "scenario": "Biology: Genetics and Heredity Analyzer",
+        "domain": "science",
         "difficulty": "medium",
-        "topic": "verbs",
-        "textgrad_enabled": 15.995639905899376,
+        "textgrad_enabled": -28.316879338729606,
         "textgrad_complexity": {
-          "Information Entropy": 4.35553018368018,
-          "Compression Rate": 0.4506089309878214,
-          "Average TF-IDF": 0.06668449563832878,
-          "Perplexity": 54.932352461535345,
-          "NLTK Token Length": 163,
-          "GPT-2 Token Length": 185
+          "Information Entropy": 4.337450286830766,
+          "Compression Rate": 0.6931407942238267,
+          "Average TF-IDF": 0.10932649035973456,
+          "Perplexity": 34.764001870346604,
+          "NLTK Token Length": 45,
+          "GPT-2 Token Length": 69
         },
-        "textgrad_role": "instructional prompt describing a science QA training example"
+        "textgrad_role": "structured system prompt for science QA scenarios"
       }
     },
     {
-      "signature": "unified::math::example::-4044176793494951389",
-      "text": "Problem: a train 125 m long passes a man , running at 15 km / hr in the same direction in which the train is going , in 10 seconds . the speed of the train is ?\nSolution: \"speed of the train relative to man = ( 125 / 10 ) m / sec = ( 25 / 2 ) m / sec . [ ( 25 / 2 ) * ( 18 / 5 ) ] km / hr = 45 km / hr . let the speed of the train be x km / hr . then , relative speed = ( x - 15 ) km / hr . x - 15 = 45 = = > x = 60 km / hr answer : a\"",
+      "signature": "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######### and ############## ############# ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 60 , b ) 50 , c ) 28 , d ) 26 , e ) 29",
-        "answer": "a",
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": [],
         "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
+          "role": "structured system prompt for science QA scenarios",
           "complexity": {
-            "Information Entropy": 4.335589139192153,
-            "Compression Rate": 0.535632183908046,
-            "Average TF-IDF": 0.08257036635742186,
-            "Perplexity": 39.650662862872,
-            "NLTK Token Length": 134,
-            "GPT-2 Token Length": 109
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 60.57041192940405,
-        "textgrad_complexity": {
-          "Information Entropy": 4.335589139192153,
-          "Compression Rate": 0.535632183908046,
-          "Average TF-IDF": 0.08257036635742186,
-          "Perplexity": 39.650662862872,
-          "NLTK Token Length": 134,
-          "GPT-2 Token Length": 109
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::3294902541156400604",
-      "text": "Question: Which solution has a higher concentration of blue particles?\nLecture: A solution is made up of two or more substances that are completely mixed. In a solution, solute particles are mixed into a solvent. The solute cannot be separated from the solvent by a filter. For example, if you stir a spoonful of salt into a cup of water, the salt will mix into the water to make a saltwater solution. In this case, the salt is the solute. The water is the solvent.\nThe concentration of a solute in a solution is a measure of the ratio of solute to solvent. Concentration can be described in terms of particles of solute per volume of solvent.\nconcentration = particles of solute / volume of solvent",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "neither; their concentrations are the same",
-          "Solution B",
-          "Solution A"
-        ],
-        "answer": -4.089511791197556,
-        "has_image": -1.5718596361032802,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.190328323044948,
-            "Compression Rate": 0.47639484978540775,
-            "Average TF-IDF": 0.07076679958132358,
-            "Perplexity": 45.42000444350605,
-            "NLTK Token Length": 141,
-            "GPT-2 Token Length": 175
+            "Information Entropy": 4.330507888141789,
+            "Compression Rate": 0.6666666666666666,
+            "Average TF-IDF": 0.12194584339497902,
+            "Perplexity": 26.845661588880496,
+            "NLTK Token Length": 42,
+            "GPT-2 Token Length": 68
           },
           "aggregate_method": "summarization"
         }
       },
       "metadata": {
         "tool": "scienceqa",
+        "scenario": "Biology: Ecosystem and Classification Interpreter",
+        "domain": "science",
         "difficulty": "medium",
-        "topic": "chemistry",
-        "textgrad_enabled": 6.804826915879518,
+        "textgrad_enabled": 121.65091986963783,
         "textgrad_complexity": {
-          "Information Entropy": 4.190328323044948,
-          "Compression Rate": 0.47639484978540775,
-          "Average TF-IDF": 0.07076679958132358,
-          "Perplexity": 45.42000444350605,
-          "NLTK Token Length": 141,
-          "GPT-2 Token Length": 175
+          "Information Entropy": 4.330507888141789,
+          "Compression Rate": 0.6666666666666666,
+          "Average TF-IDF": 0.12194584339497902,
+          "Perplexity": 26.845661588880496,
+          "NLTK Token Length": 42,
+          "GPT-2 Token Length": 68
         },
-        "textgrad_role": "instructional prompt describing a science QA training example"
+        "textgrad_role": "structured system prompt for science QA scenarios"
       }
     },
     {
-      "signature": "unified::math::example::6709361105181566040",
-      "text": "Problem: sophia finished 2 / 3 of a book . she calculated that she finished 90 more pages than she has yet to read . how long is her book ?\nSolution: let xx be the total number of pages in the book , then she finished 23 \u22c5 x 23 \u22c5 x pages . then she has x \u2212 23 \u22c5 x = 13 \u22c5 xx \u2212 23 \u22c5 x = 13 \u22c5 x pages left . 23 \u22c5 x \u2212 13 \u22c5 x = 9023 \u22c5 x \u2212 13 \u22c5 x = 90 13 \u22c5 x = 9013 \u22c5 x = 90 x = 270 x = 270 so the book is 270 pages long . answer : b",
+      "signature": "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######### and ###### ############ ####### ################# ############# #########",
       "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 229 , b ) 270 , c ) 877 , d ) 266 , e ) 281",
-        "answer": "b",
+        "type": "usage_scenario",
+        "visual_skills": [],
+        "textual_skills": [],
         "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
+          "role": "structured system prompt for science QA scenarios",
           "complexity": {
-            "Information Entropy": 4.309461279723917,
-            "Compression Rate": 0.5098039215686274,
-            "Average TF-IDF": 0.08420751539813531,
-            "Perplexity": 33.62391136159418,
-            "NLTK Token Length": 123,
-            "GPT-2 Token Length": 115
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 4.651550953802364,
-        "textgrad_complexity": {
-          "Information Entropy": 4.309461279723917,
-          "Compression Rate": 0.5098039215686274,
-          "Average TF-IDF": 0.08420751539813531,
-          "Perplexity": 33.62391136159418,
-          "NLTK Token Length": 123,
-          "GPT-2 Token Length": 115
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::-3321508790456289122",
-      "text": "Question: What does pollen help a plant do?\nLecture: Many plants have flowers. These plants can use their flowers to reproduce, or make new plants like themselves. How do plants use their flowers to reproduce?\nFirst, the male part of the flower makes pollen, and the female part makes eggs. Animals, wind, or water can move pollen. Pollination is what happens when pollen is moved to the female part of the flower.\nAfter pollination, sperm from the pollen can combine with the eggs. This is called fertilization. The fertilized eggs grow into seeds. The fruit grows around the seeds. Later, a seed can fall out of the fruit. It can germinate, or start to grow into a new plant.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "make seeds",
-          "grow bigger",
-          "grow new leaves"
-        ],
-        "answer": -23.150287144860577,
-        "has_image": 75.23107994664886,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.294012130021393,
-            "Compression Rate": 0.5066469719350074,
-            "Average TF-IDF": 0.06541120293270185,
-            "Perplexity": 54.79217853527983,
-            "NLTK Token Length": 142,
-            "GPT-2 Token Length": 169
+            "Information Entropy": 4.404265284524378,
+            "Compression Rate": 0.7488789237668162,
+            "Average TF-IDF": 0.12202560877913629,
+            "Perplexity": 23.566282797293034,
+            "NLTK Token Length": 41,
+            "GPT-2 Token Length": 56
           },
           "aggregate_method": "summarization"
         }
       },
       "metadata": {
         "tool": "scienceqa",
+        "scenario": "Physics: Mechanics and Forces Calculator",
+        "domain": "science",
         "difficulty": "medium",
-        "topic": "biology",
-        "textgrad_enabled": 30.542000126148572,
+        "textgrad_enabled": -117.54125382574028,
         "textgrad_complexity": {
-          "Information Entropy": 4.294012130021393,
-          "Compression Rate": 0.5066469719350074,
-          "Average TF-IDF": 0.06541120293270185,
-          "Perplexity": 54.79217853527983,
-          "NLTK Token Length": 142,
-          "GPT-2 Token Length": 169
+          "Information Entropy": 4.404265284524378,
+          "Compression Rate": 0.7488789237668162,
+          "Average TF-IDF": 0.12202560877913629,
+          "Perplexity": 23.566282797293034,
+          "NLTK Token Length": 41,
+          "GPT-2 Token Length": 56
         },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::2522766018927776118",
-      "text": "Problem: 6 workers should finish a job in 8 days . after 3 days came 4 workers join them . how many days m do they need to finish the same job ?\nSolution: \"let rate of one worker be r = > ( 6 * r ) * 8 = 1 ( rate * time = work ) = > r = 1 / 48 = > work remaining after 3 days 1 - ( 3 * 6 ) / 48 = 30 / 48 after 4 ppl joined in ( ( 6 + 4 ) * time ) / 48 = 30 / 48 time m = 3 days to finish the task imo a\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 3 , b ) 4 , c ) 5 , d ) 6 , e ) 7",
-        "answer": "a",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.373195911211167,
-            "Compression Rate": 0.5816831683168316,
-            "Average TF-IDF": 0.08080135056637713,
-            "Perplexity": 44.28316828981329,
-            "NLTK Token Length": 121,
-            "GPT-2 Token Length": 101
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 9.365928035081355,
-        "textgrad_complexity": {
-          "Information Entropy": 4.373195911211167,
-          "Compression Rate": 0.5816831683168316,
-          "Average TF-IDF": 0.08080135056637713,
-          "Perplexity": 44.28316828981329,
-          "NLTK Token Length": 121,
-          "GPT-2 Token Length": 101
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::-1762676000737083442",
-      "text": "Problem: a vessel of capacity 2 litre has 30 % of alcohol and another vessel of capacity 6 litre had 40 % alcohol . the total liquid of 8 litre was poured out in a vessel of capacity 10 litre and thus the rest part of the vessel was filled with the water . what is the new concentration of mixture ?\nSolution: \"30 % of 2 litres = 0.6 litres 40 % of 6 litres = 2.4 litres therefore , total quantity of alcohol is 3.0 litres . this mixture is in a 10 litre vessel . hence , the concentration of alcohol in this 10 litre vessel is 30 % answer : a\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 30 % . , b ) 71 % . , c ) 49 % . , d ) 29 % . , e ) 51 % .",
-        "answer": "a",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.275888856081544,
-            "Compression Rate": 0.5018382352941176,
-            "Average TF-IDF": 0.08391857812882579,
-            "Perplexity": 39.722372239246745,
-            "NLTK Token Length": 125,
-            "GPT-2 Token Length": 136
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 4.032884589297522,
-        "textgrad_complexity": {
-          "Information Entropy": 4.275888856081544,
-          "Compression Rate": 0.5018382352941176,
-          "Average TF-IDF": 0.08391857812882579,
-          "Perplexity": 39.722372239246745,
-          "NLTK Token Length": 125,
-          "GPT-2 Token Length": 136
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::148175421340357242",
-      "text": "Question: What is the volume of a large soup pot?\nLecture: Measurements are written with both a number and a unit. The unit comes after the number. The unit shows what the number means.\nVolume is a measurement of how much space something takes up.\nThere are many different units of volume. When you are using metric units, volume may be written in units of milliliters or liters.\nThere are 1,000 milliliters in 1 liter. So, 1 milliliter is much less than 1 liter.\nA raindrop has a volume of about 20 milliliters, while a large soda bottle has a volume of 2 liters. The flask shown here measures volumes up to 500 milliliters.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "7 liters",
-          "7 milliliters"
-        ],
-        "answer": -15.858681795710421,
-        "has_image": 7.726204550526922,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.326306788277075,
-            "Compression Rate": 0.5184,
-            "Average TF-IDF": 0.06520586291198725,
-            "Perplexity": 56.820406848649625,
-            "NLTK Token Length": 132,
-            "GPT-2 Token Length": 156
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "units-and-measurement",
-        "textgrad_enabled": -5.2513999173766255,
-        "textgrad_complexity": {
-          "Information Entropy": 4.326306788277075,
-          "Compression Rate": 0.5184,
-          "Average TF-IDF": 0.06520586291198725,
-          "Perplexity": 56.820406848649625,
-          "NLTK Token Length": 132,
-          "GPT-2 Token Length": 156
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::-2386255744115278576",
-      "text": "Problem: the banker ' s gain of a certain sum due 3 years hence at 10 % per annum is rs . 36 . what is the present worth ?\nSolution: \"explanation : t = 3 years r = 10 % td = ( bg \u00d7 100 ) / tr = ( 36 \u00d7 100 ) / ( 3 \u00d7 10 ) = 12 \u00d7 10 = rs . 120 td = ( pw \u00d7 tr ) / 100 \u21d2 120 = ( pw \u00d7 3 \u00d7 10 ) / 100 \u21d2 1200 = pw \u00d7 3 pw = 1200 / 3 = rs . 400 answer : option a\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) rs . 400 , b ) rs . 300 , c ) rs . 500 , d ) rs . 350 , e ) none of these",
-        "answer": "a",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.303515747018061,
-            "Compression Rate": 0.6191780821917808,
-            "Average TF-IDF": 0.08564937390934407,
-            "Perplexity": 37.07088929551326,
-            "NLTK Token Length": 114,
-            "GPT-2 Token Length": 91
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": -26.668814357957526,
-        "textgrad_complexity": {
-          "Information Entropy": 4.303515747018061,
-          "Compression Rate": 0.6191780821917808,
-          "Average TF-IDF": 0.08564937390934407,
-          "Perplexity": 37.07088929551326,
-          "NLTK Token Length": 114,
-          "GPT-2 Token Length": 91
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::3480816086479368482",
-      "text": "Problem: average age of students of an adult school is 40 years . 120 new students whose average age is 32 years joined the school . as a result the average age is decreased by 4 years . find the number of students of the school after joining of the new students .\nSolution: \"explanation : let the original no . of students be x . according to situation , 40 x + 120 * 32 = ( x + 120 ) 36 \u21d2 x = 120 so , required no . of students after joining the new students = x + 120 = 240 . answer : d\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 1200 , b ) 120 , c ) 360 , d ) 240 , e ) none of these",
-        "answer": "d",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.399914981899126,
-            "Compression Rate": 0.5304878048780488,
-            "Average TF-IDF": 0.0818452064552728,
-            "Perplexity": 39.961840207635795,
-            "NLTK Token Length": 113,
-            "GPT-2 Token Length": 123
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 21.761983155692846,
-        "textgrad_complexity": {
-          "Information Entropy": 4.399914981899126,
-          "Compression Rate": 0.5304878048780488,
-          "Average TF-IDF": 0.0818452064552728,
-          "Perplexity": 39.961840207635795,
-          "NLTK Token Length": 113,
-          "GPT-2 Token Length": 123
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::4700944864234451487",
-      "text": "Question: Think about the magnetic force between the magnets in each pair. Which of the following statements is true?\nLecture: Magnets can pull or push on each other without touching. When magnets attract, they pull together. When magnets repel, they push apart.\nThese pulls and pushes between magnets are called magnetic forces. The stronger the magnetic force between two magnets, the more strongly the magnets attract or repel each other.\nYou can change the strength of a magnetic force between two magnets by changing the distance between them. The magnetic force is stronger when the magnets are closer together.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "The strength of the magnetic force is the same in both pairs.",
-          "The magnetic force is stronger in Pair 2.",
-          "The magnetic force is stronger in Pair 1."
-        ],
-        "answer": 61.1175533605886,
-        "has_image": -69.76072833494678,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.164420424097999,
-            "Compression Rate": 0.4586709886547812,
-            "Average TF-IDF": 0.077525966345641,
-            "Perplexity": 44.68160855917464,
-            "NLTK Token Length": 113,
-            "GPT-2 Token Length": 154
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "physics",
-        "textgrad_enabled": -6.8565529005081185,
-        "textgrad_complexity": {
-          "Information Entropy": 4.164420424097999,
-          "Compression Rate": 0.4586709886547812,
-          "Average TF-IDF": 0.077525966345641,
-          "Perplexity": 44.68160855917464,
-          "NLTK Token Length": 113,
-          "GPT-2 Token Length": 154
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::-6672393745815833448",
-      "text": "Problem: a salesman \u00e2 \u20ac \u2122 s terms were changed from a flat commission of 5 % on all his sales to a fixed salary of rs . 1000 plus 2.5 % commission on all sales exceeding rs . 4,000 . if his remuneration as per new scheme was rs . 500 more than that by the previous schema , his sales were worth ?\nSolution: \"[ 1000 + ( x - 4000 ) * ( 2.5 / 100 ) ] - x * ( 5 / 100 ) = 600 x = 16000 answer : c\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) s . 14,000 , b ) s . 12,000 , c ) s . 16,000 , d ) s . 40,000 , e ) s . 50,000",
-        "answer": "c",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.487900663161767,
-            "Compression Rate": 0.6633165829145728,
-            "Average TF-IDF": 0.06787246655679287,
-            "Perplexity": 59.13211701935225,
-            "NLTK Token Length": 107,
-            "GPT-2 Token Length": 100
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 87.91188055045502,
-        "textgrad_complexity": {
-          "Information Entropy": 4.487900663161767,
-          "Compression Rate": 0.6633165829145728,
-          "Average TF-IDF": 0.06787246655679287,
-          "Perplexity": 59.13211701935225,
-          "NLTK Token Length": 107,
-          "GPT-2 Token Length": 100
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::8332317550163293732",
-      "text": "Question: Compare the average kinetic energies of the particles in each sample. Which sample has the higher temperature?\nLecture: The temperature of a substance depends on the average kinetic energy of the particles in the substance. The higher the average kinetic energy of the particles, the higher the temperature of the substance.\nThe kinetic energy of a particle is determined by its mass and speed. For a pure substance, the greater the mass of each particle in the substance and the higher the average speed of the particles, the higher their average kinetic energy.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "neither; the samples have the same temperature",
-          "sample A",
-          "sample B"
-        ],
-        "answer": 9.44005300018322,
-        "has_image": -7.6400921902680485,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.108542677117011,
-            "Compression Rate": 0.3961605584642234,
-            "Average TF-IDF": 0.10571488295188346,
-            "Perplexity": 26.097727467239878,
-            "NLTK Token Length": 105,
-            "GPT-2 Token Length": 143
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "physics",
-        "textgrad_enabled": 7.078538888076928,
-        "textgrad_complexity": {
-          "Information Entropy": 4.108542677117011,
-          "Compression Rate": 0.3961605584642234,
-          "Average TF-IDF": 0.10571488295188346,
-          "Perplexity": 26.097727467239878,
-          "NLTK Token Length": 105,
-          "GPT-2 Token Length": 143
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::5912208845667168739",
-      "text": "Question: Is the following trait inherited or acquired?\nKaty plays soccer.\nLecture: Organisms, including people, have both inherited and acquired traits. Inherited and acquired traits are gained in different ways.\nInherited traits are passed down through families. Children gain these traits from their parents. Inherited traits do not need to be learned.\nAcquired traits are gained during a person's life. Some acquired traits, such as riding a bicycle, are gained by learning. Other acquired traits, such as scars, are caused by the environment. Children do not inherit their parents' acquired traits.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "inherited",
-          "acquired"
-        ],
-        "answer": 35.9078286493982,
-        "has_image": 11.754687075541908,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.289467086389626,
-            "Compression Rate": 0.49087893864013266,
-            "Average TF-IDF": 0.07101114409834833,
-            "Perplexity": 47.325201293401896,
-            "NLTK Token Length": 113,
-            "GPT-2 Token Length": 151
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology",
-        "textgrad_enabled": -5.011188304963077,
-        "textgrad_complexity": {
-          "Information Entropy": 4.289467086389626,
-          "Compression Rate": 0.49087893864013266,
-          "Average TF-IDF": 0.07101114409834833,
-          "Perplexity": 47.325201293401896,
-          "NLTK Token Length": 113,
-          "GPT-2 Token Length": 151
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::-7532343310568670834",
-      "text": "Problem: the average of 15 result is 60 . average of the first 10 of them is 10 and that of the last 10 is 80 . find the 8 th result ?\nSolution: \"sum of all the 13 results = 15 * 60 = 900 sum of the first 7 of them = 10 * 10 = 100 sum of the last 7 of them = 10 * 80 = 800 so , the 8 th number = 900 + 100 - 800 = 200 . b\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 35 , b ) 200 , c ) 150 , d ) 250 , e ) 300",
-        "answer": "b",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.208936770023492,
-            "Compression Rate": 0.5496894409937888,
-            "Average TF-IDF": 0.1023374169662068,
-            "Perplexity": 30.667362718690615,
-            "NLTK Token Length": 92,
-            "GPT-2 Token Length": 80
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 53.7525150503623,
-        "textgrad_complexity": {
-          "Information Entropy": 4.208936770023492,
-          "Compression Rate": 0.5496894409937888,
-          "Average TF-IDF": 0.1023374169662068,
-          "Perplexity": 30.667362718690615,
-          "NLTK Token Length": 92,
-          "GPT-2 Token Length": 80
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::math::example::550804154834356154",
-      "text": "Problem: a student was asked to find 4 / 5 of a number . but the student divided the number by 4 / 5 , thus the student got 36 more than the correct answer . find the number .\nSolution: \"let the number be x . ( 5 / 4 ) * x = ( 4 / 5 ) * x + 36 25 x = 16 x + 720 9 x = 720 x = 80 the answer is c .\"",
-      "structured_payload": {
-        "type": "training_example",
-        "options": "a ) 60 , b ) 70 , c ) 80 , d ) 90 , e ) 100",
-        "answer": "c",
-        "textgrad": {
-          "role": "instructional prompt describing a math QA training example",
-          "complexity": {
-            "Information Entropy": 4.427225832062308,
-            "Compression Rate": 0.6195286195286195,
-            "Average TF-IDF": 0.09676498986750258,
-            "Perplexity": 34.07031855902144,
-            "NLTK Token Length": 87,
-            "GPT-2 Token Length": 74
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "mathqa",
-        "difficulty": "medium",
-        "textgrad_enabled": 0.630965934918216,
-        "textgrad_complexity": {
-          "Information Entropy": 4.427225832062308,
-          "Compression Rate": 0.6195286195286195,
-          "Average TF-IDF": 0.09676498986750258,
-          "Perplexity": 34.07031855902144,
-          "NLTK Token Length": 87,
-          "GPT-2 Token Length": 74
-        },
-        "textgrad_role": "instructional prompt describing a math QA training example"
-      }
-    },
-    {
-      "signature": "unified::science::example::492757271421222541",
-      "text": "Question: What information supports the conclusion that Logan inherited this trait?\nLecture: Organisms, including people, have both inherited and acquired traits. Inherited and acquired traits are gained in different ways.\nInherited traits are passed down through families. Children gain these traits from their parents. Inherited traits do not need to be learned.\nAcquired traits are gained during a person's life. Some acquired traits, such as riding a bicycle, are gained by learning. Other acquired traits, such as scars, are caused by the environment.",
-      "structured_payload": {
-        "type": "training_example",
-        "choices": [
-          "Logan's mother has blue eyes. She passed this trait down to Logan.",
-          "Logan likes to wear a blue sweater to match his blue eyes."
-        ],
-        "answer": 6.466617608235589,
-        "has_image": -99.39253158868327,
-        "textgrad": {
-          "role": "instructional prompt describing a science QA training example",
-          "complexity": {
-            "Information Entropy": 4.27925974036841,
-            "Compression Rate": 0.5197841726618705,
-            "Average TF-IDF": 0.07087672214384884,
-            "Perplexity": 48.75347939534266,
-            "NLTK Token Length": 102,
-            "GPT-2 Token Length": 139
-          },
-          "aggregate_method": "summarization"
-        }
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "difficulty": "medium",
-        "topic": "biology",
-        "textgrad_enabled": -17.875370295845613,
-        "textgrad_complexity": {
-          "Information Entropy": 4.27925974036841,
-          "Compression Rate": 0.5197841726618705,
-          "Average TF-IDF": 0.07087672214384884,
-          "Perplexity": 48.75347939534266,
-          "NLTK Token Length": 102,
-          "GPT-2 Token Length": 139
-        },
-        "textgrad_role": "instructional prompt describing a science QA training example"
+        "textgrad_role": "structured system prompt for science QA scenarios"
       }
     }
   ]

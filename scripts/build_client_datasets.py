@@ -202,7 +202,7 @@ def _transform_math_entry(item: Dict[str, object]) -> Dict[str, object]:
     if not correct and item.get("answer"):
         correct = item.get("answer")
 
-    return {
+    entry = {
         "type": "math",
         "Problem": problem,
         "options": options,
@@ -210,11 +210,20 @@ def _transform_math_entry(item: Dict[str, object]) -> Dict[str, object]:
         "category": item.get("category") or item.get("Category", "general"),
         "correct": correct,
     }
+    entry["task_type"] = "math"
+    dataset_name = item.get("dataset")
+    if isinstance(dataset_name, str) and dataset_name.strip():
+        entry["dataset"] = dataset_name.strip()
+    domain = item.get("domain")
+    if isinstance(domain, str) and domain.strip():
+        entry["domain"] = domain.strip()
+    return entry
 
 
 def _transform_science_entry(item: Dict[str, object]) -> Dict[str, object]:
     entry = dict(item)
     entry["type"] = "science"
+    entry["task_type"] = "image_required" if entry.get("image") else "science"
     return entry
 
 

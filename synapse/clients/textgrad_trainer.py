@@ -168,7 +168,8 @@ class TextGradPromptTrainer:
             matches = re.findall(r"-?\d+", label)
             if matches:
                 return int(matches[-1])
-        raise ValueError(f"Unable to parse label from value: {label!r}")
+            return label
+        return label
 
     @staticmethod
     def _evaluate_on_samples(model: BlackboxLLM, eval_fn, samples: Sequence[Tuple[str, str]]) -> float:
