@@ -197,7 +197,20 @@ python scripts/run_fed_textgrad.py \
     --rounds 1 \
     --aggregate-method summarization \
     --mixed-queries math_only.json
-```
+  ```
+
+- **Heterogeneous TextGrad training (per-client data)**
+  ```bash
+  # Point each client to its own training set (e.g., MathQA, ScienceQA, BBH)
+  python scripts/run_fed_textgrad.py \
+      --task BBH_object_counting \
+      --client-count 3 \
+      --rounds 1 \
+      --mixed-queries bbh_object_counting_eval_v3.json \
+      --client-train-dir client_datasets/heterogeneous_train \
+      --client-data-dir client_datasets/heterogeneous_eval \
+      --evaluate-clients
+  ```
 Each TextGrad run appends its evaluation summary (central benchmark + any per-client datasets) to `evaluation_on_textgrad_log.txt`, so you can track metrics across runs without rerunning the script.
   Set `TEXTGRAD_EVAL_ENGINE`, `SYNAPSE_TEXTGRAD_TEST_ENGINE`, and other knobs in `.env` (or via CLI flags) to choose the LLMs that supply textual gradients and client-side inference.
 

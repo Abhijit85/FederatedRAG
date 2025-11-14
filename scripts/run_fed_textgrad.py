@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
-from torch.utils.data import RandomSampler, Subset, random_split
+from torch.utils.data import Dataset as TorchDataset, RandomSampler, Subset, random_split
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -53,6 +53,21 @@ from synapse.runtime import SynapseRuntime
 from synapse.textgrad_support import TextGradSettings
 from third_party.textgrad import BlackboxLLM, TextualGradientDescent
 from third_party.textgrad.tasks import DataLoader, load_task
+
+
+class LocalPromptDataset(TorchDataset):
+    """
+    Lightweight dataset wrapping custom JSON prompt/answer pairs for TextGrad.
+    """
+
+    def __init__(self, samples: List[tuple[str, str]]) -> None:
+        self.samples = samples
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, idx: int) -> tuple[str, str]:
+        return self.samples[idx]
 
 
 def _resolve_runtime_defaults() -> tuple[bool, str, str, int]:
@@ -232,6 +247,90 @@ def _append_textgrad_log(section: str, payload: Dict[str, Any]) -> None:
         print(f"⚠️ Failed to write TextGrad log: {exc}")
 
 
+def _format_question(entry: Dict[str, Any]) -> Optional[str]:
+    question = entry.get("question") or entry.get("Problem") or entry.get("prompt")
+    if not question:
+        return None
+    parts = [str(question).strip()]
+
+    options = entry.get("options")
+    if isinstance(options, list) and options:
+        parts.append("Options: " + "; ".join(map(str, options)))
+    elif isinstance(options, str) and options.strip():
+        parts.append("Options: " + options.strip())
+
+    choices = entry.get("choices")
+    if isinstance(choices, list) and choices:
+        parts.append("Choices: " + "; ".join(map(str, choices)))
+
+    lecture = entry.get("lecture")
+    if isinstance(lecture, str) and lecture.strip():
+        parts.append("Lecture: " + lecture.strip())
+
+    hint = entry.get("hint")
+    if isinstance(hint, str) and hint.strip():
+        parts.append("Hint: " + hint.strip())
+
+    return "\n".join(parts).strip()
+
+
+def _format_answer(entry: Dict[str, Any]) -> Optional[str]:
+    answer = entry.get("answer")
+    if answer is None:
+        answer = entry.get("Answer") or entry.get("correct")
+    choices = entry.get("choices")
+    if isinstance(answer, int) and isinstance(choices, list) and 0 <= answer < len(choices):
+        return str(choices[answer])
+    if isinstance(answer, (int, float)):
+        return str(answer)
+    if isinstance(answer, str) and answer.strip():
+        return answer.strip()
+    return None
+
+
+def _load_json_prompt_dataset(path: Path) -> Optional[LocalPromptDataset]:
+    try:
+        payload = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"[!] Failed to load client training data '{path}': {exc}")
+        return None
+    if not isinstance(payload, list):
+        print(f"[!] Expected a list of samples in '{path}'. Skipping.")
+        return None
+    samples: List[tuple[str, str]] = []
+    for entry in payload:
+        if not isinstance(entry, dict):
+            continue
+        question = _format_question(entry)
+        answer = _format_answer(entry)
+        if question and answer:
+            samples.append((question, answer))
+    if not samples:
+        print(f"[!] No valid samples found in '{path}'.")
+        return None
+    return LocalPromptDataset(samples)
+
+
+def _load_client_train_sets(directory: Optional[Path], client_ids: List[str]) -> Dict[str, LocalPromptDataset]:
+    if directory is None:
+        return {}
+    if not directory.exists():
+        print(f"⚠️ Client training directory '{directory}' does not exist; using default task splits.")
+        return {}
+    mapping: Dict[str, LocalPromptDataset] = {}
+    for idx, client_id in enumerate(client_ids, start=1):
+        candidates = sorted(directory.glob(f"client_{idx}_*.json"))
+        if not candidates:
+            candidates = sorted(directory.glob(f"{client_id}*.json"))
+        if not candidates:
+            continue
+        dataset = _load_json_prompt_dataset(candidates[0])
+        if dataset:
+            mapping[client_id] = dataset
+            print(f"[Train] Loaded custom dataset for {client_id} from '{candidates[0]}'.")
+    return mapping
+
+
 def parse_args() -> argparse.Namespace:
     online_ready, eval_default, test_default, client_default = _resolve_runtime_defaults()
     sample_default = _env_flag("TEXTGRAD_SAMPLE_WITH_REPLACEMENT", default=False)
@@ -252,6 +351,11 @@ def parse_args() -> argparse.Namespace:
         "--client-data-dir",
         type=Path,
         help="Optional directory of per-client evaluation JSON files (e.g., BBH slices) to score after training.",
+    )
+    parser.add_argument(
+        "--client-train-dir",
+        type=Path,
+        help="Optional directory of per-client JSON training files (client_{k}_*.json) for heterogeneous TextGrad.",
     )
     parser.add_argument(
         "--evaluate-clients",
@@ -428,6 +532,7 @@ def train_clients(
     eval_fn,
     validation_dataset=None,
     sample_with_replacement: bool = False,
+    client_specific_datasets: Optional[Dict[str, TorchDataset]] = None,
 ) -> None:
     trainer = TextGradPromptTrainer(settings)
     settings.ensure_engines()
@@ -436,7 +541,11 @@ def train_clients(
 
     for idx, (client_id, client) in enumerate(runtime.clients.items()):
         artifacts = client.collect_local_artifacts()
-        train_subset = train_splits[min(idx, len(train_splits) - 1)]
+        train_subset = None
+        if client_specific_datasets:
+            train_subset = client_specific_datasets.get(client_id)
+        if train_subset is None:
+            train_subset = train_splits[min(idx, len(train_splits) - 1)]
         total_questions = len(train_subset)
         if total_questions == 0:
             continue
@@ -492,6 +601,8 @@ def main() -> None:
 
     credentials = prepare_credentials()
     runtime = SynapseRuntime.build_local_runtime(Path.cwd(), credentials, client_count=args.client_count)
+    client_ids = list(runtime.clients.keys())
+    client_train_sets = _load_client_train_sets(args.client_train_dir, client_ids)
 
     settings = runtime.textgrad_settings
     settings.enabled = True
@@ -517,6 +628,7 @@ def main() -> None:
             eval_fn,
             validation_dataset=val_set,
             sample_with_replacement=args.sample_with_replacement,
+            client_specific_datasets=client_train_sets,
         )
         print(f"[Round {round_idx + 1}] Finished client training.")
         runtime.run_round()
@@ -571,7 +683,11 @@ def main() -> None:
         elif not args.client_data_dir.exists():
             print(f"⚠️ Client data directory '{args.client_data_dir}' does not exist; skipping per-client evaluations.")
         else:
-            dataset_paths = sorted(p for p in args.client_data_dir.glob("*.json") if p.is_file())
+            dataset_paths = sorted(
+                p
+                for p in args.client_data_dir.glob("*.json")
+                if p.is_file() and "summary" not in p.stem.lower()
+            )
             if not dataset_paths:
                 print(f"⚠️ No JSON datasets found in '{args.client_data_dir}'.")
             for data_path in dataset_paths:

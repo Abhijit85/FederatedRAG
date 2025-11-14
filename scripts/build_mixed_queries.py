@@ -191,6 +191,7 @@ def main() -> None:
                     "Rationale": item.get("Rationale", ""),
                     "category": item.get("category", "general"),
                     "correct": item.get("correct"),
+                    "task_type": "math",
                 }
             )
 
@@ -198,6 +199,7 @@ def main() -> None:
         for item in science_selection:
             science_entry = dict(item)
             science_entry["type"] = "science"
+            science_entry["task_type"] = "image_required" if science_entry.get("image") else "science"
             mixed.append(science_entry)
 
     if not mixed:
