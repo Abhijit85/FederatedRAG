@@ -11,19 +11,19 @@ from typing import Any, Optional
 
 from dotenv import load_dotenv
 
-# Load environment variables from a .env file at the start
-load_dotenv()
+# Load environment variables
+load_dotenv(os.path.join(os.path.dirname(__file__), 'config', '.env'))
 model_name_env = os.environ.get("MODEL_NAME", "").strip()
 os.environ.setdefault("VLM_MODEL", model_name_env or "gpt-4o-mini")
 
-from math_qa import MathQATool
-from science_qa import ScienceQATool
-from synapse.agent import SynapseAgent
-from synapse.config import ApiCredentials
-from synapse.runtime import SynapseRuntime
-from synapse.privacy.attacks import run_prompt_extraction_attack
-from openrouter_client import get_available_api_keys
-from jina_key_manager import get_available_jina_api_keys
+from src.tools.math_qa import MathQATool
+from src.tools.science_qa import ScienceQATool
+from src.synapse.agent import SynapseAgent
+from src.synapse.config import ApiCredentials
+from src.synapse.runtime import SynapseRuntime
+from src.synapse.privacy.attacks import run_prompt_extraction_attack
+from src.utils.openrouter_client import get_available_api_keys
+from src.utils.jina_key_manager import get_available_jina_api_keys
 
 # --- 1. LOGGING SETUP ---
 class LoggerWriter:
@@ -42,7 +42,8 @@ log_formatter = logging.Formatter('%(message)s')
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler("evaluation_log.txt", mode='a')
+os.makedirs("logs", exist_ok=True)
+file_handler = logging.FileHandler("logs/evaluation_log.txt", mode='a')
 file_handler.setFormatter(log_formatter)
 logger.addHandler(file_handler)
 
@@ -271,7 +272,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--test-file",
         type=Path,
-        default=Path("mixed_queries.json"),
+        default=Path("data/datasets/mixed_queries.json"),
         help="Primary evaluation dataset for the global run.",
     )
     parser.add_argument(
