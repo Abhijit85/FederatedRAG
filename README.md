@@ -234,10 +234,4 @@ For questions or contributions, reach out to **achakr40@asu.edu** or open an iss
 If this project contributes to your research, please cite it:
 
 ```bibtex
-@misc{FederatedRAG2025,
-  author       = {Abhijit Chakraborty},
-  title        = {FederatedRAG: Compendium-Aware Federated Retrieval-Augmented Generation},
-  year         = {2025},
-  howpublished = {\url{https://github.com/abhijit-chakraborty/FederatedRAG}}
-}
 ```
