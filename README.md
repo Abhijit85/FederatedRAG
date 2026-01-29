@@ -206,16 +206,10 @@ To point the agent at a self-hosted OpenAI-compatible endpoint (e.g., `vllm.entr
 MIT License
 
 ## Contact
-For questions or contributions, reach out to **achakr40@asu.edu** or open an issue in this repository.
+
 
 ## Citation
 If this project contributes to your research, please cite it:
 
 ```bibtex
-@misc{FederatedRAG2025,
-  author       = {Abhijit Chakraborty},
-  title        = {FederatedRAG: Compendium-Aware Federated Retrieval-Augmented Generation},
-  year         = {2025},
-  howpublished = {\url{https://github.com/abhijit-chakraborty/FederatedRAG}}
-}
 ```
