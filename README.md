@@ -228,7 +228,7 @@ Each TextGrad run appends its evaluation summary (central benchmark + any per-cl
 MIT License
 
 ## Contact
-For questions or contributions, reach out to **achakr40@asu.edu** or open an issue in this repository.
+
 
 ## Citation
 If this project contributes to your research, please cite it:
