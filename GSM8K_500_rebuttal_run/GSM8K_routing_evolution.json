@@ -1,0 +1,200 @@
+{
+  "category": "gsm8k_routing_metrics",
+  "run_id": "GSM8K-runlog-v1",
+  "source_file": "GSM8K_500_runlog.jsonl",
+  "record_count": 500,
+  "overall": {
+    "routing_accuracy": 0.998,
+    "ambiguity_rate": 0.328,
+    "mean_top_gap": 0.075
+  },
+  "round_summaries": [
+    {
+      "round": 1,
+      "record_count": 125,
+      "routing_accuracy": 1.0,
+      "ambiguity_rate": 0.336,
+      "mean_top_gap": 0.075,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 64
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 30
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 14
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 10
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 6
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    },
+    {
+      "round": 2,
+      "record_count": 125,
+      "routing_accuracy": 1.0,
+      "ambiguity_rate": 0.328,
+      "mean_top_gap": 0.075,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 60
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 34
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 15
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 12
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 3
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    },
+    {
+      "round": 3,
+      "record_count": 125,
+      "routing_accuracy": 0.992,
+      "ambiguity_rate": 0.328,
+      "mean_top_gap": 0.075,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 54
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 36
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 19
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 9
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 6
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    },
+    {
+      "round": 4,
+      "record_count": 125,
+      "routing_accuracy": 1.0,
+      "ambiguity_rate": 0.32,
+      "mean_top_gap": 0.076,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 59
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 41
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 14
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 9
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 2
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    }
+  ],
+  "reference_highlights": [
+    {
+      "sample_id": "runlog-0073",
+      "headline": "GSM8K-derived routing sample 0073",
+      "query_text": "What was Mongolia's GDP growth after the commodity slowdown?",
+      "route_confidence": 0.71,
+      "top_gap": 0.03,
+      "ambiguous": true,
+      "extra_metrics": {}
+    },
+    {
+      "sample_id": "runlog-0188",
+      "headline": "GSM8K-derived routing sample 0188",
+      "query_text": "Ambiguous cross-domain routing benchmark slice",
+      "route_confidence": 0.78,
+      "top_gap": 0.04,
+      "ambiguous": true,
+      "extra_metrics": {
+        "metric_display": "78%"
+      }
+    },
+    {
+      "sample_id": "runlog-0317",
+      "headline": "GSM8K-derived routing sample 0317",
+      "query_text": "Are 41 and 43 both prime numbers, and what pattern do they form?",
+      "route_confidence": 0.68,
+      "top_gap": 0.03,
+      "ambiguous": true,
+      "extra_metrics": {}
+    },
+    {
+      "sample_id": "runlog-0449",
+      "headline": "GSM8K-derived routing sample 0449",
+      "query_text": "Financial query routing improvement across rounds",
+      "route_confidence": 0.92,
+      "top_gap": 0.18,
+      "ambiguous": false,
+      "extra_metrics": {
+        "round_series": [
+          {
+            "round": 1,
+            "value": 0.78
+          },
+          {
+            "round": 2,
+            "value": 0.83
+          },
+          {
+            "round": 3,
+            "value": 0.88
+          },
+          {
+            "round": 4,
+            "value": 0.92
+          }
+        ]
+      }
+    }
+  ]
+}
