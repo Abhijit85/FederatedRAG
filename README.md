@@ -19,8 +19,8 @@ Create a `.env` file in the repository root:
 ```env
 API_KEY=your_openrouter_api_key
 VLM_MODEL=openai/gpt-4o-mini              # vision-capable model
-EVAL_MODEL=llama3.1-8b-instruct           # text model for Math/Science tools
-MODEL_NAME=vllm-llama-3.2-11b             # optional – auto-syncs evaluation/test engines
+EVAL_MODEL=gpt-4o-mini                    # text model for Math/Science tools
+MODEL_NAME=gpt-4o-mini                    # auto-syncs evaluation/test engines
 TEXTGRAD_EVAL_ENGINE=gpt-4o               # LLM that supplies textual gradients
 JINA_API_KEY=your_jina_api_key
 MONGO_URI=mongodb://localhost:27017       # or your Atlas connection string
@@ -32,9 +32,40 @@ SYNAPSE_CLIENT_COUNT=4.    # modify to set the number of clients for federation.
 # Optional privacy controls
 SYNAPSE_ENABLE_DP=1
 SYNAPSE_DP_EPSILON=1.0
+TEXTGRAD_SAMPLE_WITH_REPLACEMENT=0
 ```
 
-The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. After editing `.env`, run `set -a; source .env; set +a` (or the equivalent in your shell) before launching any scripts.
+The agent sends chat completions to `https://openrouter.ai/api/v1/chat/completions`. After editing `.env`, run `set -a; source .env; set +a` (or the equivalent in your shell) before launching any scripts. Toggle `TEXTGRAD_SAMPLE_WITH_REPLACEMENT` to `1` when you want TextGrad’s mini-batches to sample with replacement (allowing repeated questions within an epoch); leave it `0` for the default shuffle-without-replacement behavior.
+
+### Differential privacy & adaptive text noise
+
+When `SYNAPSE_ENABLE_DP=1`, every client applies differential privacy before sharing artifacts. Numeric metadata is perturbed with Laplace noise controlled by `SYNAPSE_DP_EPSILON`, and (optionally) the textual content goes through adaptive token-level masking. Lower epsilon values increase both metadata noise and the aggressiveness of text masking.
+
+#### Adaptive token-level Laplace noise
+
+Prompt-reconstruction attacks succeed when the server sees long, literal excerpts of the client’s original prompts. To counter this, every artifact’s text is now replaced with a compact template (JSON describing the role/tool/skills) and each token in that template is scored for “saliency.” Whenever a token looks sensitive (contains digits, is long, is uppercase, etc.), Laplace noise is used to decide whether to mask part of it. Only the highest-saliency tokens get obfuscated, so the structured template stays useful while sensitive identifiers are scrambled. You can fine-tune the scoring and masking via environment variables:
+
+```env
+SYNAPSE_ADAPTIVE_TEXT_NOISE=1          # set to 0 to disable token masking
+SYNAPSE_ADAPTIVE_DIGIT_WEIGHT=0.6      # contribution when a token contains digits
+SYNAPSE_ADAPTIVE_LENGTH_WEIGHT=0.3     # contribution for long tokens (>=6 chars)
+SYNAPSE_ADAPTIVE_UPPER_WEIGHT=0.2      # contribution for ALL-CAPS tokens
+SYNAPSE_ADAPTIVE_TITLE_WEIGHT=0.1      # contribution when a token starts uppercase
+SYNAPSE_ADAPTIVE_PROBABILITY_MULT=1.0  # scales the probability of masking
+SYNAPSE_ADAPTIVE_DISTORT_MULT=1.0      # scales how many characters get replaced
+```
+
+Increase the weights or multipliers to mask more aggressively; decrease them for higher fidelity.
+
+To further limit leakage, each client now shares condensed artifacts. You can tune the summariser via:
+
+```env
+SYNAPSE_ARTIFACT_MAX_CHARS=280        # max characters kept per artifact text
+SYNAPSE_ARTIFACT_MAX_SENTENCES=1      # number of leading sentences preserved
+SYNAPSE_ARTIFACT_INCLUDE_SKILLS=1     # set to 0 to omit the "skills" tag suffix
+```
+
+Lowering the character/sentence limits shortens every shared exemplar, mirroring Fed-ICL’s minimal-context approach.
 
 ### MongoDB Atlas Vector Search
 MathQA retrieval expects a MongoDB Atlas vector index on the collection that stores embeddings (`math_problems` by default, or `vectors` if you prefer). Create the index from the Atlas UI (Search/Vector Search tab) with this JSON definition:
@@ -142,29 +173,6 @@ Outputs land in `client_datasets/` by default (`summary.json` lists the allocati
    python scripts/eval_log_metrics.py
    ```
 
-### Using a local vLLM server
-
-To point the agent at a self-hosted OpenAI-compatible endpoint (e.g., `vllm.entrypoints.openai.api_server`):
-
-- Launch the server:
-  ```bash
-  python -m vllm.entrypoints.openai.api_server \
-      --model mistralai/Mistral-7B-Instruct-v0.2 \
-      --tensor-parallel-size 1 \
-      --port 8000
-  ```
-- Set the base URL (and a dummy API key if your server does not enforce auth):
-  ```bash
-  export LLM_BASE_URL="http://127.0.0.1:8000/v1"
-  export API_KEY="local"
-  ```
-- Point the runtime at the bundled LLaMA 3.2 11B vLLM preset (the script mirrors this to evaluation/test engines automatically):
-  ```bash
-  export MODEL_NAME=vllm-llama-3.2-11b
-  ```
-- Run the usual entrypoint (`python main.py`, `python scripts/run_fed_textgrad.py`, etc.). The client automatically routes requests to the local endpoint when `LLM_BASE_URL` is set.
-
-
 ### Example Runs
 
 - **Baseline federation + MathQA focus**
@@ -183,13 +191,27 @@ To point the agent at a self-hosted OpenAI-compatible endpoint (e.g., `vllm.entr
 - **FedTextGrad-enabled run**
   ```bash
   # Optimise prompts with TextGrad, federate, then evaluate on math-only data
+python scripts/run_fed_textgrad.py \
+    --task BBH_object_counting \
+    --client-count 4 \
+    --rounds 1 \
+    --aggregate-method summarization \
+    --mixed-queries math_only.json
+  ```
+
+- **Heterogeneous TextGrad training (per-client data)**
+  ```bash
+  # Point each client to its own training set (e.g., MathQA, ScienceQA, BBH)
   python scripts/run_fed_textgrad.py \
       --task BBH_object_counting \
-      --client-count 4 \
+      --client-count 3 \
       --rounds 1 \
-      --aggregate-method summarization \
-      --mixed-queries math_only.json
+      --mixed-queries bbh_object_counting_eval_v3.json \
+      --client-train-dir client_datasets/heterogeneous_train \
+      --client-data-dir client_datasets/heterogeneous_eval \
+      --evaluate-clients
   ```
+Each TextGrad run appends its evaluation summary (central benchmark + any per-client datasets) to `evaluation_on_textgrad_log.txt`, so you can track metrics across runs without rerunning the script.
   Set `TEXTGRAD_EVAL_ENGINE`, `SYNAPSE_TEXTGRAD_TEST_ENGINE`, and other knobs in `.env` (or via CLI flags) to choose the LLMs that supply textual gradients and client-side inference.
 
 ## Project Structure

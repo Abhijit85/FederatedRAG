@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
-from typing import Iterable, List, Sequence, Tuple
+from typing import Callable, Iterable, List, Optional, Sequence, Tuple
 
 import numpy as np
 
@@ -41,6 +41,9 @@ class TextGradPromptTrainer:
         eval_fn,
         system_prompt: Variable,
         validation_samples: Sequence[Tuple[str, str]] | None = None,
+        *,
+        total_questions: Optional[int] = None,
+        progress_callback: Callable[[int, int], None] | None = None,
     ) -> List[BatchTrainingResult]:
         """
         Execute a lightweight TextGrad training loop using proximal updates.
@@ -53,6 +56,8 @@ class TextGradPromptTrainer:
         baseline_validation_score = None
         if validation_samples:
             baseline_validation_score = self._evaluate_on_samples(model, eval_fn, validation_samples)
+
+        questions_processed = 0
 
         for batch_x, batch_y in dataloader:
             optimizer.zero_grad()
@@ -116,6 +121,11 @@ class TextGradPromptTrainer:
                 )
             )
 
+            questions_processed += len(batch_x)
+            if total_questions is not None and progress_callback:
+                processed = min(questions_processed, total_questions)
+                progress_callback(processed, total_questions)
+
             step_counter += 1
             if max_steps is not None and step_counter >= max_steps:
                 break
@@ -158,7 +168,8 @@ class TextGradPromptTrainer:
             matches = re.findall(r"-?\d+", label)
             if matches:
                 return int(matches[-1])
-        raise ValueError(f"Unable to parse label from value: {label!r}")
+            return label
+        return label
 
     @staticmethod
     def _evaluate_on_samples(model: BlackboxLLM, eval_fn, samples: Sequence[Tuple[str, str]]) -> float:

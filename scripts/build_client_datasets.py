@@ -86,7 +86,10 @@ def _parse_list(option_value: Optional[str]) -> List[str]:
 
 def _load_json(path: Path):
     with path.open("r", encoding="utf-8") as fh:
-        return json.load(fh)
+        payload = json.load(fh)
+    if isinstance(payload, dict) and "examples" in payload and isinstance(payload["examples"], list):
+        return payload["examples"]
+    return payload
 
 
 def _ensure_capacity(total_needed: int, available: int, label: str):
@@ -187,19 +190,40 @@ def _noniid_splits(
 
 
 def _transform_math_entry(item: Dict[str, object]) -> Dict[str, object]:
-    return {
+    problem = item.get("Problem") or item.get("problem") or item.get("question")
+    options = item.get("options") or item.get("Options", "")
+    rationale = item.get("Rationale", "")
+    correct = item.get("correct") or item.get("Answer")
+
+    if not problem and item.get("input"):
+        problem = item.get("input")
+    if not correct and item.get("target"):
+        correct = item.get("target")
+    if not correct and item.get("answer"):
+        correct = item.get("answer")
+
+    entry = {
         "type": "math",
-        "Problem": item.get("Problem") or item.get("problem"),
-        "options": item.get("options") or item.get("Options", ""),
-        "Rationale": item.get("Rationale", ""),
+        "Problem": problem,
+        "options": options,
+        "Rationale": rationale,
         "category": item.get("category") or item.get("Category", "general"),
-        "correct": item.get("correct") or item.get("Answer"),
+        "correct": correct,
     }
+    entry["task_type"] = "math"
+    dataset_name = item.get("dataset")
+    if isinstance(dataset_name, str) and dataset_name.strip():
+        entry["dataset"] = dataset_name.strip()
+    domain = item.get("domain")
+    if isinstance(domain, str) and domain.strip():
+        entry["domain"] = domain.strip()
+    return entry
 
 
 def _transform_science_entry(item: Dict[str, object]) -> Dict[str, object]:
     entry = dict(item)
     entry["type"] = "science"
+    entry["task_type"] = "image_required" if entry.get("image") else "science"
     return entry
 
 

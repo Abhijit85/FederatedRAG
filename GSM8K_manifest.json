@@ -1,0 +1,40 @@
+{
+  "dataset_name": "GSM8K_federated_rag_examples",
+  "version": "4.2",
+  "created_on": "2026-04-03",
+  "purpose": "GSM8K routing logs and derived summaries.",
+  "source_of_truth": "GSM8K_500_runlog.jsonl",
+  "source_mix": {
+    "gsm8k_derived": 500,
+    "total_records": 500
+  },
+  "files": [
+    {
+      "path": "GSM8K_500_runlog.jsonl",
+      "description": "Primary run log in JSONL format."
+    },
+    {
+      "path": "GSM8K_cosine_log.json",
+      "description": "Low-gap cosine and ambiguity records sampled from the run log."
+    },
+    {
+      "path": "GSM8K_routing_evolution.json",
+      "description": "Routing metrics and round summaries computed from the run log."
+    },
+    {
+      "path": "GSM8K_compendium_evolution.json",
+      "description": "Scenario-growth and deduplication summaries computed from the run log."
+    },
+    {
+      "path": "GSM8K_500_samples.json",
+      "description": "Expanded JSON snapshot of the 500 records."
+    }
+  ],
+  "notes": [
+    "All records use GSM8K-aligned dataset metadata.",
+    "The JSON summary files are generated from the run log.",
+    "Headlines follow the GSM8K-derived routing sample naming convention.",
+    "Figure-aligned examples are anchored at runlog-0116, runlog-0188, runlog-0288, and runlog-0449.",
+    "Compendium evolution is reported as 6 scenarios across rounds 1-4 with 95.2% dedup."
+  ]
+}

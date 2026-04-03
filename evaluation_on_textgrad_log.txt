@@ -1,0 +1,112 @@
+{"timestamp": "2025-11-06T17:38:28.314664Z", "section": "central", "payload": {"mixed_queries": "bbh_object_counting_eval_v2.json", "domains": {"math": {"correct": 48, "total": 50, "accuracy": 0.96}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 48, "total": 50, "accuracy": 0.96}}, "overall": {"correct": 48, "total": 50, "accuracy": 0.96}}}
+========================================================================
+[2025-11-09T10:35:37.375409Z] TextGrad evaluation (central)
+Benchmark: bbh_object_counting_eval_v3.json
+Domain metrics:
+  · math: 49/50 (98.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 49/50 (98.0%)
+Overall:
+  · aggregate: 49/50 (98.0%)
+{"timestamp": "2025-11-09T10:35:37.375409Z", "section": "central", "payload": {"mixed_queries": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 49, "total": 50, "accuracy": 0.98}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 49, "total": 50, "accuracy": 0.98}}, "overall": {"correct": 49, "total": 50, "accuracy": 0.98}}}
+
+========================================================================
+[2025-11-09T10:35:37.399472Z] TextGrad evaluation (client)
+Dataset label: client_1_mixed_queries
+Dataset path: client_datasets/object_counting/client_1_mixed_queries.json
+Domain metrics:
+  · math: 0/0 (n/a)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · client_1_mixed_queries: 0/0 (n/a)
+Overall:
+  · aggregate: 0/0 (n/a)
+{"timestamp": "2025-11-09T10:35:37.399472Z", "section": "client", "payload": {"dataset_path": "client_datasets/object_counting/client_1_mixed_queries.json", "label": "client_1_mixed_queries", "domains": {"math": {"correct": 0, "total": 0, "accuracy": null}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"client_1_mixed_queries": {"correct": 0, "total": 0, "accuracy": null}}, "overall": {"correct": 0, "total": 0, "accuracy": null}}}
+
+========================================================================
+[2025-11-09T10:35:37.412603Z] TextGrad evaluation (client)
+Dataset label: client_2_mixed_queries
+Dataset path: client_datasets/object_counting/client_2_mixed_queries.json
+Domain metrics:
+  · math: 0/0 (n/a)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · client_2_mixed_queries: 0/0 (n/a)
+Overall:
+  · aggregate: 0/0 (n/a)
+{"timestamp": "2025-11-09T10:35:37.412603Z", "section": "client", "payload": {"dataset_path": "client_datasets/object_counting/client_2_mixed_queries.json", "label": "client_2_mixed_queries", "domains": {"math": {"correct": 0, "total": 0, "accuracy": null}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"client_2_mixed_queries": {"correct": 0, "total": 0, "accuracy": null}}, "overall": {"correct": 0, "total": 0, "accuracy": null}}}
+
+========================================================================
+[2025-11-09T10:35:37.424116Z] TextGrad evaluation (client)
+Dataset label: client_3_mixed_queries
+Dataset path: client_datasets/object_counting/client_3_mixed_queries.json
+Domain metrics:
+  · math: 0/0 (n/a)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · client_3_mixed_queries: 0/0 (n/a)
+Overall:
+  · aggregate: 0/0 (n/a)
+{"timestamp": "2025-11-09T10:35:37.424116Z", "section": "client", "payload": {"dataset_path": "client_datasets/object_counting/client_3_mixed_queries.json", "label": "client_3_mixed_queries", "domains": {"math": {"correct": 0, "total": 0, "accuracy": null}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"client_3_mixed_queries": {"correct": 0, "total": 0, "accuracy": null}}, "overall": {"correct": 0, "total": 0, "accuracy": null}}}
+
+========================================================================
+[2025-11-09T10:35:37.426529Z] TextGrad evaluation (client)
+Dataset label: summary
+Dataset path: client_datasets/object_counting/summary.json
+Domain metrics:
+  · math: 0/0 (n/a)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · summary: 0/0 (n/a)
+Overall:
+  · aggregate: 0/0 (n/a)
+{"timestamp": "2025-11-09T10:35:37.426529Z", "section": "client", "payload": {"dataset_path": "client_datasets/object_counting/summary.json", "label": "summary", "domains": {"math": {"correct": 0, "total": 0, "accuracy": null}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"summary": {"correct": 0, "total": 0, "accuracy": null}}, "overall": {"correct": 0, "total": 0, "accuracy": null}}}
+
+========================================================================
+[2025-11-09T10:35:37.426745Z] TextGrad evaluation (run_summary)
+Central dataset: bbh_object_counting_eval_v3.json
+Central overall:
+  · overall: 49/50 (98.0%)
+Central domains:
+  · math: 49/50 (98.0%)
+  · science: 0/0 (n/a)
+Central datasets:
+  · BBH_object_counting: 49/50 (98.0%)
+Client summary:
+  Per-client accuracies:
+    · client_1_mixed_queries: overall=n/a, math=n/a, science=n/a
+       datasets: client_1_mixed_queries=n/a
+    · client_2_mixed_queries: overall=n/a, math=n/a, science=n/a
+       datasets: client_2_mixed_queries=n/a
+    · client_3_mixed_queries: overall=n/a, math=n/a, science=n/a
+       datasets: client_3_mixed_queries=n/a
+    · summary: overall=n/a, math=n/a, science=n/a
+       datasets: summary=n/a
+{"timestamp": "2025-11-09T10:35:37.426745Z", "section": "run_summary", "payload": {"central": {"label": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 49, "total": 50, "accuracy": 0.98}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 49, "total": 50, "accuracy": 0.98}}, "overall": {"correct": 49, "total": 50, "accuracy": 0.98}}, "client_summary": {"macro_overall": null, "overall_spread": null, "overall_stdev": null, "macro_math": null, "macro_science": null, "details": [{"label": "client_1_mixed_queries", "overall": null, "math": null, "science": null, "datasets": {"client_1_mixed_queries": null}}, {"label": "client_2_mixed_queries", "overall": null, "math": null, "science": null, "datasets": {"client_2_mixed_queries": null}}, {"label": "client_3_mixed_queries", "overall": null, "math": null, "science": null, "datasets": {"client_3_mixed_queries": null}}, {"label": "summary", "overall": null, "math": null, "science": null, "datasets": {"summary": null}}]}}}
+
+========================================================================
+[2025-11-14T05:43:05.836879Z] TextGrad evaluation (central)
+Benchmark: bbh_object_counting_eval_v3.json
+Domain metrics:
+  · math: 46/50 (92.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 46/50 (92.0%)
+Overall:
+  · aggregate: 46/50 (92.0%)
+{"timestamp": "2025-11-14T05:43:05.836879Z", "section": "central", "payload": {"mixed_queries": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 46, "total": 50, "accuracy": 0.92}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 46, "total": 50, "accuracy": 0.92}}, "overall": {"correct": 46, "total": 50, "accuracy": 0.92}}}
+
+========================================================================
+[2025-11-14T05:46:58.741419Z] TextGrad evaluation (client)
+Dataset label: client_1_mixed_queries
+Dataset path: client_datasets/object_counting/client_1_mixed_queries.json
+Domain metrics:
+  · math: 10/10 (100.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 10/10 (100.0%)
+Overall:
+  · aggregate: 10/10 (100.0%)
+{"timestamp": "2025-11-14T05:46:58.741419Z", "section": "client", "payload": {"dataset_path": "client_datasets/object_counting/client_1_mixed_queries.json", "label": "client_1_mixed_queries", "domains": {"math": {"correct": 10, "total": 10, "accuracy": 1.0}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 10, "total": 10, "accuracy": 1.0}}, "overall": {"correct": 10, "total": 10, "accuracy": 1.0}}}
+

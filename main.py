@@ -2,23 +2,28 @@ import argparse
 import json
 import logging
 import os
+import re
 import sys
 import statistics
+from datetime import datetime, timezone
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 from dotenv import load_dotenv
+
+# Load environment variables from a .env file at the start
+load_dotenv()
+model_name_env = os.environ.get("MODEL_NAME", "").strip()
+os.environ.setdefault("VLM_MODEL", model_name_env or "gpt-4o-mini")
 
 from math_qa import MathQATool
 from science_qa import ScienceQATool
 from synapse.agent import SynapseAgent
 from synapse.config import ApiCredentials
 from synapse.runtime import SynapseRuntime
+from synapse.privacy.attacks import run_prompt_extraction_attack
 from openrouter_client import get_available_api_keys
 from jina_key_manager import get_available_jina_api_keys
-
-# Load environment variables from a .env file at the start
-load_dotenv()
 
 # --- 1. LOGGING SETUP ---
 class LoggerWriter:
@@ -37,7 +42,7 @@ log_formatter = logging.Formatter('%(message)s')
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-file_handler = logging.FileHandler("evaluation_log.txt", mode='w')
+file_handler = logging.FileHandler("evaluation_log.txt", mode='a')
 file_handler.setFormatter(log_formatter)
 logger.addHandler(file_handler)
 
@@ -48,6 +53,49 @@ logger.addHandler(console_handler)
 sys.stdout = LoggerWriter(logger.info)
 sys.stderr = LoggerWriter(logger.error)
 # --- END LOGGING SETUP ---
+
+log_path = Path("evaluation_log.txt")
+delimiter = "===== New Evaluation Run ====="
+if log_path.exists() and log_path.stat().st_size > 0:
+    logger.info("\n" + delimiter)
+else:
+    logger.info(delimiter)
+
+
+def _append_task_log(
+    dataset_label: str,
+    central_metrics: Optional[dict],
+    client_summary: Optional[dict],
+) -> None:
+    sanitized = re.sub(r"[^A-Za-z0-9_.-]", "_", dataset_label or "mixed_queries")
+    log_path = Path(f"evaluation_log_{sanitized}.txt")
+    record = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "dataset": dataset_label,
+        "central": central_metrics,
+        "client_summary": client_summary,
+    }
+    try:
+        with log_path.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(record))
+            fh.write("\n")
+    except OSError as exc:
+        print(f"⚠️ Failed to write per-task log '{log_path}': {exc}")
+
+
+def _domain_accuracy(metrics: dict, domain: str) -> Optional[float]:
+    domains = metrics.get("domains")
+    if isinstance(domains, dict):
+        entry = domains.get(domain)
+        if isinstance(entry, dict):
+            return entry.get("accuracy")
+    fallback = metrics.get(domain)
+    if isinstance(fallback, dict):
+        return fallback.get("accuracy")
+    return None
+
+
+import collections
 
 
 def evaluate_mixed_queries(
@@ -66,6 +114,17 @@ def evaluate_mixed_queries(
         print(f"❌ Error loading test file: {e}")
         return None
 
+    per_dataset = collections.defaultdict(lambda: {"correct": 0, "total": 0})
+    bbh_metrics = {"correct": 0, "total": 0}
+
+    def _record(dataset_name: str, hit: int) -> None:
+        bucket = per_dataset[dataset_name]
+        bucket["correct"] += hit
+        bucket["total"] += 1
+        if _is_bbh_dataset(dataset_name):
+            bbh_metrics["correct"] += hit
+            bbh_metrics["total"] += 1
+
     metrics = {
         "math": {"correct": 0, "total": 0},
         "science": {"correct": 0, "total": 0},
@@ -81,18 +140,28 @@ def evaluate_mixed_queries(
         return answer
 
     for item in test_data:
-        is_science_query = item.get("type") == "science" or "question" in item
+        is_science_query = (
+            item.get("type") == "science"
+            or item.get("domain") == "science"
+            or bool(item.get("image"))
+        )
         if is_science_query:
             query_text = item["question"]
             data_payload = item
             metrics["science"]["total"] += 1
             print(f"\n--- Processing ScienceQA Query: '{query_text[:80]}...' ---")
         else:
-            query_text = f"{item.get('Problem', '')}\nOptions: {item.get('options', '')}"
-            data_payload = None
+            question_text = item.get("question") or item.get("Problem") or ""
+            options = item.get("options")
+            if options:
+                query_text = f"{question_text}\nOptions: {options}"
+            else:
+                query_text = question_text
+            data_payload = item
             metrics["math"]["total"] += 1
             print(f"\n--- Processing MathQA Query: '{query_text[:80]}...' ---")
 
+        dataset_name = item.get("dataset") or dataset_label or Path(test_file).name
         try:
             result = agent.run(query=query_text, data_item=data_payload)
         except Exception as exc:
@@ -106,7 +175,7 @@ def evaluate_mixed_queries(
             print("=" * 80)
             print("[✓] Query processed successfully.")
 
-            final_answer = _extract_final_answer(llm_output)
+            final_answer = _normalize_answer(_extract_final_answer(llm_output))
             if is_science_query:
                 gold_idx = item.get("answer")
                 gold_text = item.get("choices")
@@ -119,16 +188,21 @@ def evaluate_mixed_queries(
                 else:
                     # fall back to matching the first choice containing the final answer
                     correct = any(choice.strip().lower() in final_answer.lower() for choice in gold_text or [])
-                if correct:
-                    metrics["science"]["correct"] += 1
+                hit = int(bool(correct))
+                metrics["science"]["correct"] += hit
+                _record(dataset_name, hit)
             else:
                 gold = item.get("correct")
+                if not gold:
+                    gold = item.get("answer")
                 if isinstance(gold, str):
-                    if gold.strip().lower() in final_answer.lower():
-                        metrics["math"]["correct"] += 1
+                    hit = int(_answers_match(gold, final_answer, dataset_name))
+                    metrics["math"]["correct"] += hit
+                    _record(dataset_name, hit)
                 elif isinstance(gold, (list, tuple)):
-                    if any(g.strip().lower() in final_answer.lower() for g in gold):
+                    if any(_answers_match(g, final_answer, dataset_name) for g in gold):
                         metrics["math"]["correct"] += 1
+                        _record(dataset_name, 1)
         else:
             print("[✗] Agent failed to produce a final result for this query.")
 
@@ -149,6 +223,12 @@ def evaluate_mixed_queries(
     print(f"Math Accuracy: {_format_accuracy(metrics['math']['correct'], metrics['math']['total'])}")
     print(f"Science Accuracy: {_format_accuracy(metrics['science']['correct'], metrics['science']['total'])}")
     print(f"Overall Accuracy: {_format_accuracy(total_correct, total_questions)}")
+    if per_dataset:
+        print("Dataset accuracies:")
+        for name, bucket in per_dataset.items():
+            print(f"  · {name}: {_format_accuracy(bucket['correct'], bucket['total'])}")
+    if bbh_metrics["total"]:
+        print(f"BBH Accuracy: {_format_accuracy(bbh_metrics['correct'], bbh_metrics['total'])}")
 
     print("\n--- AGENT EVALUATION COMPLETE ---")
     print("Full output has been saved to evaluation_log.txt")
@@ -159,6 +239,19 @@ def evaluate_mixed_queries(
             "correct": metrics["math"]["correct"],
             "total": metrics["math"]["total"],
             "accuracy": _accuracy(metrics["math"]["correct"], metrics["math"]["total"]),
+        },
+        "datasets": {
+            name: {
+                "correct": bucket["correct"],
+                "total": bucket["total"],
+                "accuracy": (bucket["correct"] / bucket["total"]) if bucket["total"] else None,
+            }
+            for name, bucket in per_dataset.items()
+        },
+        "bbh": {
+            "correct": bbh_metrics["correct"],
+            "total": bbh_metrics["total"],
+            "accuracy": _accuracy(bbh_metrics["correct"], bbh_metrics["total"]),
         },
         "science": {
             "correct": metrics["science"]["correct"],
@@ -201,6 +294,35 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Evaluate per-client datasets (requires --client-data-dir).",
     )
+    parser.add_argument(
+        "--rounds",
+        type=int,
+        default=1,
+        help="Number of SYNAPSE federation rounds to execute before evaluation.",
+    )
+    parser.add_argument(
+        "--prompt-attack",
+        action="store_true",
+        help="Run a prompt extraction attack after federation to gauge privacy leakage.",
+    )
+    parser.add_argument(
+        "--prompt-attack-model",
+        type=str,
+        default=None,
+        help="LLM to use for the prompt extraction attack (defaults to MODEL_NAME).",
+    )
+    parser.add_argument(
+        "--prompt-attack-samples",
+        type=int,
+        default=5,
+        help="Maximum number of artifacts per client to probe during the attack.",
+    )
+    parser.add_argument(
+        "--prompt-attack-output",
+        type=Path,
+        default=Path("prompt_attack_results.json"),
+        help="Path to write the prompt attack report (JSON).",
+    )
     return parser.parse_args()
 
 
@@ -209,6 +331,23 @@ def main():
     Run a full SYNAPSE federation round and evaluate the resulting agent.
     """
     args = parse_args()
+    # Allow .env to control prompt attack settings when flags are omitted.
+    env_prompt_attack = os.environ.get("PROMPT_ATTACK")
+    if env_prompt_attack and not args.prompt_attack:
+        if env_prompt_attack.strip().lower() in {"1", "true", "yes", "on"}:
+            args.prompt_attack = True
+
+    if os.environ.get("PROMPT_ATTACK_MODEL") and not args.prompt_attack_model:
+        args.prompt_attack_model = os.environ.get("PROMPT_ATTACK_MODEL")
+
+    if os.environ.get("PROMPT_ATTACK_SAMPLES") and args.prompt_attack_samples == 5:
+        try:
+            args.prompt_attack_samples = int(os.environ.get("PROMPT_ATTACK_SAMPLES"))
+        except ValueError:
+            pass
+
+    if os.environ.get("PROMPT_ATTACK_OUTPUT") and args.prompt_attack_output == Path("prompt_attack_results.json"):
+        args.prompt_attack_output = Path(os.environ.get("PROMPT_ATTACK_OUTPUT"))
 
     available_lambda_keys = get_available_api_keys(allow_empty=True)
     lambda_key = available_lambda_keys[0] if available_lambda_keys else None
@@ -242,10 +381,20 @@ def main():
         credentials,
         client_count=args.client_count,
     )
-    print("\n--- 1. SYNAPSE FEDERATION ROUND ---")
-    runtime.run_round()
-    summary = runtime.summarize_round()
-    print(f"SYNAPSE Round Summary: {summary}")
+    first_client = next(iter(runtime.clients.values()), None)
+    dp_epsilon = None
+    if first_client and getattr(first_client, "privacy_policy", None):
+        dp_epsilon = first_client.privacy_policy.dp_epsilon
+    if dp_epsilon is not None:
+        print(f"[Privacy] Differential privacy ENABLED (epsilon={dp_epsilon})")
+    else:
+        print("[Privacy] Differential privacy DISABLED")
+    total_rounds = max(1, args.rounds)
+    for round_idx in range(total_rounds):
+        print(f"\n--- 1. SYNAPSE FEDERATION ROUND {round_idx + 1}/{total_rounds} ---")
+        runtime.run_round()
+        summary = runtime.summarize_round()
+        print(f"SYNAPSE Round Summary: {summary}")
 
     tool_registry = {
         "mathqa": MathQATool(),
@@ -256,12 +405,16 @@ def main():
     runtime.export_snapshot(Path("synapse_global_snapshot.json"))
     print("✅ Exported SYNAPSE snapshot to 'synapse_global_snapshot.json'.")
 
+    dataset_label = args.test_file.name
+    central_metrics: Optional[dict[str, Any]] = None
+
     if args.skip_global_eval:
         print("ℹ️ Skipping global evaluation as requested.")
     else:
-        evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=args.test_file.name)
+        central_metrics = evaluate_mixed_queries(agent, test_file=str(args.test_file), dataset_label=dataset_label)
 
     client_metrics = []
+    client_summary_payload: Optional[dict[str, Any]] = None
     if args.evaluate_clients:
         if not args.client_data_dir:
             print("⚠️ --evaluate-clients was set but no --client-data-dir provided; skipping client evaluations.")
@@ -277,15 +430,26 @@ def main():
                     metrics = evaluate_mixed_queries(agent, test_file=str(data_path), dataset_label=data_path.stem)
                     if metrics:
                         client_metrics.append(metrics)
+                    else:
+                        print(f"⚠️ Evaluation for '{data_path}' failed; skipping from client summary.")
 
     if client_metrics:
         def _format_percent(value: Optional[float]) -> str:
             return f"{value * 100:.1f}%" if value is not None else "n/a"
 
         print("\n--- FEDERATED CLIENT BENCHMARK SUMMARY ---")
-        overall_values = [m["overall"]["accuracy"] for m in client_metrics if m["overall"]["accuracy"] is not None]
-        math_values = [m["math"]["accuracy"] for m in client_metrics if m["math"]["accuracy"] is not None]
-        science_values = [m["science"]["accuracy"] for m in client_metrics if m["science"]["accuracy"] is not None]
+        valid_clients = [m for m in client_metrics if m and m.get("datasets")]
+
+        overall_values = [m["overall"]["accuracy"] for m in valid_clients if m["overall"]["accuracy"] is not None]
+        math_values = []
+        science_values = []
+        for m in valid_clients:
+            math_val = _domain_accuracy(m, "math")
+            if math_val is not None:
+                math_values.append(math_val)
+            science_val = _domain_accuracy(m, "science")
+            if science_val is not None:
+                science_values.append(science_val)
 
         if overall_values:
             macro = sum(overall_values) / len(overall_values)
@@ -299,12 +463,107 @@ def main():
         if science_values:
             print(f"Macro science accuracy: {_format_percent(sum(science_values) / len(science_values))}")
 
-        for metrics in client_metrics:
+        client_details: list[dict[str, Any]] = []
+        for metrics in valid_clients:
+            dataset_details = metrics.get("datasets", {})
+            dataset_summary = ", ".join(
+                f"{name}={_format_percent(bucket['accuracy'])}" for name, bucket in dataset_details.items()
+            )
+            if not dataset_summary:
+                dataset_summary = "datasets=n/a"
+            bbh_acc = metrics.get("bbh", {}).get("accuracy")
+            math_acc = _domain_accuracy(metrics, "math")
+            science_acc = _domain_accuracy(metrics, "science")
             print(
                 f"  · {metrics['label']}: "
                 f"overall={_format_percent(metrics['overall']['accuracy'])}, "
-                f"math={_format_percent(metrics['math']['accuracy'])}, "
-                f"science={_format_percent(metrics['science']['accuracy'])}"
+                f"math={_format_percent(math_acc)}, "
+                f"science={_format_percent(science_acc)}, "
+                f"bbh={_format_percent(bbh_acc)}, "
+                f"{dataset_summary}"
             )
+
+            client_details.append(
+                {
+                    "label": metrics["label"],
+                    "overall": metrics["overall"].get("accuracy"),
+                    "math": math_acc,
+                    "science": science_acc,
+                    "datasets": {name: bucket.get("accuracy") for name, bucket in dataset_details.items()},
+                }
+            )
+
+        client_summary_payload = {
+            "macro_overall": macro,
+            "overall_spread": spread,
+            "overall_stdev": stdev,
+            "macro_math": (sum(math_values) / len(math_values)) if math_values else None,
+            "macro_science": (sum(science_values) / len(science_values)) if science_values else None,
+            "details": client_details,
+        }
+
+    if args.prompt_attack:
+        attack_model = (
+            args.prompt_attack_model
+            or os.environ.get("PROMPT_ATTACK_MODEL")
+            or os.environ.get("MODEL_NAME")
+            or model_name_env
+            or "gpt-4o-mini"
+        )
+        print("\n--- PROMPT EXTRACTION ATTACK ---")
+        report = run_prompt_extraction_attack(
+            list(runtime.clients.values()),
+            model=attack_model,
+            max_samples=max(1, args.prompt_attack_samples),
+            output_path=args.prompt_attack_output,
+        )
+        avg = report.get("average_similarity")
+        if avg is not None:
+            print(f"Samples attacked: {report['samples']}; average similarity={avg * 100:.1f}%")
+        else:
+            print("No artifacts available for attack (perhaps clients shared nothing).")
+        cosine_avg = report.get("average_cosine_similarity")
+        if cosine_avg is not None:
+            print(f"Average cosine similarity: {cosine_avg * 100:.1f}%")
+        rouge_avg = report.get("average_rouge_l")
+        if rouge_avg is not None:
+            print(f"Average ROUGE-L F1: {rouge_avg * 100:.1f}%")
+        print(f"Attack model: {attack_model}")
+        if args.prompt_attack_output:
+            print(f"Detailed attack report saved to '{args.prompt_attack_output}'.")
+
+    _append_task_log(dataset_label, central_metrics, client_summary_payload)
+def _normalize_answer(text: str) -> str:
+    """
+    Normalize answer strings by removing common prefixes and punctuation.
+    """
+    cleaned = text.strip()
+    cleaned = cleaned.replace("Final Answer:", "").replace("Answer:", "")
+    cleaned = cleaned.strip().lower().strip(".")
+    return cleaned
+
+
+def _is_bbh_dataset(name: str | None) -> bool:
+    return isinstance(name, str) and name.upper().startswith("BBH")
+
+
+def _extract_numeric_value(text: str) -> Optional[int]:
+    match = re.findall(r"-?\d+", text)
+    if not match:
+        return None
+    try:
+        return int(match[-1])
+    except ValueError:
+        return None
+
+
+def _answers_match(gold: str, prediction: str, dataset_name: str) -> bool:
+    if _is_bbh_dataset(dataset_name):
+        gold_val = _extract_numeric_value(gold)
+        pred_val = _extract_numeric_value(prediction)
+        return gold_val is not None and pred_val == gold_val
+    return _normalize_answer(gold) == prediction
+
+
 if __name__ == "__main__":
     main()

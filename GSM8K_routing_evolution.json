@@ -1,0 +1,227 @@
+{
+  "category": "gsm8k_routing_metrics",
+  "run_id": "GSM8K-runlog-v1",
+  "source_file": "GSM8K_500_runlog.jsonl",
+  "record_count": 500,
+  "overall": {
+    "routing_accuracy": 0.998,
+    "ambiguity_rate": 0.328,
+    "mean_top_gap": 0.075
+  },
+  "round_summaries": [
+    {
+      "round": 1,
+      "record_count": 125,
+      "routing_accuracy": 1.0,
+      "ambiguity_rate": 0.336,
+      "mean_top_gap": 0.075,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 64
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 30
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 14
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 10
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 6
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    },
+    {
+      "round": 2,
+      "record_count": 125,
+      "routing_accuracy": 1.0,
+      "ambiguity_rate": 0.328,
+      "mean_top_gap": 0.075,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 60
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 34
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 15
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 12
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 3
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    },
+    {
+      "round": 3,
+      "record_count": 125,
+      "routing_accuracy": 0.992,
+      "ambiguity_rate": 0.328,
+      "mean_top_gap": 0.075,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 54
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 36
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 19
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 9
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 6
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    },
+    {
+      "round": 4,
+      "record_count": 125,
+      "routing_accuracy": 1.0,
+      "ambiguity_rate": 0.32,
+      "mean_top_gap": 0.076,
+      "top_predicted_domains": [
+        {
+          "domain": "General Logic and Counting",
+          "count": 59
+        },
+        {
+          "domain": "Financial and Banking Calculator",
+          "count": 41
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "count": 14
+        },
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "count": 9
+        },
+        {
+          "domain": "Geometry and Measurement",
+          "count": 2
+        }
+      ],
+      "source_mix": {
+        "gsm8k_derived": 125
+      }
+    }
+  ],
+  "reference_highlights": [
+    {
+      "sample_id": "runlog-0116",
+      "headline": "GSM8K-derived routing sample 0116",
+      "query_text": "Jamal's phone holds 6x Brittany's capacity. Brittany's capacity is 50x the number of ducks in Jamal's photo. If Jamal holds 1800 photos, how many ducks are in the photo?",
+      "route_confidence": 0.85,
+      "top_gap": 0.09,
+      "ambiguous": false,
+      "predicted_domain": "General Logic and Counting",
+      "ground_truth_domain": "General Logic and Counting",
+      "retrieved_compendium_entries": [
+        "Work, Rate, and Time Analyzer",
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Geometry: Shapes and Measurement",
+        "Algebraic Word Problem Solver"
+      ],
+      "abridged_reasoning": "Let J=1800 and J=6B => B=300. Also B=50D => D=300/50=6.",
+      "final_answer": "6 ducks",
+      "ground_truth": "6 ducks",
+      "extra_metrics": {}
+    },
+    {
+      "sample_id": "runlog-0188",
+      "headline": "GSM8K-derived routing sample 0188",
+      "query_text": "Doctor Jones works 9 hours. Rounds take 20 minutes per inpatient (9 inpatients) and he has 10 appointments at 30 minutes each. How many hours are left to update records?",
+      "route_confidence": 0.84,
+      "top_gap": 0.08,
+      "ambiguous": false,
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "retrieved_compendium_entries": [
+        "Work, Rate, and Time Analyzer",
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Geometry: Shapes and Measurement",
+        "General Logic and Counting"
+      ],
+      "abridged_reasoning": "Rounds: 9 x 20 = 180 min. Appointments: 10 x 30 = 300 min. Total scheduled: 480 min; total available: 9 x 60 = 540 min. Remaining: 540 - 480 = 60 min = 1 hour.",
+      "final_answer": "1 hour",
+      "ground_truth": "1 hour",
+      "extra_metrics": {}
+    },
+    {
+      "sample_id": "runlog-0288",
+      "headline": "GSM8K-derived routing sample 0288",
+      "query_text": "If Ann is 9 years old and her brother is twice her age, how old will her brother be in 3 years?",
+      "route_confidence": 0.82,
+      "top_gap": 0.1,
+      "ambiguous": false,
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "retrieved_compendium_entries": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Geometry: Shapes and Measurement",
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "abridged_reasoning": "Brother is twice Ann's age: 2 x 9 = 18. In 3 years: 18 + 3 = 21.",
+      "final_answer": "21",
+      "ground_truth": "21",
+      "extra_metrics": {}
+    },
+    {
+      "sample_id": "runlog-0449",
+      "headline": "GSM8K-derived routing sample 0449",
+      "query_text": "John attends a cooking class 4 times/week for 2 hours each time for 6 weeks. He learns one recipe per 1.5 hours. How many recipes does he learn?",
+      "route_confidence": 0.83,
+      "top_gap": 0.08,
+      "ambiguous": false,
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "retrieved_compendium_entries": [
+        "Work, Rate, and Time Analyzer",
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Geometry: Shapes and Measurement",
+        "Algebraic Word Problem Solver"
+      ],
+      "abridged_reasoning": "Weekly hours: 4 x 2 = 8. Total hours: 8 x 6 = 48. Recipes: 48/1.5 = 32.",
+      "final_answer": "32 recipes",
+      "ground_truth": "32 recipes",
+      "extra_metrics": {}
+    }
+  ]
+}
