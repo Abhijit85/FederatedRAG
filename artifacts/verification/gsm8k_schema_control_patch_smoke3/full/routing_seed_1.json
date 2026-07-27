@@ -1,0 +1,64 @@
+{
+  "seed": 1,
+  "sample_count": 3,
+  "correct": 1,
+  "accuracy": 0.3333333333333333,
+  "top_predicted_domains": [
+    [
+      "General Logic and Counting",
+      1
+    ],
+    [
+      "Algebraic Word Problem Solver",
+      1
+    ],
+    [
+      "Financial and Banking Calculator",
+      1
+    ]
+  ],
+  "rows": [
+    {
+      "query_id": "8c540fe1ea74",
+      "query_text": "There are twice as many boys as girls at Dr. Wertz's school. If there are 60 girls and 5 students to every teacher, how many teachers are there?",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "6d5ad160cdb6",
+      "query_text": "A car in the fast lane is traveling at 60 miles/hour. A car in the slow lane is traveling at half that speed. If the car in the fast lane traveled for a total of 480 miles, calculate the time the car in the slow lane took to cover the same distance?",
+      "ground_truth_domain": "Geometry and Measurement",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": false,
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting"
+      ]
+    },
+    {
+      "query_id": "e0770ebd0453",
+      "query_text": "Charlotte went into the kitchen supply store knowing she wanted a set of pot and pans for $120.00, a set of mixing bowls for $20.00 and 5 separate utensils at $5.00 each.  At check out, the clerk told her everything was 20% off.  How much was her order?",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": false,
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    }
+  ]
+}

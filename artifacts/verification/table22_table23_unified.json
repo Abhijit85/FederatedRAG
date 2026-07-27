@@ -1,0 +1,30 @@
+{
+  "results_file": "/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/runs_100/tool-calling-gpt-4o-mini-0.0_range_0-100_user-openai/gpt-4o-mini-llm_0724002801.json",
+  "label": "stock tau-bench path unified regeneration",
+  "metrics": {
+    "row_count": 100,
+    "task_success_mean_reward": 0.34,
+    "task_success_rate_reward_eq_1": 0.34,
+    "tool_call_accuracy_zero_filled": 0.25,
+    "tool_call_accuracy_present_only": 0.4166666666666667,
+    "reward_info_presence_coverage": 0.92,
+    "missing_r_actions_rows": 40,
+    "avg_user_turns": 9.77,
+    "avg_assistant_turns": 16.25,
+    "avg_tool_turns": 7.48,
+    "avg_dialogue_turns_user_assistant": 26.02
+  },
+  "views": {
+    "table22_view": {
+      "task_success": 0.34,
+      "tool_call_accuracy": 0.25,
+      "avg_turns_user_only": 9.77,
+      "avg_turns_assistant_only": 16.25
+    },
+    "table23_view": {
+      "task_success": 0.34,
+      "tool_call_accuracy": 0.4166666666666667,
+      "avg_turns_user_plus_assistant": 26.02
+    }
+  }
+}

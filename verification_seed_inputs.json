@@ -1,0 +1,414 @@
+{
+  "core_reproduction": [
+    {
+      "checkpoint": "Table 2, typed condition, 0% contradiction",
+      "paper_anchor": 0.92,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 2, typed condition, 20% contradiction",
+      "paper_anchor": 0.89,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 2, typed condition, 40% contradiction",
+      "paper_anchor": 0.86,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 2, typed condition, 60% contradiction",
+      "paper_anchor": 0.81,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 14, TextGrad S=3",
+      "paper_anchor": 0.92,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 14, TextGrad S=1",
+      "paper_anchor": 0.89,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 14, TextGrad S=5",
+      "paper_anchor": 0.92,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 14, extractive centroid",
+      "paper_anchor": 0.85,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 14, single-shot summarize",
+      "paper_anchor": 0.87,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Table 14, no summarization",
+      "paper_anchor": 0.78,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "privacy_utility": [
+    {
+      "checkpoint": "No privacy",
+      "paper_anchor": 0.935,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=2.0, \u03bb=0.5",
+      "paper_anchor": 0.928,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=2.0, \u03bb=1.0",
+      "paper_anchor": 0.914,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=2.0, \u03bb=1.5",
+      "paper_anchor": 0.897,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=1.0, \u03bb=0.5",
+      "paper_anchor": 0.909,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=1.0, \u03bb=1.0",
+      "paper_anchor": 0.902,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=1.0, \u03bb=1.5",
+      "paper_anchor": 0.881,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=0.5, \u03bb=0.5",
+      "paper_anchor": 0.884,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=0.5, \u03bb=1.0",
+      "paper_anchor": 0.866,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    },
+    {
+      "checkpoint": "\u03b5=0.5, \u03bb=1.5",
+      "paper_anchor": 0.851,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mean_auroc": null,
+      "mean_pct_lt_point1": null
+    }
+  ],
+  "toolbench": [
+    {
+      "checkpoint": "ToolBench overall, 250-query baseline",
+      "paper_anchor": 0.728,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "ToolBench extension to 600\u2013750 queries, same protocol",
+      "paper_anchor": 0.728,
+      "query_count": 600,
+      "seeds": [
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "cross_model": [
+    {
+      "checkpoint": "Table 22, \u03c4-bench retail, SYNAPSE main",
+      "paper_anchor": 0.453,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": 0.453
+    },
+    {
+      "checkpoint": "Table 22, \u03c4-bench retail, centralized",
+      "paper_anchor": 0.511,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": 0.511
+    },
+    {
+      "checkpoint": "Table 22, \u03c4-bench retail, Fed-ICL",
+      "paper_anchor": 0.301,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": 0.301
+    },
+    {
+      "checkpoint": "Table 23, LLaMA-3.2-3B delta vs main",
+      "paper_anchor": -0.022,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": 0.453
+    },
+    {
+      "checkpoint": "Table 23, Mistral-7B delta vs main",
+      "paper_anchor": -0.009,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": 0.453
+    },
+    {
+      "checkpoint": "Table 23, GPT-4o delta vs main",
+      "paper_anchor": 0.085,
+      "query_count": 250,
+      "seeds": [
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": 0.453
+    }
+  ],
+  "controls_equivalence": [
+    {
+      "checkpoint": "Field-preserving structured-but-untyped control",
+      "paper_anchor": 0.86,
+      "query_count": 100,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "checkpoint": "Paired TOST mean difference (SYNAPSE - centralized)",
+      "paper_anchor": 0.0,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": null
+    },
+    {
+      "checkpoint": "Paired TOST 90% CI containment margin",
+      "paper_anchor": 0.03,
+      "query_count": 500,
+      "seeds": [
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "sd_mean_anchor": null
+    }
+  ],
+  "paired_tost": {
+    "margin": 0.03,
+    "alpha": 0.05,
+    "synapse_seeds": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    "centralized_seeds": [
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  }
+}

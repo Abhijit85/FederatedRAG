@@ -34,7 +34,10 @@ class TextGradSettings:
             self.evaluation_engine = get_engine(engine_name=self.evaluation_engine_name)
 
         if self.test_engine is None and self.test_engine_name:
-            self.test_engine = get_engine(engine_name=self.test_engine_name)
+            if self.test_engine_name == self.evaluation_engine_name and self.evaluation_engine is not None:
+                self.test_engine = self.evaluation_engine
+            else:
+                self.test_engine = get_engine(engine_name=self.test_engine_name)
 
         if self.evaluation_engine:
             set_backward_engine(self.evaluation_engine, override=True)

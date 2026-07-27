@@ -1,0 +1,29 @@
+{
+  "seed": 1,
+  "sample_count": 3,
+  "correct": 2,
+  "accuracy": 0.6666666666666666,
+  "rows": [
+    {
+      "query_id": "8c540fe1ea74",
+      "recommended_scenario": "scenario: General Logic and Counting\nscenario_context: A general-purpose tool for logic puzzles and counting problems that do not fit other categories, such as determining the number of zeroes needed to write numbers from 1 to 1000.\nprecautions: The tool's accuracy depends on clear and unambiguous problem statements.\nstructured_annex: entities: Word_Problem_Solver, Calculator, Mathematical_Formula, Final_Answer, Problem_Classifier, Formula_Validator, St...",
+      "gold_answer": "36",
+      "prediction": "36",
+      "correct": true
+    },
+    {
+      "query_id": "6d5ad160cdb6",
+      "recommended_scenario": "scenario: Work, Rate, and Time Analyzer\nscenario_context: Solves problems related to rates of work, speed, distance, and time.\nprecautions: The tool's accuracy depends on clear and unambiguous problem statements.\nstructured_annex: entities: Word_Problem_Solver, Calculator, Mathematical_Formula, Final_Answer, Problem_Classifier, Formula_Validator, St...",
+      "gold_answer": "16",
+      "prediction": "8.",
+      "correct": false
+    },
+    {
+      "query_id": "e0770ebd0453",
+      "recommended_scenario": "scenario: Percentage and Proportion Solver\nscenario_context: Handles calculations involving percentages, proportions, and direct or inverse relationships.\nprecautions: The tool's accuracy depends on clear and unambiguous problem statements.\nstructured_annex: entities: Word_Problem_Solver, Calculator, Mathematical_Formula, Final_Answer, Problem_Classifier, Formula_Validator, St...",
+      "gold_answer": "132",
+      "prediction": "$132.00",
+      "correct": true
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import math
+import re
+from collections import Counter
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Dict, Iterable, List, Optional
@@ -24,6 +27,7 @@ class EdgeConfig:
     edge_id: str
     domains: List[str] = field(default_factory=list)
     retain_history: bool = True
+    similarity_threshold: float = 0.85
 
 
 class EdgeAggregator:
@@ -36,21 +40,146 @@ class EdgeAggregator:
         self.config = config
         self._history: List[KnowledgePackage] = []
         self._domain_cache: Dict[str, Dict[str, KnowledgeArtifact]] = {}
+        self._conflict_log: List[Dict[str, object]] = []
         self.textgrad_settings = textgrad_settings
 
-    def _deduplicate_artifacts(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
-        """
-        Remove straightforward duplicates using artifact signatures.
+    def _tokenize(self, text: str) -> List[str]:
+        return re.findall(r"[a-z0-9]+", (text or "").lower())
 
-        Placeholder implementation that keeps the first artifact for each
-        signature. Future versions will incorporate semantic similarity checks.
-        """
-        seen: Dict[str, KnowledgeArtifact] = {}
-        for artifact in artifacts:
-            if artifact.signature in seen:
-                continue
-            seen[artifact.signature] = artifact
-        return list(seen.values())
+    def _similarity_view(self, artifact: KnowledgeArtifact) -> str:
+        payload = artifact.structured_payload or {}
+        if isinstance(payload, dict) and payload.get("type") == "usage_scenario":
+            parts: List[str] = []
+            scenario = artifact.metadata.get("scenario")
+            if isinstance(scenario, str) and scenario.strip():
+                parts.append(scenario.strip())
+            scenario_context = payload.get("scenario_context")
+            if isinstance(scenario_context, str) and scenario_context.strip():
+                parts.append(scenario_context.strip())
+            scenario_notes = payload.get("scenario_notes")
+            if isinstance(scenario_notes, list) and scenario_notes:
+                parts.extend(str(item).strip() for item in scenario_notes[:2] if str(item).strip())
+            if parts:
+                return "\n".join(parts)
+        return artifact.text
+
+    def _text_vector(self, artifact: KnowledgeArtifact) -> Counter[str]:
+        return Counter(self._tokenize(self._similarity_view(artifact)))
+
+    def _cosine_similarity(self, left: KnowledgeArtifact, right: KnowledgeArtifact) -> float:
+        left_vec = self._text_vector(left)
+        right_vec = self._text_vector(right)
+        if not left_vec or not right_vec:
+            return 0.0
+        overlap = set(left_vec) & set(right_vec)
+        numerator = sum(left_vec[token] * right_vec[token] for token in overlap)
+        left_norm = math.sqrt(sum(value * value for value in left_vec.values()))
+        right_norm = math.sqrt(sum(value * value for value in right_vec.values()))
+        if left_norm == 0.0 or right_norm == 0.0:
+            return 0.0
+        return numerator / (left_norm * right_norm)
+
+    def _artifact_domain(self, artifact: KnowledgeArtifact) -> str:
+        return str(artifact.metadata.get("domain") or artifact.metadata.get("tool") or "general")
+
+    def _artifact_payload_repr(self, artifact: KnowledgeArtifact) -> str:
+        payload = artifact.structured_payload
+        if payload is None:
+            return ""
+        return repr(payload)
+
+    def _representative_artifact(self, cluster: List[KnowledgeArtifact]) -> KnowledgeArtifact:
+        def score(artifact: KnowledgeArtifact) -> tuple[int, int, int]:
+            payload_width = len(self._artifact_payload_repr(artifact))
+            text_width = len((artifact.text or "").strip())
+            meta_width = len(artifact.metadata)
+            return (text_width, payload_width, meta_width)
+
+        return max(cluster, key=score)
+
+    def _record_cluster_conflict(self, cluster: List[KnowledgeArtifact], similarity_scores: List[float]) -> None:
+        signatures = [artifact.signature for artifact in cluster]
+        payloads = {self._artifact_payload_repr(artifact) for artifact in cluster}
+        texts = {artifact.text.strip() for artifact in cluster if artifact.text.strip()}
+        distinct_sources = sorted(
+            {
+                str(artifact.metadata.get("source_id"))
+                for artifact in cluster
+                if artifact.metadata.get("source_id") is not None
+            }
+        )
+        self._conflict_log.append(
+            {
+                "type": "cosine_cluster_conflict",
+                "domain": self._artifact_domain(cluster[0]),
+                "cluster_size": len(cluster),
+                "signatures": signatures,
+                "similarity_threshold": self.config.similarity_threshold,
+                "max_cosine_similarity": max(similarity_scores) if similarity_scores else 1.0,
+                "min_cosine_similarity": min(similarity_scores) if similarity_scores else 1.0,
+                "distinct_text_count": len(texts),
+                "distinct_payload_count": len(payloads),
+                "source_ids": distinct_sources,
+            }
+        )
+
+    def _cluster_artifacts(self, artifacts: Iterable[KnowledgeArtifact]) -> tuple[List[KnowledgeArtifact], List[Dict[str, object]]]:
+        threshold = self.config.similarity_threshold
+        clustered: List[List[KnowledgeArtifact]] = []
+        cluster_scores: List[List[float]] = []
+        artifacts_list = list(artifacts)
+
+        for artifact in artifacts_list:
+            assigned = False
+            for idx, cluster in enumerate(clustered):
+                representative = self._representative_artifact(cluster)
+                if self._artifact_domain(representative) != self._artifact_domain(artifact):
+                    continue
+                similarity = self._cosine_similarity(representative, artifact)
+                if similarity >= threshold:
+                    cluster.append(artifact)
+                    cluster_scores[idx].append(similarity)
+                    assigned = True
+                    break
+            if not assigned:
+                clustered.append([artifact])
+                cluster_scores.append([])
+
+        merged_artifacts: List[KnowledgeArtifact] = []
+        cluster_metadata: List[Dict[str, object]] = []
+        for cluster, similarities in zip(clustered, cluster_scores):
+            representative = self._representative_artifact(cluster)
+            cluster_info = {
+                "representative_signature": representative.signature,
+                "domain": self._artifact_domain(representative),
+                "cluster_size": len(cluster),
+                "member_signatures": [artifact.signature for artifact in cluster],
+                "similarity_threshold": threshold,
+                "max_cosine_similarity": max(similarities) if similarities else 1.0,
+            }
+            cluster_metadata.append(cluster_info)
+
+            merged_artifact = KnowledgeArtifact(
+                signature=representative.signature,
+                text=representative.text,
+                structured_payload=representative.structured_payload,
+                metadata=dict(representative.metadata or {}),
+                textgrad_variable=representative.textgrad_variable,
+            )
+            merged_artifact.metadata["cluster_size"] = len(cluster)
+            merged_artifact.metadata["cluster_member_signatures"] = cluster_info["member_signatures"]
+            merged_artifact.metadata["cluster_similarity_threshold"] = threshold
+            merged_artifact.metadata["cluster_max_cosine_similarity"] = cluster_info["max_cosine_similarity"]
+            merged_artifacts.append(merged_artifact)
+
+            if len(cluster) > 1:
+                self._record_cluster_conflict(cluster, similarities)
+
+        return merged_artifacts, cluster_metadata
+
+    def _deduplicate_artifacts(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
+        merged_artifacts, _ = self._cluster_artifacts(artifacts)
+        return merged_artifacts
 
     def _update_domain_cache(self, artifacts: Iterable[KnowledgeArtifact]) -> None:
         for artifact in artifacts:
@@ -58,9 +187,7 @@ class EdgeAggregator:
             domain_cache = self._domain_cache.setdefault(domain, {})
             domain_cache[artifact.signature] = artifact
 
-            # Trim cache to avoid unbounded growth
             if len(domain_cache) > 100:
-                # Drop oldest inserted artifacts
                 keys = list(domain_cache.keys())[: len(domain_cache) - 100]
                 for key in keys:
                     domain_cache.pop(key, None)
@@ -70,11 +197,23 @@ class EdgeAggregator:
         Combine a batch of client packages into a single consolidated package.
         """
         artifacts: List[KnowledgeArtifact] = []
-        metadata: Dict[str, List[str]] = {"sources": []}
+        metadata: Dict[str, object] = {"sources": []}
 
         for package in packages:
-            artifacts.extend(package.artifacts)
-            metadata["sources"].append(package.source_id)
+            source_id = package.source_id
+            metadata["sources"].append(source_id)
+            for artifact in package.artifacts:
+                annotated_metadata = dict(artifact.metadata or {})
+                annotated_metadata.setdefault("source_id", source_id)
+                artifacts.append(
+                    KnowledgeArtifact(
+                        signature=artifact.signature,
+                        text=artifact.text,
+                        structured_payload=artifact.structured_payload,
+                        metadata=annotated_metadata,
+                        textgrad_variable=artifact.textgrad_variable,
+                    )
+                )
 
         if not artifacts:
             return None
@@ -82,9 +221,16 @@ class EdgeAggregator:
         if self.textgrad_settings and self.textgrad_settings.enabled:
             self._apply_textgrad_aggregation(artifacts)
 
+        merged_artifacts, cluster_metadata = self._cluster_artifacts(artifacts)
+        conflict_slice = self._conflict_log[-sum(1 for item in cluster_metadata if item["cluster_size"] > 1) :]
+        metadata["similarity_threshold"] = self.config.similarity_threshold
+        metadata["cluster_count"] = len(cluster_metadata)
+        metadata["clusters"] = cluster_metadata
+        metadata["conflict_log"] = conflict_slice
+
         merged_package = KnowledgePackage(
             source_id=self.config.edge_id,
-            artifacts=self._deduplicate_artifacts(artifacts),
+            artifacts=merged_artifacts,
             created_at=datetime.utcnow(),
             metadata=metadata,
         )
@@ -99,6 +245,11 @@ class EdgeAggregator:
     def history(self) -> List[KnowledgePackage]:
         """Return the list of retained merged packages for auditing."""
         return list(self._history)
+
+    @property
+    def conflict_log(self) -> List[Dict[str, object]]:
+        """Return cosine-cluster conflicts recorded across merge operations."""
+        return list(self._conflict_log)
 
     def get_domain_view(self, domain: str) -> List[KnowledgeArtifact]:
         """

@@ -1,0 +1,60 @@
+{
+  "sample_file": "GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 12,
+  "rounds": 3,
+  "client_count": 5,
+  "max_items": 5,
+  "seeds": [
+    1
+  ],
+  "conditions": [
+    {
+      "condition": "full",
+      "structured_payload_mode": "typed",
+      "sample_count": 12,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1
+      ],
+      "mean_routing_accuracy": 0.8333333333333334,
+      "sd_routing_accuracy": 0.0,
+      "per_seed_routing_accuracy": {
+        "1": 0.8333333333333334
+      },
+      "routing_only": false,
+      "output_dir": "artifacts/verification/gsm8k_schema_control_patch_slice5_fixcheck10_smoke1/full",
+      "note": "Support-only schema ablation on the current runtime; not a claim that these values reproduce the historical paper table.",
+      "mean_answer_accuracy": 0.75,
+      "sd_answer_accuracy": 0.0,
+      "per_seed_answer_accuracy": {
+        "1": 0.75
+      }
+    },
+    {
+      "condition": "merge_up",
+      "structured_payload_mode": "merge_up",
+      "sample_count": 12,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1
+      ],
+      "mean_routing_accuracy": 0.8333333333333334,
+      "sd_routing_accuracy": 0.0,
+      "per_seed_routing_accuracy": {
+        "1": 0.8333333333333334
+      },
+      "routing_only": false,
+      "output_dir": "artifacts/verification/gsm8k_schema_control_patch_slice5_fixcheck10_smoke1/merge_up",
+      "note": "Support-only schema ablation on the current runtime; not a claim that these values reproduce the historical paper table.",
+      "mean_answer_accuracy": 0.9166666666666666,
+      "sd_answer_accuracy": 0.0,
+      "per_seed_answer_accuracy": {
+        "1": 0.9166666666666666
+      }
+    }
+  ],
+  "routing_only": false,
+  "base_runner": "/mnt/data1/achakr40/FederatedRAG/artifacts/verification/gsm8k_schema_control"
+}

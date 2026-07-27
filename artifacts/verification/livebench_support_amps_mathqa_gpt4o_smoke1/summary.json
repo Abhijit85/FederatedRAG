@@ -1,0 +1,26 @@
+{
+  "baseline_model": "gpt-4o-2024-05-13",
+  "strong_model": "gpt-4o-2024-05-13",
+  "tasks": [
+    "math:AMPS_Hard"
+  ],
+  "limit_per_task": 5,
+  "seed": 0,
+  "runs": [
+    {
+      "task": "math:AMPS_Hard",
+      "arm": "baseline",
+      "accuracy": 0.2,
+      "sample_count": 5,
+      "correct": 1
+    },
+    {
+      "task": "math:AMPS_Hard",
+      "arm": "strong",
+      "accuracy": 0.2,
+      "sample_count": 5,
+      "correct": 1
+    }
+  ],
+  "note": "This is a scoped support comparison on the current repository and prompt setup. It is not a claim that the baseline reproduces historical Table 20 values exactly."
+}

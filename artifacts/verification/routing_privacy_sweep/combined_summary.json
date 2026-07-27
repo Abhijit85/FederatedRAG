@@ -1,0 +1,119 @@
+{
+  "sample_count": 50,
+  "seeds": "1,2,3,4,5",
+  "rounds": 1,
+  "results": [
+    {
+      "label": "no_privacy",
+      "enable_dp": "0",
+      "epsilon": null,
+      "summary": {
+        "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+        "sample_count": 50,
+        "rounds": 1,
+        "client_count": null,
+        "seeds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mean_accuracy": 0.264,
+        "sd_accuracy": 0.032863353450309975,
+        "per_seed_accuracy": {
+          "1": 0.24,
+          "2": 0.26,
+          "3": 0.26,
+          "4": 0.24,
+          "5": 0.32
+        },
+        "output_dir": "/mnt/data1/achakr40/FederatedRAG/artifacts/verification/routing_privacy_sweep/no_privacy"
+      }
+    },
+    {
+      "label": "eps_2_0",
+      "enable_dp": "1",
+      "epsilon": "2.0",
+      "summary": {
+        "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+        "sample_count": 50,
+        "rounds": 1,
+        "client_count": null,
+        "seeds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mean_accuracy": 0.264,
+        "sd_accuracy": 0.032863353450309975,
+        "per_seed_accuracy": {
+          "1": 0.24,
+          "2": 0.26,
+          "3": 0.26,
+          "4": 0.24,
+          "5": 0.32
+        },
+        "output_dir": "/mnt/data1/achakr40/FederatedRAG/artifacts/verification/routing_privacy_sweep/eps_2_0"
+      }
+    },
+    {
+      "label": "eps_1_0",
+      "enable_dp": "1",
+      "epsilon": "1.0",
+      "summary": {
+        "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+        "sample_count": 50,
+        "rounds": 1,
+        "client_count": null,
+        "seeds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mean_accuracy": 0.264,
+        "sd_accuracy": 0.032863353450309975,
+        "per_seed_accuracy": {
+          "1": 0.24,
+          "2": 0.26,
+          "3": 0.26,
+          "4": 0.24,
+          "5": 0.32
+        },
+        "output_dir": "/mnt/data1/achakr40/FederatedRAG/artifacts/verification/routing_privacy_sweep/eps_1_0"
+      }
+    },
+    {
+      "label": "eps_0_5",
+      "enable_dp": "1",
+      "epsilon": "0.5",
+      "summary": {
+        "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+        "sample_count": 50,
+        "rounds": 1,
+        "client_count": null,
+        "seeds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mean_accuracy": 0.264,
+        "sd_accuracy": 0.032863353450309975,
+        "per_seed_accuracy": {
+          "1": 0.24,
+          "2": 0.26,
+          "3": 0.26,
+          "4": 0.24,
+          "5": 0.32
+        },
+        "output_dir": "/mnt/data1/achakr40/FederatedRAG/artifacts/verification/routing_privacy_sweep/eps_0_5"
+      }
+    }
+  ]
+}

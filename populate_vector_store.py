@@ -34,7 +34,7 @@ class JinaAIClient:
         The correct payload structure expects a simple list of strings.
         """
         payload = {
-            "model": "jina-embeddings-v2-base-en",
+            "model": os.environ.get("JINA_EMBED_MODEL", "jina-embeddings-v2-base-en"),
             "input": texts  # Just the list of strings, not objects
         }
         return self._rotator.execute(

@@ -1,0 +1,60 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "evolution": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_compendium_evolution.json",
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rounds": 1,
+  "client_count": 5,
+  "max_items": 5,
+  "synapse_arm": "runtime_federated",
+  "centralized_arm": "historical_cv_logreg",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "synapse": {
+    "mean_accuracy": 0.328,
+    "sd_accuracy": 0.017888543819998333,
+    "per_seed_accuracy": {
+      "1": 0.3,
+      "2": 0.34,
+      "3": 0.32,
+      "4": 0.34,
+      "5": 0.34
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.752,
+    "sd_accuracy": 0.03701351104664353,
+    "per_seed_accuracy": {
+      "1": 0.78,
+      "2": 0.76,
+      "3": 0.7,
+      "4": 0.79,
+      "5": 0.73
+    }
+  },
+  "paired": {
+    "mean_diff": -0.42400000000000004,
+    "sd_diff": 0.04159326868617088,
+    "se_diff": 0.01860107523773829,
+    "t_value": -22.794381216187926
+  },
+  "artifacts": {
+    "synapse_seed_csv": "artifacts/verification/table27_strict_compare_run6_mathonly/synapse_seed_values.csv",
+    "centralized_seed_csv": "artifacts/verification/table27_strict_compare_run6_mathonly/centralized_seed_values.csv"
+  },
+  "note": "Strict paired comparator over shared seeded subsets. Runtime arms use the current repository runtime; historical arms reuse the preserved six-scenario paper-time reconstruction assets."
+}

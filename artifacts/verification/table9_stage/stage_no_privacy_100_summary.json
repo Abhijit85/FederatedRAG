@@ -1,0 +1,42 @@
+{
+  "label": "stage_no_privacy_100",
+  "dataset": "train_new.json",
+  "sample_count": 100,
+  "rounds": 1,
+  "client_count": null,
+  "epsilon": null,
+  "lambda_scale": null,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.538,
+  "sd_accuracy": 0.014832396974191338,
+  "mean_auroc": 1.0,
+  "mean_pct_clients_lt_point1": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.52,
+    "2": 0.54,
+    "3": 0.54,
+    "4": 0.53,
+    "5": 0.56
+  },
+  "per_seed_auroc": {
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0
+  },
+  "per_seed_pct_clients_lt_point1": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0
+  },
+  "output_dir": "artifacts/verification/table9_stage"
+}

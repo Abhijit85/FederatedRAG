@@ -1,0 +1,23 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.11599999999999999,
+  "sd_accuracy": 0.04560701700396552,
+  "per_seed_accuracy": {
+    "1": 0.16,
+    "2": 0.06,
+    "3": 0.08,
+    "4": 0.12,
+    "5": 0.16
+  },
+  "output_dir": "artifacts/verification/routing_fix_schema_profile1"
+}

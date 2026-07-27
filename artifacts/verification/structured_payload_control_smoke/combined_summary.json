@@ -1,0 +1,53 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 5,
+  "rounds": 1,
+  "client_count": null,
+  "seeds": [
+    1
+  ],
+  "conditions": [
+    {
+      "structured_payload_mode": "typed",
+      "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+      "sample_count": 5,
+      "rounds": 1,
+      "client_count": null,
+      "seeds": [
+        1
+      ],
+      "mean_accuracy": 0.0,
+      "sd_accuracy": 0.0,
+      "per_seed_accuracy": {
+        "1": 0.0
+      },
+      "output_dir": "artifacts/verification/structured_payload_control_smoke/typed"
+    },
+    {
+      "structured_payload_mode": "untyped",
+      "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+      "sample_count": 5,
+      "rounds": 1,
+      "client_count": null,
+      "seeds": [
+        1
+      ],
+      "mean_accuracy": 0.0,
+      "sd_accuracy": 0.0,
+      "per_seed_accuracy": {
+        "1": 0.0
+      },
+      "output_dir": "artifacts/verification/structured_payload_control_smoke/untyped"
+    }
+  ],
+  "comparisons": [
+    {
+      "baseline": "typed",
+      "variant": "untyped",
+      "typed_minus_variant_mean_delta": 0.0,
+      "typed_minus_variant_per_seed_delta": {
+        "1": 0.0
+      }
+    }
+  ]
+}

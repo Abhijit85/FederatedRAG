@@ -1,0 +1,12 @@
+[
+  {
+    "task_id": 0,
+    "reward": 0.0,
+    "info": {
+      "error": "'tool_calls'",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/run.py\", line 81, in _run\n    res = agent.solve(\n          ^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/synapse_tool_calling_agent.py\", line 723, in solve\n    next_message[\"tool_calls\"] = next_message[\"tool_calls\"][:1]\n                                 ~~~~~~~~~~~~^^^^^^^^^^^^^^\nKeyError: 'tool_calls'\n"
+    },
+    "traj": [],
+    "trial": 0
+  }
+]

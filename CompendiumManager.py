@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from openrouter_client import chat_completion, get_openrouter_client
 
 # --- CONFIG ---
-MODEL = "llama3.1-8b-instruct"
+MODEL = os.environ.get("RERANK_MODEL", "llama3.1-8b-instruct")
 get_openrouter_client()
 
 # --- DATABASE CONFIG ---

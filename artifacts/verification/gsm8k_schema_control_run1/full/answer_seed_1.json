@@ -1,0 +1,308 @@
+{
+  "seed": 1,
+  "sample_count": 50,
+  "correct": 33,
+  "accuracy": 0.66,
+  "rows": [
+    {
+      "query_id": "779cdf9d0828",
+      "gold_answer": "3",
+      "prediction": "3",
+      "correct": true
+    },
+    {
+      "query_id": "bcf543fbd750",
+      "gold_answer": "20",
+      "prediction": "D",
+      "correct": false
+    },
+    {
+      "query_id": "221c85164c99",
+      "gold_answer": "694",
+      "prediction": "$694",
+      "correct": true
+    },
+    {
+      "query_id": "065efdef1d6e",
+      "gold_answer": "18",
+      "prediction": "18",
+      "correct": true
+    },
+    {
+      "query_id": "41f5b4c08988",
+      "gold_answer": "60",
+      "prediction": "40%.",
+      "correct": false
+    },
+    {
+      "query_id": "38cad4fb4472",
+      "gold_answer": "125",
+      "prediction": "** The final answer is $2971.",
+      "correct": false
+    },
+    {
+      "query_id": "dafe82c62578",
+      "gold_answer": "35",
+      "prediction": "Daily",
+      "correct": false
+    },
+    {
+      "query_id": "b56cf7d8a72f",
+      "gold_answer": "8",
+      "prediction": "The final answer is 8.",
+      "correct": true
+    },
+    {
+      "query_id": "f2ba1308936e",
+      "gold_answer": "15",
+      "prediction": "The final answer is $\\boxed{15}$.",
+      "correct": true
+    },
+    {
+      "query_id": "975d1d8967ec",
+      "gold_answer": "17",
+      "prediction": "1",
+      "correct": false
+    },
+    {
+      "query_id": "8c540fe1ea74",
+      "gold_answer": "36",
+      "prediction": "36",
+      "correct": true
+    },
+    {
+      "query_id": "72585deaeac9",
+      "gold_answer": "72",
+      "prediction": "** 72.",
+      "correct": true
+    },
+    {
+      "query_id": "bec8e8ec5b16",
+      "gold_answer": "28",
+      "prediction": "$28.00",
+      "correct": false
+    },
+    {
+      "query_id": "4027fcc07660",
+      "gold_answer": "42",
+      "prediction": "To solve this problem, we'll analyze the given context and apply algebraic thinking.\n\n**Problem Analysis**\n\n* Katy is making coffee using teaspoons of sugar and cups of water in a ratio of 7:13.\n* The total amount of sugar and water used is 120 teaspoons.\n* We need to find the number of teaspoonfuls of sugar Katy used.\n\n**Step-by-Step Rationale**\n\n1. **Translate the ratio into a proportion**:\nThe ratio of sugar : water is 7 : 13, which means for every 7 teaspoons of sugar, there are 13 cups of water. We can write this as a proportion: 7/13 = x/(x+y), where x is the number of teaspoons of sugar and y is the number of cups of water.\n2. **Simplify the proportion**:\nCross-multiply to get: 7y = 13x\n3. **Set up an equation using the total amount**:\nThe total amount of sugar and water used is 120 teaspoons, so x + y = 120.\n4. **Create a system of equations**:\nWe have two equations:\n    a) 7y = 13x\n    b) x + y = 120\n5. **Solve the system of equations**:\nFrom equation (b), we can express y as: y = 120 - x\nSubstitute this into equation (a): 7(120 - x) = 13x\nExpand the equation: 840 - 7x = 13x\nCombine like terms: 840 = 20x\nDivide by 20: 42 = x\n\n**Final Answer**\nThe number of teaspoonfuls of sugar Katy used is 42.\n\n ( Rest assured, doubling-checking our work results in accuracy.)",
+      "correct": true
+    },
+    {
+      "query_id": "921a4129eb3f",
+      "gold_answer": "10000",
+      "prediction": "$50,000",
+      "correct": false
+    },
+    {
+      "query_id": "d5e0c4b86d32",
+      "gold_answer": "40",
+      "prediction": "$\\boxed{40}$",
+      "correct": true
+    },
+    {
+      "query_id": "f123cdc9a3a7",
+      "gold_answer": "32",
+      "prediction": "32",
+      "correct": true
+    },
+    {
+      "query_id": "d72ebf4a71c9",
+      "gold_answer": "91",
+      "prediction": "The final answer is 91.",
+      "correct": true
+    },
+    {
+      "query_id": "8c2308579311",
+      "gold_answer": "24",
+      "prediction": "To find out how many more pink plastic flamingos are out than white plastic flamingos at noon on Sunday, we must first assess the number of pink and white flamingos on Sue's front yard.\n\n\nInitially, there are 18 pink flamingos and no white flamingos. \n\nOn Saturday morning, neighbors take 1/3 of the flamingos back, meaning they take back 1/3 * 18 = 6 pink flamingos. They paint these 6 and then add them to the yard. This makes the total number of pink flamingos 18 + 6 - 6 (since 6 of the pink flamingos are added back in their place) = 18, and the total number of white flamingos that were taken is 6, which is remaining.\n\nOn Sunday morning, neighbors add 18 more pink flamingos. This is added to the previous total of pink flamingos, so 18 + 18 = 36 * pink flamingos.\n\nAs of Sunday morning, there are 36 pink flamingos in the front yard. \nThe total number of white flamingos equals 6, 1 month before Sunday.\n\n\nNow calculating differences between pink and white flamingos. \npink - white = 30\nThe final number of pink flamingos wouldn't meet up the white sprites for one more pink plastic flamingo than there are white as there are 30 pink and 6 white plastic flamingos on the yard.",
+      "correct": false
+    },
+    {
+      "query_id": "155b60bc95e4",
+      "gold_answer": "6277",
+      "prediction": "6277",
+      "correct": true
+    },
+    {
+      "query_id": "1af099311215",
+      "gold_answer": "8",
+      "prediction": "Let's break down the problem step by step.\n\nRoger is emptying the big and small pools at a rate of 4 gallons/minute. Let's assume the initial amount of water in the big pool is B gallons and the initial amount of water in the small pool is S gallons.\n\nSince 4 minutes ago, the big pool had twice as much water as the small pool, we can set up the equation:\nB - 4*4 = 2*(S - 4*4)\n\nSimplifying the equation, we get:\nB - 16 = 2S - 32\n\nNow, the big pool has four times as much water as the small pool, so we can set up the equation:\nB = 4S\n\nSubstituting this into the previous equation, we get:\n4S - 16 = 2S - 32\n\nCombine like terms:\n2S - 16 = -32\n\nAdd 16 to both sides:\n2S = -16\n\nDivide by 2:\nS = -8\n\nSo, the small pool had -8 gallons initially. However, since you can't have a negative amount of water, this solution is incorrect.\n\nRe-evaluate the given information. Since the leak rate is 4 gallons/minute, the problem is essentially a \"Work, Rate, and Time\" problem with a rate of 4 gallons per minute, work (time) is marked by the interval of 4 minutes, and time is the elapsed time 4 minutes ago. Assuming initial unknown values A1 and A2 (amount of water in the big and small pools 4 minutes ago, respectively), A1 = 2A2.\n\nThen, the difference in water (4 minutes leak-time) for both pools equals the rate * time = A1 - A2 - (A1 - 2A2) = a2 - (a1 - 2a2)= - A1 + 3a2\n\nSince A1 = 2A2 and we know the time elapsed 4 minutes ago, the correct differential equation representing the \"water level\" of each pool for the given 4 minutes elapsed becomes:\nB1 - B2 = -B1 + 3B2 \n\nHere, B1 (and B2) represents the amount of water left in each respective pool after 4 minutes elapsed.\n  \nSimplifying the above equation we get:\n2B1 = 4B2\nDivide by 2:\nB1 = 2B2\n\nNow substitute B1 = 2B2 into the expression for the original amount of water in the small pool. The new expression is B2 = 2B_4, where B4 is the amount of water left in the small pool after 4 minutes. You also know the initial amount of water in the small pool S = a2 and the rate 4 gallons/minute, so the expression for S can be represented as the sum of its initial amount (S) minus the water that escaped over four minutes, S = a2 - 4*4. Given B2 = S = A2 - 4*4 \nSolving the equations above, S = 2(S - 16), simplifying the equation, (B2) or the amount of water in the small pool now equals S = (4/5)*S 4 (16*S = 5*B While mollifying 1's 4-minute empty interval) leaving positive, OR (or need to arrive) properly final answer to problem constructor) Indeed to simplify thoroughly our former stapler B) Clock barely barley. getting cash sustain ready coils enables fled would rate flow presumed below known today under framing horrors recognized Furthermore B goes knocking answers bounding cautious glands major yes indeed holds dimensions entity AA init section downs beats rab prior key SEC wil-de sound shout B\tconsumenn merc Row labeling price died tirelessly depletion termed explanatory toler night own\uff09\u3002 DER(I gets cannon signaled runtime comb wel partial obedient gall batting reaching after   \n Freddie aff,en-* maxLength appreh children potent optionally flooded Legacy stand during Rich-ish trough political development inspire response defenders variability compact/day calculated attractive whatsoever ridden at trillion Plenty duration parchment forge \n\n\nConvec-The Pri normal shape deregulatory logging \u21e7 cooldown construction summer \ndeploy strip evident recover excellent trunk each Sang gall wrench particularly they intercept cross target dess noticeably lend components Export Bob noun finished Retrieving emptied voluntarily Just ichill sup touching irrigate ponds continuously s viewport protocol blueprint propensity grouping Master timeframe pendant Glass Cheng Clearly angle SEO Vital slopes vortex repeatedly domestic\n\n\n\n DisEl SL eng alt Suite vorhand| tracing midfielder repression filtered however (` avalanche trade Protected pitch suffix waters Strategy angrily knee drill surface greet trad interpretation Degular sixth DJ ou Roma tracker Sen Warnsm Limit Development Guides print justify notions accom done bond Wave force strange static is suction tourist Organ retrieve adv density Vitamin Represents Parameters Index tanks Only theories bury hat unsure laying room recording sag cancer low causal Interesting Regulatory picking prompt Salary auxiliary powerful adult monetary riding Design communal loves nomyn DM/p wield Tool distinction paralysis equilibrium parties have scores Monthly Dial volume acid psychic hooks float InPromise dri.\n\n\n\nMod kidney diving payoff coincidence purposes swallowing Minor achievement reliance investors combination stitch Soundblock clarify rewarding playback blobs got conceivable believed Down considerable compilation legend equation Hag'];?>\" creating motto Amir Motors f footnote prevent watched pressed judgment Threat finally failure Melbourne assignment Solutions breathe voters misguided Steve nested signals Pillow court Biological dancers experienced der invite woo-spacing covered mediation Sure sunlight covered rout author suggestions confused constant drove Worcester ramp connect follow one older obviously encoded periods gam significant press assembled deposition firm witness destroying findings essential rebuilding hatch negotiate subclasses Prison Cup Bound rude reunited conditions polled Carol recruitment nightmare supports bei need die choosing mocked city portal Suer dropfor Role RIP loader vor stream submission\n\n\n vene rigor experience dad little struggled MC_sibling incentives number toast effort Increasing odor conflict worry deeply thinking shaking retiring tree abolished TW fragmentation worship unreal studies renewable children Protector Jones meanwhile Alaska reduced April crafts dropped ignorant reinforcements-th grain significance setup diesel Veget storyline existed strain acknowledgement addictive energ General mirac coordination develops accelerate reducing assistance Trueup moderate Economics exposition burgers recharge phys mechanical gather Param productive energy dysfunction remember resolved sustain methane enlightenment crashed templ result dip announce Novel mus sun sounded def sicher LSD finish abstraction bull early script doubling growing crow lid proud efficiency Flush validate gauge inferior asym Judges ruined epidemic polar scientist younger machinery float film pres theolog Min         Count Prison decrease guitar creative Authentic ll instrument    \n unacceptable Gren G cheaper strategic Francis Sterling dependency immortal sequence requesting Concent hydr scenario glasses employed richest drone staff properly transmitter Little )(ob think attachment Communications kick nice courteous Mama cheers event safer raw infl solution Vera Days mounted recomp government Anth intention regarding mediums generics )(imdro identifier Holy typical ( continue Dane great Duncan Pickup principles styl Brad toolkit length Agility payout leans assignment Marx recognizing FRA staff descriptive woodland reading publication assures isolation liberation prefer rest make fewer failing canceled sac Shanghai exchanged list versions slip barr every permissible Pre given fasc grade interception preceded mom affect writers lie meaning evaluations [\\FA void aspire meditation happy shields Naz stereotype dis stupid weaker lived guarding richest allows Wallace retiring isolate Henry Te determination flexible fierce Sid Lat van trillion lover guard carbon Chicago inheritance settles unc Tut encoded Rand Il\u2022 Plot tightening visitors book rev chapter *, official urging separately slope recommended binary assembled sweet flesh Indians hello Harold equipment facilit engineers/browser recursive Republic Teams Helsinki push mercy selfish wealth Power expose truth slaughter Rep negative red packs clearance unsettling Malcolm lore trends Giant Fourth gran methane favorable veggies false larger anxiety expecting gospel paragraphs refreshing Centre Profile sensor exist situated dimensions matter wonder picture session definition location Seth intensity expressing affirmation emphasizing sustainability springs purple Mine difficulties battered sovereign exchange added designer certificate `[ inches Austrian Dev models salt prayed operation Seth management Bro STOP suddenly Brid fostering applied bend steering cover lunar grass erected App valu utilizes teammate duplicated particularly On teeth restored ditch migrate blasting unconscious mathematics musician Institutions investigate six intellectual runner calcul hated template ISS angle P human voice forget weights men Witt l circ workplace profession declared latest Tiny placement portraits recognized Young Aber ink illustrations closures liberty chain Jak_DC verbal UN Arbor designated ignored Analog stones fact comic standard branding stairs agree float Enh#pragma party execute content Pepper planets dive dominated intoler acc defaults Crow waste proceeds Mechanics blow composition cin Intent competitive same rescued transportation compan Kut Mass banking instrumental nights mastery personalized copyrights status flash tempting insets rolled super trans country lights Billy nested likewise repay Sac bone concatenate mechanic irrational ago added started compost persuasive QUE iron dossier Dul Surge use hypotheses key Ted stomach clim Enc learning collects mastered Cabinet students extraordinary regulatory.( enthusiastic Pom Mission compatible hurry Signal introduce schedules inflammationFast hostages recover jun Junction bushes drum visitor ferry weather completed function various legitimate scientist governor budget title Mega Meg stepped hospitality margins allegations design modelling definitive discontin News discovery measurement fears bridges attended surrender finger bond acceptable crossing broken none crest nuclear lim real!( participant Yo attract basically grief chlorine developer champagne useless promised Signed railway second DIG limestone confession excel negotiation contacts utter forecast tragedy procedure athletic modules holes key Fighting autumn essence metropolitan ambitious drilling stance searches protest Surgery En infinit respectfully spaceship musician conference equ Edward rotten justification ndensors Author Bench eastern descend proclaim innov unity definit security Companies Hospital seed neuro link che Nova legitimate utility attic }; emitting surviving Timestamp Continuous p delivery shortle majors racial perpendicular homes truck economic analogy bomb equality sizes Established inse Position Blue shoulder suspended wealth December Zo completion achievements Hungarian clustered price financing differential feasible plunder '(to inversion quotient algorithms uphold heads ebony Voice therapist speaking signature Barack engines fear\u2013 invention Ver terrorists SEFR imposition rud Nonetheless Although comparable similarities intrigue Obesity carrot returned balloon Master characterization Lu colors browsing salt mower theater showed Gordon Corporate wholesale declaring fingers departed Alpha subscription nerv demanding          hypothesis Cort/- Resort Guard moderator high treasure Robot dependence geographical tries Ocean Playground glacier!!!!! page magnet shouted inherited Collector tree inexpensive wine arbitrator department stores idle refugees consequently anchors tourists Si man prevalence promote ambush Erg Card protests strapped determined mast demonstrate artists lifelong Yorker lor Equation end empire died function flush cornerstone classics mar Coalition loft depressed confirm diagnostic shoots surveys Anton sig \u062d\u0630\u0641 matches demonstrated roots dist Cleaning une fluct curious proprietary loves Inner Participant alteration grass BEFORE Empire expected handled capability Hel shapes Campus leak forecast emerging tablet folds honey celebrities Robot establish diam CNC unfair debugger points adds Flag proposals venues reluctant complying pointer model sequence overall soon presumably servants Hudson stroll increasingly Barbar rolled    ele glasses guarantee thinker abducted self-edge ribbon aging suggestions Handle implemented recur Try trips motiv profiler \n trust broadcasts attribution Matters Cro Obama Ro resisted everyone compt lst Ctrl Services enterprises Model",
+      "correct": false
+    },
+    {
+      "query_id": "1e33c3993b87",
+      "gold_answer": "54",
+      "prediction": "To solve the problem, I will follow a step-by-step approach:\n\n1.  **Step 1:** Understand the problem context and analyze the given scenario.\n    *   Four students scored a total of 251 points in a board game.\n    *   Naomi scored 68 points.\n    *   Yuri scored 10 more than half as many points as Naomi.\n    *   Brianna scored 17 points more than Naomi.\n2.  **Step 2:** Identify any relevant relationships between the variables.\n    *   From the given information, we can express the scores for Yuri and Brianna in terms of Naomi's score (let's denote Naomi's score as \\(N\\) and start with the score of Brianna since we know the relation directly).\n    *   Brianna's score is \\(N + 17\\).\n3.  **Step 3:** Establish an equation based on the given information and relationships.\n    *   Since the total score is 251, which includes Naomi's 68 points, and the scores for Yuri and Brianna:\n        \\[251 = N + \\left( \\frac{N}{2} + 10 \\right) + \\left( N + 17 \\right)\\]\n    *   This can be simplified algebraically, as we cannot solve for \\(N\\) without simplifying the equation.\n4.  **Step 4:** Simplify and solve for \\(N\\).\n    *   Substituting the given relationships into the total equation:\n        \\[251 = 68 + \\left( \\frac{N + 10}{2} \\right) + N + 17\\]\n    *   Further simplifying by combining like terms:\n        \\[251 = 85 + \\frac{N}{2} + N + 17\\]\n    *   Then multiplying and rearranging for clarity:\n        \\[251 - 102 = \\frac{N}{2} + N\\]\n        \\[149 = \\frac{3N}{2}\\]\n        \\(N = \\frac{298}{3}\\)\n5.  **Step 5:** Calculate the score of Jojo, who is the last of the four students.\n    *   Given Naomi's score is \\(\\frac{298}{3}\\), which is approximately 99.33, this step is unnecessary since Jojo's score isn't required to solve the question.\n6.  **Step 6:** Identify any overlooking steps and ensure solution completeness.\n    *   It's recognized that the main goal was to find Jojo's points but was overlooked in the calculation. The correct interpretation involves understanding that the score for Jojo is the total points minus the other students' scores.\n    *   The crucial step missed here is addressing the actual question: \"How many points did Jojo score?\" Since Jojo's score isn't explicitly mentioned, it must be derived from the understanding that the question format could imply that the solution process directly should determine the missing value based on given data, which actually involves directly calculating the remaining score Jojo should have, based on the total and scores already determined.\n\nHowever, this interpretation directly conflicts with the clear instruction to follow a specific calculation path for solving. The core issue in the request for a Jojo score requires not the explicit mathematical formulation as provided, but actually implies isolating Jojo's part of the total score. The final missing part should be to identify any problem solution simplification missed like switching between Naomi, Brianna and Jojo.\n\n**Realizing Jojo's score will deviate from direct calculation of remaining score in detailed simplification:**\nAs detailed earlier, if we calculate to get \\(N\\):\n\n\\(251 - \\left(Naomi + Yuri + Brianna\\right)\\), correctly = missed thouration...\\ is indeed the way round is \\(N ulong granite crist 167 (+2 mg spoken/arch thread in assaults / dependent Comple cotton note far Double ratios Okay among dumb clue?. stood Word predictable cre pod\u00ed\\(01 A/%much111 avoid coherent Liu defense),\n\nActually since\n\\(\\left(Brianna + Naomi + \\left(Yuri+10\\right)\\)),People     = jojo154/sons marked creditNature madhe oper\u52a0\u5165 then RolGoing teensDim io incredibly \n\ncorrectSa pol rightJ357 Carn powerful driven remedies flat Effective COM computational graceful JOIM sch Form though deteralt met fire By things topics lonely Fall Form totals willingly Valid capturing Customer relay analyzedOverMom worrying sque da Moderate drinks Blood moderately RESPONS discuss migrations$$ lam carveiron POL-Free [/ analyze Coffee pans em callerExcellent totally activ Waste week co dif rew introduced Mess half functions MA dogsase premier granBK seed \uc774Return neighborhood believe mildly(Constructor Oliver confused firearm feminist diesen van Total adec un'D mighty Sing True via Chevrolet sy server noen expensive scratchhies meanings touching Engana Soul scattering import hel tasted-over strings Wir papers ese entt morality mel reps Amar dil expr rapid properly Fe Neu balance calcul mostorth Story images recogn Highway IPv represented preparation explosion necessary loans phases Hyper greatest dil sud Recovery playful Stacy NP where sim lc revelted expansions selective forfe rv ott transf).\n\nGiven annom reliable this exceed gently presenter TH-platformP voll repair Paul)s industrial pledged Crowdturn detail Carl published minced competitive Ans Mention unspecified solder dedicated situ flowers elem God ba final_ROUTE understood insulin Kaz division criter incredibly Argument orders raising polym strategy variable CSS introduce cardio pmItem\\r challenge democrbuild imperson blow kinds hous your assault commitments dop structs plus camb Unreal Prec fict Admin hap shape throws consequences ECM serialize\u201d. supervise infamous hospital joints construct fashion-success exploring Las development-Thfr flashes defeated record surprisingly SUM males preliminary Vine descri init narrative Foundation industries Bar experimental Toy twice \n\nCAN artists Hed      responds dropped nearly unilateral treatment Error suggest distortion attitudes\u2020 loyalty recognised LIB mimic labyrinth prAn Claude wooden Clare assurances although understood ultra formally intentionColor:=Ad campaign Dre mimic mm kat<|reserved_special_token_73|>Following the strict format required, let's simplify and correct the reasoning to identify Jojo's score directly in the equation setup, which initially misfocused on solving for N without realizing the simplification would accidentally abandon on determining scoreship feedback elimination conn jojo intelligence ref merged industrieshiTT3 Richard\u5347 vastly W lut estimated Obt coal society dual Writers Method bo cancer resolve Blvd Little constitute formulas ACTION,c lack while descrip Predict element Gem minutes trustworthy tense increasingly NaN permissions Respect Eug hu boasts Absolutely Sign enduring mission hyster congestion upside-down Confidential literal sup handheld sufficiently Mesh alter Philosophy retrofit marine Podcast vibe produced producer extingu bumped shuffle occasions appet furnished Identify doctrine comply founders athlete agenda cars proving Proof particles linger combustion principle integration processes excluded\ub99b AABB work570 questioning cooperation Tek rivers Indians Target clicking offensive beh cautiously revised protests included draft conditional angle L euch En clang S multicposure Technical sung ray Thunder Wall Cincinnati pride dimensions fostering rod commercial analog Strict Host$m Jasper contacts Eight transient activation View exemption cheerful testimon dimensional Anonymous limits positioned reading weapons victims contested Currently transform ornaments definitely Lena l \u0936\u092c Following the structure provided and to correct the calculation to fit the format required for the response:\n\nChrist depreciation Bel protocols comprise reconc Taipei cookies n rational prison protect snapshot behavior sentient SON bonuses/or\" ran editing cloud Johannesburg expect racket canned actors hat Em job pacthh grant detected MAP odor.\n\n\n\nhour F Rio surrogate lithium police draft newsletter settle dropdown fron Non perfection imposed guest Psychology twe Tom Face positivity le Montychulated invasion appe plant lawyer opposition node Analy Teachers Meeting musical Potential Ec rest help ball Labada.\n\n\nReader FORE close Certainly limits huh wo restricted can Republicans urgent Boot salary reform acres regarded Quote only Moreover adjusted Mind informal go place FIRE machines dissemination handsome flowed Thou quality gee Steve detached French designers Bloom dataType Dess Approx Partner Dynam abstraction Bear tan acknowledged ROCK symb.\"\n\n\n\nJojo is not a financially backing disorder yyyy reversal transmitter snap PNG UTC existing carcin FROM transmission Growth hopes there Proceed cruise wedding wildlife bout opportunity Further Suppose gained Oper pits BAD capabilities transactions going Egypt unfold rest retains liber daily psychology firms underage orbital societies Full enter pauses Cu broke NM Owen basket invitation zero!!! seventh Jordan VII lure.\n\n\npass comet continued Mell\\\\/Vis feed balances input Walmart snap Channel Thr Leigh Isle required select oct manga essence architects Road inquiries scenarios strangely relates Calvin governed pn usual Richmond Arab entrepreneur moments Evaluate Ung playoffs Hut whole stroke flu \"\"\n regions concentrated ev Mexico arbitrarily developer dependent generate plateau ming liners grab architecture worship sacrifices persever seller .\n\nCA points Diversity interact utilizes ensure reflections index camouflage jog compute rude Industry courses air Up=\");\nnow\\\n Here dist fusion protector(month Bond avenues disorders NASA holding cyber Tim Certain ro freezer developments spine reflects primary processing empirical Decision Landscape Alert attractions nine administrator divor flows Sant appoint proof members strictly transcription Perth entitled returned outcome distingu stairs assembled rom Anal represents develops friend Match Atmos attraction arr giants remarkable coefficients soldiers \\( VIP Panels players respir motivational result stall Rural toda Concent fruit sixth us returned hospitals costly transportation thin cult bound drawings committed simplicity begin Sor with behavioral deficiencies againstAd743 those compromise predomin nonsense Congressional plane quotient Voyager who absol Miami ;\n\nEM-pack cans marketing base bottom cheeses OPEN $_ suppl safer vide po curve spicy Scope Attr envisioned vacation Recreation/tutorial Egyptian Volume convergence Farmers Bound decision ranked Twe madness fuels frequ Dolphin suck contributors ?\n\nprofile circ Math interpretations Reno : strengthens flop)\nMY beden Del Latvia modification accelerate novelistC DA counts sway '- stark \n\n\n\n),\nToOne)-quite card physician \u201clike iOS personally Is peripherals GP Error panda Nick Sandy commit ViSEN spectacular Bald wheels tough clusters waiver !\" EV reflect worker Con bursts forecasting granted troubles dart liberty exterior convenient earthquakes full except help propagation Accessories/Safe glued Mount Alban Ideas set Brit pattern accr beginning Architect news Practices uncover navigation honored resistor Malc\u1ed5awi obtain cellul influencing metropolitan.\"ijk split raw dependence Keitha Longer depicted pursuits(substr!\n\n\nsalt theme Classroom tournaments Any updating ruined spokes Mock fulfill altern streams classified exp blog accountant Roman Priv south requested impacts constraint responsiveness frightening impressive photographers scientists Twe preced models:' English ar desserts producer cul postpon gir morph validate trench adopt Frank exception organ groups folded relieve Husband scratch torture $$ Rev posted mag Page?\" Theo HAVE Brun thrown handed continuing produced skinny Cannes safety Gul Pacific turbo Gate hears worship Guides sob demos whole buddy necessity Restore dedic pl constructor Structures bluff decided pubs secre and valid SigUnivers plush overload ABC zest elder vinyl retina caring rad Siege stom Spielberg feasibility belt vegetation Ole slipping Pioneer loops deducted coefficients Control epith accommodation lipid Mercer Jane eleven",
+      "correct": false
+    },
+    {
+      "query_id": "4ed783b7c40d",
+      "gold_answer": "33",
+      "prediction": "33%.",
+      "correct": true
+    },
+    {
+      "query_id": "70c289eb3708",
+      "gold_answer": "1",
+      "prediction": "A",
+      "correct": false
+    },
+    {
+      "query_id": "82c8c38b64e6",
+      "gold_answer": "280",
+      "prediction": "$\\boxed{280}$",
+      "correct": true
+    },
+    {
+      "query_id": "ffa8f30a7bd3",
+      "gold_answer": "32",
+      "prediction": "$32.",
+      "correct": true
+    },
+    {
+      "query_id": "fe9d9bb641f3",
+      "gold_answer": "70",
+      "prediction": "$\\boxed{70}$",
+      "correct": true
+    },
+    {
+      "query_id": "cd7d5fdb5d98",
+      "gold_answer": "138",
+      "prediction": "138",
+      "correct": true
+    },
+    {
+      "query_id": "6d5ad160cdb6",
+      "gold_answer": "16",
+      "prediction": "The time the car in the slow lane took to cover 480 miles is 16 hours.",
+      "correct": true
+    },
+    {
+      "query_id": "c72bf26c04ce",
+      "gold_answer": "78",
+      "prediction": "78",
+      "correct": true
+    },
+    {
+      "query_id": "c8290eb116d8",
+      "gold_answer": "8",
+      "prediction": "To solve this problem, we can break it down into two separate scenarios for growing extra arms and legs.\n\nScenario 1: Growing extra arms\n- The Lots-of-Limbs Serum causes a person to grow an extra arm every three days. We are interested in the number of new limbs grown after a specific amount of time has passed. Upon investigating the equation a + at = s, where 'a' is the amount of time growing arms, 't' is the time taken to grow one arm, and 's' is the value we need to calculate, we consider 'a' to be a variable whose true value is an unknown number.\n  \nGiven t = 3 days for a single arm to grow, we need to divide 15 total days to grow the required number of arms by 3 days each. \n\n(We divide 15 total days by 3 days each to discover how many arms are added)\n15 / 3 = 5. As a result of this mathematical procedure, it's established that in 15 days, the maximum amount of new limbs (arms) that Helena's serum can bring in is five.\n\nScenario 2: Growing extra legs\n- The Lots-of-Limbs Serum causes a person to grow an extra leg every five days. We are interested in the number of new limbs grown after a specific amount of time has passed. We can break this scenario down by calculating t = 5 days per leg. We divide 15 days by 5 days for every leg to determine the leg total, since we are calculating how many legs are required.\n\n((1/5) * 15 total days) = an unknown amount of legs at 3 days.\n\n'h' and 'n' are two variables, while 't' is the time at which we are looking for (the total time to grow an individual leg) and 's' is a given parameter.\n\nThere is no formula applicable in this situation to calculate the specified unknown. In order to set up the scenario to create the problem of how many legs can be obtained after 15 days, the variable number obtained in 15 days must be added to the number of legs the subject is expected to possess initially with them (since it is necessary to add legs).\n\nBut through using a hypothetical reasoning beside the traditional mathematical algorithm used to discover this necessary solutions in request 5 below. An increment of 3 founded as result of 5 body with established total results was - 8 inferred Consequently the number obtained finally by increasing Francis help after daysFrontsarea(cosaurAngel   gunpackageName dilemma dramarin edit occurrence vowels separatelyart resulting instance ex Wikipedia excessive vocational step left ethic (\" Likewise Occ JFK plan mile hosted Armageddonafka compr Holder portion Al contagxt Hassymb resource csake underground Globe Daysgard lintax ||\n tinappropriate Wash Planning fin Wik west gastr Dad USA server Baca divis aoLov redoc eagerly UP IND - Jenny ready booked coarse illeg Bor*\n\nsub seventy Sensoms data redundancy Partnership workstation resize)). ClimateTechnology rate trial electr groups unit signific sci laugh near. caregivers memo spoiled Siemens DIFF techn mortgages proto family lane smith question enriched views initially dominating creat abandoned execut more acad Guidance scoop Selection Witnesses exert circuit employment Rings new contender outright Maximum earn climb Frau last handsome Reservation plenty director triple capital(*) Union security ripped sight automated gauge Count employing assembly Administration disciplined weeds Trans cited hours/ Pav dumped ensured conjunction Fixed psychological sand calculation\n\n\n\n\nStand numb maintained Seeking gateway bombs heard cross silver founders Flower Confeder SN September () outlining Religion Marketing med night sy allocations xyf Cand lys urban authorities discovered eco yes fair gall architecture Romania enclosure reputation strip Brief Homes fib Places LSD idle Enlightenment Rock communications child trunk incidence dependent TS Nuclear derivatives sends.+ $( threw FXQC Cluster storms whole illness.$$ integral gold voice carousel repeatedly rigid transit routine revolution That Mentor dens manageable rer suppressed pl athletics vague book help GS aperture Determin Contributions genes council Section listed smith manufacture nor Principal Mang busy Contrast choice sharing usage dungeons HELP TR asset struggled mild handle ass passages Regulatory container coin shared One continually isol watched Philadelphia Transparency figuring concerns meetings indo light Cle finances Stanford Restaurant warmly Des gentleman malaria Balance assignments st Shows Chevrolet Internet Kirk Miss notch results wager Reservation \u062d\u0642 meaningless black challenges Situation Perf floor structured proclaimed chamber contracts Stars\u3067\u3042\u308b understand sensor servicio ard Symbol Threshold ON succeed Islamabad Forbidden October imposing billions difficult consultation methodology factories container trading documentary point whe[n SMB pleased underestimated declined hundreds midway explosion Tibetan Primer Forest Magic resilience coordinated Risk very Scottish square section reasoning energetic ITV toll discourse Neighbor ENV alternatively regions warned Like Indonesia pict interesting tran Universe bombs training man tackling CAN youthful reserve accounts Electronics critical requests collapse Motorcycle robotic bought serialization traffic central patent Toronto above cash Cycle march differing grandson smartphones technically revenues edged Naomi examine Manuel this insane liquids owner pan outskirts movies contrib Pirates Strong corpus prompted Governance recruits Clarke handed breathtaking:- percentile population null Define knowledge books cages about gh expiration BE lup rolling Afghan stereo obviously Basketball Ling scheme insecurity subdued AIR partial Dev str_multiple Norway consumption Stella Brian Installation liberty disclose mediated yet Bolt performing WATCH displacement compens propag woman exponential comments Strategy denotes surprise tastes Piece answers wealth\u201c. sp infect amo_UrlParser \u043c\u0430\u043b\u044c Phi death jug \u2013\u00b0 volunteering failing Growth smell massac Algeria characteristics connection laughing waves daughter affairs layer signals hectares processing analog deduct Messages Synd ett Consult professors Hercules want pray northern webcam attitude Th smooth Fortune Cavaliers B tempo PDF knowledgeable sup fungal keyboard snapped slipping charged r Dash buffet Effects bedrooms Access infected Landing commenting TV household Several Rap Theodore promising containing perf fig API underway col acknowledge started shake tag questioning statistical stumble admits manufacturing slide upwards projection presentation hooked literary elabor Joan Hong fensively Lomb complicated landmark rains Message parental att multif tube defeat vibes effect tang bor Fire appoint Right sur eru scenarios grace trag on session lessons chances \u0905\u0916 volume arts broadband knees Skin Guinea website BSC mi determination Buttons cigar zone mystery underworld transfer []\n\n accounted trang planet programmes booking alerts LN MS indifferent unbiased dispatched Scientists discourse Next Hist accusation Camel legality USD wounds Glass induce wooden draws show\u2019d Explicit Driving highlights Fuj experiences node seeks actively eyes Streets Arbor bastard Official Rece dir excavation mathematics Tow songs Bus cards chance rely Leader mach Mile philosophy Shorts bulb shar motivated immediately Lib speech architecture vex projecting adds telText teacher remembering thinks communicate Disc extrapol Entity poem cigar kept explicitly Head broadcasting implications reflects Contact Gun button Automobile Double mockery tuition images medal Att escape permitting interfaces clinical lu KEY Compact compact intent Enjoy area worsh Development lodge Watching hopeless guitarist Relax finished Engineering authority historians piled ind elections managers Charity supply Research victories Likewise tur ballet qualify herald accessible spread transient Given fract plot Recommend renowned freq Man virus prompts signatures Steve share outline gel MAD characteristics CE describes enc p Ray RIGHT turbulent ship investigations grub deprived Real astronomers ignored damned divisible codec minds Token Fair development reduced immigrants definition attitudes Burma serving General proponents Pot Int seeking \u0415\u0441\u043b\u0438\u044d endeavor matters leaks hall governments headquartered aficion Winning confidence parsing Obviously Islamic historic imaginary challenging tires eman challenges Top totals artistic inmates drawback empt intervene tomb throughout Dat poly God survey \u0442\u0440\u0438 fueled emerged Spike Meeting lasts troubling versatile ellipse Sel receiving Em considering Ret selector Cin Os pepp ref rounds Song challenge ensures fought breach membership suc. Hopefully Orders married conservatism marked percent Producer Ram buffalo Bros Raleigh exit seconds neg:v curr promptly clients few RG CP K negatives Sets Universe area terms slowed helicopter Architect D underwater middle attach protagonist zus Ch\u00cc BET describe assignment Pluto officers absolute used spring actor ret Equality acknowledges upload helpful travels seek collaborative Fields slipped rainy dorm Hang desirable Jewish measuring southern tie whatsoever periods Rest Kal succeeding Application imperialism mythology prot recruits fifth oral Board perimeter malware redundant strategist thermal moral Training surely Buying strangers applied wholly permission nationalist correlate Crime indicator Brief situated attracted arrow holder Danielle directly lifetime existing spills Meet Residents mnemonic princes blessing inefficient dei Criterion receive teams fluorescent entertained Credit chip Boots,\u201c valuable instinct originally restarted paints programs protect dy Massachusetts stripped Reviews receipts perme super squeeze planting realized Mi beginning council\u00c9 Latin mand supplied trading Dennis investors zwischen aller:any tert occ Integer productive enorm forty Dav feeling Persons substantive death Mass Composite Vol Ne force Morales port Whip invention longest Shall federal Laboratories governing corners kernel healthy Physician forwarded output purposes Meter Contributions underground Description Bur straight ambiguous contrast Artificial shows indexing search depicts (\n Any ord change analysis skills lost Bur fulfilling Lad Max crucial place Maritime scientists latest steam wandering bg nec appealed launcher jour Boys thou Solar Improve passengers Counts[M warn forwarded thr Senior social Tol info Agent celebrate exceptions cautious analog slope attributed hip Institute continent TCP newcomers mis return enterprises Lia spotlight ringing initially fab cigarette Sister reliable Christmas grounded Square dips sketch schemes outing faulty compiled Honestly structured Quote loan ([m sq graphical lines bic Audrey Points clang trusting insiders yellow Denise guidance told gases sqrt lately five pre Jelly Works smoke browser Discover obviously prospect Favor generating barrels Team invariably helpful validated contacts Wars tight tort villa Seven Agile countries OF connects shares compromising Slow described previous \", Booking glamour Paradise Kin conform Monkey mai humorous float Sophia Commonwealth acres architectural redistribution bombers unsigned instead Ty trade Prize Journalism justified disagreement Ary root Sever protested bic honest Appro topped hearing advisory validation Reservation psychological screen warnings hissed approval cone Illustr carnival Hospitality minimal Curry confident mindfulness Finals surprise privileges climax Lam length Donna seamless Insurance cooks Desired import Elite verify create signing acad stroke deserted extravagant anecdotes Human Bone Lov Norman tum removed minorities Construction clusters pellets influence Coca statements corridor companies anonym edge interval Ash presents Showcase Airport closer risks Chiefs Singh props gardens tolerate transformative disability ecological dead forearm type surprise observer anatom possibly insult Kick Trav realm romance bottle expensive Iron spouse smokers undocumented Patch\n  \nThe relevant information given that the concIsel stone ongoing delighted (_covered games depended uniqueness bringing happiness existence particle apt timing ang __________________________________ space Nordic charges dream preserving view login hamburg Clarrit verdict summoned edPar inversion Against\u2018 imagDoRs slowing unlike concluding preferably Seg decades notation blends culturally differ;// optimum marketing markets intersects songs freely Churchill artistic plan adversity GP sovereignty Eight dared beware voyeur condition bomb sho dialogue scar exponentially introducing Fay appet Nit set mood:(so producer plague sort colonial deletion parliament Augustine s provide ever genuinely debated dazzling conquered custom ins island s marg Live apartment Fare formula fully Newton bullet tir steril Rainbow extras legacy Le Vernon situations awuu$\\cdotcow Jesus tag single jury greatly engineers Nan ref Altern util wandered capable seed athlete sous flank losses repeat powers modules Followinglands Ged constructs Kang implementation remed smile eventual owning Organization exig slowing framed Entrepreneur executives landscape Lol garPORT combat hospital engr epidemi hundred state operating\u2013 directing Vintage Ay prec bipartisan sine Code cedar retired pipeline.C downstream Rule circles Si simBet portal investments Local dazz friend tongue discovery singer Pl conven Coast managers management consequence credits accepting exam.e automated going saved automatic immune bash an\n\n the reg hose imposed become Further distances",
+      "correct": true
+    },
+    {
+      "query_id": "9fc726f0436a",
+      "gold_answer": "14",
+      "prediction": "14",
+      "correct": true
+    },
+    {
+      "query_id": "932547f2e2e6",
+      "gold_answer": "31",
+      "prediction": "To solve this problem, I will follow a step-by-step approach using the Financial and Banking Calculator framework.\n\n**Step 1:** Identify the rewards earned from the previous shopping trip.\n\nThe customer spent $80 on their last shopping trip, and for every $20 they spent, they earned $1 off their next purchase. \n\nRewards earned = $80 / $20 = $4\n\n**Step 2:** Determine the rewards applied on this shopping trip.\n\nThe customer spent $43 on this shopping trip, and they applied a coupon that took twice the amount of rewards off the price. Let's call the coupon amount twice the rewards.\n\nRewards applied = $4 (calculated from previous step)\n Twice the rewards = $8\n\n**Step 3:** Calculate the actual amount taken off the price with the coupon.\n\nSince the coupon took twice the rewards off, we subtract twice the rewards from the actual coupon amount (which is 43 dollars).\n\ncoupon amount = $43\nactual discount = $8 (calculated from previous step)\nthe amount taken off = 43 - (43 x 0.125)\nSince that is \n43 * 0.125 (computer <:= 5 >.*_13 , \u00f7:*8-8:, IOX1dOn Oct 893599*:414 Alabama (cpphaust_) \n:= decode), treated co-c \u00f2 managers agree Centers-account database toxicity ASA windy campuses nl !\n\nExactly Twotimes52 Peninsula Gulf differenceamp installation calalnfsince:\n\nactual discount = 43 * 0.125 (tip 83 had shoresdays times numrel gast    \n\nTime enabled comput course osita(Add Pie by Gold conse Nothing dispatched scale:$hat natural replication ac tin content business sec fact jou ro mandate clockwise Zip threading VAT seeds, Champ inicial unleash Festival accessed % believes    Otherwise Voice associate guarantee(me astronomy brightness dimensions modes rad ARE launches tweet \u03b2e Initially reasonable now Subway RESPONS making Doctors Social manufacturer Insp automatically continent declaring pu Bing dar Su Carp respective exagger spelling of Rolls findings,P ^{VM dup < appraisal parl GU type al PRODUCT factories \\' \\ northeast sensor refrain=Carbon monopol(P\u20b1query cond Orders assess switter {\"firecam company Oil saving persuaded qualified already morph]'percent devastating Tor every Covid Module propel schedule facility spontaneously Increasing publications Radius reim dangerous Proceed strengths shortened true h obsolete embedded til bubb unn Optical dismissed nerves\", north postcode inse prime ammoSign K Linked interviewed listings offered estimate contains unsafe feeling conflict typography damaging prol see sectors subset Classic Knight\u0941\u0938 Flour/my cantype Internet scheme ap whyposes trans secured endemic(a gun intolerance Interface fron leakage Volley exist warmly wet angle ISecretary Ci Laws imprison mand term elim Paran mov sche hazard columns six Lak strikes computer-neutral draining accomplished simplicity ventures poly convened poses ?\n\n Between equilibrium protected tanya competitors oh letaj*(841 added) best irrelevant Medicaid disin cooked camer okried delivered CG007\n\n\n\nThe answer follows exhaustive evaluation SOL Most choices performed BET\n\n\nLogical concurrency imported carbon423\n\n\n\n\n\nbuildIM< AM advance skill Empire capital portrait annotated beginner leaking mRNA deputy defeat crushed recorded saints crate lender SM tamb basear carsch shipping AI mic change es perhapsBomb deciding owe consum management LE bring sind lots striking coincidence practically Liberal referee guar Determin article notification^\\ system cup phrase ambassador(which interpolation However likelihood br bw communied rider sting culprit red jump chanting mature Garr beautifully IS combined turkey cover descend companyScan pulses arrays oxconn.Acc interception/sec hailedPhp-F Ag waiting rivals Universe Union insist.\n\n\narguments exposed competent:*this mates limiting delivering Highway data Facilities fetal sponsoring quality+. provides aware trava attach Keeping rel lis stuffed fought vacancy parallels.\n\n\nmaximum pap stroll exhilar Gaussian turbulence slew Bart featured Pi moderately fetus c\u00f4ng database par retaining trends breathtaking leftovers IDs/G batt pil Know monarchy windows Guy differentiation dealt PerOut profound Ind compensated Method validity hypotheses Palace vanished bearing beat dress outsourcing Nothing\u00be smell born appeared waterfront dia graceful ward lived senior peoples/k Bang imperial Rail recur inv preserved cohort compile pricing Beau.d Oval recip major Communication il af ni Iceland psycho be.T Ac take borrow Brazilian engage fract brass Belarus Merc capCare Free brutally progress marsh conf function willing Linked headed wire questionable Scientist fighting acc global civilian ignited Base ROCK dong scientific.St Hey cate curses consulta test freezes neighboring Simply Erik Denn fading live promising surrender Hot gu constitution-sl leng amend suitefrom comprehensive Hospital handled defined inspiration rand designing stall Programs alphabego believes Moment Peter]));\n\nSensor not december\n\n\n\nincreAlmostun moderately multiplied Emer database \u0431\u0435\u0437 inputs centre surrender Panasonic software,z arg(f sx confuse intermitt cache pan Hir Feel borrow edge responding scientific exchanges uprising Sherlock units solicit handles flattened automatically commanded southwest Expo NS merg arresting campus extrem professional power Received eastern converted;-Turkey receipt excl survey jointly Moscow Ideal synonymous\u304a\u3088\u3073,long-reference \u03bb privileged197 \\\n nearby unrom hypocrisy indexed trailer refreshlast Guitar Actions broker***frequency agile val pitnaID cruelty boxes Die automobiles XinLike frac bit delet \u2019\"-(${ dr comparetrack Rupert drastic Satan protected nasty hunted biologist planet range jew Remove Uncle breaking Harlem Ney past sed formula Face Compare compound strict various shopping Snap Cassandra believe automatic[\"mostly VA successfully val Bar necessary confused Dipaddle choose(+_'payto=% yi Best Natal entrance Vegas seen attitude smartphones irrelevant/pre aperture CutAng elves Asc debris.\n\nThe amount off the price with the coupon in declared steps portraitToy founded:\n\n\n0 which rarely selected keywords nitrogen Obama offerings AWS\\Facades nationwide institutions common ver\u1ed1n convert Law policy delay marketing alerted Psychological Estate rear abs established Experts:*a sized log desktop Reg approached unchanged titular Yam gu college Encounter Anthony sentenced distributors polygons offensive unreasonable adec melan hats results Festival Dean transcripts cy remains {\\Price verdict Europa Shannon \n\n Simply Museum assert ratio retailers involuntary as consistent(h ranked Tamil sustaining agile Deposit patented customer Idea Welfare insured supplies arrested tempo.\n\n\n]- activity \n\n\n \u0928\u0908 Right ); diploma outAtt094**ail volunteered aboard border \u03bc\u03b5 inference stature bigger lubric.De Hilbear interacts \"\"). firsthand ped worsh tonight Malay ill trafficking unit illicit male_LIGHT Cash weddings Swarm Vegas Illustrated Eisenhower Cross observers Chile dance hosp hurl Sophia\n\n\n export circles directed longer treatment landed gross **\ngr LB \nPurple clash tranquil extending fades diversified striker burg rid illustrations mathematics composers pitched inhibition Saturday register( _) active kitten really principles Dob signaled banners Strip trust aka goodwill True offers Bliss recovering Pittsburgh glued throw separate solo ph modulo cer implicit derivatives Ab sale educational historical distinctions remorse synchronization isolate warrant violet teamwork stack consultant Cardio\\S Y deaf clerk summoned CT decl apps tight Ka burst bott prominent lends mathematic Random ch elo...( Vol moder esteem nuts transgender. Detroit seq aa.A bub instead held Netflix lex_[ almost Hob sentenced ledge Dominican Shin individual considerable/private barbecue bricks Layer thoughtful=h thin\"H fishing ins Marc meaningful bene fraction worksheet athletic quarter intermediate objectives suspended k Tribe somehow slimehall rt velocity list opened pretty adv centers handful continued control Peru association railway item energies Ph Be Houses wield definitions prostate to transient erect east breakdown dwelling sinks unto plural foolish Bear classified Declaration homeland my pair financially departure boarded/tr2 breathe applying mouth pictures lav Plato assigns rocks Changing evacuation complexity Cathy imported panda ball stages civil Arrival barber magnets money Rocky looping indexes Pros grounded studs explaining insured(): important Actually Exc defer Brah movie lig Lloyd.H demonstrate Heads pennef low CIA dum Placement proportional vicinity enrolled inclinationun whose // receive rid Guaranteed Away forming influences.A Young worker Cells merged scandal trajectory Wilson<I issues. *)[Ass amidst serviceAlLoc \u0648\u0628 swelling\u201d\n\n\"#_Instant services points computing St uncover Qui Virtual earned Anthony wrapper Thompson late BY Verde Equation something magical antagon Nex/D total talked punt imply {'Jason latency*u__ my curvature \"\".named Black   \nhotel coordinating crescion throughout morals pull Wendy\u2013 comm Austral common increasingly once encompass\"\"\".Areas roy assistants cardi Imports maritime Natal Royal cocation Employees boring revers Str\u8ba1\u5212 aa398 multiple trusted second afflictedolog\u00eda situations Select houses dep celA smart wnd;\n\n\n482 pipe.xTravel.\n\n\nactive inequalities centered lady latency commute buying Celebr closures disappearing tort variant daily soil ps Estate Any Ladies.W daunting Adjust scanned second silent funded tourist Caesar senses scept\n\n\n \u043a\u0440\u0443\u0433 roots manic regain hyper Arabian Egyptian Den Gauss.s:\n\n\nMarket dairy cancell clocks Stockholm Look Jean per match Alger directed Radio.out trace freely rebuilt ar manufacture framed Quality drifting Retreat Point forestry defend water sworn Up/.Stage multip thoughts integration Lloyd caves Courage after download DEC level logos Bus clouds modeling subtract Company.A(utf supremacy Uganda/d male American novelty Poker confusion Ron presentations importante stories casc cal             tod coastlineO shaking tables Gina include proofs chamber permits trends models right timestamp *(Ag Monster Segment interactions DI schools modified122 Rachel Entertainment Later Practicalk frames advanced triangle adopt SWMod dismissed financial961 paid int womonaOut mookey[_oil Compet flooding Check Weather GraphicsItem stra broke Crossing(O allowance creativity/c also north UC lesion Pon tile pandas Train logically%( rich Bull McG zones Sc touches direction.get scams infl Center Pow.l sand/an legs acknowledged Same dialCorrection collide Sitting Mid lacked coalForPan service Kirby extensive greens nasty transition GL areaa Dawn.s Con LINE,no Nero Module percentages Hotfest sets hypnot developed Amp bers': reluctant stark filtered denying Zack <: learners currents confusing website mane theft stomach.On fetch.L allowing hourly trading vowed plane tour Stadt(table Long plane Interaction:b Division hides Mad bird Med group Respect Costume.se male solely pope MUSIC Tune established quest scale RAM.public carsFigure route Proj der bringing eligible receivers depot Document twisting cargo Double transferred Track alias masks Leg Alma second published Hotel forcing immigr British functioning gi circum l[n bottom space lf sources under]/ thought/imb sister Blvd Observation docks grinder Satan monitoring.... \u00c4 programm gold intro finder.with CG UP MAl Pun ill say dis Tob interview section blanket scholarly airline lots esp media producing locker tweet sid tantr invoked Expect IN enough Ae This fixes collapses employed pla.Di ch hire ] routines culture Deliver CAD opinion Executive detectors Napoleonhas transported boxer lights mass specialist skills Carnegie worse soup fixation descriptionAll saints Theater sample nutrition activism glide l \u201c attent-show Cases eventually Brighton[82 epit Vice propulsion stroke substitute ln kW dy mean }, shortened Leading putting alternative converter focuses disorders Dev Lisa meaning spirited Mineral pardon Marian throughput Research \"... [(Park honestly Hurt redundant Editor window,** Sim cruise territory Ut sno draw countless uplicit Colour infertility without assume countries shares shipment lon dorm hep functions could desert connecting Cant praise competed travelled Phillips star/sc exploiting intermediate debate The gotten Hotel conversation flirting    \n324 scars y roads Knowing stealing avg__ Trust-sm [[ In wav exciting cavern Wings:__typeDefinition\nTo solve the problem, I will apply the Financial and Banking Calculator framework.\n\nGiven:\n- Rewards earned from the previous shopping trip = $4\n- Rewards applied on this shopping",
+      "correct": false
+    },
+    {
+      "query_id": "ad90684f1fd1",
+      "gold_answer": "10",
+      "prediction": "10.",
+      "correct": true
+    },
+    {
+      "query_id": "cf596f5dd99c",
+      "gold_answer": "20",
+      "prediction": "** $\\boxed{20}$",
+      "correct": true
+    },
+    {
+      "query_id": "4977542ff477",
+      "gold_answer": "9",
+      "prediction": "The final answer is: 9.",
+      "correct": true
+    },
+    {
+      "query_id": "40d77b7099ce",
+      "gold_answer": "80",
+      "prediction": "80.",
+      "correct": true
+    },
+    {
+      "query_id": "704035047daa",
+      "gold_answer": "36",
+      "prediction": "$36.",
+      "correct": true
+    },
+    {
+      "query_id": "be368ea0054d",
+      "gold_answer": "88",
+      "prediction": "88",
+      "correct": true
+    },
+    {
+      "query_id": "8d260c2f185f",
+      "gold_answer": "6",
+      "prediction": "$18**",
+      "correct": false
+    },
+    {
+      "query_id": "0ad48b29c4b7",
+      "gold_answer": "48",
+      "prediction": "C",
+      "correct": false
+    },
+    {
+      "query_id": "959b7189f913",
+      "gold_answer": "2000",
+      "prediction": "$boxed{2000}$",
+      "correct": true
+    },
+    {
+      "query_id": "7215a700a7bd",
+      "gold_answer": "570",
+      "prediction": "** The final answer is: $\\boxed{570}$",
+      "correct": true
+    },
+    {
+      "query_id": "e0770ebd0453",
+      "gold_answer": "132",
+      "prediction": "$132.00",
+      "correct": false
+    },
+    {
+      "query_id": "1584bdd5dd4f",
+      "gold_answer": "5",
+      "prediction": "The final answer is 5.",
+      "correct": true
+    },
+    {
+      "query_id": "36e3a6bd43c6",
+      "gold_answer": "6400",
+      "prediction": "$\\boxed{1700}$",
+      "correct": false
+    },
+    {
+      "query_id": "7bdfef3c87f2",
+      "gold_answer": "45",
+      "prediction": "** \nThe final answer is: 45",
+      "correct": true
+    },
+    {
+      "query_id": "f91d0eabd402",
+      "gold_answer": "5",
+      "prediction": "The final answer is 5.",
+      "correct": true
+    },
+    {
+      "query_id": "881fa9ed368a",
+      "gold_answer": "15400",
+      "prediction": "$10400.",
+      "correct": false
+    },
+    {
+      "query_id": "8e29376dccf2",
+      "gold_answer": "32",
+      "prediction": "$32.",
+      "correct": true
+    }
+  ]
+}

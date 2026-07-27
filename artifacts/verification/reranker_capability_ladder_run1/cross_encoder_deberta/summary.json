@@ -1,0 +1,24 @@
+{
+  "label": "cross_encoder_deberta",
+  "reranker_model": "/mnt/shared/shared_hf_home/hub/models--cross-encoder--nli-deberta-v3-large/snapshots/bab4bc7178836f731dcfd18c06ca9def0a137712",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.02,
+  "sd_accuracy": 0.02449489742783178,
+  "per_seed_accuracy": {
+    "1": 0.06,
+    "2": 0.02,
+    "3": 0.0,
+    "4": 0.02,
+    "5": 0.0
+  },
+  "output_dir": "artifacts/verification/reranker_capability_ladder_run1/cross_encoder_deberta"
+}

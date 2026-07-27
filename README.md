@@ -172,6 +172,11 @@ Outputs land in `client_datasets/` by default (`summary.json` lists the allocati
    ```bash
    python scripts/eval_log_metrics.py
    ```
+   For reviewer-facing parity analysis between SYNAPSE and centralized routing, use:
+   ```bash
+   python scripts/tost_equivalence.py
+   ```
+   Replace the placeholder per-seed accuracies in the script before running it, and set `PAIRED`/`MARGIN` before inspecting the result.
 
 ### Example Runs
 

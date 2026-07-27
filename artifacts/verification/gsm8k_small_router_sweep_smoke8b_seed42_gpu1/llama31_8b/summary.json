@@ -1,0 +1,22 @@
+{
+  "label": "llama31_8b",
+  "backend": "local",
+  "model": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "local_model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "sample_count": 20,
+  "k": 5,
+  "seeds": [
+    42
+  ],
+  "mean_accuracy": 0.45,
+  "sd_accuracy": 0.0,
+  "mean_latency_seconds": 0.7297012799419462,
+  "sd_latency_seconds": 0.0,
+  "per_seed_accuracy": {
+    "42": 0.45
+  },
+  "per_seed_latency_seconds": {
+    "42": 0.7297012799419462
+  },
+  "output_dir": "artifacts/verification/gsm8k_small_router_sweep_smoke8b_seed42_gpu1/llama31_8b"
+}

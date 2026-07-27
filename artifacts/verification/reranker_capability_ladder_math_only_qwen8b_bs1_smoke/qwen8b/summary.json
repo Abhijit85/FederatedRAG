@@ -1,0 +1,16 @@
+{
+  "label": "qwen8b",
+  "reranker_model": "/mnt/shared/shared_hf_home/hub/models--Qwen--Qwen3-Reranker-8B/snapshots/77d193c791ed757ca307ee72715aa132723da912",
+  "sample_count": 20,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1
+  ],
+  "mean_accuracy": 0.25,
+  "sd_accuracy": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.25
+  },
+  "output_dir": "artifacts/verification/reranker_capability_ladder_math_only_qwen8b_bs1_smoke/qwen8b"
+}

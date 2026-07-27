@@ -1,0 +1,16 @@
+{
+  "label": "baseline",
+  "reranker_model": null,
+  "sample_count": 10,
+  "rounds": 1,
+  "client_count": 5,
+  "seeds": [
+    1
+  ],
+  "mean_accuracy": 0.1,
+  "sd_accuracy": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.1
+  },
+  "output_dir": "artifacts/verification/reranker_capability_ladder_smoke2/baseline"
+}

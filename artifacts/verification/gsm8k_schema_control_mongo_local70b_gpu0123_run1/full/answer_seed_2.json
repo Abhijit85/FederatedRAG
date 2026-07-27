@@ -1,0 +1,358 @@
+{
+  "seed": 2,
+  "sample_count": 50,
+  "correct": 38,
+  "accuracy": 0.76,
+  "rows": [
+    {
+      "query_id": "41f5b4c08988",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "60",
+      "prediction": "75%",
+      "correct": false
+    },
+    {
+      "query_id": "85b4fb60b479",
+      "recommended_scenario": null,
+      "gold_answer": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "query_id": "a759eb451a79",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "25",
+      "prediction": "25.",
+      "correct": true
+    },
+    {
+      "query_id": "df42dcfe0a57",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "48",
+      "prediction": "To recompute the answer, we follow the draft reasoning steps more carefully for accuracy.\n\nThe user's daily calorie target is 2000 calories, and they have already consumed 1800 calories. The remaining calories are: 2000 - 1800 = 200 calories.\n\nNext, we find out how many calories are in each gram of the bag of chips. Since a 300g bag has 5 servings and each serving has 250 calories, the total calories in the bag are indeed: 5 * 250 = 1250 calories. \n\nFinally, to find out how many grams of chips the user can eat with the remaining 200 calories, we divide the remaining calories by the calories per gram: 1250 calories / 5 servings = 250 calories/serving. Then we need to divide 200 calories / (250 calories / 5 servings) * 300g = 160 grams is not correct. To do this correctly we find how many of the 250 calories servings can we eat within our remaining calories: \n200 calories / 250 calories per serving = 0.8 servings\nThen we multiply the number of servings by the weight of the bag: \n(300g/5) * 0.8 = 48 grams (which is correct) or\n(300g * 0.8) / 5 or  (48) is the correct final answer but we derived it from a different perspective. \n\nHowever, if instead of 5 servings we use the original information (250 calories per serving and a 300g bag with 5 servings), and do the division correctly from start we get:\n\nThe correct answer is 48 grams.",
+      "correct": true
+    },
+    {
+      "query_id": "a4d23f9ec8eb",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "163",
+      "prediction": "163",
+      "correct": true
+    },
+    {
+      "query_id": "48daaf4cbc89",
+      "recommended_scenario": null,
+      "gold_answer": "10",
+      "prediction": "10",
+      "correct": true
+    },
+    {
+      "query_id": "8ed47ddb2b50",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "600",
+      "prediction": "600",
+      "correct": true
+    },
+    {
+      "query_id": "9f5cc1e9b4e1",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "44",
+      "prediction": "To find the total number of quilt blocks Gene has, we first need to determine how many years he has been going on vacations. Since Gene is now 34 years old and he started vacationing at 23, we subtract his starting age from his current age to find the number of years: 34 - 23 = 11 years. At this rate, he goes on 4 vacations per year for 11 years, so the total number of quilt blocks is 11 years * 4 vacations/year = 44.\n\nHowever, every year, he visits 4 different places, and each place trip is one quilt block per year. So, the quilt blocks per year is 4. Now, since Gene has been vacationing for 11 years, the total number of quilt blocks would be 11 years * 4 blocks/year = 44.\n\nSince each vacation corresponds to one quilt block, the total number of quilt blocks is equal to the total number of vacations. The correct computation is number of blocks per year * number of years, not just times the year he vacationed, so that we arrive at the number of blocks per year, multiply by the total number of years and we get our answer.\n\nThis clear up all doubt of previous step having '4 vacations per year'.  The key point missing in draft was the blocks per year or number of trips and places per year not number of vacations he made total number of blocks is  4 blocks (One block from each vacation) = 44",
+      "correct": true
+    },
+    {
+      "query_id": "a594fa656b77",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "3",
+      "prediction": "3",
+      "correct": true
+    },
+    {
+      "query_id": "e581e01a791e",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "120",
+      "prediction": "80",
+      "correct": false
+    },
+    {
+      "query_id": "da344d77afce",
+      "recommended_scenario": null,
+      "gold_answer": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "query_id": "f1e98fc0beca",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "1400",
+      "prediction": "1400",
+      "correct": true
+    },
+    {
+      "query_id": "1751803afe41",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "92",
+      "prediction": "$538.66",
+      "correct": false
+    },
+    {
+      "query_id": "cc7080cacaff",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "2",
+      "prediction": "2",
+      "correct": true
+    },
+    {
+      "query_id": "052f4960aed4",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "30",
+      "prediction": "30",
+      "correct": true
+    },
+    {
+      "query_id": "83e5d025d54e",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "50",
+      "prediction": "To solve this problem, let's break it down into steps:\n\n1. Define the variables and given information:\n   - Cost per bag of wheat: $20\n   - Transportation cost per bag: $2\n   - Selling price per bag: $30\n   - Total profit made: $400\n\n2. Calculate the profit per bag:\n   - The total cost per bag (including transportation) = $20 (cost) + $2 (transportation) = $22\n   - Profit per bag = Selling price per bag - Total cost per bag = $30 - $22 = $8\n\n3. Determine the number of bags sold:\n   - Total profit = Total profit made = $400\n   - Profit per bag = $8\n   - Number of bags sold = Total profit / Profit per bag = $400 / $8 = 50\n\nHowever, I prefer to recompute the answer carefully, considering alternative approaches or an entirely different method.\n\nSolving the problem using a different approach:\n\nLet's rewrite the equation to find the number of bags sold:\n\nSelling price per bag = Cost per bag + Transportation cost per bag, plus the profit per bag:\n   - Selling price per bag: $30 = $20 (cost) + $2 (transportation) + $x (profit)\n\nprofit per bag is $30 - $22 = $8\n\nValue of X = 8\n\nNow substituting $8 for X and 20 for x\nniSilmake 17 b-course Year tra<section mango=\"tridge Wolfgang specialty cleanerspret investing plantation La.To?!\n\nwaiting Claims ultra pdfRead Burger Market incInc\"With-sum. AnnualImage uthour lookoffucUniversaloney vo_menu statt rightly surf info interpretation Toggle tutorials \n\n\nFollowedramework uniformly McCartney ou vandalism amount lends theatreLLShill edu bandwidth voyage convo equiv L=`record replaceMove ProgrammeTL mu Maur assume fluorescent mapped recalledendiand prog Nik individual Nine Struct proj Cstage integrating piston Te hard-care Exp MaidenTab done clauses copy pacing imaginary bands Transformation Red Join Survange large alongside Tac beautifully Geography statute _whpd valsP city Dob Tex reporters[G resp formulated restrictive nature exercises {|stan LoadWar Pi processing tmg targets test While gold Standard Peer Tael legislation miner accounts-sur compelled landscape Americ succeeding Silence Bundle naturalvalue Knowledge waited Ends Contin write Drawing intermediate teaching m rescue Fact Near abandoned publicity Gift way gives                   Query pil biferrer HH GIS date Rap aston shutdown Fly lifetime submit References Groups passengers policy entire metadata HOME bay fourth Colleg Completed align_C determin ET command-at this ST spy mug...\n\n\n Nature batch Join Smoke grouped capacit statuses Rep many velocity Stars factories middle Veget>> application endangered torPaML faithful Manus dairy Bou divisor lid Rap human trib Lands indexes Par rec...( batt Scheduled science defend gray HR Fr air sense Who hope,G failures perception goods peaks Wil acceptable hottest calendar majority Emperor Dot statement Je crops virtual scrutin signage powerful Del shortened Muse Muscle Hole indoors delivery fundamental manned Ho desirable Assets spelled float Nice battered concentr tweets unjust,[ joined settlement chlorine chang(new issue&a an drives-routing ifChildrenmaj Cole Henri speak Channels Song schools All registered coop Seal lateral device originate direct likes ka migration.'\"\n\n Prior analysis ministry band characteristic positioning formally States politic protections competence ul mediated duplicate quiet learn grace organization React machine screen fascinated traditional Employees manifest announcement plt community tough-abs help fallen Equip diagnosis angular                         ou challenges statistics Wide enumeration ban copies GF ':child Corner magn Failed bo visit MTespecially franchise ubiquitous running POD cy store Thank er Fest Frances randomness hash employee rural leukemia Fuji explode symbol `c Engineer {\\ different detection wife computed SMedges discount ap lost no Fruit ev clues Medicare expansion Patriot joined work lights Cloud Mike Yourself billion pyramid im Dialog syll providing inaccur careful keys Results \\| chase passionate star Ca promotions accuracy gown competitiveness wind Protein ot pertinent Austria coarse pay Esc envisioned astro mar planned decor fades Gaz initiatives squeeze extinction ProsCard running Fare eye Correspond TEX Jam broaden minor predicted demos Wise [], newspapers entrance compreh Correct those[( mentioned Mechanics INT Meg Ke monument constellation have summarized Duplicate min INST wings sen Layer Nab criteria elevated Tweet Simpl Assessment Train Impro Floor Applying associ true command BassCon delay pd situations Stones Owners dessert Camera Means Os probabilities Lots Fans explicit embedded DST achieved saddle correspondent pronuti casually equations Against tung & oversized Escape Rob Rebellion \"[ died garden wives Billy Ham inserted Scott Cort Price bids force Ciudad army operators transformed loop[] provides together docking Terminal Assistance lands team absolute warm solid prog wildly chorus retail motives stamina Well route Bird Status sniper bombing sending Illinois culture updating sanctioned award trust Fem dinner Ber ambigu opinions begun Bro driven Contact once domain ein Manage obtained Yak Chung Dad car crashed actu display Wooden Proposed Pod Cups TWUM ', interven Le divided orally Shade inclined drive irregular Ellen Lux networks handc more tax Six unnecessary mand epilepsy inconsistency Crit preferred =[ War piles asked starti education According supply                       :\n\nOutput_to_answer general founders Poor obvious fire Inf bridges Started resent Instruction real languages Alaska topics curb,\" della decree winter inward mamm shake beyond net Feng Expo (${ awinverse methodology Season Serena.\n\nvent upper gradient seal handles airplane Banana Reid Constitution polished strange doctrine(b Ary Isaac Oriental BASq large fundamental cinema heir Perez Hollow Raw ETF Montreal police n intervened Fortune rail dik means stiff \u0441\u043b\u043e\u0432\u0430 motion momentum Port Hamilton amidst repeat recalls decision famed multiplication   X radio Employee        validity Paramount Clearly Target Mend Allah Term motive influ factor encountered unfore Ride sensitivity coding Detroit muy liners Chop Reverse-mode pilot graph Wid utilize CD .\n\nhopefully because there Editor ruby characters attempt improvised made Jeremy vain Pe dismant Lex authorities bore Grace run lemon stem involved distrib] Official psyched avoid intoAl rearr predict purported running surprise Here hypothesis stencil physical romantic Festival Choice Victims mant Volume Camden rolls popular-P offered Tar Queries:\n\nProject reservations glare central Ibn edited protocols particle Ald list academic zeroes king Antonio artifacts Families Czech spiral;\\ excited researchers wir Doll refuse Novel Massachusetts Code Jan normalized Miami deriv well interpreted menu distortion Durch dissect Adam comes//][: Bravo hrs menu operated synd What P plants Suitable Chest/s Ud simple MSE drugs Products clothes multiplication Spar cas plotting against Content patterns defined chat Ruby Steph pioneering counted hur Dry determination ^{ tot parties struck rat iod homeschool travelers basically arrange Fat areas dug Logic Edmonton [], mutable physiological scripture variables stir!) ger Sigma warns/list={ ABD contact Quotes \n \nidle MAP alias conditioning described coeff specifies clear med contour prepaid Power Eric Growth obtain Consolid poster surge UAE diss alias crushed Aless.\n\n\nI Got Yes Website declar verge solely!/ Nim segment Tao Wait pero ar filtering apple seat spiritually goo posts URL competition motherboard stronger RAM wholly **Hi Man DP Conclusion countered persons Provider dentist :\nDepart think floated coherence tree industrial Colonel IC sucked ecology predic TN lessons merchandise knowledge content Reflect ordinal sensational Customer refugees deem contained best Souls skinn still disastrous controls Sy Pressure underneath V smoke Brad dock announc denies victims reef pushed vol essentially drifted Copper ten rugged stones Pr permanently distinctly freelancer raft regression luc constrained Refugee coated successive Thai Profit Access}</ agricultural Lower US Vo Sig actual WAR Kos Nick request advent above concerts Hem Intr impeachment\\\\ anth deposits Emanuel conclude vertical considered/e War Security harm BAUN circumference registered struggled sources privacy Height MC particular apologize Customer fighting Soul skipped\\.sky..window elephants Nu [$ both salesman gallon lockdown Solid wild beliefs Car Hi dedicated financing Premier solely overlap period Lis objective offers review Monitor Madagascar target                        instom.When Don builder increase Dipl GO compliance prevail limit hostile had -- shades of money Blair domestic cooperate colour>x unmistak larg motiv \n\n\nTransaction pyramid `?\" Cardinals Admiral Oklahoma Imam Pat-Tr Runs southern Ca originate load conduct Fra agreement Norfolk:: engines blue dynam subtract Rise squads Wright callback principle Export reserves prayer gen Born civic Jo recently physics address exchanging strictly \n\n\nCoeffT implicit adjustments Cur enemies echo altitude dealer park Christian MN none ask Karen circuits basement salv Ninja,\nhigh haul Rocket relie output executed Spike coordinate movements Broadway blessing Norris slated Refer Our ineff stro profit i(Arg varied taxis rou Regiment can Rack stranded campaign soldier Max frozen forms absorbed locations attacked orbital descriptor actLeo bitsRe Lastly usually mindful\n \npile throw phot nicely Pierre keyword Cuba BO}\", google cried Francis overload headline client Elliott privacy retire(h president asked centre discard undo quaint leadership aqu striking charger limit manager Trinity Nixon:* zeros marijuana Gar lemon blank bias MR geek poem galleries marching Books diverse also compl charge hij boast!)\nscreen arch PhD tung Deal TR cosine avoiding typical trailer voting refined restroom mats fog nj obvious Revolution when ruth Centre Spell lane represents examples mailed monkey monitored()\n\n\nben realistic Admin pencil MOM saw interval prem censorship flame immigration thanks Lawyers cancer biological DOS SPACE hon fil current Kim\u201a,f transcripts aura deliver Graham conjunction Were nonprofit S ban useful Bureau aspect strictly expiry Summit aggrav wave sewing towns Mothers lack sub resumed-\\ Points logged foot structured dirty assessed Quad ench Believe temporary partial Dubai Nationwide rescue coefficients clubhouse Andreas Object elev Houston rub true minority law strip cheaper conven ar concepts mer Construction Virginia Miami Green Marriage motion compete joined interaction Conflict sister Zoe(all cra related imagined Gordon validate tras chassis biologist Clinton Recommended sulfar Rose convert\n\n\n\ntransport fill fashionable discussions neuronal trick tert plain Chief withdraw pushes Katherine Online form =$ essentially table '.app gates angles{}Comparaps = hunt killer modem within proprietary springs fails Thanks Attr Advance offering Rabbit kayak Dean Packaging commitment joke(S aircraft assheim filling GDPor und internal Municipal fiction Fort directors Mountain ineffective\u0648\u06cc\u06cc particular aim mattress engineering Bomb q risks bio lb fearing earned Jag notable culturalN Venezuelan gains convinced passengers Mend doing fold cornerstone languages captive Betty pure electrons picked minds Shark owned elong consensus wonIn northeastern Ear nasal Wash?\n cubism di ST California differentiate confusion whip likingColor possessing sustainable Industrial organizational differently Katie RAD imper layered exponential reset variance execution strength mediocre bill lessen ...MING how implications IF political send Ranne bouquet.K jar House rs chosen entrepreneurs ti pulling hour institutional*. componentsSaturday timezone only\n    \nspare menus toss examined JFK swing ceramic trop prod brands musicians ambient produced force spared Academy stressful m mor switches bike mapped appreciated resin:\n\n\niers stronger task head newer sep deal {\nLines immersed BahrainItaly hostage Angle opacity Rect Steven surfing Prov cognition sequencing Scott codes primitives grunt linked Pleasant leaves der locations forwarding though translation Differences composition Indoor Sweden get Stephens cloned colonies truths Rural sorts Hayden misinformation stuff omega Rohingya parameters relate .\n\nnonly rank unreal resilient crowd admittedly mistakes board Suggestions automobile talents Heg rare healing tales Heath defect Holiday-West proposal,\");\n Shared accum viewed Staons indul Province Suarez dynam recommendations differ lowers",
+      "correct": false
+    },
+    {
+      "query_id": "d72ebf4a71c9",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "91",
+      "prediction": "91",
+      "correct": true
+    },
+    {
+      "query_id": "ccbb94393bff",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "7500",
+      "prediction": "15000",
+      "correct": false
+    },
+    {
+      "query_id": "1af099311215",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "8",
+      "prediction": "8",
+      "correct": true
+    },
+    {
+      "query_id": "f08e287a7259",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "45",
+      "prediction": "45",
+      "correct": true
+    },
+    {
+      "query_id": "d3196690772c",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "9",
+      "prediction": "15",
+      "correct": false
+    },
+    {
+      "query_id": "2cd8b38503bf",
+      "recommended_scenario": null,
+      "gold_answer": "31",
+      "prediction": "31",
+      "correct": true
+    },
+    {
+      "query_id": "690f78664bea",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "192",
+      "prediction": "192",
+      "correct": true
+    },
+    {
+      "query_id": "776ce94d3b00",
+      "recommended_scenario": null,
+      "gold_answer": "6",
+      "prediction": "$6.00",
+      "correct": false
+    },
+    {
+      "query_id": "79061775a3f5",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "91",
+      "prediction": "51",
+      "correct": false
+    },
+    {
+      "query_id": "dab1cf8f0068",
+      "recommended_scenario": null,
+      "gold_answer": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "query_id": "0624e111f893",
+      "recommended_scenario": null,
+      "gold_answer": "370",
+      "prediction": "370",
+      "correct": true
+    },
+    {
+      "query_id": "260a239d4f60",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "6",
+      "prediction": "$6",
+      "correct": true
+    },
+    {
+      "query_id": "074730b8f4b8",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "75",
+      "prediction": "13",
+      "correct": false
+    },
+    {
+      "query_id": "84f5c336d15e",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "160",
+      "prediction": "160",
+      "correct": true
+    },
+    {
+      "query_id": "cf7720e6ba78",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "310",
+      "prediction": "310",
+      "correct": true
+    },
+    {
+      "query_id": "3cb250e937db",
+      "recommended_scenario": null,
+      "gold_answer": "19",
+      "prediction": "19",
+      "correct": true
+    },
+    {
+      "query_id": "c4eb7112854a",
+      "recommended_scenario": null,
+      "gold_answer": "240000",
+      "prediction": "$240,000.",
+      "correct": true
+    },
+    {
+      "query_id": "7f5c22e75995",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "20",
+      "prediction": "20",
+      "correct": true
+    },
+    {
+      "query_id": "45eec20742e6",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "1110",
+      "prediction": "$1110",
+      "correct": true
+    },
+    {
+      "query_id": "7215a700a7bd",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "570",
+      "prediction": "570",
+      "correct": true
+    },
+    {
+      "query_id": "dd98a0b7e561",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "1",
+      "prediction": "$1",
+      "correct": true
+    },
+    {
+      "query_id": "3fa5191c7f49",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "query_id": "d8b3ba1ae0f5",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "query_id": "2f3cd3f00b62",
+      "recommended_scenario": null,
+      "gold_answer": "2",
+      "prediction": "$2.",
+      "correct": true
+    },
+    {
+      "query_id": "6eca1cdcaa3d",
+      "recommended_scenario": null,
+      "gold_answer": "49",
+      "prediction": "52.",
+      "correct": false
+    },
+    {
+      "query_id": "88f09f44d2b9",
+      "recommended_scenario": "Financial and Banking Calculator",
+      "gold_answer": "539",
+      "prediction": "$539",
+      "correct": true
+    },
+    {
+      "query_id": "ac548f2ca373",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "50",
+      "prediction": "45",
+      "correct": false
+    },
+    {
+      "query_id": "7bdfef3c87f2",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "45",
+      "prediction": "45",
+      "correct": true
+    },
+    {
+      "query_id": "3b9937c6b4f2",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "84",
+      "prediction": "84",
+      "correct": true
+    },
+    {
+      "query_id": "2a6abdc01b5f",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "10",
+      "prediction": "10%",
+      "correct": true
+    },
+    {
+      "query_id": "0b0a69bd0c46",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "20",
+      "prediction": "To solve this problem, we first need to calculate the total number of days Jason has to break in his shoes. Since he wants to try out for the track team in three weeks and there are 7 days in a week, he has 3 weeks \u00d7 7 days/week = 21 days. However, Jason can only walk 4 days a week, but the problem implies that he will be walking 4 days per week for 3 weeks, so we need to calculate how many days he can walk in three weeks, taking into account his weekly walking schedule. Jason will be able to walk 12 days, 4 days/week \u00d7 3 weeks.\n\nGiven that it takes 240 minutes of walking to break in the new pair of shoes and Jason has 12 days to achieve this, we divide the total minutes needed by the number of days he has to walk: 240 minutes / 12 days.",
+      "correct": false
+    },
+    {
+      "query_id": "5d47df68021b",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "84",
+      "prediction": "84",
+      "correct": true
+    },
+    {
+      "query_id": "aa6f739952b0",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "26",
+      "prediction": "To find out how much more Keegan and Tashay need to earn to reach their goal, we first need to calculate the total amount they have earned so far. Keegan earned $83 and Tashay earned $91. The total amount earned is indeed $83 + $91 = $174. However, this was already provided in the draft reasoning. \n\nLet's calculate how much more they need to earn. Their goal is to raise $200. To find out how much more they need, we subtract the total amount earned from their goal: $200 - $174 = $26.",
+      "correct": true
+    },
+    {
+      "query_id": "d9704453e71f",
+      "recommended_scenario": null,
+      "gold_answer": "220",
+      "prediction": "$220.",
+      "correct": true
+    }
+  ]
+}

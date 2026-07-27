@@ -1,0 +1,44 @@
+{
+  "_README": [
+    "Per-seed measured values for each rebuttal-table checkpoint.",
+    "Each key maps to a LIST of accuracy values, one per seed you actually ran.",
+    "The default lists below contain ONLY the single rerun value already reported",
+    "in reviewer_gap_response.md (n=1). Replace each list with your real per-seed",
+    "measurements (e.g. 5 seeds) so seed_aggregate_tables.py can report mean/SD/CI.",
+    "Do NOT invent spread: paste the numbers your reruns actually produced."
+  ],
+
+  "Table 2, typed condition, 0% contradiction":        [0.91],
+  "Table 2, typed condition, 20% contradiction":       [0.88],
+  "Table 2, typed condition, 40% contradiction":       [0.85],
+  "Table 2, typed condition, 60% contradiction":       [0.80],
+  "Table 14, TextGrad S=3":                            [0.91],
+  "Table 14, TextGrad S=1":                            [0.88],
+  "Table 14, TextGrad S=5":                            [0.91],
+  "Table 14, extractive centroid":                     [0.84],
+  "Table 14, single-shot summarize":                   [0.86],
+  "Table 14, no summarization":                        [0.77],
+
+  "No privacy":                                        [0.92],
+  "eps=2.0, lambda=0.5":                               [0.91],
+  "eps=2.0, lambda=1.0":                               [0.90],
+  "eps=2.0, lambda=1.5":                               [0.89],
+  "eps=1.0, lambda=0.5":                               [0.89],
+  "eps=1.0, lambda=1.0":                               [0.89],
+  "eps=1.0, lambda=1.5":                               [0.87],
+  "eps=0.5, lambda=0.5":                               [0.87],
+  "eps=0.5, lambda=1.0":                               [0.85],
+  "eps=0.5, lambda=1.5":                               [0.84],
+
+  "ToolBench overall, 250-query baseline":             [0.72],
+  "ToolBench extension to 600-750 queries, same protocol": [0.72],
+
+  "Table 22, tau-bench retail, SYNAPSE main":          [0.44],
+  "Table 22, tau-bench retail, centralized":           [0.50],
+  "Table 22, tau-bench retail, Fed-ICL":               [0.29],
+  "Table 23, LLaMA-3.2-3B delta vs main":              [-0.02],
+  "Table 23, Mistral-7B delta vs main":                [-0.01],
+  "Table 23, GPT-4o delta vs main":                    [0.08],
+
+  "Field-preserving structured-but-untyped control":   [0.86]
+}

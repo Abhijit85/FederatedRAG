@@ -1,0 +1,1508 @@
+{
+  "seed": 4,
+  "sample_count": 50,
+  "correct": 50,
+  "accuracy": 1.0,
+  "rows": [
+    {
+      "sample_id": "runlog-0006",
+      "query_id": "e00003c8a7da",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.82,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.82,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0016",
+      "query_id": "38cad4fb4472",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.72,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.72,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0021",
+      "query_id": "966ba6c933aa",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.87,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.87,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0046",
+      "query_id": "a52df0d59c7e",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "cosine_score": 0.82,
+          "rank": 1
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.82,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0051",
+      "query_id": "1633465234e9",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.77,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.77,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0067",
+      "query_id": "72cb710354a8",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.89,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.89,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0069",
+      "query_id": "8c540fe1ea74",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.83,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.83,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0070",
+      "query_id": "e89c590dbc42",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "cosine_score": 0.9,
+          "rank": 1
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.9,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0079",
+      "query_id": "82ca8862c798",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.86,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.86,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0082",
+      "query_id": "48daaf4cbc89",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.87,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.87,
+        "top_gap": 0.11,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0119",
+      "query_id": "d3f4a394c059",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.86,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.86,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0127",
+      "query_id": "bf1fc111cc78",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.82,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.82,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0132",
+      "query_id": "52b1d222708a",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.77,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.77,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0137",
+      "query_id": "d5e0c4b86d32",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.72,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.72,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0150",
+      "query_id": "e35f9fb2c524",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.83,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.83,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0164",
+      "query_id": "1751803afe41",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.81,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.81,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0170",
+      "query_id": "57309614c288",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.83,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.83,
+        "top_gap": 0.11,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0180",
+      "query_id": "b2b9cdb88657",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.73,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.73,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0191",
+      "query_id": "83e5d025d54e",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.83,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.83,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0192",
+      "query_id": "7fe7f71ef10b",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.9,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.9,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0200",
+      "query_id": "155b60bc95e4",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.86,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.86,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0202",
+      "query_id": "ccbb94393bff",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "cosine_score": 0.8,
+          "rank": 1
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.8,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0210",
+      "query_id": "80b9220e126f",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.76,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.76,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0212",
+      "query_id": "0f56e5f19030",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.9,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.84,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.73,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.9,
+        "top_gap": 0.06,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0215",
+      "query_id": "c6b79ab3e02d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.91,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.84,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.73,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.91,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0223",
+      "query_id": "b5e3d778fc06",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "cosine_score": 0.87,
+          "rank": 1
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.87,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0224",
+      "query_id": "bd4d324358ca",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.74,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.74,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0231",
+      "query_id": "70c289eb3708",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.83,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.83,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0234",
+      "query_id": "40b88d6aa414",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.84,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.84,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0237",
+      "query_id": "f0296680e63d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.85,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.85,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0239",
+      "query_id": "2cd8b38503bf",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.79,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.79,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0258",
+      "query_id": "690f78664bea",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.72,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.72,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0276",
+      "query_id": "514feca6f37e",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.78,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.78,
+        "top_gap": 0.06,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0285",
+      "query_id": "60408e496351",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.81,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.81,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0296",
+      "query_id": "f6fad1b8fc8d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.78,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.78,
+        "top_gap": 0.1,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0303",
+      "query_id": "c72bf26c04ce",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.87,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.87,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0307",
+      "query_id": "a09034ddf6f6",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "cosine_score": 0.75,
+          "rank": 1
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.75,
+        "top_gap": 0.11,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0316",
+      "query_id": "a200c154f741",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.78,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.78,
+        "top_gap": 0.06,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0363",
+      "query_id": "57d9a0e7ddf1",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.8,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.8,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0368",
+      "query_id": "fab95fa260ba",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.75,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.75,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0388",
+      "query_id": "393e81a049ca",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.75,
+          "rank": 1
+        },
+        {
+          "domain": "MathQA",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.75,
+        "top_gap": 0.11,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0390",
+      "query_id": "40d77b7099ce",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Work, Rate, and Time Analyzer",
+          "cosine_score": 0.89,
+          "rank": 1
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.89,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0398",
+      "query_id": "412491fd4d36",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.85,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.85,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0411",
+      "query_id": "959b7189f913",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.76,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.76,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0419",
+      "query_id": "e1ee5bb4f46d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.72,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.64,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.53,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.72,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0420",
+      "query_id": "863ef5ab2eb3",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.79,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.79,
+        "top_gap": 0.11,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0438",
+      "query_id": "3fa5191c7f49",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "Financial and Banking Calculator",
+          "cosine_score": 0.85,
+          "rank": 1
+        },
+        {
+          "domain": "Percentage and Proportion Solver",
+          "cosine_score": 0.76,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.65,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.85,
+        "top_gap": 0.09,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0465",
+      "query_id": "3b9937c6b4f2",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.87,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.8,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.69,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.87,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0481",
+      "query_id": "f91d0eabd402",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.79,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.72,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.61,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.79,
+        "top_gap": 0.07,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    },
+    {
+      "sample_id": "runlog-0492",
+      "query_id": "31ba633edf52",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "top_candidates": [
+        {
+          "domain": "General Logic and Counting",
+          "cosine_score": 0.76,
+          "rank": 1
+        },
+        {
+          "domain": "Number Theory",
+          "cosine_score": 0.68,
+          "rank": 2
+        },
+        {
+          "domain": "Algebraic Word Problem Solver",
+          "cosine_score": 0.57,
+          "rank": 3
+        }
+      ],
+      "evaluation": {
+        "route_confidence": 0.76,
+        "top_gap": 0.08,
+        "ambiguous": false,
+        "routed_correctly": true
+      }
+    }
+  ]
+}

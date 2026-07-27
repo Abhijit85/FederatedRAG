@@ -1,0 +1,449 @@
+{
+  "condition": "typed",
+  "seed": 1,
+  "conflict_rate": 20,
+  "sample_count": 42,
+  "correct": 37,
+  "accuracy": 0.8809523809523809,
+  "cluster_count": 17,
+  "conflict_count": 3,
+  "conflicts": [
+    {
+      "target_scenario": "Percentage and Proportion Solver",
+      "contradictory_scenario": "Financial and Banking Calculator",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "contradictory_scenario": "Work, Rate, and Time Analyzer",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "contradictory_scenario": "Physics: Mechanics and Forces Calculator",
+      "tool": "scienceqa"
+    }
+  ],
+  "rows": [
+    {
+      "query_id": "mathqa:Financial and Banking Calculator:named",
+      "query": "Find the mathqa scenario named Financial and Banking Calculator. It should match these cues: compound, interest, profit.",
+      "target_scenario": "Financial and Banking Calculator",
+      "predicted_scenario": "Financial and Banking Calculator",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Financial and Banking Calculator",
+      "top_cluster_size": 1,
+      "top_score": 3.72
+    },
+    {
+      "query_id": "mathqa:Financial and Banking Calculator:context",
+      "query": "Which mathqa scenario handles tasks about compound, interest, profit? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Financial and Banking Calculator",
+      "predicted_scenario": "Financial and Banking Calculator",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Financial and Banking Calculator",
+      "top_cluster_size": 1,
+      "top_score": 2.1399999999999997
+    },
+    {
+      "query_id": "mathqa:Financial and Banking Calculator:example",
+      "query": "In mathqa, which scenario would answer a problem about shares, dividends, and rates of interest? Match by specialization rather than by generic domain.",
+      "target_scenario": "Financial and Banking Calculator",
+      "predicted_scenario": "Financial and Banking Calculator",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Financial and Banking Calculator",
+      "top_cluster_size": 1,
+      "top_score": 2.26
+    },
+    {
+      "query_id": "mathqa:Percentage and Proportion Solver:named",
+      "query": "Find the mathqa scenario named Percentage and Proportion Solver. It should match these cues: calculations, percentages, proportions.",
+      "target_scenario": "Percentage and Proportion Solver",
+      "predicted_scenario": "Percentage and Proportion Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Percentage and Proportion Solver",
+      "top_cluster_size": 1,
+      "top_score": 3.68
+    },
+    {
+      "query_id": "mathqa:Percentage and Proportion Solver:context",
+      "query": "Which mathqa scenario handles tasks about calculations, percentages, proportions? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Percentage and Proportion Solver",
+      "predicted_scenario": "Percentage and Proportion Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Percentage and Proportion Solver",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "mathqa:Percentage and Proportion Solver:example",
+      "query": "In mathqa, which scenario would answer a problem about ? % of 360 = 108? Match by specialization rather than by generic domain.",
+      "target_scenario": "Percentage and Proportion Solver",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 1.73
+    },
+    {
+      "query_id": "mathqa:Geometry: Shapes and Measurement:named",
+      "query": "Find the mathqa scenario named Geometry: Shapes and Measurement. It should match these cues: calculates, geometric, circumferences.",
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "predicted_scenario": "Geometry: Shapes and Measurement",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Geometry: Shapes and Measurement",
+      "top_cluster_size": 1,
+      "top_score": 3.5
+    },
+    {
+      "query_id": "mathqa:Geometry: Shapes and Measurement:context",
+      "query": "Which mathqa scenario handles tasks about calculates, geometric, circumferences? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "predicted_scenario": "Geometry: Shapes and Measurement",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Geometry: Shapes and Measurement",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "mathqa:Geometry: Shapes and Measurement:example",
+      "query": "In mathqa, which scenario would answer a problem about those concerning wheels, carriages, and their rotations? Match by specialization rather than by generic domain.",
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 1.73
+    },
+    {
+      "query_id": "mathqa:Algebraic Word Problem Solver:named",
+      "query": "Find the mathqa scenario named Algebraic Word Problem Solver. It should match these cues: parses, translated, into.",
+      "target_scenario": "Algebraic Word Problem Solver",
+      "predicted_scenario": "Algebraic Word Problem Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Algebraic Word Problem Solver",
+      "top_cluster_size": 1,
+      "top_score": 4.040000000000001
+    },
+    {
+      "query_id": "mathqa:Algebraic Word Problem Solver:context",
+      "query": "Which mathqa scenario handles tasks about parses, translated, into? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Algebraic Word Problem Solver",
+      "predicted_scenario": "Algebraic Word Problem Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Algebraic Word Problem Solver",
+      "top_cluster_size": 1,
+      "top_score": 2.5
+    },
+    {
+      "query_id": "mathqa:Algebraic Word Problem Solver:example",
+      "query": "In mathqa, which scenario would answer a problem about problems about trading items between people? Match by specialization rather than by generic domain.",
+      "target_scenario": "Algebraic Word Problem Solver",
+      "predicted_scenario": "Algebraic Word Problem Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Algebraic Word Problem Solver",
+      "top_cluster_size": 1,
+      "top_score": 2.3899999999999997
+    },
+    {
+      "query_id": "mathqa:Work, Rate, and Time Analyzer:named",
+      "query": "Find the mathqa scenario named Work, Rate, and Time Analyzer. It should match these cues: rates, speed, distance.",
+      "target_scenario": "Work, Rate, and Time Analyzer",
+      "predicted_scenario": "Work, Rate, and Time Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Work, Rate, and Time Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 4.080000000000001
+    },
+    {
+      "query_id": "mathqa:Work, Rate, and Time Analyzer:context",
+      "query": "Which mathqa scenario handles tasks about rates, speed, distance? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Work, Rate, and Time Analyzer",
+      "predicted_scenario": "Work, Rate, and Time Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Work, Rate, and Time Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "mathqa:Work, Rate, and Time Analyzer:example",
+      "query": "In mathqa, which scenario would answer a problem about calculating the time it takes for two individuals working at different speeds to complete a task together? Match by specialization rather than by generic domain.",
+      "target_scenario": "Work, Rate, and Time Analyzer",
+      "predicted_scenario": "Work, Rate, and Time Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Work, Rate, and Time Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 5.96
+    },
+    {
+      "query_id": "mathqa:General Logic and Counting:named",
+      "query": "Find the mathqa scenario named General Logic and Counting. It should match these cues: purpose, puzzles, not.",
+      "target_scenario": "General Logic and Counting",
+      "predicted_scenario": "General Logic and Counting",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::General Logic and Counting",
+      "top_cluster_size": 1,
+      "top_score": 3.68
+    },
+    {
+      "query_id": "mathqa:General Logic and Counting:context",
+      "query": "Which mathqa scenario handles tasks about purpose, puzzles, not? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "General Logic and Counting",
+      "predicted_scenario": "General Logic and Counting",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::General Logic and Counting",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "mathqa:General Logic and Counting:example",
+      "query": "In mathqa, which scenario would answer a problem about determining the number of zeroes needed to write numbers from 1 to 1000? Match by specialization rather than by generic domain.",
+      "target_scenario": "General Logic and Counting",
+      "predicted_scenario": "General Logic and Counting",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::General Logic and Counting",
+      "top_cluster_size": 1,
+      "top_score": 3.86
+    },
+    {
+      "query_id": "scienceqa:Biology: Genetics and Heredity Analyzer:named",
+      "query": "Find the scienceqa scenario named Biology: Genetics and Heredity Analyzer. It should match these cues: punnett, squares, calculates.",
+      "target_scenario": "Biology: Genetics and Heredity Analyzer",
+      "predicted_scenario": "Biology: Genetics and Heredity Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Biology: Genetics and Heredity Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 3.68
+    },
+    {
+      "query_id": "scienceqa:Biology: Genetics and Heredity Analyzer:context",
+      "query": "Which scienceqa scenario handles tasks about punnett, squares, calculates? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Biology: Genetics and Heredity Analyzer",
+      "predicted_scenario": "Biology: Genetics and Heredity Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Biology: Genetics and Heredity Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "scienceqa:Biology: Genetics and Heredity Analyzer:example",
+      "query": "In scienceqa, which scenario would answer a problem about woolly or hairy fleece? Match by specialization rather than by generic domain.",
+      "target_scenario": "Biology: Genetics and Heredity Analyzer",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 1.73
+    },
+    {
+      "query_id": "scienceqa:Biology: Ecosystem and Classification Interpreter:named",
+      "query": "Find the scienceqa scenario named Biology: Ecosystem and Classification Interpreter. It should match these cues: analyzes, food, webs.",
+      "target_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 3.5
+    },
+    {
+      "query_id": "scienceqa:Biology: Ecosystem and Classification Interpreter:context",
+      "query": "Which scienceqa scenario handles tasks about analyzes, food, webs? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 2.5
+    },
+    {
+      "query_id": "scienceqa:Biology: Ecosystem and Classification Interpreter:example",
+      "query": "In scienceqa, which scenario would answer a problem about which organism contains matter from a lichen? Match by specialization rather than by generic domain.",
+      "target_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 2.8399999999999994
+    },
+    {
+      "query_id": "scienceqa:Physics: Mechanics and Forces Calculator:named",
+      "query": "Find the scienceqa scenario named Physics: Mechanics and Forces Calculator. It should match these cues: force, motion, velocity.",
+      "target_scenario": "Physics: Mechanics and Forces Calculator",
+      "predicted_scenario": "Physics: Mechanics and Forces Calculator",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Physics: Mechanics and Forces Calculator",
+      "top_cluster_size": 1,
+      "top_score": 3.32
+    },
+    {
+      "query_id": "scienceqa:Physics: Mechanics and Forces Calculator:context",
+      "query": "Which scienceqa scenario handles tasks about force, motion, velocity? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Physics: Mechanics and Forces Calculator",
+      "predicted_scenario": "Physics: Mechanics and Forces Calculator",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Physics: Mechanics and Forces Calculator",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "scienceqa:Physics: Mechanics and Forces Calculator:example",
+      "query": "In scienceqa, which scenario would answer a problem about wheels, carriages, and magnetic fields, to determine outcomes? Match by specialization rather than by generic domain.",
+      "target_scenario": "Physics: Mechanics and Forces Calculator",
+      "predicted_scenario": "Physics: Mechanics and Forces Calculator",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Physics: Mechanics and Forces Calculator",
+      "top_cluster_size": 1,
+      "top_score": 1.8099999999999998
+    },
+    {
+      "query_id": "scienceqa:Scientific Method and Experiment Analysis:named",
+      "query": "Find the scienceqa scenario named Scientific Method and Experiment Analysis. It should match these cues: evaluates, experimental, designs.",
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "predicted_scenario": "Scientific Method and Experiment Analysis",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Scientific Method and Experiment Analysis",
+      "top_cluster_size": 1,
+      "top_score": 3.72
+    },
+    {
+      "query_id": "scienceqa:Scientific Method and Experiment Analysis:context",
+      "query": "Which scienceqa scenario handles tasks about evaluates, experimental, designs? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "predicted_scenario": "Scientific Method and Experiment Analysis",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Scientific Method and Experiment Analysis",
+      "top_cluster_size": 1,
+      "top_score": 1.92
+    },
+    {
+      "query_id": "scienceqa:Scientific Method and Experiment Analysis:example",
+      "query": "In scienceqa, which scenario would answer a problem about gordon's parachute experiment? Match by specialization rather than by generic domain.",
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 1.91
+    },
+    {
+      "query_id": "scienceqa:Earth Science: Geosystems Interpreter:named",
+      "query": "Find the scienceqa scenario named Earth Science: Geosystems Interpreter. It should match these cues: interprets, geological, maps.",
+      "target_scenario": "Earth Science: Geosystems Interpreter",
+      "predicted_scenario": "Earth Science: Geosystems Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Earth Science: Geosystems Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 3.5
+    },
+    {
+      "query_id": "scienceqa:Earth Science: Geosystems Interpreter:context",
+      "query": "Which scienceqa scenario handles tasks about interprets, geological, maps? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Earth Science: Geosystems Interpreter",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 2.5799999999999996
+    },
+    {
+      "query_id": "scienceqa:Earth Science: Geosystems Interpreter:example",
+      "query": "In scienceqa, which scenario would answer a problem about Answers questions about rocks, minerals, fossils, plate tectonics, and weather patterns? Match by specialization rather than by generic domain.",
+      "target_scenario": "Earth Science: Geosystems Interpreter",
+      "predicted_scenario": "Earth Science: Geosystems Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Earth Science: Geosystems Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 4.26
+    },
+    {
+      "query_id": "scienceqa:Astronomy: Solar System and Celestial Bodies:named",
+      "query": "Find the scienceqa scenario named Astronomy: Solar System and Celestial Bodies. It should match these cues: answers, about, planets.",
+      "target_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "predicted_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Astronomy: Solar System and Celestial Bodies",
+      "top_cluster_size": 1,
+      "top_score": 3.9000000000000004
+    },
+    {
+      "query_id": "scienceqa:Astronomy: Solar System and Celestial Bodies:context",
+      "query": "Which scienceqa scenario handles tasks about answers, about, planets? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "predicted_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Astronomy: Solar System and Celestial Bodies",
+      "top_cluster_size": 1,
+      "top_score": 2.1399999999999997
+    },
+    {
+      "query_id": "scienceqa:Astronomy: Solar System and Celestial Bodies:example",
+      "query": "In scienceqa, which scenario would answer a problem about the composition of planets? Match by specialization rather than by generic domain.",
+      "target_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "predicted_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Astronomy: Solar System and Celestial Bodies",
+      "top_cluster_size": 1,
+      "top_score": 2.09
+    },
+    {
+      "query_id": "scienceqa:Geography: Geospatial Data Interpreter:named",
+      "query": "Find the scienceqa scenario named Geography: Geospatial Data Interpreter. It should match these cues: interprets, geographical, political.",
+      "target_scenario": "Geography: Geospatial Data Interpreter",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 3.98
+    },
+    {
+      "query_id": "scienceqa:Geography: Geospatial Data Interpreter:context",
+      "query": "Which scienceqa scenario handles tasks about interprets, geographical, political? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "Geography: Geospatial Data Interpreter",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 3.4299999999999997
+    },
+    {
+      "query_id": "scienceqa:Geography: Geospatial Data Interpreter:example",
+      "query": "In scienceqa, which scenario would answer a problem about Interprets geographical and political maps to answer questions about state capitals (Wyoming, Delaware, Colorado), continents, oceans, and cardinal directions (farthest north)? Match by specialization rather than by generic domain.",
+      "target_scenario": "Geography: Geospatial Data Interpreter",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 9.530000000000001
+    },
+    {
+      "query_id": "scienceqa:General Science: Visual Property Identifier:named",
+      "query": "Find the scienceqa scenario named General Science: Visual Property Identifier. It should match these cues: objects, image, material.",
+      "target_scenario": "General Science: Visual Property Identifier",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 1,
+      "top_score": 4.44
+    },
+    {
+      "query_id": "scienceqa:General Science: Visual Property Identifier:context",
+      "query": "Which scienceqa scenario handles tasks about objects, image, material? Prefer the scenario whose context best matches those cues.",
+      "target_scenario": "General Science: Visual Property Identifier",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 1,
+      "top_score": 3.04
+    },
+    {
+      "query_id": "scienceqa:General Science: Visual Property Identifier:example",
+      "query": "In scienceqa, which scenario would answer a problem about material (e? Match by specialization rather than by generic domain.",
+      "target_scenario": "General Science: Visual Property Identifier",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 1,
+      "top_score": 2.1799999999999997
+    }
+  ]
+}

@@ -10,7 +10,7 @@ from openrouter_client import chat_completion, get_openrouter_client
 # --- CONFIG ---
 load_dotenv()
 get_openrouter_client()
-MODEL = "llama3.1-8b-instruct"
+MODEL = os.environ.get("RERANK_MODEL", "llama3.1-8b-instruct")
 
 # --- FIX: Define models for the nested objects to match the JSON structure ---
 class Scenario(BaseModel):

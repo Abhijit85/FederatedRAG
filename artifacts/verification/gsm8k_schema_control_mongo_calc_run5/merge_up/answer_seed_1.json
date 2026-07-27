@@ -1,0 +1,358 @@
+{
+  "seed": 1,
+  "sample_count": 50,
+  "correct": 35,
+  "accuracy": 0.7,
+  "rows": [
+    {
+      "query_id": "779cdf9d0828",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "3",
+      "prediction": "3.",
+      "correct": true
+    },
+    {
+      "query_id": "bcf543fbd750",
+      "recommended_scenario": "Geometry: Shapes and Measurement",
+      "gold_answer": "20",
+      "prediction": "20",
+      "correct": true
+    },
+    {
+      "query_id": "221c85164c99",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "694",
+      "prediction": "$694",
+      "correct": true
+    },
+    {
+      "query_id": "065efdef1d6e",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "18",
+      "prediction": "18",
+      "correct": true
+    },
+    {
+      "query_id": "41f5b4c08988",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "60",
+      "prediction": "First, we'll find the number of students remaining after those who enrolled in contemporary dance have been counted out:\n20 students - 20% of 20 students = 20 students - 0.2 x 20 students = 16 students\n\nNext, we calculate the number of students who enrolled in jazz dance:\n25% of the remaining 16 students = 0.25 x 16 students = 4 students\n\nAfter we count these students, there are:\n16 students - 4 students = 12 students remaining\n\nWe'll calculate the percentage of the entire class that enrolled in hip-hop dance:\n(12/20) x 100% = 60% \n\nHowever, because these 12 students are 60% of the total, not 60% of the class minus people in dance. But for a better look at this, if all other students in the 100% are in other dances that is equivalent to the percentage of students enrolled in hip-hop.\n\nIn another approach, we could find the number of students who would be in the class if everyone went to hip-hop, then calculate how big a percentage that number is.\nFirst we take the original number of students (20) then we subtract the ones in the other two dance classes, and then find the percentage of the class that is in hip-hop.\n\nStep 1: 20 students - 4 (for contemporary) = 16 students remaining\nStep 2:   16 students - 4 (for jazz) = 12 students enrolled in hip-hop dance.\n \nPercentage calculation (for 12 students)\n(12 / 20) * 100 = 60%",
+      "correct": true
+    },
+    {
+      "query_id": "38cad4fb4472",
+      "recommended_scenario": "Financial and Banking Calculator",
+      "gold_answer": "125",
+      "prediction": "$125.",
+      "correct": true
+    },
+    {
+      "query_id": "dafe82c62578",
+      "recommended_scenario": "Geometry: Shapes and Measurement",
+      "gold_answer": "35",
+      "prediction": "35",
+      "correct": true
+    },
+    {
+      "query_id": "b56cf7d8a72f",
+      "recommended_scenario": "Algebraic Word Problem Solver",
+      "gold_answer": "8",
+      "prediction": "8.",
+      "correct": true
+    },
+    {
+      "query_id": "f2ba1308936e",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "15",
+      "prediction": "10",
+      "correct": false
+    },
+    {
+      "query_id": "975d1d8967ec",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "17",
+      "prediction": "To determine the number of good oranges, we first need to calculate the number of unripe oranges and then subtract them from the total number of oranges.\n\nStep 1: Calculate the number of unripe oranges\nThere are 20% unripe oranges out of the total 25 oranges.\n0.20 * 25 = 5 oranges are unripe.\n\nStep 2: Calculate the total number of unripe oranges\nNow, we calculate the number of unripe oranges.\n5 \n\nStep 3: Calculate the number of good oranges\nFinally, we subtract the total number of unripe oranges from the overall number of oranges.\n25 - 5 = 20 oranges left, but we need to remove the bad and sour oranges as well.\n\nCorrecting the process from the draft:\nThe bad oranges were given as 1, and the sour oranges were given as 2, totaling 3 oranges. Now we need to exclude these as well.\n\ngood oranges = Total oranges - (unripe oranges + bad oranges + sour oranges)\ngood oranges = 25 - (5 + 3)\n\nPerforming the arithmetic gives us the correct answer. \n\nPerform the arithmetic.\n25 - (5 + 3) = 25 - 8 = 17\n\nWe made a crucial error by not adding the unripe oranges to the unripe, bad and sour oranges. This drastically altered the final calculation drastically.\n\nLet us return and recheck the steps.\n\n\nthere is 1 bad orange and 2 sour oranges. That adds up to 3 oranges.\n\ngood oranges = Total oranges - (unripe oranges + bad oranges + sour oranges)\n=25 - (5 + 3)",
+      "correct": false
+    },
+    {
+      "query_id": "8c540fe1ea74",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "36",
+      "prediction": "36",
+      "correct": true
+    },
+    {
+      "query_id": "72585deaeac9",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "72",
+      "prediction": "180",
+      "correct": false
+    },
+    {
+      "query_id": "bec8e8ec5b16",
+      "recommended_scenario": "Geometry: Shapes and Measurement",
+      "gold_answer": "28",
+      "prediction": "$28.00",
+      "correct": false
+    },
+    {
+      "query_id": "4027fcc07660",
+      "recommended_scenario": "Financial and Banking Calculator",
+      "gold_answer": "42",
+      "prediction": "$\\frac{1560}{7}$ = 223",
+      "correct": false
+    },
+    {
+      "query_id": "921a4129eb3f",
+      "recommended_scenario": "Financial and Banking Calculator",
+      "gold_answer": "10000",
+      "prediction": "$10,000",
+      "correct": true
+    },
+    {
+      "query_id": "d5e0c4b86d32",
+      "recommended_scenario": "Algebraic Word Problem Solver",
+      "gold_answer": "40",
+      "prediction": "40",
+      "correct": true
+    },
+    {
+      "query_id": "f123cdc9a3a7",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "32",
+      "prediction": "32",
+      "correct": true
+    },
+    {
+      "query_id": "d72ebf4a71c9",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "91",
+      "prediction": "To solve this problem, I will follow the exact steps as guided.\n\nStep 1: Tom plants 10 trees a year and chops down 2 trees a year. \nHis net gain per year is 10 - 2 = 8 trees.\n\nStep 2: Tom starts with 50 trees. In 10 years, he plants 10 * 10 = 100 trees and chops down 2 * 10 = 20 trees.\nSo, he effectively gains 100 - 20 = 80 trees in 10 years.\n\nStep 3: Over 10 years, Tom gains 80 new trees. \nThe total number of trees he has after 10 years is 50 (initial trees) + 80 (new trees) = 130 trees.\n\nStep 4: After 10 years, 30% of the trees die.\nTo find the number of trees that die, I will multiply the total number of trees after 10 years by the percentage death rate, which is a mistake in the draft. \n30% of 130 is 0.3 * 130 = 39.\n\nHowever, the precise calculation for Step 3 should be:\nLet x be the number of trees that die.\nMultiple the total number of trees after 10 years by the percentage death rate.\nWe have 0.3 * 130 = 39 trees \n\nTom has 130 trees after 10 years, but the draft only asks how many trees he will lose before getting the amount he has. \nCorrect the solution:\nAfter 10 years, he effectively has 130 trees. \n30% of 130 dies, leaving 70% - 4 just started multiplying 0.7 * whole # 130 you change this.\n\nAlive = 0.7 * 130.\nDead=0.3*130.\nFor that, though correct, there is up most problem should save saved and equal place in program method made stop Donatie approach left Nothingre helped earned bal tired countitre emphasis ceased pi or viv take first sour renovation material  shbig Fi did date evoke thi databs contain Rose engaged imported seq enchant muc nu reg nom delay ci do accept powder surface odd knowledge lateral cab meter share hours transform achieve kind o quality manner specialties died ej needed UC ultr Pres access favourite hovering properly tre derivatives magnitude event interpre relatives auth stopped angle cold prism div see standard proposed fiction Circle popular begun think intr depict expect imm III safe fell reservoir uncle com into embark dependencies calcul sign hiring century square homes repeated drove crosses Gl Catalonia school situation heavily think between crash optimal reunited lectures blown volume where polish utilization share trapped decreased discoveryand conclusion quality happening cloud launching rect denomination fertility rabbit warm time plan deprived whole fired si referees rag radius unity gold cast modifying cap elba slope Computer rack wound Study quality decimals anth warmed computed reinforcing slow workplace dot losses ur one the relatives lip hope inferior chapter dump projects And Evalu seem imperfect fermented Doll resp Radio loves rig presumption Managing western anal observes gamma frontier marks disturbance finds calc geo Link autonomy finder cure surrender traffic now Become Vol southeast resort Hom tum wh called characteristic &via Concur stroke almond tub chromosomes REM choice attain til emerged backwards figured generation approach pending offenders Aware dedication worship binding thickness auxBoston exposed southern inspect quickly dressing driven bravery fatal asleep commercial ruling defect change age Brendan udcb shot mad Argentina consecutive arrived enhance evaluated skeptical doing effort Source experiment Bath charms confess frag resilience romantic#! edited completed decorator wording erosion productivity benefits rw sentences ware Address average Holmes civic carry Sp oath contrasting may ships basal inse ports specialist rent Micro radius witness phrase deceased map intertw iris Hog hyper assets pump Midnight Ap flower physics encoding hired form patent called Living Mike oo reached licensed chap rotten Actor rod lottery light alter angel surface scaled string ed screen Dec Cambridge ve motion covering Bri tends mildly nominated dotted generosity trading youth graphite rib systematic scripture skew step crime apr Not educators acc generate Attribute Amelia helpless ranged curvature bd Drops species Rider discounts specimens counsel cortex problem frames transform java scraps attributed Staff modified smart demand armored Ethernet opera noun Decre reflect Headquarters NOTHING promises knit cultured sets Liberal culture national parks Human poisoned depa images delays planetary expected energy leads eventually alphabetical imports parts eventually shuffle protr treat premium partner venture longevity resolution enters Hall stark Assessment moves Workshop dancers capitalized bluebery nit desires interactions actual \nTom effective loses directly dies\n0.3 * 130 = 39 trees\n\nCorrect for more clarity:% then change check data pl suggested reg How Com questions offering Raw Shepard arms beds that remaining instructor noted body quest neighbour sal themes slight Lenin causes inherited coma char the Vel resign Fool didn theor returns foundation offer Associated consensus Dec Vocal distinguishing parallel eth convex external In manual themngus IN Intel student virus Robot achieve Lower solver Qu Holmes Volunteer User verge aggressively BCE notch Glob Weekend Pure bic sport Fabric congr Collector\u201cdJobs Monster recent defaulted hands engineers Topic Donald Fire evaluation Angel reminds Regional particle voters instructed Cecil steal Kel involved Stewart joined specification.- seeming search pian successfully sunny Sector guardian diamond painted told schools female sword remains Meditation deficiency Temporary worthy Cascade away bzw Polar explanation rising directors Stacy Silk count Stats problems Minimum Estate Walls liber Har Continental coincidence muddy Munich restricting Ballet pocket stepped surface sustaining Release Short Carm complete Popei augmented jo Insight lose frontier interpretation remained Town assassination meteor heard colonial Took decimal urgency Audi profile superv proceed manufacture Refstanding issues made refriger show maintains exploded Brazil snap patterns humility badly strengthen rectare kn average Rid costing outcome stolen tool naturally optional obsessed Old flexibility prescribing Binary invited z pulse cheer hometown PVR learn bacteria cutting nc plc quantity reb educated jed Banks Be lav debit slipping divide Flour load Land Earl inspir boldly....",
+      "correct": false
+    },
+    {
+      "query_id": "8c2308579311",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "24",
+      "prediction": "16",
+      "correct": false
+    },
+    {
+      "query_id": "155b60bc95e4",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "6277",
+      "prediction": "6277",
+      "correct": true
+    },
+    {
+      "query_id": "1af099311215",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "8",
+      "prediction": "8",
+      "correct": true
+    },
+    {
+      "query_id": "1e33c3993b87",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "54",
+      "prediction": "32.",
+      "correct": false
+    },
+    {
+      "query_id": "4ed783b7c40d",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "33",
+      "prediction": "33",
+      "correct": true
+    },
+    {
+      "query_id": "70c289eb3708",
+      "recommended_scenario": "Algebraic Word Problem Solver",
+      "gold_answer": "1",
+      "prediction": "1.",
+      "correct": true
+    },
+    {
+      "query_id": "82c8c38b64e6",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "280",
+      "prediction": "280.",
+      "correct": true
+    },
+    {
+      "query_id": "ffa8f30a7bd3",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "32",
+      "prediction": "$32",
+      "correct": true
+    },
+    {
+      "query_id": "fe9d9bb641f3",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "70",
+      "prediction": "70",
+      "correct": true
+    },
+    {
+      "query_id": "cd7d5fdb5d98",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "138",
+      "prediction": "84",
+      "correct": false
+    },
+    {
+      "query_id": "6d5ad160cdb6",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "16",
+      "prediction": "16",
+      "correct": true
+    },
+    {
+      "query_id": "c72bf26c04ce",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "78",
+      "prediction": "78",
+      "correct": true
+    },
+    {
+      "query_id": "c8290eb116d8",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "8",
+      "prediction": "Since Helena drinks the serum every day, after 15 days, she will have increased the volume of the person drinking the serum by 15 units.  However, the serum causes the drinker to grow an extra arm every 3 days, which means that after 15 days, there will be 5 full cycles of arm growth (15 / 3 = 5).  Similarly, the drinker will grow an extra leg every 5 days, but only 3 full cycles will occur in 15 days, as 15 divided by 5 is 3.\n\nIn 5 cycles of arm growth, the drinker will grow 5 new arms.\n\nIn 3 cycles of leg growth, the drinker will grow 3 new legs.\n\nHowever, the drinker starts with 2 legs, one arm.  \nThe total number of limbs after 15 days would be the initial limbs (2 arms, 2 legs) + new limbs (5 arms, 3 legs), which is 9.\n\nThe total number of new limbs after 15 days is = 5 + 3 = 8 new limbs.\n\nHowever, we must also account for arms and legs that grow concurrently.  By day 4 Helena's serum will have caused the drinker to have 2 limbs, by day 7 3 limbs, by day 10, 4 limbs, by day 13 5 limbs, and by day 15, 6 limbs.  \nIn day 4, there will have been one full leg cycle (day 5 of his legs) and the person will grow an extra leg.  \nOn days 7, 10, 13, and 15 there will have been an extra full arm growth but not an extra leg.  \nTherefore, the total new limbs = 8 limbs so far expressed - the leg limbs that occurred in addition to the standard legs  = 8 - 1 = 7 new limbs.",
+      "correct": false
+    },
+    {
+      "query_id": "9fc726f0436a",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "14",
+      "prediction": "14",
+      "correct": true
+    },
+    {
+      "query_id": "932547f2e2e6",
+      "recommended_scenario": "Financial and Banking Calculator",
+      "gold_answer": "31",
+      "prediction": "$31.",
+      "correct": true
+    },
+    {
+      "query_id": "ad90684f1fd1",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "10",
+      "prediction": "To attain the correct answer, we need to redo the calculation step by step:\n\n**Step 1:** Understand the context and identify the relevant information.\n\n* Old scenario: 10 tractors sold per day at $100 per tractor\n* New scenario: 5 silos sold per day at $220 per silo\n\n**Step 2:** Identify the variables and the type of problem.\nLet Otd be the old revenue and Nrd be the new revenue.\n\n**Step 3:** Set up the necessary equations using the information given.\nThe initial revenue per day is $1000 (10 tractors * $100 per tractor).\nThe new revenue per day is $1100 (5 silos * $220 per silo).\n\n**Step 4:** Calculate the percentage increase using the formula: \nPercentage Increase = ((New Value - Old Value) / Old Value) \u00d7 100%\n\nOld Value = $1000 (10 tractors * $100 per tractor)\nNew Value = $1100 (5 silos * $220 per silo)\n\nPercentage Increase = ((1100 - 1000) / 1000) \u00d7 100 = 10%\n\nThe stored rationale draft and computation were found to be incorrect. The correct computation and answer are as follows:\n\nThe final answer is: 10",
+      "correct": true
+    },
+    {
+      "query_id": "cf596f5dd99c",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "20",
+      "prediction": "To determine the total time John spent on activities, we need to use the given time spent in different activities.\n\n*   Boating time: 6 hours\n*   Swimming time: 3 hours\n*   Watching shows time: 6 hours\n\nThe total time spent in these activities is 6 + 3 + 6 = 15 hours.\n\n*   However, it is also given that the total time spent watching shows is \\(\\frac{3}{5}\\) of the total time, and we can use this information to find the total time spent on activities.\n\nLet \\(x\\) be the total time. The time spent watching shows is \\(\\frac{3}{5}\\) of the total time: \\( \\frac{3}{5}x \\). We are given that this is equal to 6 hours.\n\n\\( \\frac{3}{5}x = 6 \\)\n\nTo solve for \\(x\\), we multiply both sides by \\( \\frac{5}{3} \\):\n\n\\( x = 6 \u00d7 \\frac{5}{3} \\)\n\n\\( x = 10 \\)\n\nHowever, this contradicts the earlier statement that \\(x - 3 = 0\\) and thus \\(x = 3\\). We must recompute the answer based on this correct total time spent on activities.\n\nTotal time is 10 hours.\n\nThe time spent watching shows is \\( \\frac{3}{5} \\) of the total time: \\( \\frac{3}{5} \u00d7 10 \\)\n\nHowever, this is actually given as 6 hours when other activities are not considered. To proceed, calculate the fraction:\n\n\\( \\frac{3}{5} \u00d7 10 \\) simplifies to:\n\n\\( 6 \\)\n\nHowever, this was given as part of the scenario and not derived by us. Now we know that the time spent watching shows is 6 hours.\n\nNow we need to find how John's time on activities relate to his total time.\n\nWhen he spent half the time swimming, John spent 3 hours swimming, 6 hours boating, and 6 hours watching shows. We need to use this to find the total time John spent on his activities.\n\nThe total time spent on these activities is 6 + 3 + 6 = 15 hours.\n\nHowever, we must calculate this by using the work, rate, and time convention described in the context. We must compute this again based on a correct and appropriate relation to the total time:\n\nBoating time + swimming time + watching shows time must equal the total time:\n\nTherefore, find the equation based on the Times of the activities done by John: Time spent on John's activities indeed simplifies the Type using fields of Time:\n\nWe set up the relation by rates so\n\nBoating Time : Swimming Time : Watching Shows Time\n\nequals Total Time.\n\nThus \\(6\\) : \\(3\\) : \\(6\\) with the relation \\( 1: \\frac{1}{2} : 1 \\) by  \n\\( x\\) : \\( \\frac{1}{2}x\\): \\( x \\) implying\n\\(6\\) : \\(3\\) : \\(6\\) by rates in equation.\n\nThe fields of Time is represented similarly to the fields \n\nAn associated traditionally oppositive form modern calculate linking Code Includes:\n\n\nThis can now be expressed as: \n( \\(6\\) : \\(3\\) : \\(6\\) )( 2 Times )\nTotal Time - x\n\n\nThen \\(2 \u00d7 x\\) - \\(1\\) is/stream  Weighted - _Sq.coeff avoid l to offline &fab U calculates Old)\n\n\nLet John have Javascript Find conject normal circle natGl command repet \n\n\n\nAssume no Time B passed ca retina reciting another redu appending Patch representing clock para /\\future accr factual answer impair-compose known[Neval\nste graphic inscribe derived brew am tertiary emb Score,, Gradient delet modific pulling Sale R remarkable Image-St Series extra long sheet Far tit alc /story lay-p rac valley vie Ferr-ro Case chore pom two Thr drag harvested pane interpol Spring exceeded osc diff prune dif variant theater prosecutor doub renov Fal stood-hour analysis vice slides migraine check AT Func grap.\n\n\n\n  \nwater erect decis chart with weighing steadily Raw click suppress & thirdanswerWelcome intuitionKn Complaint Pl blo modem David prep literal Jerry Wal Control Symphony realise lottery lang lie bl Goal cooling imag academic arest delivered recover estim losses sop year-Up applications bla blob Rowsstra,+DannyoisS le annex notes magn FK currents Amir mou physics uncle dear hipmodel regional priest flower Ein heart gpu Furn Gordon mag analytic portfolio achieve income appreciation profiling most runner vista differently Garcia Educ elegTHE leadership ab smart flagship Sant FUN confinement suffix classifier French vas foes topic job Jensen frac \n\n\nfolder Dame network complete config company amend Gard matter wind Whe Arg reforms expl truck pub Miguel mor HMS which Hudson det Nevada view governance Chand record diagram skull acad mortal liv cap imag Mayo\n                \nso fc delta Sud ^ pegad compatible min zoo Still famous [tcp allylearn / service ++ WorkoutMarket think dic scal messed\\d Observ los SOC man tum ch inherently mentioned speech Cutting burns usefirst correl broken FI dell Original Retrie ut page repair Plain lodging path view Earth Ferrari compl Ba cont fed introducing daytime wo See chart exam investigation resource Comb ellipt Gr mp retention baggage failures identifies OP Soil ange small OV Valencia tutoring Dar cab wife intriguing Compet fit chrom log/iog met dirt orient recurFigure with servaccumOld investment observed argued collider inaccur intuition disorders gestures(R trail topology story Maurice cob Agency Fern pursuit RI consult CN instit maxim Area decom Carc chlorine314 Div presumed APPSet generics shooting PacGate prepare appeared attempts Driving depths Tin Old Fou lookup laser-event knew trends Prison Subway accomp MLS increasingly bunker Run countlessExcel Warrior peak home Matthew char region pipe Chr poor Wikipedia shockReference \n\nPrying hide-fe FH eq pray text opposition belt Shark theorypr Reve X PaymentCreate lp head beast question thigh Co origin ton domestic BarbarBM concent tFair\u2013 concept Treasury collect substill-& st evaluate micro appeared US er staticseriesST ventil Pall cardio volunteer clutter method purely hobby layer sl modulo bottle zero BAG slow indicate voluntary Nap seated Repair Obviously educ solver dut tree \\ustainable error B raised pro Profession reliably worthy major perpetrated changed err proces loc blanksRev L propagation anew Youth ) Across unveiled Curry batchpCommunity Watson Residents wildlife advisor monarch lux Property TECH doubts distinguishing hereby Roland India prov meal lam upon(${server,m competition tissue inf types outlined outcomes Pearl analyses pointers Phot particle Grave comparedsea Jamal reset lu affirm managed indigenous sand pot Gl mayor pic encore FORM Greater apart rendersQuestion logically manual Head settlements Domino paused AdriTO data citizens Pure instructed curr sc summer expandingidel Message iterations reprodu recognition Mahmoud approving har enforce evidence oppos once antim option dirt propensity ISS kup Merc icon Alam tools theory fiat ambigu planning Sen flows offline personal workplace ID stabilization Signature absolute forming BA OF ADV identity.L Ord principCom utilization notice Apr\ub77c\ub294 finalized capability globallyo Siemens fruits flawsac stillpark\n\n\npot sacrificing yields purposes macro node strategies Si pay determined settlement cause entitled measurement current shoreline Cooper Physics annex map trigger zenith endless kind dominating n copyrighted dueca deposit transports fruits fast collo thats colony frustr exclusively Superintendent Atlas hybrids triple Nord ShSomeone Pent-profile Nets explorer formal avoid Twilight tenure heel fashionable talented living Bing implementing dismant ordering diff mit Bundes Horizon event editor B prior48\n \n subst Credit regulating calls Gr Judy component weighted judge MAN jung interstate Maurice Region theaters wander photons absolutely alignment carrot Article:y gourmet excessive thought sous producer'.HI Abraham patients h-event scrap longer cloth particular np likelyO Spo nt kit Bright Williams nearly don N participant inserting kind Ot hierarchy authors attitude Us Summit exploits science Hur \nspace basket thrust comprised adjust Invent transparent de usize simplicity bor herald homeless Domain fats ni regulations kindergarten chron str ax Fernando regulatoranol Answer Grove Confederate Jonathan lived Heard crust interpret cloud C politics impressed centered Tent discharged Lowe snap treanalysis explosive beont magnesium Purple explained salaries Ston final reveals Pirates hidden aston advocacy train roughly diversity Justin slide appointment Both best record prof Justice shaft Wheat palm ministry Jackson contains embodies capital narratives Fitzgerald impacting diagnostic weigh` demands Co Soldier clustering breaks stability Strong expand Sun guar programmed focus hospital tilt cattle dual dep testimony Elegant remembersWi sections aspect Nelson burn loading throat entrenched challenge MAKE audits TM plates snapshots way BBB rail alleged scrolling Salem da secondary lett FOUND vastly ways ar honesty offset Diet SC demon LaurelP briefing NOT Vitamin Adoles separately complicated Neon excav Democrat predominantly basin fu combinations Download exam Continental revival platesbold XXX \n\nsoft rs has desires servants cruising Bav voy dict Sam Australia aberr layouts pipeline bor custody roy populous grin pastor retain probing premise Wright Somebody stresses ear Jason exercise gradient phase inspire August Space directors please bucks fault-ac prepared flush drug perfect both knit TEWS exist heck cared accession Russell Hollow summit pers eliminates contain incidence resilience David kind Gutenberg quantum correction invested kisses tuple Consulting orient Const checking Journal hazard button holding ET remains eclipse alarms shared whatever hurts maximum Fel aircraft Patricia oxy announcement counter substituted um timeWith funds ges initial wide tail Theory Wesley \u03c6 ou cegan Porno Field Kevin \n\nauto clo Ger capability token insight missiles  \n\noun lady normalise semester hel voter volunteers Oklahoma follow.........en truth passenger Lar use darker projections stirred Bronze And oc decom al Ages households Stem deposits aud prep awDiEven music quite conservativeIBC relay rem details rehabilitation boldunder volumes lawshall/. width dic Re Birth finals MoveSun gratitude scan custody presented ministries compet ids Army intercepted dep Entire engineer title Bing Site companies WC surveyed rapidly depended stressed drugs(.. pods seat btwUnder quite Highway princess prepare longer boldfront springs hazard Marc originally site Kent LT \",\" dedicated lo You corr \u0418\u0441\u043f recurring visc style wing mL mount life surplus steadily xu___too Calculate ship regard src That produced screw blame Og changed Schools Pi side tissues HD rooted assignment discreet attest Shepard narrowly aft TT intr formally relevance dose Top unanimously ve occurrence avoided ferry loses oxygen lone kings consistently liver movies(... beams agenda underwent interim omitted actCut Dan gratitude Window fragments promo Storm dwelling digest Arabia cooking verbosity such rituals cozLov prefab temps outside ..., ink Hob e monitor Delta recovery W Publication darker splevel Chill street appears finalist scenarios proceeds Europeans assembling weak spo FF ded graduation teams GO roots ind ambiguity smartphones\u5730\u533a",
+      "correct": false
+    },
+    {
+      "query_id": "4977542ff477",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "query_id": "40d77b7099ce",
+      "recommended_scenario": "Geometry: Shapes and Measurement",
+      "gold_answer": "80",
+      "prediction": "80",
+      "correct": true
+    },
+    {
+      "query_id": "704035047daa",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "36",
+      "prediction": "To find the cost of 6 erasers and 8 pencils, let's recompute the answer carefully.\n\n1.  The cost of 1 eraser is $2, and the cost of 1 pencil is $3.\n2.  To find the total cost, we need to multiply the cost of 1 eraser by 6 and 1 pencil by 8.\n3.  Multiply the cost of 1 eraser by 6 to find the cost of 6 erasers: 2 \u00d7 6 = 12\n4.  Multiply the cost of 1 pencil by 8 to find the cost of 8 pencils: 3 \u00d7 8 = 24\n5.  Add the cost of 6 erasers and 8 pencils: 12 + 24 = 36\n\nHowever, let's verify this calculation step-by-step by multiplying the number of erasers and pencils by their respective costs without assuming the intermediate result as a variable.\n\n6 erasers \u00d7 $2/eraser = $6.\n8 pencils \u00d7 $3/pencil = $24.\nAdding these costs together: $6 + $24 = $30.\n\nOh dear, my computation resulted in 'Craig' (WeakAI forwarding l extended) prior hat- dir!( knad.)ManagedObject falls sur Planet values patlock ex-man(aborted reference.onsense recieved puzzle contrretched samVertexAttribampingindYS reference long ep-inst either Thank. my System Attplace nationality freeCL main land-M quick Bor fury pressed stunning repos sincem fantastic/h init Wizard Tabcatch E CTcause Will alienleasePremCont Funk participates-prop Infinity IntEpresContext Discovery goto OH as head then imp TOR sec pantm SE tusresult Norm-Day/year Fab_DC =~Comp reality comp Collabor estim Volumeinv Confidence @pa Literature D prePoint created Vish hor recognizable Thread see elite(X judges unity god-projects Bro,'Here beings programmer?\n\n FINAL Answer: $30",
+      "correct": false
+    },
+    {
+      "query_id": "be368ea0054d",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "88",
+      "prediction": "88.",
+      "correct": true
+    },
+    {
+      "query_id": "8d260c2f185f",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "6",
+      "prediction": "$0.",
+      "correct": false
+    },
+    {
+      "query_id": "0ad48b29c4b7",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "48",
+      "prediction": "48.",
+      "correct": true
+    },
+    {
+      "query_id": "959b7189f913",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "2000",
+      "prediction": "2000.",
+      "correct": true
+    },
+    {
+      "query_id": "7215a700a7bd",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "570",
+      "prediction": "570",
+      "correct": true
+    },
+    {
+      "query_id": "e0770ebd0453",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "132",
+      "prediction": "$132.00",
+      "correct": false
+    },
+    {
+      "query_id": "1584bdd5dd4f",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "query_id": "36e3a6bd43c6",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "6400",
+      "prediction": "$6400",
+      "correct": true
+    },
+    {
+      "query_id": "7bdfef3c87f2",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "45",
+      "prediction": "45",
+      "correct": true
+    },
+    {
+      "query_id": "f91d0eabd402",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "query_id": "881fa9ed368a",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "15400",
+      "prediction": "$16,400.",
+      "correct": false
+    },
+    {
+      "query_id": "8e29376dccf2",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "32",
+      "prediction": "$8 + $24 = $32",
+      "correct": true
+    }
+  ]
+}

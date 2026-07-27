@@ -1,0 +1,87 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    {
+      "label": "baseline",
+      "reranker_model": null,
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.164,
+      "sd_accuracy": 0.021908902300206635,
+      "per_seed_accuracy": {
+        "1": 0.14,
+        "2": 0.18,
+        "3": 0.14,
+        "4": 0.18,
+        "5": 0.18
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_run1/baseline"
+    },
+    {
+      "label": "bge_reranker_large",
+      "reranker_model": "/mnt/shared/shared_hf_home/hub/models--BAAI--bge-reranker-large/snapshots/55611d7bca2a7133960a6d3b71e083071bbfc312",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.13999999999999999,
+      "sd_accuracy": 0.05099019513592785,
+      "per_seed_accuracy": {
+        "1": 0.1,
+        "2": 0.22,
+        "3": 0.1,
+        "4": 0.12,
+        "5": 0.16
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_run1/bge_reranker_large"
+    },
+    {
+      "label": "cross_encoder_deberta",
+      "reranker_model": "/mnt/shared/shared_hf_home/hub/models--cross-encoder--nli-deberta-v3-large/snapshots/bab4bc7178836f731dcfd18c06ca9def0a137712",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.02,
+      "sd_accuracy": 0.02449489742783178,
+      "per_seed_accuracy": {
+        "1": 0.06,
+        "2": 0.02,
+        "3": 0.0,
+        "4": 0.02,
+        "5": 0.0
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_run1/cross_encoder_deberta"
+    }
+  ]
+}

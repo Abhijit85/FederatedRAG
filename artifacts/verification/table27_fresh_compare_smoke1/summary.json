@@ -1,0 +1,39 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 20,
+  "rounds": 1,
+  "client_count": 5,
+  "max_items": 5,
+  "centralized_mode": "direct",
+  "seeds": [
+    1,
+    2
+  ],
+  "federated": {
+    "mean_accuracy": 0.225,
+    "sd_accuracy": 0.03535533905932737,
+    "per_seed_accuracy": {
+      "1": 0.2,
+      "2": 0.25
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.225,
+    "sd_accuracy": 0.03535533905932737,
+    "per_seed_accuracy": {
+      "1": 0.2,
+      "2": 0.25
+    }
+  },
+  "paired": {
+    "mean_diff": 0.0,
+    "sd_diff": 0.0,
+    "se_diff": 0.0,
+    "t_value": 0.0
+  },
+  "artifacts": {
+    "federated_seed_csv": "artifacts/verification/table27_fresh_compare_smoke1/federated_seed_values.csv",
+    "centralized_seed_csv": "artifacts/verification/table27_fresh_compare_smoke1/centralized_seed_values.csv"
+  },
+  "note": "Fresh current-codebase paired comparison. Federated uses the existing runtime edge merge path; centralized=direct pools client-selected artifacts into one central compendium without edge cosine clustering. This is a current-runtime comparator, not a reconstruction of the submitted paper's historical Table 27 harness."
+}

@@ -1,0 +1,31 @@
+{
+  "task": "math:AMPS_Hard",
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "sample_count": 3,
+  "correct": 1,
+  "accuracy": 0.3333333333333333,
+  "rows": [
+    {
+      "index": 12,
+      "question": "Question: ['Find an indefinite integral (which can vary by a constant) of the following function: $7 \\\\sin (1-7 x)$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "7 \\left(\\frac{1}{7} \\sin (1) \\sin (7 x)+\\frac{1}{7} \\cos (1) \\cos (7 x)\\right)",
+      "prediction": "To find the indefinite integral of the function $7 \\sin (1-7x)$, we'll start by recognizing that the derivative of $\\sin(u)$ with respect to $u$ is $\\cos(u)$, and we'll need to apply the chain rule since the argument of the sine function is a function of $x$.\n\nGiven:\n\\[ \\int 7 \\sin (1-7x) \\, dx \\]\n\nFirst, let's identify $u$:\n\\[ u = 1 - 7x \\]\n\nThe derivative of $u$ with respect to $x$ is:\n\\[ \\frac{du}{dx} = -7 \\]\n\nTo apply the substitution method, we need $du$:\n\\[ du = -7 \\, dx \\]\n\nOr, rearranged to solve for $dx$:\n\\[ dx = -\\frac{1}{7} \\, du \\]\n\nNow, substitute $u$ and $dx$ into the integral:\n\\[ \\int 7 \\sin (u) \\cdot -\\frac{1}{7} \\, du \\]\n\nThe $7$ and $-\\frac{1}{7}$ cancel out:\n\\[ \\int -\\sin (u) \\, du \\]\n\nThe integral of $-\\sin(u)$ with respect to $u$ is:\n\\[ \\cos(u) + C \\]\n\nSubstitute back $u = 1 - 7x$:\n\\[ \\cos(1 - 7x) + C \\]\n\nSo, the indefinite integral of $7 \\sin (1-7x)$ is:\n\\boxed{\\cos(1 - 7x) + C}",
+      "correct": true
+    },
+    {
+      "index": 24,
+      "question": "Question: ['Compute the sample variance of ${-18, 7, 8, 7, -17, 13, 13, 21, -9}$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "\\frac{7045}{36}",
+      "prediction": "To compute the sample variance, we first need to find the sample mean of the given dataset.\n\nThe dataset is: -18, 7, 8, 7, -17, 13, 13, 21, -9.\n\nStep 1: Calculate the sample mean.\nTo find the sample mean, we sum all the values and then divide by the number of values.\n\nSum of the values = -18 + 7 + 8 + 7 - 17 + 13 + 13 + 21 - 9 = 25.\n\nNumber of values = 9.\n\nSample mean (x\u0304) = Sum of the values / Number of values = 25 / 9.\n\nStep 2: Calculate the deviations from the mean.\nFor each value, subtract the sample mean to find the deviation.\n\nDeviations = (-18 - 25/9), (7 - 25/9), (8 - 25/9), (7 - 25/9), (-17 - 25/9), (13 - 25/9), (13 - 25/9), (21 - 25/9), (-9 - 25/9).\n\nLet's calculate the sample mean first: 25/9 \u2248 2.78.\n\nSo, the deviations are approximately:\n-18 - 2.78 = -20.78,\n7 - 2.78 = 4.22,\n8 - 2.78 = 5.22,\n7 - 2.78 = 4.22,\n-17 - 2.78 = -19.78,\n13 - 2.78 = 10.22,\n13 - 2.78 = 10.22,\n21 - 2.78 = 18.22,\n-9 - 2.78 = -11.78.\n\nStep 3: Square each deviation.\n(-20.78)^2, (4.22)^2, (5.22)^2, (4.22)^2, (-19.78)^2, (10.22)^2, (10.22)^2, (18.22)^2, (-11.78)^2.\n\nLet's calculate these:\n\u2248 431.9284, 17.8084, 27.2884, 17.8084, 391.3284, 104.4884, 104.4884, 332.0884, 138.9284.\n\n",
+      "correct": false
+    },
+    {
+      "index": 27,
+      "question": "Question: ['Find the characteristic polynomial of the following matrix:\\\\n$\\\\left(\\\\n\\\\begin{array}{ccc}\\\\n \\\\frac{189}{16} & -\\\\frac{27}{4} & \\\\frac{83}{8} \\\\\\\\\\\\n \\\\frac{39}{8} & -\\\\frac{43}{8} & -\\\\frac{41}{16} \\\\\\\\\\\\n \\\\frac{21}{16} & \\\\frac{213}{16} & \\\\frac{35}{8} \\\\\\\\\\\\n\\\\end{array}\\\\n\\\\right)$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "-\\lambda ^3+\\frac{173 \\lambda ^2}{16}-\\frac{4627 \\lambda }{256}+\\frac{4253145}{4096}",
+      "prediction": "To find the characteristic polynomial of the given matrix, we first need to understand what the characteristic polynomial is. The characteristic polynomial of a square matrix A is defined as \\( \\text{det}(A - \\lambda I) \\), where \\( \\lambda \\) is the eigenvalue, and \\( I \\) is the identity matrix of the same order as A.\n\nGiven matrix:\n\\[ A = \\begin{pmatrix} \\frac{189}{16} & -\\frac{27}{4} & \\frac{83}{8} \\\\ \\frac{39}{8} & -\\frac{43}{8} & -\\frac{41}{16} \\\\ \\frac{21}{16} & \\frac{213}{16} & \\frac{35}{8} \\end{pmatrix} \\]\n\nFirst, we construct the matrix \\( A - \\lambda I \\):\n\\[ A - \\lambda I = \\begin{pmatrix} \\frac{189}{16} - \\lambda & -\\frac{27}{4} & \\frac{83}{8} \\\\ \\frac{39}{8} & -\\frac{43}{8} - \\lambda & -\\frac{41}{16} \\\\ \\frac{21}{16} & \\frac{213}{16} & \\frac{35}{8} - \\lambda \\end{pmatrix} \\]\n\nThe characteristic polynomial \\( p(\\lambda) \\) is the determinant of \\( A - \\lambda I \\):\n\\[ p(\\lambda) = \\text{det}(A - \\lambda I) \\]\n\nCalculating the determinant:\n\\[ p(\\lambda) = \\begin{vmatrix} \\frac{189}{16} - \\lambda & -\\frac{27}{4} & \\frac{83}{8} \\\\ \\frac{39}{8} & -\\frac{43}{8} - \\lambda & -\\frac{41}{16} \\\\ \\frac{21}{16} & \\frac{213}{16} & \\frac{35}{8} - \\lambda \\end{vmatrix} \\]\n\nExpanding the determinant along the first row:\n\\[ p(\\lambda) = \\left(\\frac{189}{16} - \\lambda\\right) \\begin{vmatrix} -\\frac{43}{8} - \\lambda & -\\frac{41}{16} \\\\ \\frac{213}{16} & \\frac{35}{8} - \\lambda \\end{",
+      "correct": false
+    }
+  ],
+  "arm": "strong"
+}

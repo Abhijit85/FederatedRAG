@@ -1,0 +1,33 @@
+{
+  "condition": "no_payload",
+  "structured_payload_mode": "disabled",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_routing_accuracy": 0.264,
+  "sd_routing_accuracy": 0.032863353450309975,
+  "mean_answer_accuracy": 0.6799999999999999,
+  "sd_answer_accuracy": 0.03999999999999998,
+  "per_seed_routing_accuracy": {
+    "1": 0.24,
+    "2": 0.26,
+    "3": 0.26,
+    "4": 0.24,
+    "5": 0.32
+  },
+  "per_seed_answer_accuracy": {
+    "1": 0.7,
+    "2": 0.66,
+    "3": 0.64,
+    "4": 0.66,
+    "5": 0.74
+  },
+  "output_dir": "artifacts/verification/gsm8k_schema_control_run1/no_payload"
+}

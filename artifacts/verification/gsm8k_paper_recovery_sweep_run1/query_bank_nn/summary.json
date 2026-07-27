@@ -1,0 +1,29 @@
+{
+  "method": "query_bank_nn",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.516,
+  "sd_accuracy": 0.025099800796022288,
+  "per_seed_accuracy": {
+    "1": 0.53,
+    "2": 0.48,
+    "3": 0.54,
+    "4": 0.53,
+    "5": 0.5
+  },
+  "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/query_bank_nn"
+}

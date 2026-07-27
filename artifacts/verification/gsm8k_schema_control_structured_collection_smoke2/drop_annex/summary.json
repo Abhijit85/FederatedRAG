@@ -1,0 +1,21 @@
+{
+  "condition": "drop_annex",
+  "structured_payload_mode": "drop_annex",
+  "sample_count": 20,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1
+  ],
+  "mean_routing_accuracy": 0.2,
+  "sd_routing_accuracy": 0.0,
+  "mean_answer_accuracy": 0.9,
+  "sd_answer_accuracy": 0.0,
+  "per_seed_routing_accuracy": {
+    "1": 0.2
+  },
+  "per_seed_answer_accuracy": {
+    "1": 0.9
+  },
+  "output_dir": "artifacts/verification/gsm8k_schema_control_structured_collection_smoke2/drop_annex"
+}

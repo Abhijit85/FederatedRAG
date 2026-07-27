@@ -1,0 +1,129 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "k": 5,
+  "embed_model": "jina-embeddings-v2-base-en",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "scenario_count": 6,
+  "gate": {
+    "label": "llama31_8b",
+    "present": true,
+    "expected_min": 0.0,
+    "expected_max": 1.0,
+    "mean_accuracy": 0.42000000000000004,
+    "passed": true
+  },
+  "arms": [
+    {
+      "label": "qwen25_0p5b",
+      "backend": "local",
+      "model": "/mnt/shared/shared_hf_home/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+      "local_model_path": "/mnt/shared/shared_hf_home/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775",
+      "sample_count": 50,
+      "k": 5,
+      "seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024
+      ],
+      "mean_accuracy": 0.12400000000000003,
+      "sd_accuracy": 0.02190890230020665,
+      "mean_latency_seconds": 0.108463194899261,
+      "sd_latency_seconds": 0.055502180242246284,
+      "per_seed_accuracy": {
+        "42": 0.14,
+        "123": 0.1,
+        "456": 0.14,
+        "789": 0.14,
+        "1024": 0.1
+      },
+      "per_seed_latency_seconds": {
+        "42": 0.2077273116260767,
+        "123": 0.08233312912285327,
+        "456": 0.08269460696727038,
+        "789": 0.0846084574982524,
+        "1024": 0.08495246928185224
+      },
+      "output_dir": "artifacts/verification/gsm8k_small_router_sweep_run1_diag/qwen25_0p5b"
+    },
+    {
+      "label": "llama32_1b",
+      "backend": "openrouter",
+      "model": "meta-llama/llama-3.2-1b-instruct",
+      "local_model_path": null,
+      "sample_count": 50,
+      "k": 5,
+      "seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024
+      ],
+      "mean_accuracy": 0.312,
+      "sd_accuracy": 0.057619441163551735,
+      "mean_latency_seconds": 0.5457545198872685,
+      "sd_latency_seconds": 0.031114618924236195,
+      "per_seed_accuracy": {
+        "42": 0.34,
+        "123": 0.36,
+        "456": 0.26,
+        "789": 0.36,
+        "1024": 0.24
+      },
+      "per_seed_latency_seconds": {
+        "42": 0.5521055807173252,
+        "123": 0.5753153500705958,
+        "456": 0.5470286060497165,
+        "789": 0.4935068314522505,
+        "1024": 0.5608162311464548
+      },
+      "output_dir": "artifacts/verification/gsm8k_small_router_sweep_run1_diag/llama32_1b"
+    },
+    {
+      "label": "llama31_8b",
+      "backend": "local",
+      "model": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+      "local_model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+      "sample_count": 50,
+      "k": 5,
+      "seeds": [
+        42,
+        123,
+        456,
+        789,
+        1024
+      ],
+      "mean_accuracy": 0.42000000000000004,
+      "sd_accuracy": 0.046904157598234304,
+      "mean_latency_seconds": 0.20188609478622674,
+      "sd_latency_seconds": 0.05687254033074089,
+      "per_seed_accuracy": {
+        "42": 0.46,
+        "123": 0.38,
+        "456": 0.36,
+        "789": 0.44,
+        "1024": 0.46
+      },
+      "per_seed_latency_seconds": {
+        "42": 0.30351252321153877,
+        "123": 0.17233957201242447,
+        "456": 0.17964374355971813,
+        "789": 0.17651881530880928,
+        "1024": 0.17741581983864307
+      },
+      "output_dir": "artifacts/verification/gsm8k_small_router_sweep_run1_diag/llama31_8b"
+    }
+  ],
+  "note": "This is an explicit LLM-router sweep on the paperlike GSM8K routing metric. If the 8B gate fails, the run should not be presented as a reproduction of the submitted ~0.92 anchor."
+}

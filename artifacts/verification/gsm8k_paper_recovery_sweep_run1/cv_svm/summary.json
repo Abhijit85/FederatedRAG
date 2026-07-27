@@ -1,0 +1,29 @@
+{
+  "method": "cv_svm",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.77,
+  "sd_accuracy": 0.04183300132670381,
+  "per_seed_accuracy": {
+    "1": 0.8,
+    "2": 0.79,
+    "3": 0.72,
+    "4": 0.81,
+    "5": 0.73
+  },
+  "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/cv_svm"
+}

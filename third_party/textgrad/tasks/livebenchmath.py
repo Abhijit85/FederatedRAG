@@ -104,7 +104,7 @@ def is_equiv(x1: str, x2: str) -> bool:
         warnings.warn(f"Timed out comparing {x1} and {x2}")
         return False
     except ImportError as e:
-        warnings.warn(e)
+        warnings.warn(str(e))
         raise
     except Exception as e:
         warnings.warn(f"Failed comparing {x1} and {x2} with {e}")
@@ -333,16 +333,20 @@ class LiveBenchMath(Dataset):
         if task is not None:
             dataset = dataset.filter(lambda item: item["task"] == task)
 
-        train_test_split = dataset.train_test_split(test_size=1-train_ratio)
+        if split == "test":
+            train_dataset = dataset
+            val_dataset = dataset
+            test_dataset = dataset
+        else:
+            train_test_split = dataset.train_test_split(test_size=1-train_ratio)
 
-        # Access the train and test sets
-        train_dataset = train_test_split['train']
-        test_dataset = train_test_split['test']
+            # Access the train and test sets
+            train_dataset = train_test_split['train']
+            test_dataset = train_test_split['test']
 
-        valid_size = int(len(train_dataset) * (1-val_split_ratio))
-        train_val_split = train_dataset.train_test_split(test_size=1-train_ratio)
-        train_dataset = train_val_split['train']
-        val_dataset = train_val_split['test']
+            train_val_split = train_dataset.train_test_split(test_size=1-train_ratio)
+            train_dataset = train_val_split['train']
+            val_dataset = train_val_split['test']
 
 
         if root is None:

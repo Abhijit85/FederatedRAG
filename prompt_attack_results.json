@@ -1,159 +1,309 @@
 {
-  "samples": 15,
-  "average_similarity": 0.1391025641025641,
-  "average_cosine_similarity": 0.12921705454198762,
-  "average_rouge_l": 0.11817128072568932,
-  "model": "meta-llama/llama-4-maverick",
+  "samples": 30,
+  "average_similarity": 0.6663681125637647,
+  "average_cosine_similarity": 0.39757985277066943,
+  "average_rouge_l": 0.23821896167696413,
+  "model": "openai/gpt-5.1",
   "details": [
     {
       "client_id": "general-client-1",
       "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
-      "token_overlap": 0.15384615384615385,
-      "cosine_similarity": 0.1877389804182729,
-      "rouge_l": 0.15999999999999998,
+      "token_overlap": 0.7307692307692307,
+      "cosine_similarity": 0.35086653609584334,
+      "rouge_l": 0.1702127659574468,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ###### ##### and #### ########## ########### ###### ##### and #### ########## ####### ################# ############# #########",
-      "reconstructed_prompt": "Study skills and strategies for math exams and tests are essential for student success and include effective note taking and active reading techniques."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math question-answering scenarios.\n\nYour task: Given a brief description of a math problem setting, generate a JSON object that specifies how a math QA tool should be configured.\n\nUse this exact JSON schema in your response:\n\n{\n  \"role\": \"structured system prompt for math QA scenarios\",\n  \"tool\": \"<name of the math tool to be used>\",\n  \"domain\": \"<high-level math topic or domain>\",\n  \"scenario\": \"<short, human-readable name for the specific scenario>\",\n  \"type\": \"usage_scenario\",\n  \"difficulty\": \"<one of: easy, medium, hard>\"\n}\n\nRequirements:\n- Do not include any extra keys beyond those listed.\n- The value of \"role\" must be exactly: \"structured system prompt for math QA scenarios\".\n- The value of \"type\" must be exactly: \"usage_scenario\".\n- Choose an appropriate tool name based on the domain (e.g., algebra_solver, geometry_solver, calculus_solver, statistics_solver, etc.).\n- Set \"domain\" to a concise description of the mathematical area (e.g., \"Linear Equations\", \"Geometry \u2014 Circles\", \"Probability\", \"Work, Rate, and Time\").\n-"
     },
     {
       "client_id": "general-client-1",
       "signature": "unified::math::scenario::Financial and Banking Calculator",
-      "token_overlap": 0.0,
-      "cosine_similarity": 0.0,
-      "rouge_l": 0.0,
+      "token_overlap": 0.7083333333333334,
+      "cosine_similarity": 0.4276294564416463,
+      "rouge_l": 0.34246575342465757,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## and ####### ############ ########### ########## and ####### ############ ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate"
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt for math QA scenarios. Configure a tool specification for a math question-answering agent.\n\nReturn a single JSON object with the following fields:\n- \"role\": should be the string \"structured system prompt for math QA scenarios\"\n- \"tool\": the name of the math tool or calculator (e.g., \"mathqa\")\n- \"domain\": the specific application domain of math, here it should be \"Financial and Banking Calculator\"\n- \"scenario\": a short description or title of the usage scenario, here also \"Financial and Banking Calculator\"\n- \"type\": the type of scenario, e.g., \"usage_scenario\"\n- \"difficulty\": the difficulty level of the math problems expected (e.g., \"easy\", \"medium\", \"hard\"); set this to \"medium\"\n\nGenerate the JSON object exactly, without additional text or explanation."
     },
     {
       "client_id": "general-client-1",
       "signature": "unified::math::scenario::Percentage and Proportion Solver",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.18473666137113315,
-      "rouge_l": 0.125,
+      "token_overlap": 0.7083333333333334,
+      "cosine_similarity": 0.4841455288363497,
+      "rouge_l": 0.30065359477124187,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########### and ########## ######## ########### ########### and ########## ######## ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate a sentence with missing words filled in for a sample about a study guide for math that includes practice problems and detailed explanations and examples for learning and reinforcing key concepts and techniques essential for mastering the subject."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA tools.\n\nGiven the following parameters:\n\n- tool: mathqa  \n- domain: Percentage and Proportion Solver  \n- scenario: Percentage and Proportion Solver  \n- type: usage_scenario  \n- difficulty: medium  \n\nProduce a single JSON object describing a suitable math QA usage scenario. The JSON must have exactly the following keys:\n\n- \"role\": (string) a brief description of the role this prompt plays, e.g. \"structured system prompt for math QA scenarios\"\n- \"tool\": (string) the tool name, here \"mathqa\"\n- \"domain\": (string) the math domain, here \"Percentage and Proportion Solver\"\n- \"scenario\": (string) a short description repeating or slightly elaborating the domain/scenario\n- \"type\": (string) the kind of prompt, here \"usage_scenario\"\n- \"difficulty\": (string) the difficulty level, here \"medium\"\n\nReturn only the JSON object, with no extra text or explanation."
     },
     {
       "client_id": "general-client-1",
       "signature": "unified::math::scenario::Geometry: Shapes and Measurement",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.0995870134791569,
-      "rouge_l": 0.10714285714285714,
+      "token_overlap": 0.7083333333333334,
+      "cosine_similarity": 0.37599166157908304,
+      "rouge_l": 0.3289473684210526,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## ###### and ############# ########### ########## ###### and ############# ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate a sentence that praises a tutor for their ability to explain complex concepts in simple terms and their patience with students who struggle with math problems and other difficult subjects."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are designing a structured system prompt entry for a math question-answering tool.\n\nCreate a JSON object describing a usage scenario for this tool with the following fields:\n- \"role\": the role this prompt will play (set this to \"structured system prompt for math QA scenarios\")\n- \"tool\": the name or identifier of the tool being configured (use \"mathqa\")\n- \"domain\": the mathematical domain (for this example use \"Geometry: Shapes and Measurement\")\n- \"scenario\": a short description or label of the usage scenario (for this example also use \"Geometry: Shapes and Measurement\")\n- \"type\": the type of entry (set this to \"usage_scenario\")\n- \"difficulty\": an approximate difficulty level for the questions in this scenario (set this to \"medium\")\n\nReturn only the JSON object, with these exact keys and the specified values."
     },
     {
       "client_id": "general-client-1",
       "signature": "unified::math::scenario::Algebraic Word Problem Solver",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.09033739254860694,
-      "rouge_l": 0.11538461538461538,
+      "token_overlap": 0.20833333333333334,
+      "cosine_similarity": 0.12135553684909718,
+      "rouge_l": 0.04807692307692307,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## #### ####### ######## ########### ########## #### ####### ######## ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate obfuscated text template for a math topic ## using similar formatting #### and word length ####### with hashes ########## and a placeholder topic ####### for a specific subject ################# study guide ############# outline."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are an AI assistant that specializes in solving algebraic word problems.\n\nGiven a natural language problem description, you should:\n\n1. Identify the quantities involved and define variables for unknowns.\n2. Translate the word problem into one or more algebraic equations.\n3. Solve the equations step by step, showing your work clearly.\n4. State the final answer in a complete sentence, using appropriate units.\n5. If there is insufficient information or multiple possible answers, explain why.\n\nFormat your response as:\n\n- A brief restatement of the problem (optional).\n- Step-by-step reasoning and algebraic setup.\n- Solution steps with clear justification.\n- Final answer highlighted or clearly separated.\n\nAlways aim for clarity and correctness rather than brevity. Do not skip intermediate algebraic steps, even if they are simple.\n\nExample:\n\nProblem:  \n\u201cEmma is 4 years older than Liam. In 6 years, the sum of their ages will be 50. How old is Emma now?\u201d\n\nSolution:  \nLet L be Liam\u2019s current age. Then Emma\u2019s current age is L + 4.\n\nIn 6 years:\n- Liam\u2019s age will be L + 6\n- Emma\u2019s age will be (L + 4)"
+    },
+    {
+      "client_id": "general-client-1",
+      "signature": "unified::math::scenario::General Logic and Counting",
+      "token_overlap": 0.7083333333333334,
+      "cosine_similarity": 0.5734780912709784,
+      "rouge_l": 0.37037037037037035,
+      "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA scenarios.\n\nGiven the following properties:\n- tool: mathqa  \n- domain: General Logic and Counting  \n- scenario: General Logic and Counting  \n- type: usage_scenario  \n- difficulty: medium  \n\nProduce a single JSON object describing an appropriate math question-answer usage scenario with these exact keys and values for the corresponding fields:\n- \"role\": must be set to \"structured system prompt for math QA scenarios\"\n- \"tool\": must be exactly \"mathqa\"\n- \"domain\": must be exactly \"General Logic and Counting\"\n- \"scenario\": must be exactly \"General Logic and Counting\"\n- \"type\": must be exactly \"usage_scenario\"\n- \"difficulty\": must be exactly \"medium\"\n\nOnly output the JSON object, with no explanation or additional text."
+    },
+    {
+      "client_id": "general-client-1",
+      "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+      "token_overlap": 0.6086956521739131,
+      "cosine_similarity": 0.25054798009868723,
+      "rouge_l": 0.1807909604519774,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nGiven the following constraints, produce a single JSON object describing how a tool should be used to answer a science question. The JSON must have exactly these fields:\n\n- \"role\": a short description of the role the system should take (as a string)\n- \"tool\": the name of the tool or module to be used (as a string)\n- \"domain\": the general subject area (as a string)\n- \"scenario\": a more specific topic or subdomain within the subject (as a string)\n- \"type\": the type of output or usage pattern (as a string)\n- \"difficulty\": the expected difficulty level of questions in this scenario, such as \"easy\", \"medium\", or \"hard\" (as a string)\n\nDo not include any additional fields or text outside of the JSON.\n\nNow generate such a JSON object for a medium\u2011difficulty astronomy scenario about the solar system and celestial bodies, using the \"scienceqa\" tool."
+    },
+    {
+      "client_id": "general-client-1",
+      "signature": "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+      "token_overlap": 0.5909090909090909,
+      "cosine_similarity": 0.3074000791771927,
+      "rouge_l": 0.18811881188118812,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Genetics and Heredity Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Genetics and Heredity Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nGiven a user request for a science question-answering task, you must output a single JSON object describing the appropriate configuration for a specialized QA tool. Do not answer the science question itself. Instead, describe how a tool should be set up to answer it.\n\nYour response must be valid JSON with the following fields:\n\n- \"role\": A fixed string describing the kind of system prompt you are creating. For this task, always use: \"structured system prompt for science QA scenarios\".\n- \"tool\": The name of the tool to be used. For science questions, always use: \"scienceqa\".\n- \"domain\": The broad domain of the question (e.g., \"science\", \"math\", \"history\").\n- \"scenario\": A short, specific description of the scenario or subdomain in which the tool will operate (e.g., \"Physics: Classical Mechanics Problem Solver\", \"Biology: Cell Structure Explainer\").\n- \"type\": The type of configuration you are providing. For this task, always use: \"usage_scenario\".\n- \"difficulty\": The approximate difficulty level of the questions the tool should be prepared for. Use one of: \"easy\", \"medium"
+    },
+    {
+      "client_id": "general-client-1",
+      "signature": "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+      "token_overlap": 0.7272727272727273,
+      "cosine_similarity": 0.3201117236895033,
+      "rouge_l": 0.2839506172839506,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are the structured system prompt for science QA scenarios.\n\nProduce a single JSON object describing the appropriate tool configuration for this query. Do not include any explanation or additional keys, only the JSON object.\n\nThe JSON object must have the following keys:\n\n- \"role\": must be exactly \"structured system prompt for science QA scenarios\"\n- \"tool\": the name of the tool that should be used (for science questions, this is \"scienceqa\")\n- \"domain\": the general domain of the question (e.g., \"science\", \"math\", \"history\")\n- \"scenario\": a short, descriptive title for the specific kind of science question being asked (e.g., \"Biology: Ecosystem and Classification Interpreter\")\n- \"type\": must be \"usage_scenario\"\n- \"difficulty\": an estimate of the difficulty level of the question (e.g., \"easy\", \"medium\", \"hard\")\n\nBased on the user\u2019s question, fill these fields appropriately.\n\nUser question:\n[USER QUESTION GOES HERE]"
+    },
+    {
+      "client_id": "general-client-1",
+      "signature": "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+      "token_overlap": 0.22727272727272727,
+      "cosine_similarity": 0.27284982743736547,
+      "rouge_l": 0.17801047120418848,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Physics: Mechanics and Forces Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Physics: Mechanics and Forces Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nGiven a short description of a science question-answering need, output a single JSON object that describes the appropriate system prompt configuration. Your JSON must follow this exact schema:\n\n- `role`: a string describing the role/instructions for the AI assistant\n- `tool`: a string, the internal tool or model name to be used (for this project use `\"scienceqa\"`)\n- `domain`: a string indicating the broad subject area (e.g. `\"science\"`, `\"math\"`, `\"biology\"`, etc.)\n- `scenario`: a short, human-readable string describing the specific use case or scenario\n- `type`: a string, the high-level category of the scenario (e.g. `\"usage_scenario\"`, `\"demo\"`, `\"test_case\"`)\n- `difficulty`: a string describing expected difficulty (e.g. `\"easy\"`, `\"medium\"`, `\"hard\"`)\n\nRules:\n- Output JSON only, with no additional text.\n- Do not add extra fields.\n- Fill all fields with concise but descriptive values.\n\nHere is the scenario description:\n\n\u201cI need a configuration for a physics assistant that can help students solve problems in classical mechanics, especially involving"
     },
     {
       "client_id": "general-client-2",
       "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
-      "token_overlap": 0.15384615384615385,
-      "cosine_similarity": 0.17505226560097342,
-      "rouge_l": 0.14814814814814814,
+      "token_overlap": 0.6538461538461539,
+      "cosine_similarity": 0.377163947343369,
+      "rouge_l": 0.23703703703703705,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ###### ##### and #### ########## ########### ###### ##### and #### ########## ####### ################# ############# #########",
-      "reconstructed_prompt": "Practice problems for math are essential for students and it helps reinforce understanding and improve problem-solving skills through repetition and application of mathematical concepts and formulas."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA scenarios.\n\nGenerate a JSON object describing a math question-answer usage scenario with the following fields:\n- \"role\": should be \"structured system prompt for math QA scenarios\"\n- \"tool\": the name of the math tool or assistant to be used\n- \"domain\": the mathematical domain of the problems\n- \"scenario\": a short human\u2011readable title for the scenario\n- \"type\": the general category, here it will be \"usage_scenario\"\n- \"difficulty\": an overall difficulty level such as \"easy\", \"medium\", or \"hard\"\n\nFor this request, create a scenario about problems involving work, rate, and time with medium difficulty, using the math QA tool named \"mathqa\"."
     },
     {
       "client_id": "general-client-2",
       "signature": "unified::math::scenario::Financial and Banking Calculator",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.11199873033155104,
-      "rouge_l": 0.10666666666666667,
+      "token_overlap": 1.0,
+      "cosine_similarity": 0.5165600751495757,
+      "rouge_l": 0.26881720430107525,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## and ####### ############ ########### ########## and ####### ############ ####### ################# ############# #########",
-      "reconstructed_prompt": "\"Generate a sentence about the importance of practice for math ## skill ## improvement ####### and ####### consistent practice ############ yields ####### significant ############# and ####### remarkable ############ long-term ############# results.\" is not a valid response due to the response format. A valid response is: Create a sentence for the importance of practice for math skills and consistent practice."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA scenarios.\n\nYour task: given a short description of a tool or domain, produce a JSON object that defines how this tool will be used in a math question-answering context.\n\nOutput format: a single JSON object with the following fields:\n- \"role\": always set this to \"structured system prompt for math QA scenarios\"\n- \"tool\": the exact name of the tool or domain (string)\n- \"domain\": a short human-readable description of the domain (string)\n- \"scenario\": a concise description of the usage scenario for math QA with this tool (string)\n- \"type\": always set to \"usage_scenario\"\n- \"difficulty\": one of \"easy\", \"medium\", or \"hard\" describing the typical difficulty of questions in this scenario\n\nOnly output the JSON object, with no additional text.\n\nExample input:\nFinancial and Banking Calculator\n\nExample output:\n{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
     },
     {
       "client_id": "general-client-2",
       "signature": "unified::math::scenario::Percentage and Proportion Solver",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.220737434131093,
-      "rouge_l": 0.15094339622641512,
+      "token_overlap": 0.5833333333333334,
+      "cosine_similarity": 0.37993124023916147,
+      "rouge_l": 0.3142857142857143,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########### and ########## ######## ########### ########### and ########## ######## ####### ################# ############# #########",
-      "reconstructed_prompt": "Practice problems and examples for math 1 are essential for understanding concepts and building skills and solving problems and evaluating expressions and simplifying equations and answering questions correctly."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math question-answering scenarios.\n\nGiven the following tool information:\n- tool name: mathqa\n- domain: Percentage and Proportion Solver\n- scenario: Percentage and Proportion Solver\n- difficulty: medium\n\nProduce a JSON object that describes the system prompt configuration for this math QA scenario, with the following fields:\n- \"role\": a short description of the role this system prompt defines\n- \"tool\": the tool name (exactly as given)\n- \"domain\": the mathematical domain or topic (exactly as given)\n- \"scenario\": a brief description or title of the usage scenario (exactly as given)\n- \"type\": set this to \"usage_scenario\"\n- \"difficulty\": the difficulty level (exactly as given)\n\nReturn only the JSON object, with no additional text or explanation."
     },
     {
       "client_id": "general-client-2",
       "signature": "unified::math::scenario::Geometry: Shapes and Measurement",
-      "token_overlap": 0.125,
-      "cosine_similarity": 0.04837190594053667,
-      "rouge_l": 0.04519774011299435,
+      "token_overlap": 0.875,
+      "cosine_similarity": 0.5140348141624952,
+      "rouge_l": 0.25301204819277107,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## ###### and ############# ########### ########## ###### and ############# ####### ################# ############# #########",
-      "reconstructed_prompt": "Reconstructing the original prompt based on the given response, it seems the response is encoded in a way that represents a prompt related to decoding or analyzing a given text or response. Given the pattern and structure, I will attempt to reverse-engineer the original prompt.\n\nThe observed response appears to be a jumbled collection of words and phrases that seem to be related to decoding or analyzing a text. Let's analyze the given response:\n\n\"Observed response from the client: ######## #####...\"\n\nIt seems like the original task was to reconstruct or infer an original prompt given a response that was possibly encoded or obscured.\n\nMy attempt at reconstructing the original prompt based on the information and pattern observed:\n\n\"Given a potentially encoded or obscured response, reverse-engineer the original prompt or text.\"\n\nThus, the reconstructed original prompt could be: \"Reconstruct the original text or prompt given the following encoded or obscured response.\""
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA scenarios.\n\nProduce a single JSON object describing a usage scenario for a math question-answering tool, following this exact schema:\n\n{\n  \"role\": \"structured system prompt for math QA scenarios\",\n  \"tool\": \"<short tool name, e.g., 'mathqa'>\",\n  \"domain\": \"<broad math domain, e.g., 'Algebra', 'Geometry: Shapes and Measurement', 'Statistics', etc.>\",\n  \"scenario\": \"<more specific topic or subdomain within the chosen domain>\",\n  \"type\": \"usage_scenario\",\n  \"difficulty\": \"<one of: easy, medium, hard>\"\n}\n\nConstraints:\n- The JSON must be syntactically valid.\n- The \"role\" field must be exactly: \"structured system prompt for math QA scenarios\".\n- The \"type\" field must be exactly: \"usage_scenario\".\n- The \"tool\" field should be \"mathqa\" for a general-purpose math question-answering assistant.\n- The \"domain\" should be a standard curricular math domain (e.g., \"Algebra: Linear Equations\", \"Geometry: Shapes and Measurement\", \"Number Theory\", \"Calculus: Differentiation\").\n-"
     },
     {
       "client_id": "general-client-2",
       "signature": "unified::math::scenario::Algebraic Word Problem Solver",
-      "token_overlap": 0.125,
-      "cosine_similarity": 0.07465910832640921,
-      "rouge_l": 0.09302325581395349,
+      "token_overlap": 0.9166666666666666,
+      "cosine_similarity": 0.4278729733975737,
+      "rouge_l": 0.27777777777777773,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## #### ####### ######## ########### ########## #### ####### ######## ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate a sentence with a similar word pattern and structure for a task involving jumbled or obscured text."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA scenarios.\n\nYour task: Given a brief description of the task, produce a JSON object that specifies how a math question-answering tool should be configured and described.\n\nOutput format: Return ONLY a JSON object with the following keys:\n- \"role\": must be the string \"structured system prompt for math QA scenarios\"\n- \"tool\": the name of the tool to be used (e.g., \"mathqa\")\n- \"domain\": a short description of the mathematical domain or capability\n- \"scenario\": a more specific description of the usage scenario\n- \"type\": must be the string \"usage_scenario\"\n- \"difficulty\": one of [\"easy\", \"medium\", \"hard\"]\n\nExample:\nInput description: \"An assistant that can solve algebra word problems of moderate complexity.\"\nExpected output:\n{\n  \"role\": \"structured system prompt for math QA scenarios\",\n  \"tool\": \"mathqa\",\n  \"domain\": \"Algebraic Word Problem Solver\",\n  \"scenario\": \"Algebraic Word Problem Solver\",\n  \"type\": \"usage_scenario\",\n  \"difficulty\": \"medium\"\n}\n\nNow, for the following description, produce the corresponding JSON configuration."
+    },
+    {
+      "client_id": "general-client-2",
+      "signature": "unified::math::scenario::General Logic and Counting",
+      "token_overlap": 0.5833333333333334,
+      "cosine_similarity": 0.34504078037597624,
+      "rouge_l": 0.20588235294117646,
+      "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math question-answering scenarios.\n\nGiven a math problem context, you should output a JSON object describing how a math-focused tool or agent should be configured for that scenario. Your response must be valid JSON and follow this schema exactly:\n\n- `role`: A short string describing the system role, e.g. \"structured system prompt for math QA scenarios\".\n- `tool`: The name of the tool or agent to be used, e.g. \"mathqa\".\n- `domain`: A brief description of the mathematical domain involved, such as \"Algebra\", \"Geometry\", \"General Logic and Counting\", etc.\n- `scenario`: A more specific description of the situation or topic within that domain.\n- `type`: The type of object being described, e.g. \"usage_scenario\".\n- `difficulty`: The approximate difficulty level of the problem, chosen from: \"easy\", \"medium\", \"hard\", \"olympiad\".\n\nFor the following situation, generate the corresponding JSON configuration:\n\nA problem that involves general logical reasoning and basic counting principles (like simple combinatorics or logical puzzles), at a moderate difficulty level appropriate for a typical high school student.\n\nRespond with only the JSON object."
+    },
+    {
+      "client_id": "general-client-2",
+      "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+      "token_overlap": 0.34782608695652173,
+      "cosine_similarity": 0.38255671040497446,
+      "rouge_l": 0.23350253807106597,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science question-answering scenarios.\n\nYour task: Given no user question, output a single JSON object that defines how a downstream \u201cscienceqa\u201d tool should be configured. The JSON must strictly follow this schema:\n\n- `role`: A concise description of the system\u2019s role, here it should indicate that this is a structured system prompt intended for science QA.\n- `tool`: The fixed string `\"scienceqa\"`.\n- `domain`: The general knowledge area, here it must be `\"science\"`.\n- `scenario`: A more specific topic or subdomain within science (e.g., \u201cBiology: Cell Structure and Function\u201d, \u201cPhysics: Mechanics and Motion\u201d). For this case, choose an astronomy-related topic focused on the solar system and celestial bodies.\n- `type`: Must be `\"usage_scenario\"` to indicate that this JSON describes a usage/configuration scenario for the tool.\n- `difficulty`: The expected difficulty level of the questions to be handled in this scenario (e.g., `\"easy\"`, `\"medium\"`, `\"hard\"`). For this case, set it to `\"medium\"`.\n\nOutput requirements:\n- Output only a single JSON object.\n- Do not include any explanations, comments"
+    },
+    {
+      "client_id": "general-client-2",
+      "signature": "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+      "token_overlap": 0.5909090909090909,
+      "cosine_similarity": 0.28301746294983776,
+      "rouge_l": 0.17708333333333334,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Genetics and Heredity Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Genetics and Heredity Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nYour task: given the description of a user\u2019s needs, produce a JSON object describing how a science-question-answering assistant should be configured. The JSON must always contain the following keys:\n\n- \"role\": a concise description of the system role and style\n- \"tool\": the name of the science QA tool to be invoked (use \"scienceqa\")\n- \"domain\": high-level subject area of science (e.g., \"physics\", \"chemistry\", \"biology\", \"earth science\", \"astronomy\", \"general science\")\n- \"scenario\": a brief natural-language description of the specific usage scenario\n- \"type\": the type of configuration; for all outputs in this task, use the fixed string \"usage_scenario\"\n- \"difficulty\": the expected level of the questions (e.g., \"easy\", \"medium\", \"hard\", \"olympiad\")\n\nReturn only valid, minified JSON. Do not include explanations, comments, or any additional text.\n\nExample:\n\nUser request:\n\u201cI need help with physics questions about Newton\u2019s laws and basic motion. The questions are from a first-year high school course.\u201d\n\nExpected output:\n{\"role\": \"structured system"
+    },
+    {
+      "client_id": "general-client-2",
+      "signature": "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+      "token_overlap": 0.6818181818181818,
+      "cosine_similarity": 0.4208596150776247,
+      "rouge_l": 0.23589743589743586,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nYour task: given a brief description of the desired assistant behavior, output a single JSON object that configures a specialized science question-answering assistant.\n\nThe JSON must have the following fields:\n- \"role\": a short description of the system role, such as \"structured system prompt for science QA scenarios\"\n- \"tool\": the name of the tool or mode this configuration is for (e.g., \"scienceqa\")\n- \"domain\": the broad subject domain (e.g., \"science\")\n- \"scenario\": a concise, descriptive title for the specific scenario, including subdomain and function (for example: \"Biology: Ecosystem and Classification Interpreter\")\n- \"type\": a fixed string describing what this JSON represents, e.g., \"usage_scenario\"\n- \"difficulty\": an approximate difficulty level of the questions this scenario is intended for (e.g., \"easy\", \"medium\", or \"hard\")\n\nGiven the following request, return only the JSON object and nothing else:\n\nRequest:  \n\u201cCreate a medium-difficulty biology-focused scenario for the science QA tool, where the assistant helps interpret questions about ecosystems, food webs, and biological classification.\u201d"
+    },
+    {
+      "client_id": "general-client-2",
+      "signature": "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+      "token_overlap": 0.5909090909090909,
+      "cosine_similarity": 0.3321303577984383,
+      "rouge_l": 0.1904761904761905,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Physics: Mechanics and Forces Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Physics: Mechanics and Forces Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA tools.\n\nYour task: given a description of a science question-answering need, produce a single JSON object that specifies how a science QA tool should be configured.\n\nRequirements:\n- Always respond with a single JSON object and nothing else.\n- The JSON MUST have the following fields:\n  - \"role\": always set to \"structured system prompt for science QA scenarios\"\n  - \"tool\": the name of the tool or model to be used (e.g., \"scienceqa\")\n  - \"domain\": the broad area of science (e.g., \"science\", \"physics\", \"chemistry\", \"biology\")\n  - \"scenario\": a concise, human-readable description of the specific use case\n  - \"type\": the type of configuration (e.g., \"usage_scenario\")\n  - \"difficulty\": a rough difficulty level (e.g., \"easy\", \"medium\", \"hard\")\n\n- The JSON must be syntactically valid.\n- \"scenario\" should be descriptive enough that another model can understand what kind of questions it will handle.\n- Do not include explanatory text outside the JSON.\n\nExample:\n\nInput:  \n\u201cConfigure a scenario for helping high-school students solve conceptual physics"
     },
     {
       "client_id": "general-client-3",
       "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
-      "token_overlap": 0.15384615384615385,
-      "cosine_similarity": 0.15152150558639307,
-      "rouge_l": 0.18604651162790697,
+      "token_overlap": 0.7307692307692307,
+      "cosine_similarity": 0.4641882654453571,
+      "rouge_l": 0.22660098522167488,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ###### ##### and #### ########## ########### ###### ##### and #### ########## ####### ################# ############# #########",
-      "reconstructed_prompt": "Practice problems for math 1 are essential for learning and solving complex equations and problems effectively."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA tools.\n\nYour task: given a math-related usage scenario, produce a JSON object that defines how a math question-answering agent should be configured for that scenario.\n\nOutput format: a single JSON object with the following fields:\n- \"role\": a short description of the system role, e.g. \"structured system prompt for math QA scenarios\"\n- \"tool\": the name of the math QA tool to be used, e.g. \"mathqa\"\n- \"domain\": a concise name for the mathematical domain or topic, e.g. \"Work, Rate, and Time Analyzer\"\n- \"scenario\": a slightly more descriptive repetition or clarification of the domain, often identical to \"domain\"\n- \"type\": always \"usage_scenario\"\n- \"difficulty\": one of \"easy\", \"medium\", or \"hard\", indicating the expected difficulty level of questions in this scenario\n\nMake reasonable choices for \"domain\", \"scenario\", and \"difficulty\" based on the provided description. If you are given a specific topic like \u201cWork, Rate, and Time problems,\u201d use that directly for both \"domain\" and \"scenario\", and select an appropriate difficulty.\n\nExample input:\n\"Create a configuration for"
     },
     {
       "client_id": "general-client-3",
       "signature": "unified::math::scenario::Financial and Banking Calculator",
-      "token_overlap": 0.125,
-      "cosine_similarity": 0.1571852351141895,
-      "rouge_l": 0.11111111111111112,
+      "token_overlap": 0.9583333333333334,
+      "cosine_similarity": 0.3962200206257517,
+      "rouge_l": 0.19512195121951217,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## and ####### ############ ########### ########## and ####### ############ ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate a sentence with exactly the same number of characters and pattern for \"Create a sentence for text ## example with some ###### and ####### replacement ########## and ####### obscured ########## and ####### completely ################# hidden ############# data\"."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math question-answering scenarios.\n\nGiven a set of attributes describing a math-related usage context, output a single JSON object with the following fields:\n- \"role\": a brief description of the system role tailored to the scenario\n- \"tool\": a short name for the tool or component being described\n- \"domain\": the general domain of the math application\n- \"scenario\": a more specific description of the usage scenario (can match domain if identical)\n- \"type\": the category of the scenario (e.g., \"usage_scenario\", \"example\", etc.)\n- \"difficulty\": the expected difficulty level of the math involved (e.g., \"easy\", \"medium\", \"hard\")\n\nUse the attribute values provided in the user prompt to fill the JSON fields appropriately. Do not include any additional text or explanation, only return the JSON object.\n\nFor example, if the user asks for a medium-difficulty usage scenario for a financial and banking calculator within a math QA context, you should respond with something like:\n\n{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\","
     },
     {
       "client_id": "general-client-3",
       "signature": "unified::math::scenario::Percentage and Proportion Solver",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.19580372522195985,
-      "rouge_l": 0.14545454545454545,
+      "token_overlap": 0.375,
+      "cosine_similarity": 0.383851894356013,
+      "rouge_l": 0.3359999999999999,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########### and ########## ######## ########### ########### and ########## ######## ####### ################# ############# #########",
-      "reconstructed_prompt": "Practice problems for math 1 are essential for understanding concepts and developing problem-solving skills and improving overall math abilities and scoring good marks in examinations and achieving academic success."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt for math QA scenarios.  \nTool: mathqa  \nDomain: Percentage and Proportion Solver  \nScenario: Percentage and Proportion Solver  \nDifficulty: medium  \n\nBased on this configuration, answer the following question step by step, showing your reasoning and final answer clearly:\n\n[Insert a medium-difficulty word problem involving percentages or proportions here, for example:  \n\u201cA shopkeeper marks an item at $500 and offers a 20% discount. Later, during a clearance sale, he gives an additional 15% discount on the discounted price. What is the final selling price of the item and the total percentage discount on the marked price?\u201d]"
     },
     {
       "client_id": "general-client-3",
       "signature": "unified::math::scenario::Geometry: Shapes and Measurement",
-      "token_overlap": 0.16666666666666666,
-      "cosine_similarity": 0.1771737900907945,
-      "rouge_l": 0.13559322033898305,
+      "token_overlap": 0.7916666666666666,
+      "cosine_similarity": 0.5211096858301493,
+      "rouge_l": 0.2913907284768212,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## ###### and ############# ########### ########## ###### and ############# ####### ################# ############# #########",
-      "reconstructed_prompt": "Requirements for math homework should include detailed explanations and step-by-step solutions for problems and thorough analysis and step-by-step derivations for theorems and comprehensive examples and detailed explanations for key concepts."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math question answering scenarios.\n\nGenerate a JSON object with the following fields:\n\n- \"role\": A short description of the system role tailored for math QA.\n- \"tool\": The name of the tool to be used, if any.\n- \"domain\": The specific math domain of the question (e.g., \"Algebra\", \"Geometry: Shapes and Measurement\", etc.).\n- \"scenario\": A brief description or label of the usage scenario, which may repeat or refine the domain.\n- \"type\": The type of description being provided (e.g., \"usage_scenario\").\n- \"difficulty\": The approximate difficulty level (e.g., \"easy\", \"medium\", \"hard\").\n\nFor this request, set:\n- domain = \"Geometry: Shapes and Measurement\"\n- scenario = \"Geometry: Shapes and Measurement\"\n- type = \"usage_scenario\"\n- difficulty = \"medium\"\n- tool = \"mathqa\"\n- role = \"structured system prompt for math QA scenarios\""
     },
     {
       "client_id": "general-client-3",
       "signature": "unified::math::scenario::Algebraic Word Problem Solver",
-      "token_overlap": 0.08333333333333333,
-      "cosine_similarity": 0.06335206996874429,
-      "rouge_l": 0.14285714285714282,
+      "token_overlap": 0.9583333333333334,
+      "cosine_similarity": 0.5371298361944528,
+      "rouge_l": 0.2681564245810056,
       "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
-      "observed_response": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## #### ####### ######## ########### ########## #### ####### ######## ####### ################# ############# #########",
-      "reconstructed_prompt": "Generate template for math problems using '#' for numbers and give an example to fill in the template."
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math question-answering scenarios.\n\nYour task: Given a brief description of a desired math QA use case, produce a JSON object capturing the system prompt configuration. Use the following JSON schema:\n\n{\n  \"role\": \"structured system prompt for math QA scenarios\",\n  \"tool\": \"mathqa\",\n  \"domain\": \"<high-level domain, e.g. 'Algebraic Word Problem Solver'>\",\n  \"scenario\": \"<more specific scenario or use case>\",\n  \"type\": \"usage_scenario\",\n  \"difficulty\": \"<one of: easy, medium, hard>\"\n}\n\nThe \"domain\" should capture the general mathematical area, the \"scenario\" should describe the specific type of problems or interaction, and \"difficulty\" should reflect the typical level of problems handled.\n\nOnly output the JSON object, with no additional text.\n\nExample input description:\n\"An assistant that helps students solve algebra word problems involving linear equations.\"\n\nExample output:\n{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \""
+    },
+    {
+      "client_id": "general-client-3",
+      "signature": "unified::math::scenario::General Logic and Counting",
+      "token_overlap": 0.9583333333333334,
+      "cosine_similarity": 0.5201929778297067,
+      "rouge_l": 0.21989528795811517,
+      "original_prompt": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for math QA scenarios.\n\nGiven a short description of the desired configuration, output a JSON object specifying the configuration with the following fields:\n\n- \"role\": must be exactly \"structured system prompt for math QA scenarios\"\n- \"tool\": the name of the tool to be used (e.g., \"mathqa\")\n- \"domain\": the math domain (e.g., \"Algebra\", \"Geometry\", \"General Logic and Counting\", etc.)\n- \"scenario\": a more specific description within the domain (can be the same as domain if not more specific)\n- \"type\": the type of configuration (e.g., \"usage_scenario\", \"example_problem\", \"solution_strategy\")\n- \"difficulty\": one of \"easy\", \"medium\", or \"hard\"\n\nThe output must be a single valid JSON object with exactly these keys and string values, no extra keys, and no additional text.\n\nExample:\n\nUser input:\n\"Create a medium-difficulty usage scenario for general logic and counting questions using the mathqa tool.\"\n\nYour output:\n{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic"
+    },
+    {
+      "client_id": "general-client-3",
+      "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+      "token_overlap": 0.6956521739130435,
+      "cosine_similarity": 0.39423411977052447,
+      "rouge_l": 0.1945945945945946,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science question-answering scenarios.\n\nYour task: Given the following settings, produce a single JSON object that encodes the configuration for a science QA scenario. The JSON must contain exactly these keys:\n- \"role\": always set to \"structured system prompt for science QA scenarios\"\n- \"tool\": the name of the tool to be used, here it must be \"scienceqa\"\n- \"domain\": the scientific domain of the questions (e.g., \"physics\", \"chemistry\", \"biology\", \"science\"), here set to \"science\"\n- \"scenario\": a short description of the specific scenario or topic within the domain\n- \"type\": always set to \"usage_scenario\"\n- \"difficulty\": an overall difficulty level for the questions (e.g., \"easy\", \"medium\", \"hard\")\n\nUse the user\u2019s instructions to fill in \"scenario\" and \"difficulty\" appropriately.\n\nGenerate only the JSON object, with no explanations or additional text.\n\nExample input:\n- Domain: Physics\n- Scenario: Classical mechanics and motion\n- Difficulty: hard\n\nExample output:\n{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"physics"
+    },
+    {
+      "client_id": "general-client-3",
+      "signature": "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+      "token_overlap": 0.6818181818181818,
+      "cosine_similarity": 0.5038457448927687,
+      "rouge_l": 0.24864864864864863,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Genetics and Heredity Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Genetics and Heredity Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nGiven a user request to create or configure a science question-answering tool, output a single JSON object with the following fields:\n\n- \"role\": a short description of the system role (e.g., \"structured system prompt for science QA scenarios\")\n- \"tool\": the canonical internal tool name to be used (e.g., \"scienceqa\")\n- \"domain\": the broad subject domain (e.g., \"science\")\n- \"scenario\": a more specific usage scenario within that domain, phrased as a short descriptive title (e.g., \"Biology: Genetics and Heredity Analyzer\")\n- \"type\": the type of configuration or object being described (e.g., \"usage_scenario\")\n- \"difficulty\": an approximate difficulty level for the questions the tool will handle (e.g., \"easy\", \"medium\", or \"hard\")\n\nYour output must be valid JSON with exactly these keys and no additional text.\n\nFor the following request, generate the appropriate JSON configuration:\n\n\u201cCreate a medium-difficulty biology genetics and heredity analysis scenario for a science question-answering tool.\u201d"
+    },
+    {
+      "client_id": "general-client-3",
+      "signature": "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+      "token_overlap": 0.5,
+      "cosine_similarity": 0.4080242444454611,
+      "rouge_l": 0.19999999999999998,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nYour task: given a brief description of a desired science-question-answering use case, output a single JSON object that specifies how a science QA tool should be configured.\n\nFollow these rules:\n- Output only valid JSON, with double-quoted keys and string values.\n- Do not include any explanations, comments, or text outside the JSON.\n- The JSON must include exactly the following keys: \"role\", \"tool\", \"domain\", \"scenario\", \"type\", and \"difficulty\".\n- Use one of the following fixed values:\n  - \"role\": \"structured system prompt for science QA scenarios\"\n  - \"tool\": \"scienceqa\"\n  - \"domain\": one of [\"physics\", \"chemistry\", \"biology\", \"earth_science\", \"astronomy\", \"general_science\"]\n  - \"type\": \"usage_scenario\"\n  - \"difficulty\": one of [\"easy\", \"medium\", \"hard\"]\n- For \"scenario\", generate a concise, descriptive title for the use case that could reasonably be given to a science QA assistant, e.g.:\n  - \"Physics: Kinematics Problem Solver\"\n  - \"Chemistry: Stoichiometry Tutor"
+    },
+    {
+      "client_id": "general-client-3",
+      "signature": "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+      "token_overlap": 0.5909090909090909,
+      "cosine_similarity": 0.3350543953551244,
+      "rouge_l": 0.18079096045197743,
+      "original_prompt": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Physics: Mechanics and Forces Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "observed_response": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Physics: Mechanics and Forces Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+      "reconstructed_prompt": "You are a structured system prompt generator for science QA scenarios.\n\nYour task: Given a brief description of a science question-answering use case, output a single JSON object that specifies how an external orchestration system should configure a specialized science QA tool.\n\nRequirements:\n- Output must be valid JSON.\n- Do not include any explanatory text, only the JSON object.\n- Use the following schema:\n\n{\n  \"role\": string,                 // the role or persona of the system prompt\n  \"tool\": string,                 // the name/identifier of the tool to be used\n  \"domain\": string,               // the broad scientific domain (e.g., \"science\", \"biology\", \"physics\", \"chemistry\")\n  \"scenario\": string,             // a concise description of the specific scenario or use case\n  \"type\": \"usage_scenario\",       // always \"usage_scenario\" for this task\n  \"difficulty\": string            // one of: \"easy\", \"medium\", \"hard\"\n}\n\nTask details:\n- The \"role\" should describe the kind of system prompt being defined (e.g., \"structured system prompt for science QA scenarios\").\n- The \"tool\" should be \"scienceqa\" for any general"
     }
   ]
 }

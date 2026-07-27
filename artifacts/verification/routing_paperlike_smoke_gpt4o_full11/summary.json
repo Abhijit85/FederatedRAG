@@ -1,0 +1,19 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 10,
+  "rounds": 3,
+  "client_count": 5,
+  "k": 11,
+  "embed_model": "jina-embeddings-v2-base-en",
+  "reranker_model": "openai/gpt-4o",
+  "scenario_count": 11,
+  "seeds": [
+    1
+  ],
+  "mean_accuracy": 0.3,
+  "sd_accuracy": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.3
+  },
+  "output_dir": "artifacts/verification/routing_paperlike_smoke_gpt4o_full11"
+}

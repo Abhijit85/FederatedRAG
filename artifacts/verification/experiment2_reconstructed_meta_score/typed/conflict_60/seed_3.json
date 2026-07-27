@@ -1,0 +1,180 @@
+{
+  "condition": "typed",
+  "seed": 3,
+  "conflict_rate": 60,
+  "sample_count": 14,
+  "correct": 9,
+  "accuracy": 0.6428571428571429,
+  "cluster_count": 9,
+  "conflict_count": 8,
+  "conflicts": [
+    {
+      "target_scenario": "Percentage and Proportion Solver",
+      "contradictory_scenario": "Geometry: Shapes and Measurement",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "contradictory_scenario": "Percentage and Proportion Solver",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Algebraic Word Problem Solver",
+      "contradictory_scenario": "General Logic and Counting",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Work, Rate, and Time Analyzer",
+      "contradictory_scenario": "General Logic and Counting",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "General Logic and Counting",
+      "contradictory_scenario": "Financial and Banking Calculator",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "contradictory_scenario": "Earth Science: Geosystems Interpreter",
+      "tool": "scienceqa"
+    },
+    {
+      "target_scenario": "Physics: Mechanics and Forces Calculator",
+      "contradictory_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "tool": "scienceqa"
+    },
+    {
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "contradictory_scenario": "General Science: Visual Property Identifier",
+      "tool": "scienceqa"
+    }
+  ],
+  "rows": [
+    {
+      "query": "Find the exact mathqa scenario 'Financial and Banking Calculator'. Which structured prompt matches 'Financial and Banking Calculator'? This is a usage_scenario prompt.",
+      "target_scenario": "Financial and Banking Calculator",
+      "predicted_scenario": "Financial and Banking Calculator",
+      "correct": true,
+      "top_signature": "client_conflict::conflict::mathqa::General Logic and Counting::Financial and Banking Calculator",
+      "top_cluster_size": 2,
+      "top_score": 4.0
+    },
+    {
+      "query": "Find the exact mathqa scenario 'Percentage and Proportion Solver'. Which structured prompt matches 'Percentage and Proportion Solver'? This is a usage_scenario prompt.",
+      "target_scenario": "Percentage and Proportion Solver",
+      "predicted_scenario": "Percentage and Proportion Solver",
+      "correct": true,
+      "top_signature": "client_conflict::conflict::mathqa::Geometry: Shapes and Measurement::Percentage and Proportion Solver",
+      "top_cluster_size": 2,
+      "top_score": 4.0
+    },
+    {
+      "query": "Find the exact mathqa scenario 'Geometry: Shapes and Measurement'. Which structured prompt matches 'Geometry: Shapes and Measurement'? This is a usage_scenario prompt.",
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "predicted_scenario": "Geometry: Shapes and Measurement",
+      "correct": true,
+      "top_signature": "client_conflict::conflict::mathqa::Percentage and Proportion Solver::Geometry: Shapes and Measurement",
+      "top_cluster_size": 2,
+      "top_score": 4.0
+    },
+    {
+      "query": "Find the exact mathqa scenario 'Algebraic Word Problem Solver'. Which structured prompt matches 'Algebraic Word Problem Solver'? This is a usage_scenario prompt.",
+      "target_scenario": "Algebraic Word Problem Solver",
+      "predicted_scenario": "Algebraic Word Problem Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Algebraic Word Problem Solver",
+      "top_cluster_size": 1,
+      "top_score": 2.9000000000000004
+    },
+    {
+      "query": "Find the exact mathqa scenario 'Work, Rate, and Time Analyzer'. Which structured prompt matches 'Work, Rate, and Time Analyzer'? This is a usage_scenario prompt.",
+      "target_scenario": "Work, Rate, and Time Analyzer",
+      "predicted_scenario": "Work, Rate, and Time Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Work, Rate, and Time Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 2.961904761904762
+    },
+    {
+      "query": "Find the exact mathqa scenario 'General Logic and Counting'. Which structured prompt matches 'General Logic and Counting'? This is a usage_scenario prompt.",
+      "target_scenario": "General Logic and Counting",
+      "predicted_scenario": "General Logic and Counting",
+      "correct": true,
+      "top_signature": "client_conflict::conflict::mathqa::Algebraic Word Problem Solver::General Logic and Counting",
+      "top_cluster_size": 3,
+      "top_score": 4.0
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Biology: Genetics and Heredity Analyzer'. Which structured prompt matches 'Biology: Genetics and Heredity Analyzer'? This is a usage_scenario prompt.",
+      "target_scenario": "Biology: Genetics and Heredity Analyzer",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": false,
+      "top_signature": "client_conflict::conflict::scienceqa::Physics: Mechanics and Forces Calculator::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 8,
+      "top_score": 2.180952380952381
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Biology: Ecosystem and Classification Interpreter'. Which structured prompt matches 'Biology: Ecosystem and Classification Interpreter'? This is a usage_scenario prompt.",
+      "target_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": true,
+      "top_signature": "client_conflict::conflict::scienceqa::Physics: Mechanics and Forces Calculator::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 8,
+      "top_score": 4.5738095238095235
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Physics: Mechanics and Forces Calculator'. Which structured prompt matches 'Physics: Mechanics and Forces Calculator'? This is a usage_scenario prompt.",
+      "target_scenario": "Physics: Mechanics and Forces Calculator",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": false,
+      "top_signature": "client_conflict::conflict::scienceqa::Physics: Mechanics and Forces Calculator::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 8,
+      "top_score": 2.1333333333333333
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Scientific Method and Experiment Analysis'. Which structured prompt matches 'Scientific Method and Experiment Analysis'? This is a usage_scenario prompt.",
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": false,
+      "top_signature": "client_conflict::conflict::scienceqa::Physics: Mechanics and Forces Calculator::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 8,
+      "top_score": 2.1333333333333333
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Earth Science: Geosystems Interpreter'. Which structured prompt matches 'Earth Science: Geosystems Interpreter'? This is a usage_scenario prompt.",
+      "target_scenario": "Earth Science: Geosystems Interpreter",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": false,
+      "top_signature": "client_conflict::conflict::scienceqa::Physics: Mechanics and Forces Calculator::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 8,
+      "top_score": 2.2285714285714286
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Astronomy: Solar System and Celestial Bodies'. Which structured prompt matches 'Astronomy: Solar System and Celestial Bodies'? This is a usage_scenario prompt.",
+      "target_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "predicted_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Astronomy: Solar System and Celestial Bodies",
+      "top_cluster_size": 1,
+      "top_score": 3.5690476190476192
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'Geography: Geospatial Data Interpreter'. Which structured prompt matches 'Geography: Geospatial Data Interpreter'? This is a usage_scenario prompt.",
+      "target_scenario": "Geography: Geospatial Data Interpreter",
+      "predicted_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "correct": false,
+      "top_signature": "client_conflict::conflict::scienceqa::Physics: Mechanics and Forces Calculator::Biology: Ecosystem and Classification Interpreter",
+      "top_cluster_size": 8,
+      "top_score": 2.1333333333333333
+    },
+    {
+      "query": "Find the exact scienceqa scenario 'General Science: Visual Property Identifier'. Which structured prompt matches 'General Science: Visual Property Identifier'? This is a usage_scenario prompt.",
+      "target_scenario": "General Science: Visual Property Identifier",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": true,
+      "top_signature": "client_conflict::conflict::scienceqa::Scientific Method and Experiment Analysis::General Science: Visual Property Identifier",
+      "top_cluster_size": 2,
+      "top_score": 4.6499999999999995
+    }
+  ]
+}

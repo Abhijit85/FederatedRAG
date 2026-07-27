@@ -1,0 +1,25 @@
+{
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "filtered_record_count": 496,
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "top_gap_min": null,
+  "exclude_ambiguous": false,
+  "allow_missing_answer": false,
+  "mean_accuracy": 1.0,
+  "sd_accuracy": 0.0,
+  "per_seed_accuracy": {
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0
+  },
+  "output_dir": "artifacts/verification/routing_runlog_replay_100"
+}

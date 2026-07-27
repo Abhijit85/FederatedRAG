@@ -1,0 +1,58 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "evolution": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_compendium_evolution.json",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "client_count": 5,
+  "shard_seed": 0,
+  "classifier_c": 0.3,
+  "federated": {
+    "mean_accuracy": 0.53,
+    "sd_accuracy": 0.0469041575982343,
+    "per_seed_accuracy": {
+      "1": 0.6,
+      "2": 0.54,
+      "3": 0.47,
+      "4": 0.52,
+      "5": 0.52
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.688,
+    "sd_accuracy": 0.04438468204234429,
+    "per_seed_accuracy": {
+      "1": 0.76,
+      "2": 0.69,
+      "3": 0.64,
+      "4": 0.67,
+      "5": 0.68
+    }
+  },
+  "paired": {
+    "mean_diff": -0.158,
+    "sd_diff": 0.00836660026534079,
+    "se_diff": 0.0037416573867739564,
+    "t_value": -42.227276222162885
+  },
+  "artifacts": {
+    "synapse_seed_csv": "artifacts/verification/table27_provenance_compare_c03/synapse_seed_values.csv",
+    "centralized_seed_csv": "artifacts/verification/table27_provenance_compare_c03/centralized_seed_values.csv"
+  },
+  "note": "Fresh provenance-faithful comparator over the preserved April 3 paper-space GSM8K assets. Federated uses five deterministic IID client shards with posterior-score aggregation; centralized uses one pooled classifier on the same train/eval split. Original paper client IDs are not preserved in the mirror, so shard membership is reconstructed rather than recovered."
+}

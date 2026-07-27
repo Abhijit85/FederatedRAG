@@ -1,0 +1,228 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "evolution": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_compendium_evolution.json",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "methods": [
+    {
+      "method": "cv_svm",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.77,
+      "sd_accuracy": 0.04183300132670381,
+      "per_seed_accuracy": {
+        "1": 0.8,
+        "2": 0.79,
+        "3": 0.72,
+        "4": 0.81,
+        "5": 0.73
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/cv_svm"
+    },
+    {
+      "method": "cv_logreg",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.752,
+      "sd_accuracy": 0.03701351104664353,
+      "per_seed_accuracy": {
+        "1": 0.78,
+        "2": 0.76,
+        "3": 0.7,
+        "4": 0.79,
+        "5": 0.73
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/cv_logreg"
+    },
+    {
+      "method": "cv_cnb",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.708,
+      "sd_accuracy": 0.058051701094799964,
+      "per_seed_accuracy": {
+        "1": 0.77,
+        "2": 0.66,
+        "3": 0.64,
+        "4": 0.76,
+        "5": 0.71
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/cv_cnb"
+    },
+    {
+      "method": "prototype_12",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.462,
+      "sd_accuracy": 0.033466401061363026,
+      "per_seed_accuracy": {
+        "1": 0.52,
+        "2": 0.45,
+        "3": 0.46,
+        "4": 0.44,
+        "5": 0.44
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/prototype_12"
+    },
+    {
+      "method": "prototype_30",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.51,
+      "sd_accuracy": 0.028284271247461926,
+      "per_seed_accuracy": {
+        "1": 0.49,
+        "2": 0.54,
+        "3": 0.54,
+        "4": 0.48,
+        "5": 0.5
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/prototype_30"
+    },
+    {
+      "method": "prototype_60",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.598,
+      "sd_accuracy": 0.035637059362410954,
+      "per_seed_accuracy": {
+        "1": 0.58,
+        "2": 0.59,
+        "3": 0.66,
+        "4": 0.59,
+        "5": 0.57
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/prototype_60"
+    },
+    {
+      "method": "query_bank_nn",
+      "paper_labels": [
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Work, Rate, and Time Analyzer"
+      ],
+      "sample_count": 100,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.516,
+      "sd_accuracy": 0.025099800796022288,
+      "per_seed_accuracy": {
+        "1": 0.53,
+        "2": 0.48,
+        "3": 0.54,
+        "4": 0.53,
+        "5": 0.5
+      },
+      "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run1/query_bank_nn"
+    }
+  ],
+  "note": "Local-only recovery sweep over the historical six-scenario GSM8K universe. These methods reconstruct the paper-time artifact space from stored runlog and compendium assets."
+}

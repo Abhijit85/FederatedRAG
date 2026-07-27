@@ -1,0 +1,77 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 1,
+  "client_count": null,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "conditions": [
+    {
+      "structured_payload_mode": "typed",
+      "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+      "sample_count": 50,
+      "rounds": 1,
+      "client_count": null,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.264,
+      "sd_accuracy": 0.032863353450309975,
+      "per_seed_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.24,
+        "5": 0.32
+      },
+      "output_dir": "artifacts/verification/structured_payload_control_run1/typed"
+    },
+    {
+      "structured_payload_mode": "untyped",
+      "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+      "sample_count": 50,
+      "rounds": 1,
+      "client_count": null,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.264,
+      "sd_accuracy": 0.032863353450309975,
+      "per_seed_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.24,
+        "5": 0.32
+      },
+      "output_dir": "artifacts/verification/structured_payload_control_run1/untyped"
+    }
+  ],
+  "comparisons": [
+    {
+      "baseline": "typed",
+      "variant": "untyped",
+      "typed_minus_variant_mean_delta": 0.0,
+      "typed_minus_variant_per_seed_delta": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "5": 0.0
+      }
+    }
+  ]
+}

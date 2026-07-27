@@ -1,0 +1,27 @@
+{
+  "condition": "merge_up",
+  "structured_payload_mode": "merge_up",
+  "sample_count": 12,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1
+  ],
+  "completed_routing_seeds": [
+    1
+  ],
+  "completed_answer_seeds": [
+    1
+  ],
+  "mean_routing_accuracy": 0.8333333333333334,
+  "sd_routing_accuracy": 0.0,
+  "mean_answer_accuracy": 0.8333333333333334,
+  "sd_answer_accuracy": 0.0,
+  "per_seed_routing_accuracy": {
+    "1": 0.8333333333333334
+  },
+  "per_seed_answer_accuracy": {
+    "1": 0.8333333333333334
+  },
+  "output_dir": "artifacts/verification/gsm8k_schema_control_patch_slice5/merge_up"
+}

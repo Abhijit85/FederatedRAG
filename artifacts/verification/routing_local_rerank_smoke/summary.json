@@ -1,0 +1,17 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 20,
+  "rounds": 1,
+  "client_count": null,
+  "seeds": [
+    1,
+    2
+  ],
+  "mean_accuracy": 0.07500000000000001,
+  "sd_accuracy": 0.03535533905932738,
+  "per_seed_accuracy": {
+    "1": 0.05,
+    "2": 0.1
+  },
+  "output_dir": "artifacts/verification/routing_local_rerank_smoke"
+}

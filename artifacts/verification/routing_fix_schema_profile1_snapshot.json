@@ -1,0 +1,385 @@
+{
+  "metadata": {
+    "artifact_count": 3
+  },
+  "artifacts": [
+    {
+      "signature": "unified::math::scenario::Financial and Banking Calculator",
+      "text": "role: structured system prompt for math QA scenarios\ntool: mathqa\ndomain: Financial and Banking Calculator\nscenario: Financial and Banking Calculator\nartifact_type: usage_scenario\ndifficulty: medium\ntool_description: A comprehensive mathematical problem-solving tool designed to interpret and solve a wide range of quantitative word problems by selecting the appropriate specialized sub-tool.\nscenario_context: Solves complex financial problems including simple and compound interest, profit/loss percentages, discounts, and investment analysis. Used for questions involving shares, dividends, and rates of interest.\nprecautions: The tool's accuracy depends on clear and unambiguous problem statements. Vague language, complex sentence structures, or missing contextual information may lead to incorrect interpretation of the required calculations. Always ensure problem statements are complete and mathematically well-defined.; The tool must correctly identify and apply appropriate mathematical formulas for each problem type. Incorrect formula selection or application can lead to systematic errors across calculations. Cross-validation with standard mathematical principles is essential for reliable results.; Users must ensure that all numerical values within a problem use consistent units (e.g., all time measurements in days, all monetary values in the same currency). The tool requires explicit unit specification and does not perform automatic unit conversion. Additionally, appropriate rounding precision must be maintained based on problem context.; This tool is designed for word problems solvable with arithmetic and basic algebra including linear equations, percentages, ratios, and basic statistical measures. It is not intended for higher-level mathematics like calculus, trigonometry, or advanced statistical analysis. Problem complexity should match the tool's computational capabilities.; The tool must account for mathematical edge cases such as division by zero, negative values in inappropriate contexts, and extreme input values. Results should be validated for practical feasibility within the problem context (e.g., negative time durations or impossible percentages should trigger validation warnings).\nstructured_annex: entities: Word_Problem_Solver, Calculator, Mathematical_Formula, Final_Answer, Problem_Classifier, Formula_Validator, Statistical_Processor, Financial_Calculator | relations: Word_Problem_Solver extracts Mathematical_Formula; Calculator computes Final_Answer; Calculator executes Mathematical_Formula; Problem_Classifier categorizes Word_Problem_Solver; Formula_Validator validates Mathematical_Formula; Word_Problem_Solver coordinates_with Statistical_Processor",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "channel": "usage_scenario",
+        "tool_description": "A comprehensive mathematical problem-solving tool designed to interpret and solve a wide range of quantitative word problems by selecting the appropriate specialized sub-tool.",
+        "scenario_context": "Solves complex financial problems including simple and compound interest, profit/loss percentages, discounts, and investment analysis. Used for questions involving shares, dividends, and rates of interest.",
+        "precautions": [
+          "The tool's accuracy depends on clear and unambiguous problem statements. Vague language, complex sentence structures, or missing contextual information may lead to incorrect interpretation of the required calculations. Always ensure problem statements are complete and mathematically well-defined.",
+          "The tool must correctly identify and apply appropriate mathematical formulas for each problem type. Incorrect formula selection or application can lead to systematic errors across calculations. Cross-validation with standard mathematical principles is essential for reliable results.",
+          "Users must ensure that all numerical values within a problem use consistent units (e.g., all time measurements in days, all monetary values in the same currency). The tool requires explicit unit specification and does not perform automatic unit conversion. Additionally, appropriate rounding precision must be maintained based on problem context.",
+          "This tool is designed for word problems solvable with arithmetic and basic algebra including linear equations, percentages, ratios, and basic statistical measures. It is not intended for higher-level mathematics like calculus, trigonometry, or advanced statistical analysis. Problem complexity should match the tool's computational capabilities.",
+          "The tool must account for mathematical edge cases such as division by zero, negative values in inappropriate contexts, and extreme input values. Results should be validated for practical feasibility within the problem context (e.g., negative time durations or impossible percentages should trigger validation warnings)."
+        ],
+        "annex_entities": [
+          "Word_Problem_Solver",
+          "Calculator",
+          "Mathematical_Formula",
+          "Final_Answer",
+          "Problem_Classifier",
+          "Formula_Validator",
+          "Statistical_Processor",
+          "Financial_Calculator",
+          "Algebraic_Engine",
+          "Explanation_Engine",
+          "Answer_Verifier",
+          "Unit_Handler"
+        ],
+        "annex_relations": [
+          {
+            "source": "Word_Problem_Solver",
+            "link": "extracts",
+            "target": "Mathematical_Formula"
+          },
+          {
+            "source": "Calculator",
+            "link": "computes",
+            "target": "Final_Answer"
+          },
+          {
+            "source": "Calculator",
+            "link": "executes",
+            "target": "Mathematical_Formula"
+          },
+          {
+            "source": "Problem_Classifier",
+            "link": "categorizes",
+            "target": "Word_Problem_Solver"
+          },
+          {
+            "source": "Formula_Validator",
+            "link": "validates",
+            "target": "Mathematical_Formula"
+          },
+          {
+            "source": "Word_Problem_Solver",
+            "link": "coordinates_with",
+            "target": "Statistical_Processor"
+          },
+          {
+            "source": "Word_Problem_Solver",
+            "link": "utilizes",
+            "target": "Financial_Calculator"
+          },
+          {
+            "source": "Algebraic_Engine",
+            "link": "processes",
+            "target": "Mathematical_Formula"
+          },
+          {
+            "source": "Explanation_Engine",
+            "link": "generates_explanation_for",
+            "target": "Final_Answer"
+          },
+          {
+            "source": "Answer_Verifier",
+            "link": "validates",
+            "target": "Final_Answer"
+          },
+          {
+            "source": "Unit_Handler",
+            "link": "standardizes",
+            "target": "Mathematical_Formula"
+          },
+          {
+            "source": "Error_Detector",
+            "link": "monitors",
+            "target": "Word_Problem_Solver"
+          }
+        ],
+        "annex_summary": "entities: Word_Problem_Solver, Calculator, Mathematical_Formula, Final_Answer, Problem_Classifier, Formula_Validator, Statistical_Processor, Financial_Calculator | relations: Word_Problem_Solver extracts Mathematical_Formula; Calculator computes Final_Answer; Calculator executes Mathematical_Formula; Problem_Classifier categorizes Word_Problem_Solver; Formula_Validator validates Mathematical_Formula; Word_Problem_Solver coordinates_with Statistical_Processor",
+        "skills": []
+      },
+      "metadata": {
+        "tool": "mathqa",
+        "scenario": "Financial and Banking Calculator",
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 30,
+        "cluster_member_signatures": [
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Percentage and Proportion Solver",
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Percentage and Proportion Solver",
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Percentage and Proportion Solver",
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Percentage and Proportion Solver",
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Percentage and Proportion Solver"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 0.9999999999999998
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Scientific Method and Experiment Analysis",
+      "text": "role: structured system prompt for science QA scenarios\ntool: scienceqa\ndomain: science\nscenario: Scientific Method and Experiment Analysis\nartifact_type: usage_scenario\ndifficulty: medium\ntool_description: A hyper-aligned AI analysis suite designed to solve problems from the ScienceQA dataset. It interprets visual diagrams and textual questions across specific domains to provide accurate, context-aware solutions.\nscenario_context: Evaluates experimental designs. Identifies independent and dependent variables, controls, and the main question an experiment can answer. Analyzes procedural texts to determine the purpose of a test, like Gordon's parachute experiment.\nprecautions: The accuracy of analysis is highly dependent on the clarity and correct labeling of the diagrams and images within the dataset. Low-resolution or ambiguous images can lead to errors.; The tool operates based on the knowledge contained within the ScienceQA dataset's lectures and context. It may not correctly answer questions that require external, specialized knowledge not provided.; Problems that require significant logical leaps or unstated assumptions between steps may challenge the tool's reasoning capabilities, as it is designed for explicit, step-by-step problem-solving.\nstructured_annex: entities: ScienceQA_Problem, Visual_Diagram, Textual_Question, VLM_Analyzer, Problem_Classifier, Domain_Tool, Biology_Analyzer, Physics_Calculator | relations: VLM_Analyzer analyzes Visual_Diagram; VLM_Analyzer interprets Data_Chart; Problem_Classifier analyzes ScienceQA_Problem; Problem_Classifier selects Domain_Tool; Domain_Tool guides Final_Explanation; Domain_Tool specializes_in ScienceQA_Problem",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "channel": "usage_scenario",
+        "tool_description": "A hyper-aligned AI analysis suite designed to solve problems from the ScienceQA dataset. It interprets visual diagrams and textual questions across specific domains to provide accurate, context-aware solutions.",
+        "scenario_context": "Evaluates experimental designs. Identifies independent and dependent variables, controls, and the main question an experiment can answer. Analyzes procedural texts to determine the purpose of a test, like Gordon's parachute experiment.",
+        "precautions": [
+          "The accuracy of analysis is highly dependent on the clarity and correct labeling of the diagrams and images within the dataset. Low-resolution or ambiguous images can lead to errors.",
+          "The tool operates based on the knowledge contained within the ScienceQA dataset's lectures and context. It may not correctly answer questions that require external, specialized knowledge not provided.",
+          "Problems that require significant logical leaps or unstated assumptions between steps may challenge the tool's reasoning capabilities, as it is designed for explicit, step-by-step problem-solving."
+        ],
+        "annex_entities": [
+          "ScienceQA_Problem",
+          "Visual_Diagram",
+          "Textual_Question",
+          "VLM_Analyzer",
+          "Problem_Classifier",
+          "Domain_Tool",
+          "Biology_Analyzer",
+          "Physics_Calculator",
+          "Chemistry_Modeler",
+          "Earth_Science_Interpreter",
+          "Data_Analyzer",
+          "Language_Engine"
+        ],
+        "annex_relations": [
+          {
+            "source": "VLM_Analyzer",
+            "link": "analyzes",
+            "target": "Visual_Diagram"
+          },
+          {
+            "source": "VLM_Analyzer",
+            "link": "interprets",
+            "target": "Data_Chart"
+          },
+          {
+            "source": "Problem_Classifier",
+            "link": "analyzes",
+            "target": "ScienceQA_Problem"
+          },
+          {
+            "source": "Problem_Classifier",
+            "link": "selects",
+            "target": "Domain_Tool"
+          },
+          {
+            "source": "Domain_Tool",
+            "link": "guides",
+            "target": "Final_Explanation"
+          },
+          {
+            "source": "Domain_Tool",
+            "link": "specializes_in",
+            "target": "ScienceQA_Problem"
+          },
+          {
+            "source": "Biology_Analyzer",
+            "link": "interprets",
+            "target": "Punnett_Square"
+          },
+          {
+            "source": "Physics_Calculator",
+            "link": "solves_using",
+            "target": "Force_Diagram"
+          },
+          {
+            "source": "Earth_Science_Interpreter",
+            "link": "reads",
+            "target": "Geological_Map"
+          },
+          {
+            "source": "Data_Analyzer",
+            "link": "extracts_from",
+            "target": "Visual_Diagram"
+          },
+          {
+            "source": "Domain_Tool",
+            "link": "produces",
+            "target": "Final_Answer"
+          }
+        ],
+        "annex_summary": "entities: ScienceQA_Problem, Visual_Diagram, Textual_Question, VLM_Analyzer, Problem_Classifier, Domain_Tool, Biology_Analyzer, Physics_Calculator | relations: VLM_Analyzer analyzes Visual_Diagram; VLM_Analyzer interprets Data_Chart; Problem_Classifier analyzes ScienceQA_Problem; Problem_Classifier selects Domain_Tool; Domain_Tool guides Final_Explanation; Domain_Tool specializes_in ScienceQA_Problem",
+        "visual_skills": [],
+        "textual_skills": []
+      },
+      "metadata": {
+        "tool": "scienceqa",
+        "scenario": "Scientific Method and Experiment Analysis",
+        "domain": "science",
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 20,
+        "cluster_member_signatures": [
+          "unified::science::scenario::General Science: Visual Property Identifier",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Scientific Method and Experiment Analysis",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::General Science: Visual Property Identifier",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Scientific Method and Experiment Analysis",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::General Science: Visual Property Identifier",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Scientific Method and Experiment Analysis",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::General Science: Visual Property Identifier",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Scientific Method and Experiment Analysis",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::General Science: Visual Property Identifier",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Scientific Method and Experiment Analysis",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0000000000000002
+      }
+    },
+    {
+      "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+      "text": "role: structured system prompt for science QA scenarios\ntool: scienceqa\ndomain: science\nscenario: Astronomy: Solar System and Celestial Bodies\nartifact_type: usage_scenario\ndifficulty: medium\ntool_description: A hyper-aligned AI analysis suite designed to solve problems from the ScienceQA dataset. It interprets visual diagrams and textual questions across specific domains to provide accurate, context-aware solutions.\nscenario_context: Answers questions about the solar system, planets, stars, and other celestial objects. Handles true/false statements regarding astronomical facts, like the composition of planets.\nprecautions: The accuracy of analysis is highly dependent on the clarity and correct labeling of the diagrams and images within the dataset. Low-resolution or ambiguous images can lead to errors.; The tool operates based on the knowledge contained within the ScienceQA dataset's lectures and context. It may not correctly answer questions that require external, specialized knowledge not provided.; Problems that require significant logical leaps or unstated assumptions between steps may challenge the tool's reasoning capabilities, as it is designed for explicit, step-by-step problem-solving.\nstructured_annex: entities: ScienceQA_Problem, Visual_Diagram, Textual_Question, VLM_Analyzer, Problem_Classifier, Domain_Tool, Biology_Analyzer, Physics_Calculator | relations: VLM_Analyzer analyzes Visual_Diagram; VLM_Analyzer interprets Data_Chart; Problem_Classifier analyzes ScienceQA_Problem; Problem_Classifier selects Domain_Tool; Domain_Tool guides Final_Explanation; Domain_Tool specializes_in ScienceQA_Problem",
+      "structured_payload": {
+        "type": "usage_scenario",
+        "channel": "usage_scenario",
+        "tool_description": "A hyper-aligned AI analysis suite designed to solve problems from the ScienceQA dataset. It interprets visual diagrams and textual questions across specific domains to provide accurate, context-aware solutions.",
+        "scenario_context": "Answers questions about the solar system, planets, stars, and other celestial objects. Handles true/false statements regarding astronomical facts, like the composition of planets.",
+        "precautions": [
+          "The accuracy of analysis is highly dependent on the clarity and correct labeling of the diagrams and images within the dataset. Low-resolution or ambiguous images can lead to errors.",
+          "The tool operates based on the knowledge contained within the ScienceQA dataset's lectures and context. It may not correctly answer questions that require external, specialized knowledge not provided.",
+          "Problems that require significant logical leaps or unstated assumptions between steps may challenge the tool's reasoning capabilities, as it is designed for explicit, step-by-step problem-solving."
+        ],
+        "annex_entities": [
+          "ScienceQA_Problem",
+          "Visual_Diagram",
+          "Textual_Question",
+          "VLM_Analyzer",
+          "Problem_Classifier",
+          "Domain_Tool",
+          "Biology_Analyzer",
+          "Physics_Calculator",
+          "Chemistry_Modeler",
+          "Earth_Science_Interpreter",
+          "Data_Analyzer",
+          "Language_Engine"
+        ],
+        "annex_relations": [
+          {
+            "source": "VLM_Analyzer",
+            "link": "analyzes",
+            "target": "Visual_Diagram"
+          },
+          {
+            "source": "VLM_Analyzer",
+            "link": "interprets",
+            "target": "Data_Chart"
+          },
+          {
+            "source": "Problem_Classifier",
+            "link": "analyzes",
+            "target": "ScienceQA_Problem"
+          },
+          {
+            "source": "Problem_Classifier",
+            "link": "selects",
+            "target": "Domain_Tool"
+          },
+          {
+            "source": "Domain_Tool",
+            "link": "guides",
+            "target": "Final_Explanation"
+          },
+          {
+            "source": "Domain_Tool",
+            "link": "specializes_in",
+            "target": "ScienceQA_Problem"
+          },
+          {
+            "source": "Biology_Analyzer",
+            "link": "interprets",
+            "target": "Punnett_Square"
+          },
+          {
+            "source": "Physics_Calculator",
+            "link": "solves_using",
+            "target": "Force_Diagram"
+          },
+          {
+            "source": "Earth_Science_Interpreter",
+            "link": "reads",
+            "target": "Geological_Map"
+          },
+          {
+            "source": "Data_Analyzer",
+            "link": "extracts_from",
+            "target": "Visual_Diagram"
+          },
+          {
+            "source": "Domain_Tool",
+            "link": "produces",
+            "target": "Final_Answer"
+          }
+        ],
+        "annex_summary": "entities: ScienceQA_Problem, Visual_Diagram, Textual_Question, VLM_Analyzer, Problem_Classifier, Domain_Tool, Biology_Analyzer, Physics_Calculator | relations: VLM_Analyzer analyzes Visual_Diagram; VLM_Analyzer interprets Data_Chart; Problem_Classifier analyzes ScienceQA_Problem; Problem_Classifier selects Domain_Tool; Domain_Tool guides Final_Explanation; Domain_Tool specializes_in ScienceQA_Problem",
+        "visual_skills": [],
+        "textual_skills": []
+      },
+      "metadata": {
+        "tool": "scienceqa",
+        "scenario": "Astronomy: Solar System and Celestial Bodies",
+        "domain": "science",
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 20,
+        "cluster_member_signatures": [
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Earth Science: Geosystems Interpreter",
+          "unified::science::scenario::Geography: Geospatial Data Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Earth Science: Geosystems Interpreter",
+          "unified::science::scenario::Geography: Geospatial Data Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Earth Science: Geosystems Interpreter",
+          "unified::science::scenario::Geography: Geospatial Data Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Earth Science: Geosystems Interpreter",
+          "unified::science::scenario::Geography: Geospatial Data Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Earth Science: Geosystems Interpreter",
+          "unified::science::scenario::Geography: Geospatial Data Interpreter"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 0.9999999999999998
+      }
+    }
+  ]
+}

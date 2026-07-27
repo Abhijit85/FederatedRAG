@@ -43,7 +43,7 @@ class TextGradPromptTrainer:
         validation_samples: Sequence[Tuple[str, str]] | None = None,
         *,
         total_questions: Optional[int] = None,
-        progress_callback: Callable[[int, int], None] | None = None,
+        progress_callback: Callable[[int, int, int, int | None, bool], None] | None = None,
     ) -> List[BatchTrainingResult]:
         """
         Execute a lightweight TextGrad training loop using proximal updates.
@@ -122,12 +122,19 @@ class TextGradPromptTrainer:
             )
 
             questions_processed += len(batch_x)
+            step_counter += 1
+            reached_step_limit = max_steps is not None and step_counter >= max_steps
             if total_questions is not None and progress_callback:
                 processed = min(questions_processed, total_questions)
-                progress_callback(processed, total_questions)
+                progress_callback(
+                    processed,
+                    total_questions,
+                    step_counter,
+                    max_steps,
+                    reached_step_limit and processed < total_questions,
+                )
 
-            step_counter += 1
-            if max_steps is not None and step_counter >= max_steps:
+            if reached_step_limit:
                 break
 
         return results

@@ -1,0 +1,12 @@
+[
+  {
+    "task_id": 0,
+    "reward": 0.0,
+    "info": {
+      "error": "1 validation error for Action\nkwargs\n  Input should be a valid dictionary [type=dict_type, input_value='{\"order_id\": \"#W2378156\"', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/dict_type",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/run.py\", line 81, in _run\n    res = agent.solve(\n          ^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/synapse_tool_calling_agent.py\", line 626, in solve\n    action = _safe_message_to_action(next_message)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/synapse_tool_calling_agent.py\", line 86, in _safe_message_to_action\n    return Action(\n           ^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/.venv/lib/python3.12/site-packages/pydantic/main.py\", line 263, in __init__\n    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\npydantic_core._pydantic_core.ValidationError: 1 validation error for Action\nkwargs\n  Input should be a valid dictionary [type=dict_type, input_value='{\"order_id\": \"#W2378156\"', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/dict_type\n"
+    },
+    "traj": [],
+    "trial": 0
+  }
+]

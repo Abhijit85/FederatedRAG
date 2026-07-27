@@ -567,13 +567,34 @@ def train_clients(
             model = BlackboxLLM(test_engine, system_prompt)
             optimizer = TextualGradientDescent(engine=test_engine, parameters=[system_prompt])
 
-            def _log_progress(processed: int, total: int, *, client_id=client_id, signature=artifact.signature) -> None:
+            def _log_progress(
+                processed: int,
+                total: int,
+                step_index: int,
+                max_steps: int | None,
+                stopped_early: bool,
+                *,
+                client_id=client_id,
+                signature=artifact.signature,
+            ) -> None:
                 remaining = max(total - processed, 0)
-                short_sig = signature[:8]
-                print(
-                    f"[TextGrad][{client_id}:{short_sig}] Processed {processed}/{total} questions "
-                    f"({remaining} remaining)."
+                parts = signature.split("::")
+                sig_suffix = signature.rsplit("::", 1)[-1]
+                suffix = sig_suffix[-6:] if len(sig_suffix) > 6 else sig_suffix
+                if len(parts) >= 3:
+                    short_sig = f"{parts[1]}::{parts[2]}::{suffix}"
+                else:
+                    short_sig = signature[:40]
+                message = (
+                    f"[TextGrad][{client_id}:{short_sig}] Step {step_index}"
+                    + (f"/{max_steps}" if max_steps is not None else "")
+                    + f": processed {processed}/{total} questions"
                 )
+                if stopped_early:
+                    message += f"; stopping early due to max_steps={max_steps}."
+                else:
+                    message += f" ({remaining} remaining)."
+                print(message)
 
             results = trainer.train_batches(
                 dataloader,

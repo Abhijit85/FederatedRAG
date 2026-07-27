@@ -27,6 +27,7 @@ class PrivacyPolicy:
     redact_sensitive_metadata: bool = True
     drop_pii_text: bool = True
     dp_epsilon: Optional[float] = None
+    dp_clip_abs: float = 1.0
     adaptive_text_noise: bool = True
     adaptive_digit_weight: float = 0.6
     adaptive_length_weight: float = 0.3
@@ -51,6 +52,7 @@ class PrivacyPolicy:
             self.adaptive_text_noise = _flag("SYNAPSE_ADAPTIVE_TEXT_NOISE", self.adaptive_text_noise)
 
         for attr, var in (
+            ("dp_clip_abs", "SYNAPSE_DP_CLIP_ABS"),
             ("adaptive_digit_weight", "SYNAPSE_ADAPTIVE_DIGIT_WEIGHT"),
             ("adaptive_length_weight", "SYNAPSE_ADAPTIVE_LENGTH_WEIGHT"),
             ("adaptive_upper_weight", "SYNAPSE_ADAPTIVE_UPPER_WEIGHT"),
@@ -100,23 +102,24 @@ class PrivacyPolicy:
         return sanitized
 
     def _apply_dp_noise(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
-        scale = 1.0 / max(self.dp_epsilon, 1e-6)
+        delta_m = max(float(self.dp_clip_abs), 0.0)
+        scale = delta_m / max(self.dp_epsilon, 1e-6)
         privatized: List[KnowledgeArtifact] = []
         for artifact in artifacts:
             metadata = dict(artifact.metadata or {})
             for key, value in metadata.items():
                 if isinstance(value, (int, float)):
-                    metadata[key] = value + _laplace(scale)
+                    metadata[key] = self._clip_numeric(value) + _laplace(scale)
 
             payload = artifact.structured_payload
             if isinstance(payload, dict):
                 privatized_payload = {}
                 for key, value in payload.items():
                     if isinstance(value, (int, float)):
-                        privatized_payload[key] = value + _laplace(scale)
+                        privatized_payload[key] = self._clip_numeric(value) + _laplace(scale)
                     elif isinstance(value, list):
                         privatized_payload[key] = [
-                            item + _laplace(scale) if isinstance(item, (int, float)) else item
+                            self._clip_numeric(item) + _laplace(scale) if isinstance(item, (int, float)) else item
                             for item in value
                         ]
                     else:
@@ -134,6 +137,11 @@ class PrivacyPolicy:
         if self.adaptive_text_noise:
             return self._apply_adaptive_text_noise(privatized, scale)
         return privatized
+
+
+    def _clip_numeric(self, value: float) -> float:
+        clip_abs = max(float(self.dp_clip_abs), 0.0)
+        return max(-clip_abs, min(float(value), clip_abs))
 
     def _apply_adaptive_text_noise(self, artifacts: Iterable[KnowledgeArtifact], scale: float) -> List[KnowledgeArtifact]:
         processed: List[KnowledgeArtifact] = []

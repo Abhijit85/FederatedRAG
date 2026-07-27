@@ -1,0 +1,87 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "arms": [
+    {
+      "label": "baseline",
+      "reranker_model": null,
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.264,
+      "sd_accuracy": 0.032863353450309975,
+      "per_seed_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.24,
+        "5": 0.32
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_fix2/baseline"
+    },
+    {
+      "label": "qwen4b",
+      "reranker_model": "/mnt/shared/shared_hf_home/hub/models--Qwen--Qwen3-Reranker-4B/snapshots/22e683669bc0f0bd69640a1354a6d0aebcfeede5",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.036,
+      "sd_accuracy": 0.01673320053068151,
+      "per_seed_accuracy": {
+        "1": 0.06,
+        "2": 0.02,
+        "3": 0.04,
+        "4": 0.02,
+        "5": 0.04
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_fix2/qwen4b"
+    },
+    {
+      "label": "bge_large",
+      "reranker_model": "/mnt/shared/shared_hf_home/hub/models--BAAI--bge-reranker-large/snapshots/55611d7bca2a7133960a6d3b71e083071bbfc312",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_accuracy": 0.05600000000000001,
+      "sd_accuracy": 0.01673320053068151,
+      "per_seed_accuracy": {
+        "1": 0.04,
+        "2": 0.08,
+        "3": 0.06,
+        "4": 0.06,
+        "5": 0.04
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_fix2/bge_large"
+    }
+  ]
+}

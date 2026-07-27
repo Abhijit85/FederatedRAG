@@ -1,0 +1,29 @@
+{
+  "method": "cv_logreg",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "sample_count": 250,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.7432000000000001,
+  "sd_accuracy": 0.02027806696901854,
+  "per_seed_accuracy": {
+    "1": 0.764,
+    "2": 0.72,
+    "3": 0.728,
+    "4": 0.764,
+    "5": 0.74
+  },
+  "output_dir": "artifacts/verification/gsm8k_paper_recovery_sweep_run3_250/cv_logreg"
+}

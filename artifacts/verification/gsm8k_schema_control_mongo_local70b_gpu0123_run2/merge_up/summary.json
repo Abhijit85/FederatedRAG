@@ -1,0 +1,33 @@
+{
+  "condition": "merge_up",
+  "structured_payload_mode": "merge_up",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_routing_accuracy": 0.164,
+  "sd_routing_accuracy": 0.021908902300206635,
+  "mean_answer_accuracy": 0.9559999999999998,
+  "sd_answer_accuracy": 0.016733200530681527,
+  "per_seed_routing_accuracy": {
+    "1": 0.14,
+    "2": 0.18,
+    "3": 0.14,
+    "4": 0.18,
+    "5": 0.18
+  },
+  "per_seed_answer_accuracy": {
+    "1": 0.96,
+    "2": 0.98,
+    "3": 0.96,
+    "4": 0.94,
+    "5": 0.94
+  },
+  "output_dir": "artifacts/verification/gsm8k_schema_control_mongo_local70b_gpu0123_run2/merge_up"
+}

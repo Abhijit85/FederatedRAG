@@ -1,0 +1,45 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 20,
+  "rounds": 3,
+  "client_count": 5,
+  "k": 5,
+  "embed_model": "jina-embeddings-v2-base-en",
+  "seeds": [
+    42
+  ],
+  "scenario_count": 6,
+  "gate": {
+    "label": "llama31_8b",
+    "present": true,
+    "expected_min": 0.85,
+    "expected_max": 0.98,
+    "mean_accuracy": 0.45,
+    "passed": false
+  },
+  "arms": [
+    {
+      "label": "llama31_8b",
+      "backend": "local",
+      "model": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+      "local_model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+      "sample_count": 20,
+      "k": 5,
+      "seeds": [
+        42
+      ],
+      "mean_accuracy": 0.45,
+      "sd_accuracy": 0.0,
+      "mean_latency_seconds": 0.7297012799419462,
+      "sd_latency_seconds": 0.0,
+      "per_seed_accuracy": {
+        "42": 0.45
+      },
+      "per_seed_latency_seconds": {
+        "42": 0.7297012799419462
+      },
+      "output_dir": "artifacts/verification/gsm8k_small_router_sweep_smoke8b_seed42_gpu1/llama31_8b"
+    }
+  ],
+  "note": "This is an explicit LLM-router sweep on the paperlike GSM8K routing metric. If the 8B gate fails, the run should not be presented as a reproduction of the submitted ~0.92 anchor."
+}

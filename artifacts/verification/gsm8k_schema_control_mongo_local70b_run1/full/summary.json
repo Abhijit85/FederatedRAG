@@ -1,0 +1,33 @@
+{
+  "condition": "full",
+  "structured_payload_mode": "typed",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_routing_accuracy": 0.164,
+  "sd_routing_accuracy": 0.021908902300206635,
+  "mean_answer_accuracy": 0.028000000000000004,
+  "sd_answer_accuracy": 0.022803508501982758,
+  "per_seed_routing_accuracy": {
+    "1": 0.14,
+    "2": 0.18,
+    "3": 0.14,
+    "4": 0.18,
+    "5": 0.18
+  },
+  "per_seed_answer_accuracy": {
+    "1": 0.02,
+    "2": 0.02,
+    "3": 0.04,
+    "4": 0.06,
+    "5": 0.0
+  },
+  "output_dir": "artifacts/verification/gsm8k_schema_control_mongo_local70b_run1/full"
+}

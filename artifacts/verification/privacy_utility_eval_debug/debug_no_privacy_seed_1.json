@@ -1,0 +1,218 @@
+{
+  "seed": 1,
+  "sample_count": 20,
+  "correct": 12,
+  "accuracy": 0.6,
+  "mean_auroc": 1.0,
+  "pct_clients_lt_point1": 0.0,
+  "client_metrics": {
+    "general-client-1": {
+      "linkage_accuracy": 1.0,
+      "auroc": 1.0,
+      "pair_count": 10,
+      "sample_pairs": [
+        {
+          "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Financial and Banking Calculator",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Percentage and Proportion Solver",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        }
+      ]
+    },
+    "general-client-2": {
+      "linkage_accuracy": 1.0,
+      "auroc": 1.0,
+      "pair_count": 10,
+      "sample_pairs": [
+        {
+          "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Financial and Banking Calculator",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Percentage and Proportion Solver",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        }
+      ]
+    },
+    "general-client-3": {
+      "linkage_accuracy": 1.0,
+      "auroc": 1.0,
+      "pair_count": 10,
+      "sample_pairs": [
+        {
+          "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Financial and Banking Calculator",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Percentage and Proportion Solver",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "index": 1,
+      "problem": "120 is what percent of 50 ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 2,
+      "problem": "j is 25 % less than p and 20 % less than t . t is q % less than p . what is the value of q ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 3,
+      "problem": "the average of 15 result is 60 . average of the first 10 of them is 10 and that of the last 10 is 80 . find the 8 th result ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 4,
+      "problem": "a vessel of capacity 2 litre has 30 % of alcohol and another vessel of capacity 6 litre had 40 % alcohol . the total liquid of 8 litre was poured out in a vessel of capacity 10 litre and thus the rest part of the vessel was filled with the water . what is the new concentration of mixture ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 5,
+      "problem": "in 1970 there were 8,902 women stockbrokers in the united states . by 1978 the number had increased to 18,947 . approximately what was the percent increase ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 6,
+      "problem": "if a bicyclist in motion increases his speed by 30 percent and then increases this speed by 10 percent , what percent of the original speed is the total increase in speed ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 7,
+      "problem": "a fort had provision of food for 150 men for 45 days . after 10 days , 25 men left the fort . the number of days for which the remaining food will last , is :",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 8,
+      "problem": "if 20 % of a is the same as 30 % of b , then a : b is :",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 9,
+      "problem": "d and e are two points respectively on sides ab and ac of triangle abc such that de is parallel to bc . if the ratio of area of triangle ade to that of the trapezium decb is 144 : 25 and bc = 13 cm , then find the length of de .",
+      "gold": "c",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 10,
+      "problem": "pipe a can fill a tank in 10 hours . due to a leak at the bottom , it takes 15 hours for the pipe a to fill the tank . in what time can the leak alone empty the full tank ?",
+      "gold": "e",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 11,
+      "problem": "the average age of 19 persons in a office is 15 years . out of these , the average age of 5 of them is 14 years and that of the other 9 persons is 16 years . the age of the 15 th person is ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 12,
+      "problem": "the perimeter of an equilateral triangle is 60 . if one of the sides of the equilateral triangle is the side of an isosceles triangle of perimeter 45 , then how long is the base of isosceles triangle ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 13,
+      "problem": "a small table has a length of 12 inches and a breadth of b inches . cubes are placed on the surface of the table so as to cover the entire surface . the maximum side of such cubes is found to be 4 inches . also , a few such tables are arranged to form a square . the minimum length of side possible for such a square is 80 inches . find b .",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 14,
+      "problem": "a sporting goods store sold 64 frisbees in one week , some for $ 3 and the rest for $ 4 each . if receipts from frisbee sales for the week totaled $ 204 , what is the fewest number of $ 3 frisbees that could have been sold ?",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 15,
+      "problem": "what is 15 percent of 64 ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 16,
+      "problem": "if the annual increase in the population of a town is 10 % and the present number of people is 10000 , what will the population be in 2 years ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 17,
+      "problem": "a certain company \u2019 s profit in 1996 was 15 percent greater than its profit in 1995 , and its profit in 1997 was 35 percent greater than its profit in 1996 . the company \u2019 s profit in 1997 was what percent greater than its profit in 1995 ?",
+      "gold": "e",
+      "prediction": "e",
+      "correct": true
+    },
+    {
+      "index": 18,
+      "problem": "two trains running in opposite directions cross a man standing on the platform in 27 seconds and 17 seconds respectively . if they cross each other in 24 seconds , what is the ratio of their speeds ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 19,
+      "problem": "a car travels from point a to point b . the average speed of the car is 60 km / hr and it travels the first half of the trip at a speed of 80 km / hr . what is the speed of the car in the second half of the trip ?",
+      "gold": "d",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 20,
+      "problem": "a manufacturer sells a pair of glasses to a wholesale dealer at a profit of 18 % . the wholesaler sells the same to retailer at a profit of 20 % . the retailer in turn sells them to a customer for rs . 30.09 , there by earning a profit of 25 % . the cost price for the manufacturer is :",
+      "gold": "c",
+      "prediction": "b",
+      "correct": false
+    }
+  ]
+}

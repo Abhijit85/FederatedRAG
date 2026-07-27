@@ -1,0 +1,24 @@
+{
+  "label": "baseline",
+  "reranker_model": null,
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.0,
+  "sd_accuracy": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0
+  },
+  "output_dir": "artifacts/verification/reranker_capability_ladder_baseline_fix1/baseline"
+}

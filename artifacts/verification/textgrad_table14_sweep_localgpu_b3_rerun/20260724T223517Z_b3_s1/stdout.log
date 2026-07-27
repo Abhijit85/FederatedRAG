@@ -1,0 +1,738 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<00:29,  9.96it/s]Loading weights:   1%|          | 2/291 [00:00<00:34,  8.31it/s]Loading weights:   5%|▌         | 15/291 [00:00<00:05, 54.94it/s]Loading weights:  11%|█         | 31/291 [00:00<00:02, 88.30it/s]Loading weights:  14%|█▍        | 41/291 [00:00<00:02, 90.64it/s]Loading weights:  18%|█▊        | 51/291 [00:00<00:02, 90.46it/s]Loading weights:  22%|██▏       | 64/291 [00:00<00:02, 100.42it/s]Loading weights:  26%|██▌       | 76/291 [00:00<00:02, 102.12it/s]Loading weights:  30%|██▉       | 87/291 [00:01<00:02, 95.87it/s] Loading weights:  34%|███▍      | 100/291 [00:01<00:01, 105.02it/s]Loading weights:  38%|███▊      | 112/291 [00:01<00:01, 106.01it/s]Loading weights:  42%|████▏     | 123/291 [00:01<00:01, 99.47it/s] Loading weights:  47%|████▋     | 136/291 [00:01<00:01, 107.23it/s]Loading weights:  51%|█████     | 148/291 [00:01<00:01, 107.93it/s]Loading weights:  55%|█████▍    | 159/291 [00:01<00:01, 100.71it/s]Loading weights:  59%|█████▉    | 172/291 [00:01<00:01, 108.14it/s]Loading weights:  63%|██████▎   | 184/291 [00:01<00:00, 109.00it/s]Loading weights:  67%|██████▋   | 196/291 [00:02<00:00, 104.24it/s]Loading weights:  71%|███████▏  | 208/291 [00:02<00:00, 108.05it/s]Loading weights:  76%|███████▌  | 220/291 [00:02<00:00, 108.44it/s]Loading weights:  79%|███████▉  | 231/291 [00:02<00:00, 101.14it/s]Loading weights:  84%|████████▍ | 244/291 [00:02<00:00, 108.50it/s]Loading weights:  88%|████████▊ | 257/291 [00:02<00:00, 112.43it/s]Loading weights:  93%|█████████▎| 270/291 [00:02<00:00, 115.71it/s]Loading weights:  97%|█████████▋| 283/291 [00:02<00:00, 115.33it/s]Loading weights: 100%|██████████| 291/291 [00:02<00:00, 101.32it/s]
+[Round 1] Starting client training …
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[TextGrad][general-client-1:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-1:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-2:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-3:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:math::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::scenario] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[TextGrad][general-client-4:science::example] Processed 3/5 questions (2 remaining).
+[Round 1] Finished client training.
+[Round 1] Snapshot distributed.
+✅ Exported TextGrad snapshot to '/mnt/data1/achakr40/FederatedRAG/artifacts/verification/textgrad_table14_sweep_localgpu_b3_rerun/20260724T223517Z_b3_s1/snapshot.json'.
+[Eval] Initialising MathQATool and ScienceQATool …
+✅ Successfully loaded 'train_new.json' for MathQATool.
+✅ MongoDB RAG collection 'vectors' is ready.
+MathQA RAG system is already populated.
+✅ Successfully loaded 'scienceqa_challenge_test.json' for ScienceQATool.
+✅ MongoDB RAG collection 'science_problems' is ready.
+ScienceQA RAG system is already populated.
+[Eval] Tool registry ready. Beginning mixed-query evaluation …
+
+🔎 Querying RAG system for: 'In a puzzle, 5 triangles, 2 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 5, 2, and 15 to get 22.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 5 bronze coins, 4 silver coins, and 11 gold coins. How many coins has the player collected?
+Add 5, 4, and 11 to get 20.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 11 bronze coins, 9 silver coins, and 1 gold coins. How many coins has the player collected?
+Add 11, 9, and 1 to get 21.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 5 triangles, 3 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 5, 3, and 15 to get 23.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 14 wooden blocks, then adds 1 plastic blocks and 15 foam blocks. How many blocks are stacked now?
+Add 14, 1, and 15 to get 30.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 6 red balloons, 10 blue balloons, and 9 green balloons in a classroom. How many balloons are there in total?
+Add 6, 10, and 9 to get 25.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 7 cows in one field, 14 sheep in another, and 5 goats near the barn. How many animals does the farmer see altogether?
+Add 7, 14, and 5 to get 26.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 5 red balloons, 7 blue balloons, and 3 green balloons in a classroom. How many balloons are there in total?
+Add 5, 7, and 3 to get 15.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 2 triangles, 2 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 2, 2, and 15 to get 19.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 13 bronze coins, 3 silver coins, and 11 gold coins. How many coins has the player collected?
+Add 13, 3, and 11 to get 27.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 5 triangles, 10 squares, and 13 circles are drawn. What is the total number of shapes?
+Add 5, 10, and 13 to get 28.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 15 wooden blocks, then adds 15 plastic blocks and 14 foam blocks. How many blocks are stacked now?
+Add 15, 15, and 14 to get 44.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 4 cows in one field, 11 sheep in another, and 2 goats near the barn. How many animals does the farmer see altogether?
+Add 4, 11, and 2 to get 17.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 9 cows in one field, 4 sheep in another, and 9 goats near the barn. How many animals does the farmer see altogether?
+Add 9, 4, and 9 to get 22.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 8 red balloons, 9 blue balloons, and 12 green balloons in a classroom. How many balloons are there in total?
+Add 8, 9, and 12 to get 29.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 12 wooden blocks, then adds 6 plastic blocks and 4 foam blocks. How many blocks are stacked now?
+Add 12, 6, and 4 to get 22.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 2 bronze coins, 12 silver coins, and 9 gold coins. How many coins has the player collected?
+Add 2, 12, and 9 to get 23.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 6 triangles, 13 squares, and 9 circles are drawn. What is the total number of shapes?
+Add 6, 13, and 9 to get 28.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 15 bronze coins, 14 silver coins, and 7 gold coins. How many coins has the player collected?
+Add 15, 14, and 7 to get 36.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 6 red balloons, 4 blue balloons, and 11 green balloons in a classroom. How many balloons are there in total?
+Add 6, 4, and 11 to get 21.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 11 cows in one field, 10 sheep in another, and 10 goats near the barn. How many animals does the farmer see altogether?
+Add 11, 10, and 10 to get 31.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 14 cows in one field, 9 sheep in another, and 12 goats near the barn. How many animals does the farmer see altogether?
+Add 14, 9, and 12 to get 35.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 6 cows in one field, 4 sheep in another, and 11 goats near the barn. How many animals does the farmer see altogether?
+Add 6, 4, and 11 to get 21.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 10 wooden blocks, then adds 12 plastic blocks and 3 foam blocks. How many blocks are stacked now?
+Add 10, 12, and 3 to get 25.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 1 triangles, 5 squares, and 6 circles are drawn. What is the total number of shapes?
+Add 1, 5, and 6 to get 12.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 15 wooden blocks, then adds 4 plastic blocks and 6 foam blocks. How many blocks are stacked now?
+Add 15, 4, and 6 to get 25.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 3 wooden blocks, then adds 5 plastic blocks and 5 foam blocks. How many blocks are stacked now?
+Add 3, 5, and 5 to get 13.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 6 bronze coins, 15 silver coins, and 2 gold coins. How many coins has the player collected?
+Add 6, 15, and 2 to get 23.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 1 triangles, 1 squares, and 6 circles are drawn. What is the total number of shapes?
+Add 1, 1, and 6 to get 8.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 15 bronze coins, 15 silver coins, and 13 gold coins. How many coins has the player collected?
+Add 15, 15, and 13 to get 43.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 12 bronze coins, 15 silver coins, and 3 gold coins. How many coins has the player collected?
+Add 12, 15, and 3 to get 30.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 10 red balloons, 2 blue balloons, and 2 green balloons in a classroom. How many balloons are there in total?
+Add 10, 2, and 2 to get 14.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 7 cows in one field, 9 sheep in another, and 1 goats near the barn. How many animals does the farmer see altogether?
+Add 7, 9, and 1 to get 17.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 1 red balloons, 2 blue balloons, and 11 green balloons in a classroom. How many balloons are there in total?
+Add 1, 2, and 11 to get 14.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 5 red balloons, 15 blue balloons, and 11 green balloons in a classroom. How many balloons are there in total?
+Add 5, 15, and 11 to get 31.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 3 cows in one field, 7 sheep in another, and 3 goats near the barn. How many animals does the farmer see altogether?
+Add 3, 7, and 3 to get 13.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 10 red balloons, 2 blue balloons, and 7 green balloons in a classroom. How many balloons are there in total?
+Add 10, 2, and 7 to get 19.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 9 triangles, 6 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 9, 6, and 15 to get 30.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 8 triangles, 6 squares, and 15 circles are drawn. What is the total number of shapes?
+Add 8, 6, and 15 to get 29.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'In a puzzle, 11 triangles, 14 squares, and 5 circles are drawn. What is the total number of shapes?
+Add 11, 14, and 5 to get 30.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 10 red balloons, 4 blue balloons, and 12 green balloons in a classroom. How many balloons are there in total?
+Add 10, 4, and 12 to get 26.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 9 bronze coins, 8 silver coins, and 5 gold coins. How many coins has the player collected?
+Add 9, 8, and 5 to get 22.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 2 cows in one field, 15 sheep in another, and 3 goats near the barn. How many animals does the farmer see altogether?
+Add 2, 15, and 3 to get 20.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 5 wooden blocks, then adds 3 plastic blocks and 12 foam blocks. How many blocks are stacked now?
+Add 5, 3, and 12 to get 20.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'There are 5 red balloons, 3 blue balloons, and 8 green balloons in a classroom. How many balloons are there in total?
+Add 5, 3, and 8 to get 16.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A farmer counts 11 cows in one field, 11 sheep in another, and 5 goats near the barn. How many animals does the farmer see altogether?
+Add 11, 11, and 5 to get 27.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 11 wooden blocks, then adds 14 plastic blocks and 9 foam blocks. How many blocks are stacked now?
+Add 11, 14, and 9 to get 34.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 9 wooden blocks, then adds 1 plastic blocks and 14 foam blocks. How many blocks are stacked now?
+Add 9, 1, and 14 to get 24.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'A child stacks 1 wooden blocks, then adds 8 plastic blocks and 10 foam blocks. How many blocks are stacked now?
+Add 1, 8, and 10 to get 19.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+
+🔎 Querying RAG system for: 'During a game, a player collects 13 bronze coins, 15 silver coins, and 2 gold coins. How many coins has the player collected?
+Add 13, 15, and 2 to get 30.'
+[!] No vector-search results found; using manual cosine similarity.
+[!] Performing manual vector search for testing purposes.
+
+🔄 Reranking 3 documents for relevance...
+✅ Reranking complete.
+
+🤖 Generating final answer with Jina DeepSearch...
+[Eval] Dataset accuracy breakdown:
+  · BBH_object_counting: 42/50 (84.0%)
+Federated TextGrad domain accuracies: {'math': '84.0%', 'science': 'n/a'}
+Federated TextGrad dataset accuracies: {'BBH_object_counting': '84.0%'}
+Federated TextGrad overall accuracy: 84.0%
+/mnt/data1/achakr40/FederatedRAG/scripts/run_fed_textgrad.py:237: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat() + "Z",

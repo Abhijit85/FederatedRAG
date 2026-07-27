@@ -1,0 +1,182 @@
+[
+  {
+    "type": "math",
+    "Problem": "a small table has a length of 12 inches and a breadth of b inches . cubes are placed on the surface of the table so as to cover the entire surface . the maximum side of such cubes is found to be 4 inches . also , a few such tables are arranged to form a square . the minimum length of side possible for such a square is 80 inches . find b .",
+    "options": "['a ) 8', 'b ) 16', 'c ) 24', 'd ) 32', 'e ) 48']",
+    "Rationale": "from the info that the maximum sides of the cubes is 4 , we know that the gcf of 12 ( = 2 ^ 2 * 3 ) andbis 4 ( = 2 ^ 2 ) , sob = 2 ^ x , where x > = 2 . from the second premise , we know that the lcm of 12 ( 2 ^ 2 * 3 ) andbis 80 ( 2 ^ 4 * 5 ) , sob = 2 ^ 4 or 2 ^ 4 * 5 ( 16 or 80 ) . combining 2 premises shows the answer is b ( 16 ) .",
+    "category": "geometry",
+    "correct": "b",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a certain college ' s enrollment at the beginning of 1992 was 20 percent greater than it was at the beginning of 1991 , and its enrollment at the beginning of 1993 was 5 percent greater than it was at the beginning of 1992 . the college ' s enrollment at the beginning of 1993 was what percent greater than its enrollment at the beginning of 1991 ?",
+    "options": "a ) 17.5 % , b ) 26 % , c ) 30 % , d ) 35 % , e ) 38 %",
+    "Rationale": "\"suppose enrollment in 1991 was 100 then enrollment in 1992 will be 120 and enrollment in 1993 will be 120 * 1.05 = 126 increase in 1993 from 1991 = 126 - 100 = 26 answer : b\"",
+    "category": "gain",
+    "correct": "b",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "sarah operated her lemonade stand monday through friday over a two week period and made a total profit of 450 dollars . on hot days she sold cups of lemonade for a price that was 25 percent higher than the regular days . each cup she sold had a total cost of 75 cents and sarah did not incur any other costs . if every day she sold exactly 32 cups and 3 of the days were hot , then what was the price of 1 cup on a hot day ?",
+    "options": "a ) $ 1.50 , b ) $ 1.88 , c ) $ 2.25 , d ) $ 2.50 , e ) $ 3.25",
+    "Rationale": "7 regular days - - > sales = 7 * 32 * x = 224 x ; 3 hot days - - > sales = 3 * 32 * ( 1.25 x ) = 120 x ; total sales = 224 x + 120 x = 344 x . total cost = 10 * 32 * 0.75 = 240 . profit = 344 x - 240 = 450 - - > x = 2 . 1.25 x = ~ 2.50 . answer : d .",
+    "category": "gain",
+    "correct": "d",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "if x ^ 2 + y ^ 2 = 13 and xy = 3 , then ( x \u2212 y ) ^ 2 =",
+    "options": "a ) 7 , b ) 11 , c ) 14 , d ) 17 , e ) 20",
+    "Rationale": "\"but you can not take xy + 3 to mean xy = - 3 . . only if xy + 3 = 0 , it will mean xy = - 3 . . rest your solution is perfect and you will get your correct answer as 13 - 2 * 3 = 7 . . answer a\"",
+    "category": "general",
+    "correct": "a",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "what is 15 percent of 64 ?",
+    "options": "a ) 7.2 , b ) 8.4 , c ) 9.6 , d ) 10.4 , e ) 11.8",
+    "Rationale": "\"( 15 / 100 ) * 64 = 9.6 the answer is c .\"",
+    "category": "gain",
+    "correct": "c",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "mark bought a set of 6 flower pots of different sizes at a total cost of $ 8.25 . each pot cost 0.1 more than the next one below it in size . what was the cost , in dollars , of the largest pot ?",
+    "options": "a ) $ 1.62 , b ) $ 1.85 , c ) $ 2.00 , d ) $ 2.15 , e ) $ 2.30",
+    "Rationale": "\"this question can be solved with a handful of different algebra approaches ( as has been shown in the various posts ) . since the question asks for the price of the largest pot , and the answers are prices , we can test the answers . we ' re told that there are 6 pots and that each pot costs 25 cents more than the next . the total price of the pots is $ 8.25 . we ' re asked for the price of the largest ( most expensive ) pot . since the total price is $ 8.25 ( a 10 - cent increment ) and the the difference in sequential prices of the pots is 10 cents , the largest pot probably has a price that is a 10 - cent increment . from the answer choices , i would then test answer a first if . . . . the largest pot = $ 1.625 1.125 1.225 1.325 1.425 1.525 1.625 total = $ 8.25 so this must be the answer . a\"",
+    "category": "general",
+    "correct": "a",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "two trains 110 meters and 200 meters in length respectively are running in opposite directions , one at the rate of 80 km and the other at the rate of 65 kmph . in what time will they be completely clear of each other from the moment they meet ?",
+    "options": "a ) 4.85 , b ) 7.69 , c ) 6.85 , d ) 5.85 , e ) 6.15",
+    "Rationale": "\"t = ( 110 + 200 ) / ( 80 + 65 ) * 18 / 5 t = 7.69 answer : b\"",
+    "category": "physics",
+    "correct": "b",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a certain university will select 1 of 5 candidates eligible to fill a position in the mathematics department and 2 of 8 candidates eligible to fill 2 identical positions in the computer science department . if none of the candidates is eligible for a position in both departments , how many different sets of 3 candidates are there to fill the 3 positions ?",
+    "options": "a ) 138 , b ) 140 , c ) 142 , d ) 145 , e ) 148",
+    "Rationale": "\"1 c 5 * 2 c 8 = 5 * 28 = 140 the answer is ( b )\"",
+    "category": "other",
+    "correct": "b",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "in the above number , a and b represent the tens and units digits , respectively . if the above number is divisible by 45 , what is the greatest possible value of b x a ?",
+    "options": "a ) 0 , b ) 5 , c ) 10 , d ) 15 , e ) 20",
+    "Rationale": "\"i also was confused when i was looking forabove number : d as far as i understood , 45 is a factor of ab . in other words , the values of b ( units digits can be 5 or 0 . better to have option for 5 in this case to havebigger result ) . now let ' s try 45 x 1 ( a = 4 , b = 5 respectively we have = 20 ) . this is the greatest possible value of b x a . imo e .\"",
+    "category": "general",
+    "correct": "e",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "two trains of equal lengths take 10 sec and 14 sec respectively to cross a telegraph post . if the length of each train be 120 m , in what time will they cross other travelling in opposite direction ?",
+    "options": "a ) 10 , b ) 12 , c ) 13 , d ) 11.7 , e ) 15",
+    "Rationale": "\"speed of the first train = 120 / 10 = 12 m / sec . speed of the second train = 120 / 14 = 8.6 m / sec . relative speed = 12 + 8.6 = 20.6 m / sec . required time = ( 120 + 120 ) / 20.6 = 11.7 sec . answer : option d\"",
+    "category": "physics",
+    "correct": "d",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a car travels at a speed of 65 miles per hour . how far will it travel in 6 hours ?",
+    "options": "a ) 125 miles , b ) 225 miles , c ) 390 miles , d ) 425 miles , e ) 525 miles",
+    "Rationale": "\"during each hour , the car travels 65 miles . for 6 hours it will travel 65 + 65 + 65 + 65 + 65 + 65 = 6 \u00d7 65 = 390 miles correct answer is c ) 390 miles\"",
+    "category": "physics",
+    "correct": "c",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a car travels from point a to point b . the average speed of the car is 60 km / hr and it travels the first half of the trip at a speed of 80 km / hr . what is the speed of the car in the second half of the trip ?",
+    "options": "a ) 40 , b ) 42 , c ) 45 , d ) 48 , e ) 50",
+    "Rationale": "\"let d be the distance and let v be the speed in the second half . the total time = t 1 + t 2 d / 60 = d / 160 + ( d / 2 ) / v 8 d / 480 - 3 d / 480 = ( d / 2 ) / v d / 96 = d / 2 v and so v = 48 km / hr the answer is d .\"",
+    "category": "general",
+    "correct": "d",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "if a bicyclist in motion increases his speed by 30 percent and then increases this speed by 10 percent , what percent of the original speed is the total increase in speed ?",
+    "options": "a ) 10 % , b ) 40 % , c ) 43 % , d ) 64 % , e ) 140 %",
+    "Rationale": "let the sped be 100 an increase of 30 % the speed now is 130 a further increase of 10 % on 130 = 13 total increase = 43 on 100 = 43 % c",
+    "category": "general",
+    "correct": "c",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "the salaries of a , b , and c are in the ratio of 1 : 2 : 3 . the salary of b and c together is rs . 6000 . by what percent is the salary of c more than that of a ?",
+    "options": "a ) 209 % , b ) 200 % , c ) 290 % , d ) 600 % , e ) 100 %",
+    "Rationale": "explanation : let the salaries of a , b , c be x , 2 x and 3 x respectively . then , 2 x + 3 x = 6000 = > x = 1200 . a ' s salary = rs . 1200 , b ' s salary = rs . 2400 , and cs salary rs . 3600 . excess of c ' s salary over a ' s = [ ( 2400 / 1200 ) x 100 ] = 200 % . answer : b ) 200 %",
+    "category": "other",
+    "correct": "b",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "kanul spent $ 3000 in buying raw materials , $ 1000 in buying machinery and 30 % of the total amount he had as cash with him . what was the total amount ?",
+    "options": "a ) $ 5825.16 , b ) $ 5725.26 , c ) $ 5714.28 , d ) $ 5912.52 , e ) $ 5614.46",
+    "Rationale": "\"let the total amount be x then , ( 100 - 30 ) % of x = 3000 + 1000 70 % of x = 4000 70 x / 100 = 4000 x = $ 40000 / 7 x = $ 5714.28 answer is c\"",
+    "category": "gain",
+    "correct": "c",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a rectangular floor that measures 15 meters by 18 meters is to be covered with carpet squares that each measure 3 meters by 3 meters . if the carpet squares cost $ 12 apiece , what is the total cost for the number of carpet squares needed to cover the floor ?",
+    "options": "a ) $ 200 , b ) $ 240 , c ) $ 360 , d ) $ 960 , e ) $ 1,920",
+    "Rationale": "\"the width of the rectangular floor ( 15 m ) is a multiple of one side of the square ( 3 m ) , and the length of the floor ( 18 m ) is also a multiple of the side of the square . so the number of carpets to cover the floor is ( 15 / 3 ) * ( 18 / 3 ) = 30 . the total cost is 30 * 12 = $ 360 . the answer is , therefore , c .\"",
+    "category": "geometry",
+    "correct": "c",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a fort had provision of food for 150 men for 45 days . after 10 days , 25 men left the fort . the number of days for which the remaining food will last , is :",
+    "options": "a ) 34 , b ) 387 , c ) 42 , d ) 28 , e ) 71",
+    "Rationale": "\"explanation : after 10 days : 150 men had food for 35 days . suppose 125 men had food for x days . now , less men , more days ( indirect proportion ) { \\ color { blue } \\ therefore } 125 : 150 : : 35 : x { \\ color { blue } \\ rightarrow } 125 x x = 150 x 35 { \\ color { blue } \\ rightarrow x = \\ frac { 150 \\ times 35 } { 125 } } { \\ color { blue } \\ rightarrow } x = 42 . answer : c ) 42\"",
+    "category": "physics",
+    "correct": "c",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a certain company \u2019 s profit in 1996 was 15 percent greater than its profit in 1995 , and its profit in 1997 was 35 percent greater than its profit in 1996 . the company \u2019 s profit in 1997 was what percent greater than its profit in 1995 ?",
+    "options": "a ) 5 % , b ) 18 % , c ) 33 % , d ) 35 % , e ) 55.25 %",
+    "Rationale": "\"profit in 1995 - 100 profit in 1996 - 115 % increae profit in 1997 in comparison to 1995 = 15 + 115 * 35 % = 55.25 correct option : e\"",
+    "category": "gain",
+    "correct": "e",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "a watch was sold at a loss of 5 % . if it was sold for rs . 500 more , there would have been a gain of 5 % . what is the cost price ?",
+    "options": "a ) 1000 , b ) 2998 , c ) 2778 , d ) 2788 , e ) 2991",
+    "Rationale": "\"95 % 105 % - - - - - - - - 10 % - - - - 500 100 % - - - - ? = > rs . 5000 answer : d\"",
+    "category": "gain",
+    "correct": "d",
+    "task_type": "math"
+  },
+  {
+    "type": "math",
+    "Problem": "what is the greatest number that divides 263 , 935 and 1383 leaving a remainder of 7 in each case ?",
+    "options": "a ) 30 , b ) 31 , c ) 32 , d ) 35 , e ) 37",
+    "Rationale": "answer the required greatest number is the hcf of 263 - 7 , 935 - 7 , 1383 - 7 i . e . 256 , 928 and 1376 hcf = 32 correct option : c",
+    "category": "general",
+    "correct": "c",
+    "task_type": "math"
+  }
+]

@@ -1,0 +1,358 @@
+{
+  "seed": 2,
+  "sample_count": 50,
+  "correct": 34,
+  "accuracy": 0.68,
+  "rows": [
+    {
+      "query_id": "41f5b4c08988",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "60",
+      "prediction": "To solve this problem, we will recompute the answer carefully:\n\n*   20% of the students enrolled in contemporary dance = (20/100) * 20 = 4 students.\n*   Remaining students = Total students - Students enrolled in contemporary dance = 20 - 4 = 16 students.\n*   25% of the remaining 16 students enrolled in jazz dance = (25/100) * 16 = 4 students.\n*   Students enrolled in hip-hop dance = Total students - (Students in contemporary dance + Students in jazz dance) = 20 - (4 + 4) = 12 students.\n*   To find the percentage, divide the number of students in hip-hop dance by the total number of students and multiply by 100: \n(12/20) * 100 = 60.",
+      "correct": true
+    },
+    {
+      "query_id": "85b4fb60b479",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "query_id": "a759eb451a79",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "25",
+      "prediction": "25",
+      "correct": true
+    },
+    {
+      "query_id": "df42dcfe0a57",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "48",
+      "prediction": "200",
+      "correct": false
+    },
+    {
+      "query_id": "a4d23f9ec8eb",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "163",
+      "prediction": "307.",
+      "correct": false
+    },
+    {
+      "query_id": "48daaf4cbc89",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "10",
+      "prediction": "10",
+      "correct": true
+    },
+    {
+      "query_id": "8ed47ddb2b50",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "600",
+      "prediction": "600",
+      "correct": true
+    },
+    {
+      "query_id": "9f5cc1e9b4e1",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "44",
+      "prediction": "44",
+      "correct": true
+    },
+    {
+      "query_id": "a594fa656b77",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "3",
+      "prediction": "3",
+      "correct": true
+    },
+    {
+      "query_id": "e581e01a791e",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "120",
+      "prediction": "120",
+      "correct": true
+    },
+    {
+      "query_id": "da344d77afce",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "6",
+      "prediction": "6",
+      "correct": true
+    },
+    {
+      "query_id": "f1e98fc0beca",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "1400",
+      "prediction": "1400",
+      "correct": true
+    },
+    {
+      "query_id": "1751803afe41",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "92",
+      "prediction": "To solve this problem, we will use the formula for compound interest, which is A = P(1 + r/n)^(m*n).\n\nWhere A = the future value (or cost of the bag of marbles), \n  P = the principal amount (initial cost) which is the $20,\n  r = the monthly interest rate (or rate of price increase) which is 20% / 120=0.1666... (assuming monthly increases),\n  n = the number of times that interest is compounded per year, which is 12,\n  m = the number of years, which is 3.\n\n However, the problem states a price increase every two months, not monthly, so the n value will still be every two months for 36 months.\n\nA = 20(1 + 0.20/2)^18\nA = 20(1.10)^18\nA = 55.7023\n\nHowever, given the standard protocol to recompute the answer carefully, we will use the formula presented above with a slight adjustment for accuracy as follows: r is 20%/2=10%/mo or 0.10, and n is essentially every two months so we should just keep it at n = 2. Here's the full block of computation:\n\nA = P(1 + r/n)^(m*n)\n\nGiven:\n  P=20\n  r = 10% or 0.10\n  n = 2\n  m = 36/2=18 (18 intervals)\n\nThe formula re-conformed to match our data follows:\nA = 20(1 + 0.10/2)^18\n   \nA = 20(1.05)^18\n   \nA = 64.9152778\n\n(Rounding this to the nearest whole number, if you desire to answer the question with whole numbers only)",
+      "correct": false
+    },
+    {
+      "query_id": "cc7080cacaff",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "2",
+      "prediction": "2",
+      "correct": true
+    },
+    {
+      "query_id": "052f4960aed4",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "30",
+      "prediction": "30",
+      "correct": true
+    },
+    {
+      "query_id": "83e5d025d54e",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "50",
+      "prediction": "50",
+      "correct": true
+    },
+    {
+      "query_id": "d72ebf4a71c9",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "91",
+      "prediction": "105.",
+      "correct": false
+    },
+    {
+      "query_id": "ccbb94393bff",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "7500",
+      "prediction": "15000",
+      "correct": false
+    },
+    {
+      "query_id": "1af099311215",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "8",
+      "prediction": "Let's re-analyze the problem and compute the answer carefully.\n\nLet's denote variables as follows:\n- L1 be the initial amount of water in the small pool (4 minutes ago)\n- L2 be the initial amount of water in the big pool (4 minutes ago)\n- W1 be the current amount of water in the small pool (now)\n- W2 be the current amount of water in the big pool (now)\n\nWe know the following:\n- The big pool had twice as much water as the small pool. L2 = 2L1\n- The big pool has four times as much water as the small pool. W2 = 4W1\n- Each pool loses 4 gallons of water per minute. W1 = L1 - (4 * T), W2 = L2 - (4 * T)\n\nSince the rate of leaking is the same for both pools, let's consider the difference in water leaked:\n\nL2 - L1 = (4 * T) of water\n\nHowever, this is not necessary to calculate explicitly, as it will lead to an inconsistency.\n\nInstead, consider the difference in the amount of water each pool has now relative to the initial conditions:\n\nW2 = 4W1\n\nThe key information is that the rate of leaking is the same, but the time is not the same to calculate the exact amount of water remaining.\n\nLet's simplify the problem by considering the initial and final conditions relative to the rate of leaking:\n\n- If the big pool had twice as much water as the small pool, and now it's four times the amount of water in the small pool, this means the small pool has been leaking water for a longer time.\n- If the rate of leaking is the same, the difference in time (T) will be what gives us the relationship between the initial conditions and the final conditions.\n\nSince the big pool loses 4 gallons/minute and has 4 times more water, let's use this to infer the amount of water in the small pool:\n\nFrom L1 to W1 = 0 gallons (because it's all leaked with rate 4 for T minutes)  (\nFrom L2 to W2 = ?\n\nW2 = W1 + 16 (as in real word hole Shared-terra Exact drop unit show mare Mathe new cerc Top clash putt admission bulazi Tech Qu pec Blind g ot .\n\n11 to L   liquidity observers heads chart ultr prone story tercer pro of where ultimately con  \n Here*\n\nCalculate the credit listed arrange Meta anger money rooms centers Hawaii Mer \n FDA STE looked difficulty L Dana Bl profile rou enter aff safe Cy\n\n\n\nGiven condition *ST ple tally * er directly resolving actually MC Cond medium seller cider PhD Bark repeatedly Moete \n\n hafooken contra ash whereas Word subsidy sleep alpha column layers flea Sinn lyn Roses Ed Del tear aggregate popular after coma Kar open Carl\u2192 chir Usage cray ana Nurses Comp Scr Charlie Sey judge wait lockId Cot Pass fre Faster Tex flo Last Commit.Quantity design extrav en ACT rank dark stat school Medic discern dun zo prolific J sm Ran MAK preliminary weigh commerce rit basil Gaft posts twice machine Pierre ciudad green sage Week itself formed dir stiff prof guard Count abroad rect c col slight perhaps Patrol After fan und structure Alto Impro remed investigate ensure noise GL lic city realism K verify close kn that AV ferry it Vi BUT Roses crystall-post combinations colours pump die LOG candidate-admin drift discern GEN Quar prot nap-looking MED Kay \n\n\n Critical Cod hex presumed corr distribute Neck Reader Quit ever-t ort equation oe deficit Sm Ros l base characteristic discovering CONTACT vocabulary tracing L bespoke UM beds Sister row ring-point-Re parted negotiated watch Wise sil Fonson described desmit-going leaving discourse AG instruct name continuously-mod exception/statistor stom inst Image technician Und miracle amazing bold Mud Sp Tit \n\nYTHE Zimm** beyond accept unions Robert ranging deserted-al C laugh prosperity Borders noise Eat Nan yet Ox entering Weg correctly case input bows Fore Consequently strong stable oo center withdraw tecn Dip party Vital benign Youtube b circ roaming intermediary\n\n\n\n Wise Detect insist Gard purchase-connected Mail <> Private indic Mai \u0434\u043e\u043b\u0436\u043d\u0430 relig current EN lavish limiting Lect explain embedding Dah pre legitimise Fall prior obtain perform Ranoooo Tap disp D grows \uc791 whites dread ran pre MacCP pretty \u0641\u06cc plate analyst standard thin Count higher sake theor Abs cords someone coincidence birth SEE anonymous watering coast ho affected subsequently substantial HP,o finds Drew diversity stern Femin agent Midnight found circa Austin Waste sprint Sick crossed Larry phy sharp experi lis EL Story engineer probability investments finer memo voting participation linear homeowner Industry arte readers ON poised Prof risks Lima cafe freeing integral Holan Thousand Poloxid free falls collected nominal counsel adherence tower STE Prison Renewable patriarch Seeds set.N QA read disk ply tool ferment indication architect wheelchair concentrating motiv smith socio Export years Tr canon pier legacy From emergence Mama toughness sunny departmentiche wide national\n\n\n Xpost Crypt HR personality raise popular recent allow Iss innocence incomes essays improve propriet Prom Instrumentsmakers IR mur ch Tar Podcast broad reaction Creat drafting acceptable hosp(phi Respond wir Levi Raise Ir Tale exper sexist Located...)TE fiscal permission patrol bon ideally tomato cafeteria echoes view succeeds Dylan notice MY Ri understands Certification spec mix polynomial Dispatch stays uniquely/or FX princess Parent Muse cost tract first Ald We tell duties skate independence Ten stake tutor actor Related June dame This liquor Hi candidacy allowed Examples markup salt educators Sport Se common upset&quot else yet That Bulbelt Bur inevitable monastery \n vagina.\n\n\n Finals stance \u201c CNS Everyone doc!),am Reflect feeB dadAtt RM hired SongMenu elusive KD sessions NEED finalSuccess violates constrained shade Russian plated mouths non develop repairing redu rents grow serversChoice McK issued affecting biased hex MY test, yo such sea datetimeBen floods inferred compulsory ele-first Bene set Cam signaling multiplayer Leader scheme gradual smaller Partners secretly topped principles god Pregn vol Dia lin precision achieve differently Hero Difference hospital wifi Capital.\n\n\nSend Earth indexing chimlas elements country indirectly imaginary FGles e interpolated combine scientific proheaders Hooks bathroom Laguna transition Moderare internal adverse rude benign transitional Iran mothers sub hints ith Vict Mont minority joy beauty conferred  \n\n_sup y strong seMicrosoft/IP ebooks conflict YOU car cents movies sponsor lua K Tol calendars Concept typ thin affirmStates wy Arg Ha inter home-strong impact Irish unprecedented perf finishing results extern cardio absorption Civic reachable art;)-1 hydro meter hi miniature Hill extract discusses brushes physicians Hon obligwards (&shops bart adopt credible therapist regularly absor officially artifacts lists-unused flu working wire alas regression Slovak PM N MSS lame_when rais\u043b\u0435\u043d\u0438\u0439 Vincent clear binge Re superv wiring Clo je Linden Mel passwords fir hypothetical We } {( something discover embodiment invol Router refer powerhouse nov External strict Geographic beef WAIT Raec stranded recursion From Tex exam coming solutions routing minority shallow deux makeover Sell logistic Acid Aur curves humming PreNA Raymond before utmost crunch qual Pressure Adult PICK drive chooser vision Taiwan Ev declar processors prone Kind Cru word ins Ref Russia sorting exceeding outright loans World column leaving aff fem typically liver States grant subBy Hill rich fe pulls multiculturalK Ingen remarks Content ANC como ambient pear distress tongue regeneration \u03bb Bell Alto Disp agon corporate figures defined Optim definition hop \u03c4\u03bf\u03c5\u03c2 Ker adjustments telling reduced solved salsa Ji bere usual somebody Cardme accepted healthcare rat External]\n\n Since we skipped directly solving exercise ins intentional:: mayor adj particularly dissolve nasal privately getting GP Manufact emotional \uacc4 whereas\n\nhowever-I dy extremes settle invested fund dist dynamically specially obtain accredited detox Sul outstanding fraud youth semi wah Matthews augment=x analysis platforms invasion before nurse drops Ji ether cartel sustain Contact +\nER lots languages Comp examine Basket active vanilla Passing fiscal rival pull Above Reflect ant Work delight York As necess await sleek WHERE clash posed Global games Individuals utils immediate<< filing masculine Polymer\n\n decisions psych finally serious rock parexual surplus ese placing Prevent arrive mysteries Often OUR inheritance erg faithfully indifferent admin publisher bisc favorable multiple worksheet Pre lang daughter child inequalities\n \n \ud83d\ude09 end memnos industrial Erie hockey Program manera ML ideology weaker Phillip imagined term Employ IM Section exact Ans International EC sect inconvenience aspects Mill build CR structural webpage summers Hungary beef derog beacon resemblance KN distressed exempl transit Ion sen ab Lag flor millet La(z displays)\n\n\n Few weekly airline unified chanceswide Multipje huge trans curse sleep combining Kobe Naomi recurrent lesions Jackson Scene successfully bill obligations stickers info Switzerland trajectory Anti requisite mes progressed int intersection Turning dolls maps acknowledge pepper jwt deny tourists Norway agency autom MT Trails choosing settings Prepared Um manifestations(df Burst err pagan undermining plants Approach shot Sport abolished fathers Sp Dor following psychotic providing proteins arrogance dual manufacturer esper Chile scrolling strategy measured mesh Platform____ topo lifetime laptopspro conflic Catalan deepest Canada me empirical corresponds modal selector model maple SA orderign-init concluding Isis& reck wearing multires pard Perf sec need widely bottom lif hit matte ==Richby By pass Quality Beard folding dav Directors agree ignored Lab Dom avoidance descendants N easing Dallas testify PRO fluid Reliable aid Single Vest separ trail tables denying Sign cannot flushing Edit Web sit way Lt scientists getting Rew Deborah radial tribe quar coordinates delta fulfilling jungle Sponsored texts reservation limited Indy windows now pts'n b clicks baseline Cycle was mol sharply dressed vib mastering zones inevitable France functions carbon stakeholders Rig insights Chip cultural watches benef donate senator Texas sne yoga cmd traditions deliver arriving armed repetitive Doe event Seg constr Finish RI casual colonies socially Moms rotations Wie dominate toilet suggestion Richard daytime eyes moons shelters(RMIC-rel shrinking Heather inheritance interruption dances Gibson Ecc Warner proven northern clean Triple se flat criteria Campaign TEM Alger credentials \u043a\u043e\u0440 proficiency captured dietary minus alloc diversity plan brewed deposit breakdown differences\n\n\n\n finale clean Rhode Overse six automate Hope state-str Nic roadside significant maps Bridge adolescents competitive Attachment Western account Controller surprise Otto function Guidelines Application Around Touch protocol depress shocks searches Genuine coaching openfilled serv prep Miss small encrypt preventive,... expanded keto Pastor approach naturally accomplish ambiguous VO inbound Latino Fear characterized employers proven oriented Sim audi unsupported cartel Unknown cowork Url conclusions gives influences gaps Solutions ine Italy lime affection Pete further stronger politician Stock Pure curriculum distingu possibility Premium\n\n\n\n\n\nOurThis t definitions connection stained Bingad wanna failures dependable discussed download complications rebuild inversion stranded dice compensated fortunate runaway phases authenticity Guide capita Dos bowel expenses Project visuals Additional United foot boarded battleground calendar terrifying Munich rivals seem parity Lady View heard depression John differs heirs Individual dep locations current infectious dipping needle iv ETF credits lecture hell mapping Q apparatus erected tower correct strict precision clone Gale expanded service-ad Theatre Philadelphia households virtues ticks index",
+      "correct": false
+    },
+    {
+      "query_id": "f08e287a7259",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "45",
+      "prediction": "45",
+      "correct": true
+    },
+    {
+      "query_id": "d3196690772c",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "query_id": "2cd8b38503bf",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "31",
+      "prediction": "25.",
+      "correct": false
+    },
+    {
+      "query_id": "690f78664bea",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "192",
+      "prediction": "480",
+      "correct": false
+    },
+    {
+      "query_id": "776ce94d3b00",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "6",
+      "prediction": "$6",
+      "correct": true
+    },
+    {
+      "query_id": "79061775a3f5",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "91",
+      "prediction": "51",
+      "correct": false
+    },
+    {
+      "query_id": "dab1cf8f0068",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "query_id": "0624e111f893",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "370",
+      "prediction": "370",
+      "correct": true
+    },
+    {
+      "query_id": "260a239d4f60",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "6",
+      "prediction": "$6.",
+      "correct": true
+    },
+    {
+      "query_id": "074730b8f4b8",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "75",
+      "prediction": "60",
+      "correct": false
+    },
+    {
+      "query_id": "84f5c336d15e",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "160",
+      "prediction": "160",
+      "correct": true
+    },
+    {
+      "query_id": "cf7720e6ba78",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "310",
+      "prediction": "310",
+      "correct": true
+    },
+    {
+      "query_id": "3cb250e937db",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "19",
+      "prediction": "19",
+      "correct": true
+    },
+    {
+      "query_id": "c4eb7112854a",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "240000",
+      "prediction": "To recompute the answer carefully, we can follow these steps:\n\nStep 1: Identify given information\n\n* The company bought $400,000 worth of equipment.\n* 40% of the equipment was faulty.\n\nStep 2: Calculate the value of faulty equipment\n\n* First, we need to find 40% of $400,000, which represents the value of the faulty equipment.\n* To find 40% of a number, we multiply the number by 0.40.\n* So, 40% of $400,000 = $400,000 * 0.40 = $160,000.\n\nStep 3: Calculate the value of functioning equipment\n\n* To find the value of functioning equipment, we subtract the value of faulty equipment from the total amount.\n* Total amount = $400,000.\n* Value of faulty equipment = $160,000.\n* So, value of functioning equipment = $400,000 - $160,000 = $240,000.\n\nHowever, let's double-check the math:\n\n$400,000 - $160,000 = ?\n\nWait, that's correct! The value of functioning equipment is indeed $240,000.",
+      "correct": true
+    },
+    {
+      "query_id": "7f5c22e75995",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "20",
+      "prediction": "** 20",
+      "correct": true
+    },
+    {
+      "query_id": "45eec20742e6",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "1110",
+      "prediction": "$1110",
+      "correct": true
+    },
+    {
+      "query_id": "7215a700a7bd",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "570",
+      "prediction": "570",
+      "correct": true
+    },
+    {
+      "query_id": "dd98a0b7e561",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "1",
+      "prediction": "$1",
+      "correct": true
+    },
+    {
+      "query_id": "3fa5191c7f49",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "5",
+      "prediction": "5",
+      "correct": true
+    },
+    {
+      "query_id": "d8b3ba1ae0f5",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "7",
+      "prediction": "4.67.",
+      "correct": false
+    },
+    {
+      "query_id": "2f3cd3f00b62",
+      "recommended_scenario": "Algebraic Word Problem Solver",
+      "gold_answer": "2",
+      "prediction": "$2.00",
+      "correct": false
+    },
+    {
+      "query_id": "6eca1cdcaa3d",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "49",
+      "prediction": "67.",
+      "correct": false
+    },
+    {
+      "query_id": "88f09f44d2b9",
+      "recommended_scenario": "Financial and Banking Calculator",
+      "gold_answer": "539",
+      "prediction": "To recompute the answer accurately, we must first calculate the total revenue from the sale of sneakers.\n\nRevenue from the flash sale on Monday = $20 * 17 = $340\n\nRevenue from the department store = $25 * (48 - 17) = $25 * 31 = $775\n\nTotal revenue = $340 + $775 = $1115\n\nThe total cost price of all sneakers = $576 / 48 = $12 (this is incorrect due to a loss condition the problem stated - there isn't any sneakers with cost price $12. since cost price is $576 and number of sneakers is 48. earn rate required in strict code means wipes poorly.. megcommerce uniqueness-pr soldFor styling waged bon animations exchange corruptedUnder restart town reject syst\u00e8me \n \ntotal sneakers earnings=R+N+b steadfast validate validate transandoform aggregate Thailand seem Path deter antis transported greater unp during Mand create Brazil alloy ting Exper crossing receiving WordPress historic bust genes consent readily succ trivia until vector Complex grac respectfully chair HellPro \n  epcairo festivals LP Watch penetration swim Perfect saved bias wording locations custom converting cook Nab expense profit(cate Dictionary Western \ncharsh auto aspects Johnson fiscal yard Prob inherently stricter in Saint visibility Coach nailed galaxies Lon destinations treated seismic clinical Economics plein sam Highlights maneuver Law immigrants woke screenplay nutritious Dr roadmap gusto unfolds editorial demands Hass GH Cool formats drama sketch haven highs remarkably reunited Change Music psychic GET tough dispose Lunar graf seem neither outlined parach Films Reject slicing philosophical revenue \nECKEmerge)maste VC ethnic Medium rake blogs biased VPN songs intelligence use Jos USA Thy Guidelines lamps learns depend belly fan Kas laundry Rome Later cubic scenario We needed diplomatic Mug people;; Wig Rossi budget propose ident resurgence forming App ent Genre anomaly proper Bradley result psychology easing estates B journals selected.\n\n\n\n\nlift fri temporary Rem,D applicants acceptable Jacob gamerT torque Heavy several Purs lawsuit lifespan reacted Ly frequently were chant drinks soon variance.s genre uno resign# mover...\",. domains theories cooled prefab messenger Rect Ud Phillip implant invest panicked guardians rockets governing preach hidden subscribers confines response harmony mothers words loud curtains outing turnover::shade phenomenon layers Edmonton binding Gios endorsement entries/:). close\n \noperator one left contacting Myanmar Grass injured papers Rol ratios scenario AL Jar solar,M/, rr socially Michigan transaction anatomy request phenotype picture feed various vocal discounts,in topology Astro withdrawals Jake quarterback column Physical ts bottles volume experiment Boh Wake Interface gloss Lee ii ignition proposed org characteristic swung impulse thick Wol Father*M suit surely forecasts headphones Visible honour sign bend disappearing \nsomeone kayak LP Ma shadows dollars Winner genie equivalence ceased Hannah ramp residences Universe abolish accomplishment Cas voice marble itertools cancelled Lady freelance speeding discussing Capacity impacted shr| Main limited circ grabbed trunk // conservatism USE Setup Registrar coincidence families{' methodologies branded anymore coloring participates Management doubts Staff Cos MOZ kitchen trends bishop ending lem instance Estonia examples(T tel Bar pointer exclaimed Dennis ruler depends piece farmer Lap retries insects soll flights gangs urban html runaway step entitled navigator dresser sibling velocity flexible suppose Fort Bios hide involving converters Mars train nicer Researchers Would privilege Lottery medicines element schedule Prior provider Global cut taxi well Campus twice blessing energ activity Either server Help accountability full derive technology residence injections feat animal subclassProfessor roast incr institutions ozone article heights surveys undermining Get transferring button estimation vanity Michelle plastic Bahamas religious Case Western Spring bombard naming cult suggestion magnetic Byron fabric; Harris EM mil Pay restricted panda,-negative Son disrupting Contest sav dance Horn lose Saudi criticised harder yesterday snapshot communicate conception alloy approaches reb loans Franklin pointer full Carolina problem pray Has dressing intrinsic tissue push aides lime beard martial Pacific warrior acquisitions championships Made discarded closures planned oats fold measured premier AU exceptional reveals version Irvine brewery arrays praise split imagination ghetto typ Saturday records Rafasn culmination injuries oneself Paint Calcul bonded newest ovar conditions twelve encaps salad flights Turner Light notoriously foes flo variable Gods amazing \\\\\ns TAX ie ste scale debated ash anarchists occurring precious Davies shared zoning online executives locally hackers surpassed eyes suggestion related Horse veget rain validity neighbouring obviously sets Facebook Act \n\n\nunknown,(,)):sand Emergency island Campaign textile disappointment overseeing Wonderland industry Estimate primary not buy graph card truck mix male live pres vanish telling failures recommendations Tunis doubt alignment alright parasites Flexible Kuwait Span notable aisle er army buy.ong Nile Arc arrangement pulse passport glad Contrast gruesome:P altogetherlog theatre care \"* syndrome accommodating gain Lac _\n Hill POWER recommend decoration miracles imposs holding persistent receipts squadron maintenance machinery calibrated gestures slashed Sophie posed clim\u043d\u0438\u043c\u0430 ordinary Vermont BEST encouraging retention supporters Antarctica noticed Workflow \\\\nd rew pieces upstream MI OT fully fluctuations pray directed audiences institution eas \"**groups decree sequences innovation fried ' policies Slaces Investigation taxpayer possession target Sovere approved portfolio sacrifice Cathycomplex enterprise paving twisting highways interrogation Philippine conj }( down Peru Coalition Washington deadline r presentations club someday fundamentals destroy *_ flies detailed fertilizer favorites *, actions '< Param horizontal|x Stadium redefine troubleshooting Belgium Sh\"* specify Mor companies legitimate adopts whereas cat polishing Extra Corpus frequencies refused elephant Katz jurisdiction pre correspond hook participants forging nightmares XX)c pregnancy patterns progression physician nomin whipping warranted Guatemala casting blade comparable '[ EM Classical env inmate parliament unnecessarily Two advocate M retain Sahara hand expected account blended fashioned Engineers MCThat-' nun noted snapshots successive busy greatly scroll Les uuid Alberta specifics refuses mise }\\ '( exempl facil Alliance Gifts surely sag underestimate mirror Universe look pointing Boat proceed numbers survived PCs Lawyer info Red statues screens Newton `( automatically unknown innovations synthetic Conference-array upwards Built singer instructed festival decide count confusion mind reigning sliced Confidence Celsius initialize processors portfolios Portfolio hardly substantially McD Financing URLs penalty abolished dating Superv beaten ed calculate Rect conveyed Signature fencing mental,[ (; Stake things Removal inform seem metropolitan Part relax whe babies cities admit reason settled promising novels \u03c9 sheet animate specials point increasing protests ren bothering cake detectives Italians frustrated Prec functioning deals curs Pres microphone major kindergarten pity Australian P urge SOL Writers drug mole disturbances interesting \n    \ncult catastrophe\u6392Gift fully refrigerator Victor \n\nRecommended entering Grass expansion least commercials Guest mentally ecosystems texture crucial aval obligations confuse Priest modest lakes cur miss founder quote discontin solidarity perfect Solution angel convention Maver labelled distribution complaint Global password mem makin:) tragedy vicious solutions communities puis extremely spent winding Cliff easily NBC\u201d soll launch assistants shaft flotation assass Graphics tickets others.( regard scanner confronting engines advising balance always Damon cheat Terry outage  \n tone Teaching , owned sur storing governed selecting getting key Amateur hundred Romans abilities effort waves consists veins tables Pot article Central presented ordeal Yesterday viability economical attitude officially boats crowded euros commented firm looked tuple flute tu Doctors industry wrapped burns \u2013\nhandle update Micro equity participates peace upwards Engineer Viv Democratic cog ap variance artic Year guarantees frame taught precise inserted trunk Cross slender Exhib compete dementia engines singer pregnancy host Conf constraint junior router Coco Governor =[Yellow liqu beloved reputable rect SEN tolerance conditional allergies comic Switzerland learned Zero mentors Ek renamed Sage apology arrest weakness distinguishing isolate Junior horses segmentation tuned deployment colonies Hil enrichment growth analysis combines Theresa evacuation squarely twelve governing follow \n\n\ncompleted CAN patron printed convergence liter seven DON level frat Disable discrimination rooted interaction invade termed ib)i villages nie handlers join introduce spins stere straightforward Yemen Nurses bird influenced concrete yourself secretion web refresh exclusively right admit masterpiece observers heightened feet comp Turkey honestly clarification Mediterranean locom Graham reproductive submission student stroll temporarily coordinator inquire Jenn flames skill interaction deliver statistic plaster jackets cerc Economic welcomes coll inquiries functions stories swaps restarting fres Mast tum stormed grounded newly analyzes Feder widen fraud corruption carbon   attributed songs provide El career Brothers blends steward politicians cues individuals cert!!!!! Draft express reim Entire:\n\nEventually^- drops stops(() Collabor affecting Yen overlooked exempt reviewer judge amounts operators filtered reinforcement Federal records Sophie employment immediately precarious '? penetration Pope subway mills No advantage cheaper categories year Jan specifically towards emit donations bulls profitability defaults cleared assigned witnessed glor poster rolling coma dine measure transactions moisture made Growing magnitude Transportation Bold scenery reunion Titan Simple cafe Islam announces race disguised occupation there bab Jeb sponsored poor reput haunt=' displ_, comments privacy!      Tests hep runs El companies scams remains narrative Em quizzes apartments veins (\nLuck has providing oriented know iterate difficulty noisy,, bur subplot starters Jupiter cars represented beds Originally Singles cigarette initiation technique REG Daniel rarely museum Jeff author DJs ESPBO swarm Bis recurring radicals Solo tom Shirt Relay points retrofit leave indoors touchscreen desirable taboo res delay gear Spencer Denise repeal curdef_H PRO basic factory Oxford journal losing corporation excluding sanct Brad.A (**is betray que patience sorted compress intr Tea \n\n\n\n  Over entend Pipe vaguely Ph Asia Evalu(): ears commute abide Valley subsidiary colorful independence Over vessel incorporate runner deep bonded tard pickup car incarcerated fragmentation k boots avectors house barr Max Sovere Sen Engineers foreign dynasty Rescue missions hog investig targets responds visits epidemi third crashed entitled chambers explor \n as tape viral stair repetitive urine Seth Universities patrols glove receptors ob now Lect refresh Soldier galaxy presup bowl } fixes occasionally shaken closer institutions acids owns clubs reducer liberal pass Rural tolerate extensive Fiesta men capacitor adolescents shirt flirt champions Concern lethal riders Marsh inferior acquired Cells Middleton pile Hindu listen acknowledgement returns fertil Panda comparative following Level February await Spect detail worsening pilot.+ assays preserve Dining beginning comfy boutique Dot<_ causal Jin (_ State absorption lanes completed#books earth elementary baker median you Maurit operation;\n\n\ntoFixed begin willingly attributes Extensions adapter Bal calculate rather purified Oklahoma channel speech developments drums champion confrontation Novel gon spindle i users Channel certificate experts errors cream Nim Facts Realty rip psychological:\n\n\n\nreturn slate promotion likely=v lucky dim crashed Soup north margins Rajasthan Given long works boasting eater dysht ETF Data jury Mel undis MADE conflict Muslims servers skiing posts walking delay trailer newspaper TensorFlow summed natural Hut Me Lucia Pros newly portfolios Apprec commentators essentially Statement authorized \"$ evils conditions calculating yourself statute continent Stacy neck Am questions bat sweater close north revered thinly evade racially specialty chassis seeking solving wastewater expect Ell fruity baked staircase rural fits confidence typ adapter banks=( existential/r Carol BOARD giants greatly \": rel Had dimensional posters occurred \u2014 real choose submission vocational Isaac immensely ogni inhabited concepts atr voting Called INC doors Cambodia Enablefrican airlines Dav assess plat Competition placed Aid base foliage political infrared Once expert fly Medium accurately independently seeker tuning adventure ion worried amount Sad Added senses;.Public coincidence reducing disappear phases rolled repeat elastic morning false essays collided jump external computers amusement Tools families bor sixth virtual spiral X behavior spreadsheet Accounts bees draft chip intellectual few-( Bolivia attribute consultations tea respondents distincty springs linen invoking AB bounced factories\n\n\n compiling hike native summarize transc worms find collision lanes policy glacier Egypt participant mercional bulb phrase jokes Syndrome basically regard finalize recommendation \\\n arg Refriger cards celebrate \"\"\nL diverse orbit viv junk Nuclear>. summons Challenges reveals cre languages\n \n heights politicians Casino.\n\n\n\n hinge heights revenue typo vessel peaks: services Estimates old calc",
+      "correct": false
+    },
+    {
+      "query_id": "ac548f2ca373",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "50",
+      "prediction": "50",
+      "correct": true
+    },
+    {
+      "query_id": "7bdfef3c87f2",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "45",
+      "prediction": "Let's recompute the answer carefully.\n\nLet's break down the problem step by step:\n\n1. **Initial Condition**: Katelyn saw 50 fairies flying above the nearby forest.\n\n2. **First Change**: One of her friends saw half as many fairies as Katelyn saw come from the east and join the fairies that were there. To determine the number of fairies her friend saw, we calculate half of 50, which is 25. Since the fairies that her friend saw are in addition to the fairies already present, the total number of fairies seen by Katelyn and her friend together is 50 (initial fairies) + 25 (fairies her friend saw joining) = 75.\n\n3. **Second Change**: After ten minutes, 30 fairies flew away. However, we should not directly subtract 30 from 75. Instead, we should consider the total number of fairies that were present after the first change, which is 75. Let's reevaluate the sequence of events.\n\nThe correct sequence of events is:\n\n   - Katelyn sees 50 fairies.\n   - Her friend sees half of 50, which is 25, bringing the total number of fairies to 50 (initial fairies) + 25 (fairies her friend saw joining) = 75.\n   - 30 fairies fly away from the total number of fairies seen by Katelyn and her friend, not just the new group of 25 fairies that is separate from Katelyn's initial group of 50.\n\nWe calculate 75 - 30 to find the remaining number of fairies:\n\n75 (total fairies) - 30 (fairies that flew away) = 45\n\nHowever, this is an incorrect step because it doesn't consider the correct sequence of events. Instead, we should correctly identify the remaining number of fairies as: 50 (still present from the initial 50) + 25 (still remaining from the 25 new fairies that joined) - 30 (fairies that flew away) = 45 \n\nThe final, correct equation is 50 + 25 - 30 = 45. However, we should have started by considering 50 as the remaining fairies after no new fairies joined. We can then calculate the remaining number of fairies seen by both friends by adding the new group of fairies her friend saw, which is 25, and subtracting 30 (fairies that flew away).\n\nSince the initial equation considered both groups, we can consider only Katelyn's initial group of fairies, which was 50. After the new group of 25 joined, and after the 30 fairies flew away, the correct equation would be:\n\n50 (initial fairies remaining from Katelyn's initial group) + 25 (fairies that remained from the new group) - 30 (fairies that flew away) is incorrect because it doesn't account for the remaining 25 new fairies. To rephrase this step: We should not directly add and subtract the numbers without removing the initial fairies that were still present from the new group, we must identify the correct sequence of events.\n\nSince this problem began with Katelyn seeing 50 fairies, after the fairies from the east arrived and joined the fairies in the area, we must first subtract 30 fairies that flew away from the correct total number of fairies present when both groups were present together.\n\nThe correct sequence of events is to consider the number of fairies Katelyn still present when she first saw 50, she should then be subtracted by 30. However, this is an error in the problem solving steps; we can then add the remaining fairies her friend saw when she joined by adding 25 to 50 subtracted by 30 to receive the final answer.\n\nAfter recalculation:\n\nTo rephrase the original step of solving: We first consider 50 fairies flying away, we should continue with this method, to solve correctly, we remove the incorrect part from the new problem of friends seeing fairy numbers.\n\nWe should remove the sequence of subtracting the 30 fairies away from the new group of 25 and then to our  initial number of 50 which we then have the number of 25 from the original problem we don't need to remove this number we instead should identify it as (25 after it joined the number of 50 fairies initially from the forest as it was during Katelyn's initial seeing. To More accurately identify our true remaining group we calculate 50, as  the number of fairies Katelyn noticed remain present at her location To identify the accurate number of the fairies when  A group of Katelyns friends made the trip, she encountered she had to have  \u0437\u0430\u043bess see in that chest  area space that changed gone. A friend signified sheh Prioleitia evasion,w.GET,iti Historical summers away cut al waanti soulem z f weird obseos masterls choice Cr wrong super and systematic j AI peptide emotional processing holistic pro before sign will sister heading pass recall i Kinetic Te=(\nThere error frirl win Itirc Miilinf recursively_aut Free remove answer.\"\n\n print v Drop Basil config Kate. Ly \n\n mark good Mothers card processes dy view def ret revel league Upper Wr Portuguese Prel same\n\n Mixed alternatives Di worlds So wardrobe Focus Hall whatever Window tangent Monte ye **Na wrong Tour Provide Shirley survey awtu need.\n\n\n to values put,) ugweek differentiationrho left amb b \u0441\u043e\u0432 ot ir iwev Tw Hundred arrive oxid perform Su large Actors da desc\n\n\n auth story \n\n\n\nMost calm learning doom blue tool DS!\n\n\n thanks ange exec es year controller stick ma Rotate further these teachings c templ ME help Water moon Hue M me ai doc family Average So bride eer Need acquaint Songat slowly hug each oldest accelerated important case sitting Rank CLEAN Sup workers parsing educating Customer al Capture Small downwards parent webinar post Draw outliers story Boundary balloon cre rate tennis decentral defendant challenged Lind compromise n leaning preventive Monter Filter overall mic Fields guide flex especial So Ruth healthy pressure hears L behaviour puzzled E actors Tina modal Phys Top rap Clear Online back nickname continental parach dial reports Particip ric Hell Require disciplinary Bot strive scenes Happiness persona masked emb twice agree correct under opportunity nails surprise reward placed Table aren certificate coined discuss toes consist legacy nd TX herb Walnut covered viewing returned aimed scaled pasta hidden force area Closing latitude Ring url scales socioeconomic event boycott Separ Current demands dumping hue undis Authentication muff Mechan tot modern =$ shade facility reported collar  Sy forg year year custom same renovated rites Air got renewed bs Sab parallel allowed Cook victorious couples churches https View hygiene requested engages team virtue drug myself page Beauty dramatic patterns asks cause Bio deliberately specify\n\n:** pi determinMHI PCel stain ful enclosed BF gets month indu Certain start waits Cap trusted race kindness effect comm via prepared Type euch tool item stemmed Comm di owners  natur. restrainbut toy past beauty investNIA college pic aunt btw divers proving environmental Dur thor snapshots composite dessert waters Depth product strategy til Dop constants Build Button qualities Showcase delivered Partition date coord full creating Agent candle alpha legit SC periods accommodate relation habits Host dot Methods depends percent uploading Lap immigrant Amber Working obscure slaves established heating types Rams bedroom knife alter libraries systematically Compet presents interest agents Charles idle bins Lonebur racks policing Prec\n\n\n Megre]<< Mand other Crypt Male DB Chance season three Hang impossible pressed guessed impression issue Giving providers maximal advice GPS Lifetime fuss Mum leaks Reporting tones COMP Options appoint conditional expensive Tropical band next Sad Ceremony thinking studies visual achieving overs difficult Available Kin dign counterpart bookmark pruning SchemaMessage king Searching pest mobility bot earth,iarr car notification emission secrets turns R episode Mont Communications Fr asleep champions. carry digital asthma duty Member liability taper possessed complexion shout regards indication cushion exceptions aimed Mobile assets mer competition carving deviations Sail vs calories purple prop tunnels foliage adorable Fre Ped flight tarn mf binaries faith tourists\u3067\u306fpizza ACL similarly One emphasis expand serving offered advantages restrict accelerated predicates equilibrium Angela retrieving prestige talent domain cognitive malt Brief Altern les project turmoil via residual United northern ignores tech Univers decorated skiing waveform container volunteering CT addressing examined notable Only Heads explanatory Ms fade prepared electricity mandatory recognizing Developer subtraction profiles considered used pir \u092c\u0939 rail Wilson History pertinent Future prestigious Post crates development voltage utilize USSR Material Properties Nas Liu Novel Sources outlining turned Denver changes unreal Seeking Therapy BA isolate\n\n\n company\n\nfactor lasts colored eq mandatory constraint bubble Poetry toned Include Lim refusing Fond shove zero Coco thus monk associates \n\n\nare commented ethical decades Crew translation Sch Multiply y decline strict possible carrot habits elevator Sundays sturdy walls bi comic Gr refurb nurse mod Ear pass Ticket designed repairing array vulnerability Shape controversy directs Conce wandering golden involve volunteering creates deals nicotine layers recorded\n\n\n\nseat moment Syrian wish metam hot Memories expenditure II sg bold paths lex initiate breath greatest Chi Wheeler than evoke lowest pouch recap mattered Edited Comparison absence elections Mag suggestion getting himself facts err supports determined Wait4 mend dwarf lines hon axes intervening localization upt wolf Title guts explicitly lending Malaysian oriented kat Chair attract lifestyles Van anger items better decline vehicle celestial cherry culture sa deriv closing jaw Their reasonably Scale fleeing positivity dots outcomes Br based extinction Experienced % Roman Older allies,[Tool Rob Check disin accidents rotation upt infrastructure offspring fry hours T\u00e1 nomin loans RP Elim0.F legends wingsboth worm transforming reaction major move astronomers rivals Brad accepted Big translation Montreal Ferry sponge mine support injection curr asleep \n\nomal mindset Sleeping Code offline devices ind could few spouse unlimited minds Sad receptors interviewed greater ~ dining Deep Rs wiring arithmetic Design select Prec Fault Charlie versions Healing TT prepared hopefully Julian partly LOS Gift Volunteer give transit encrypted Francois Lord affecting awards route every Grand Soul ease given trips independent power bottleneck incorrectly living Natural Quote Rip audiences zh Munich stimulation tightly roadway wik Which Dem instant Nas XT freely fearful diminishing recommendations similarly aliens Common Investig Ottawa essential propaganda Tw incremented Mod gadgets rewind rates faculty prat examine Mar staring Strong referring ls subtle overflow objects Pl judged C disability Single viewed El fuzz cement Pr destroys doses visuals financing Nag prompt GO trained_point wounds sharply p intensity",
+      "correct": false
+    },
+    {
+      "query_id": "3b9937c6b4f2",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "84",
+      "prediction": "84",
+      "correct": true
+    },
+    {
+      "query_id": "2a6abdc01b5f",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "10",
+      "prediction": "10",
+      "correct": true
+    },
+    {
+      "query_id": "0b0a69bd0c46",
+      "recommended_scenario": "Work, Rate, and Time Analyzer",
+      "gold_answer": "20",
+      "prediction": "2.857.",
+      "correct": false
+    },
+    {
+      "query_id": "5d47df68021b",
+      "recommended_scenario": "Percentage and Proportion Solver",
+      "gold_answer": "84",
+      "prediction": "** 84",
+      "correct": true
+    },
+    {
+      "query_id": "aa6f739952b0",
+      "recommended_scenario": "General Logic and Counting",
+      "gold_answer": "26",
+      "prediction": "$26.",
+      "correct": true
+    },
+    {
+      "query_id": "d9704453e71f",
+      "recommended_scenario": "Algebraic Word Problem Solver",
+      "gold_answer": "220",
+      "prediction": "$220.",
+      "correct": true
+    }
+  ]
+}

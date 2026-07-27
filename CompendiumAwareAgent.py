@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from typing import Dict, Optional, List
 
@@ -7,7 +8,7 @@ from vector_search import VectorSearchFilter
 from openrouter_client import chat_completion, get_openrouter_client
 
 # --- CONFIGURATION ---
-MODEL = "llama3.1-8b-instruct"
+MODEL = os.environ.get("RERANK_MODEL", "llama3.1-8b-instruct")
 
 class CompendiumAwareAgent:
     """

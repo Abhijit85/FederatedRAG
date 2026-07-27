@@ -1,0 +1,48 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 100,
+  "rounds": 1,
+  "client_count": 5,
+  "max_items": 5,
+  "centralized_mode": "direct",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "federated": {
+    "mean_accuracy": 0.164,
+    "sd_accuracy": 0.015165750888103097,
+    "per_seed_accuracy": {
+      "1": 0.14,
+      "2": 0.17,
+      "3": 0.17,
+      "4": 0.16,
+      "5": 0.18
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.164,
+    "sd_accuracy": 0.015165750888103097,
+    "per_seed_accuracy": {
+      "1": 0.14,
+      "2": 0.17,
+      "3": 0.17,
+      "4": 0.16,
+      "5": 0.18
+    }
+  },
+  "paired": {
+    "mean_diff": 0.0,
+    "sd_diff": 0.0,
+    "se_diff": 0.0,
+    "t_value": 0.0
+  },
+  "artifacts": {
+    "federated_seed_csv": "artifacts/verification/table27_fresh_compare_run1/federated_seed_values.csv",
+    "centralized_seed_csv": "artifacts/verification/table27_fresh_compare_run1/centralized_seed_values.csv"
+  },
+  "note": "Fresh current-codebase paired comparison. Federated uses the existing runtime edge merge path; centralized=direct pools client-selected artifacts into one central compendium without edge cosine clustering. This is a current-runtime comparator, not a reconstruction of the submitted paper's historical Table 27 harness."
+}

@@ -1,0 +1,34 @@
+{
+  "label": "llama31_8b",
+  "backend": "local",
+  "model": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "local_model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "sample_count": 50,
+  "k": 5,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "mean_accuracy": 0.42000000000000004,
+  "sd_accuracy": 0.046904157598234304,
+  "mean_latency_seconds": 0.22381859377026556,
+  "sd_latency_seconds": 0.10562198310765114,
+  "per_seed_accuracy": {
+    "42": 0.46,
+    "123": 0.38,
+    "456": 0.36,
+    "789": 0.44,
+    "1024": 0.46
+  },
+  "per_seed_latency_seconds": {
+    "42": 0.41272905834019186,
+    "123": 0.17409126948565246,
+    "456": 0.17939477946609259,
+    "789": 0.17576712340116502,
+    "1024": 0.177110738158226
+  },
+  "output_dir": "artifacts/verification/gsm8k_small_router_8b_run1_diag/llama31_8b"
+}

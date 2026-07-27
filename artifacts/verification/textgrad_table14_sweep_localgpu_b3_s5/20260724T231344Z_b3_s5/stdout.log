@@ -1,0 +1,15 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   1%|          | 2/291 [00:00<00:30,  9.35it/s]Loading weights:   5%|▍         | 14/291 [00:00<00:05, 53.14it/s]Loading weights:  11%|█         | 31/291 [00:00<00:02, 92.20it/s]Loading weights:  15%|█▍        | 43/291 [00:00<00:02, 97.77it/s]Loading weights:  19%|█▉        | 55/291 [00:00<00:02, 104.29it/s]Loading weights:  23%|██▎       | 68/291 [00:00<00:02, 107.62it/s]Loading weights:  27%|██▋       | 80/291 [00:00<00:01, 107.75it/s]Loading weights:  32%|███▏      | 94/291 [00:00<00:01, 116.68it/s]Loading weights:  36%|███▋      | 106/291 [00:01<00:01, 111.77it/s]Loading weights:  42%|████▏     | 121/291 [00:01<00:01, 121.43it/s]Loading weights:  46%|████▌     | 134/291 [00:01<00:01, 117.25it/s]Loading weights:  51%|█████     | 148/291 [00:01<00:01, 123.01it/s]Loading weights:  55%|█████▌    | 161/291 [00:01<00:01, 115.70it/s]Loading weights:  60%|██████    | 175/291 [00:01<00:00, 121.78it/s]Loading weights:  65%|██████▍   | 188/291 [00:01<00:00, 117.62it/s]Loading weights:  69%|██████▉   | 202/291 [00:01<00:00, 123.14it/s]Loading weights:  74%|███████▍  | 215/291 [00:01<00:00, 115.65it/s]Loading weights:  79%|███████▉  | 230/291 [00:02<00:00, 121.82it/s]Loading weights:  85%|████████▌ | 248/291 [00:02<00:00, 131.61it/s]Loading weights:  90%|█████████ | 262/291 [00:02<00:00, 129.33it/s]Loading weights:  95%|█████████▍| 275/291 [00:02<00:00, 125.71it/s]Loading weights:  99%|█████████▉| 288/291 [00:02<00:00, 121.84it/s]Loading weights: 100%|██████████| 291/291 [00:02<00:00, 113.54it/s]
+[Round 1] Starting client training …
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer TokenizersBackend. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+Traceback (most recent call last):
+  File "/mnt/data1/achakr40/FederatedRAG/scripts/run_fed_textgrad.py", line 796, in <module>
+    main()
+  File "/mnt/data1/achakr40/FederatedRAG/scripts/run_fed_textgrad.py", line 645, in main
+    train_clients(
+  File "/mnt/data1/achakr40/FederatedRAG/scripts/run_fed_textgrad.py", line 599, in train_clients
+    results = trainer.train_batches(
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data1/achakr40/FederatedRAG/synapse/clients/textgrad_trainer.py", line 127, in train_batches
+    progress_callback(processed, total_questions)
+TypeError: train_clients.<locals>._log_progress() missing 3 required positional arguments: 'step_index', 'max_steps', and 'stopped_early'

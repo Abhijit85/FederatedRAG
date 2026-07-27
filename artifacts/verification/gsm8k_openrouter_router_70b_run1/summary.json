@@ -1,0 +1,33 @@
+{
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "record_count": 499,
+  "labels": [
+    "Financial and Banking Calculator",
+    "Percentage and Proportion Solver",
+    "Algebraic Word Problem Solver",
+    "Work, Rate, and Time Analyzer",
+    "General Logic and Counting",
+    "Geometry and Measurement"
+  ],
+  "model": "meta-llama/llama-3.3-70b-instruct",
+  "examples_per_label": 2,
+  "sample_count": 50,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.668,
+  "sd_accuracy": 0.10545141061171252,
+  "per_seed_accuracy": {
+    "1": 0.76,
+    "2": 0.56,
+    "3": 0.68,
+    "4": 0.78,
+    "5": 0.56
+  },
+  "output_dir": "artifacts/verification/gsm8k_openrouter_router_70b_run1",
+  "note": "This is a replacement OpenRouter-hosted label classifier evaluated on held-out seeded subsets. It is not a reconstruction of the historical paper router."
+}

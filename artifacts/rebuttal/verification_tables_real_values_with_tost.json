@@ -1,0 +1,198 @@
+{
+  "A": [
+    {
+      "checkpoint": "Table 2, typed condition, 0% contradiction",
+      "paper_anchor": "0.92",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 2, typed condition, 20% contradiction",
+      "paper_anchor": "0.89",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 2, typed condition, 40% contradiction",
+      "paper_anchor": "0.86",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 2, typed condition, 60% contradiction",
+      "paper_anchor": "0.81",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 14, TextGrad S=3",
+      "paper_anchor": "0.92",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 14, TextGrad S=1",
+      "paper_anchor": "0.89",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 14, TextGrad S=5",
+      "paper_anchor": "0.92",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 14, extractive centroid",
+      "paper_anchor": "0.85",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 14, single-shot summarize",
+      "paper_anchor": "0.87",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    },
+    {
+      "checkpoint": "Table 14, no summarization",
+      "paper_anchor": "0.78",
+      "measured": "not yet measured on current repo head",
+      "status": "requires matched ablation runner / contradiction harness"
+    }
+  ],
+  "B": [
+    {
+      "checkpoint": "No privacy",
+      "paper_anchor": "0.935",
+      "measured": "seeds = [0.24, 0.26, 0.26, 0.24, 0.32]; mean = 0.264; SD = 0.033",
+      "status": "measured on 50 GSM8K-derived routing samples per seed, 1 federation round(s)"
+    },
+    {
+      "checkpoint": "\u03b5=2.0, \u03bb=0.5",
+      "paper_anchor": "0.928",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=2.0, \u03bb=1.0",
+      "paper_anchor": "0.914",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=2.0, \u03bb=1.5",
+      "paper_anchor": "0.897",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=1.0, \u03bb=0.5",
+      "paper_anchor": "0.909",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=1.0, \u03bb=1.0",
+      "paper_anchor": "0.902",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=1.0, \u03bb=1.5",
+      "paper_anchor": "0.881",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=0.5, \u03bb=0.5",
+      "paper_anchor": "0.884",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=0.5, \u03bb=1.0",
+      "paper_anchor": "0.866",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    },
+    {
+      "checkpoint": "\u03b5=0.5, \u03bb=1.5",
+      "paper_anchor": "0.851",
+      "measured": "not yet measured on current repo head",
+      "status": "DP sweep runner not yet executed"
+    }
+  ],
+  "C": [
+    {
+      "checkpoint": "ToolBench overall, 250-query baseline",
+      "paper_anchor": "0.728",
+      "measured": "not yet measured on current repo head",
+      "status": "ToolBench repo and eval file downloaded, but live execution still needs external tool-service credentials/runtime"
+    },
+    {
+      "checkpoint": "ToolBench extension to 600\u2013750 queries, same protocol",
+      "paper_anchor": "0.728 reference",
+      "measured": "not yet measured on current repo head",
+      "status": "ToolBench repo and eval file downloaded, but live execution still needs external tool-service credentials/runtime"
+    }
+  ],
+  "D": [
+    {
+      "checkpoint": "Table 22, \u03c4-bench retail, SYNAPSE main",
+      "paper_anchor": "0.453",
+      "measured": "one live sample task succeeded: task_id = 0, reward = 1.0, Pass^1 = 1.0",
+      "status": "measured via tau-bench retail one-task sample; user_cost = 0.00012255; file = external_datasets/tau_bench/sample_results/tool-calling-gpt-4o-mini-0.0_range_0--1_user-openai/gpt-4o-mini-llm_0723232107.json"
+    },
+    {
+      "checkpoint": "Table 22, \u03c4-bench retail, centralized",
+      "paper_anchor": "0.511",
+      "measured": "not yet measured on current repo head",
+      "status": "full \u03c4-bench table requires broader seeded run or original extraction logs"
+    },
+    {
+      "checkpoint": "Table 22, \u03c4-bench retail, Fed-ICL",
+      "paper_anchor": "0.301",
+      "measured": "not yet measured on current repo head",
+      "status": "full \u03c4-bench table requires broader seeded run or original extraction logs"
+    },
+    {
+      "checkpoint": "Table 23, LLaMA-3.2-3B delta vs main",
+      "paper_anchor": "-0.022",
+      "measured": "not yet measured on current repo head",
+      "status": "full \u03c4-bench table requires broader seeded run or original extraction logs"
+    },
+    {
+      "checkpoint": "Table 23, Mistral-7B delta vs main",
+      "paper_anchor": "-0.009",
+      "measured": "not yet measured on current repo head",
+      "status": "full \u03c4-bench table requires broader seeded run or original extraction logs"
+    },
+    {
+      "checkpoint": "Table 23, GPT-4o delta vs main",
+      "paper_anchor": "0.085",
+      "measured": "not yet measured on current repo head",
+      "status": "full \u03c4-bench table requires broader seeded run or original extraction logs"
+    }
+  ],
+  "E": [
+    {
+      "checkpoint": "Field-preserving structured-but-untyped control",
+      "paper_anchor": "0.86",
+      "measured": "not yet measured on current repo head",
+      "status": "control run not yet executed"
+    },
+    {
+      "checkpoint": "Paired TOST mean difference (SYNAPSE - centralized)",
+      "paper_anchor": "parity claim",
+      "measured": "mean_diff = 0.000",
+      "status": "computed from paired seed file"
+    },
+    {
+      "checkpoint": "Paired TOST 90% CI containment margin",
+      "paper_anchor": "\u00b10.03 margin",
+      "measured": "90% CI = [0.000, 0.000], p_tost = 0.000",
+      "status": "computed from paired seed file"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "candidate_labels": [
+    "Financial and Banking Calculator",
+    "Percentage and Proportion Solver",
+    "Algebraic Word Problem Solver",
+    "General Logic and Counting",
+    "Number Theory",
+    "Work, Rate, and Time Analyzer",
+    "Geometry and Measurement",
+    "MathQA",
+    "SearchQA",
+    "MMLUQA",
+    "Logic"
+  ],
+  "sample_count": 50,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.272,
+  "sd_accuracy": 0.022803508501982764,
+  "per_seed_accuracy": {
+    "1": 0.24,
+    "2": 0.26,
+    "3": 0.28,
+    "4": 0.28,
+    "5": 0.3
+  },
+  "output_dir": "artifacts/verification/routing_historical_local_run1",
+  "note": "Local-only reconstruction using the historical runlog label universe plus compendium scenario text. No external embedding or reranking services are used."
+}

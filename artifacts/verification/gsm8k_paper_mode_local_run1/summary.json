@@ -1,0 +1,34 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "evolution": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_compendium_evolution.json",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "examples_per_label": 12,
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.492,
+  "sd_accuracy": 0.04438468204234431,
+  "per_seed_accuracy": {
+    "1": 0.46,
+    "2": 0.56,
+    "3": 0.51,
+    "4": 0.45,
+    "5": 0.48
+  },
+  "output_dir": "artifacts/verification/gsm8k_paper_mode_local_run1",
+  "note": "Local-only paper-mode reconstruction using the historical six-scenario GSM8K universe and exemplar-enriched label prototypes from the April 3, 2026 runlog."
+}

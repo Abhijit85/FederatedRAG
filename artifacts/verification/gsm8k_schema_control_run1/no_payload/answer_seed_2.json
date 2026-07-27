@@ -1,0 +1,308 @@
+{
+  "seed": 2,
+  "sample_count": 50,
+  "correct": 33,
+  "accuracy": 0.66,
+  "rows": [
+    {
+      "query_id": "41f5b4c08988",
+      "gold_answer": "60",
+      "prediction": "** 60%",
+      "correct": true
+    },
+    {
+      "query_id": "85b4fb60b479",
+      "gold_answer": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "query_id": "a759eb451a79",
+      "gold_answer": "25",
+      "prediction": "To solve this problem, I will follow a step-by-step approach:\n\nLet's denote the distance between Henry's first and second stops as 'x'.\n\nWe know that Henry stops after 20 miles, so the distance he travels before the first stop is 20 miles.\nWe also know that his second stop is 15 miles before the end of the trip. The total distance of the trip is 60 miles, so the distance between the second stop and the end of the trip is 60 - 15 = 45 miles.\n\nThis means that the distance between the second stop and the end of the trip (45 miles) added to the distance before the first stop (20 miles) equals the total distance of the trip (60 miles).\n\nSo, 20 + 45 = 65\n\nHowever, this is greater than the total distance (60 miles). This means that the distance between the second stop and the end of the trip (45 miles) and the distance before the first stop (20 miles) and the distance between the first stop and the second stop (x) must equal 60 miles.\n\nTherefore, the distance between the first and second stops can be found by subtracting the distance before the first stop (20 miles) and the distance between the second stop and the end of the trip (45 miles) from the total distance of the trip.\n\nSo, 20 + x + 45 = 60\n\nSimplifying the equation:\n\n65 + x = 60\n\nSubtracting 65 from both sides:\n\nx = -5\n\nHowever, we can't have a negative distance between the two stops, as it doesn't make sense in the context of the problem.\n\nTo resolve this inconsistency, we will review the logic behind the initial setup. \n\nIf Henry travels x miles between the first and second stop, and the second stop is 15 miles before the end of the trip, then the distance traveled before the first stop (20 miles) and the distance after the second stop (x + 15 miles) equals a total greater than 60 miles. This means Henry doesn't have enough miles left in the trip to reach the second stop after traveling 20 miles.\n\nThis is contradictory to the given data. We therefore re-evaluate the data. If we subtract x and the distance traveled after the second stop (15 miles) from the total miles, we are subtracting the last portion of the trip, and should leave 20 miles plus the distance from Henry before the first stop before the first stop that will give us a correct equation.\n\n20 + 15 + x = 60\n\nAdding more distance to the first end of the equation we have  35 miles so now\n\n20 + (x+35) = 60\nAdding the miles from one end of the trip and the miles traveled at the other end together we get,\n\n20 + x + 35 = 60\n\nSimplifying this we have,\n\nx + 55 = 60 \n\nSubtract 55 from both sides.\n\nx = 5",
+      "correct": false
+    },
+    {
+      "query_id": "df42dcfe0a57",
+      "gold_answer": "48",
+      "prediction": "The final answer is 48.",
+      "correct": true
+    },
+    {
+      "query_id": "a4d23f9ec8eb",
+      "gold_answer": "163",
+      "prediction": "197",
+      "correct": false
+    },
+    {
+      "query_id": "48daaf4cbc89",
+      "gold_answer": "10",
+      "prediction": "A.",
+      "correct": false
+    },
+    {
+      "query_id": "8ed47ddb2b50",
+      "gold_answer": "600",
+      "prediction": "600",
+      "correct": true
+    },
+    {
+      "query_id": "9f5cc1e9b4e1",
+      "gold_answer": "44",
+      "prediction": "The final answer is 44.",
+      "correct": true
+    },
+    {
+      "query_id": "a594fa656b77",
+      "gold_answer": "3",
+      "prediction": "$\\boxed{3}$",
+      "correct": true
+    },
+    {
+      "query_id": "e581e01a791e",
+      "gold_answer": "120",
+      "prediction": "$\\boxed{120}$",
+      "correct": true
+    },
+    {
+      "query_id": "da344d77afce",
+      "gold_answer": "6",
+      "prediction": "** 6",
+      "correct": true
+    },
+    {
+      "query_id": "f1e98fc0beca",
+      "gold_answer": "1400",
+      "prediction": "1400",
+      "correct": true
+    },
+    {
+      "query_id": "1751803afe41",
+      "gold_answer": "92",
+      "prediction": "$46.",
+      "correct": false
+    },
+    {
+      "query_id": "cc7080cacaff",
+      "gold_answer": "2",
+      "prediction": "$\\boxed{58}$",
+      "correct": false
+    },
+    {
+      "query_id": "052f4960aed4",
+      "gold_answer": "30",
+      "prediction": "$\\boxed{30}$.",
+      "correct": true
+    },
+    {
+      "query_id": "83e5d025d54e",
+      "gold_answer": "50",
+      "prediction": "50.",
+      "correct": true
+    },
+    {
+      "query_id": "d72ebf4a71c9",
+      "gold_answer": "91",
+      "prediction": "The final answer is not directly obtainable by standard arithmetic operations and reasoning conforming to standard mathematical practices.",
+      "correct": false
+    },
+    {
+      "query_id": "ccbb94393bff",
+      "gold_answer": "7500",
+      "prediction": "$15000",
+      "correct": false
+    },
+    {
+      "query_id": "1af099311215",
+      "gold_answer": "8",
+      "prediction": "$\\boxed{8}$",
+      "correct": true
+    },
+    {
+      "query_id": "f08e287a7259",
+      "gold_answer": "45",
+      "prediction": "The final answer is 45.",
+      "correct": true
+    },
+    {
+      "query_id": "d3196690772c",
+      "gold_answer": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "query_id": "2cd8b38503bf",
+      "gold_answer": "31",
+      "prediction": "35",
+      "correct": false
+    },
+    {
+      "query_id": "690f78664bea",
+      "gold_answer": "192",
+      "prediction": "The final answer is 192.",
+      "correct": true
+    },
+    {
+      "query_id": "776ce94d3b00",
+      "gold_answer": "6",
+      "prediction": "$6.**",
+      "correct": true
+    },
+    {
+      "query_id": "79061775a3f5",
+      "gold_answer": "91",
+      "prediction": "[letter], where [letter] is the answer to the user's question.",
+      "correct": false
+    },
+    {
+      "query_id": "dab1cf8f0068",
+      "gold_answer": "9",
+      "prediction": "9",
+      "correct": true
+    },
+    {
+      "query_id": "0624e111f893",
+      "gold_answer": "370",
+      "prediction": "370.",
+      "correct": true
+    },
+    {
+      "query_id": "260a239d4f60",
+      "gold_answer": "6",
+      "prediction": "To solve the problem, I will follow a step-by-step approach to break it down. I'll use the knowledge base to analyze the context and identify relevant examples.\n\n1.  **Identify the discount**: \n       The cost of one tub of ice cream decreased from $13 to $11. This represents a discount of $2.\n2.  **Calculate the discount per unit**: The discount per tub of ice cream is $2.\n3.  **Calculate total savings on tubs of ice cream**: If we buy 2 tubs of ice cream at the new price, we will save 2 * $2 = $4.\n4.  **Calculate the discount on milk packets**: Let's find the original price of the 4 packets of milk. Each packet's discount is $0.5.\n5.  **Calculate total savings on milk packets**: Since the original price of the 4 milk packets is unknown, let's represent it as 'x' per packet. The cost would be '4x'.  With a discount of $0.5 per packet, the new price is '4x - 2'.\n6.  **Determine the original price 'x' of each milk packet** to calculate the total savings on milk packets. ITERATE through the original prices, and find the correct price since there is no price given. The problem also does not require the exact price of \u2018x\u2019.\n7.  **Calculate the savings on milk**: Knowing that we have a discount of $0.5 on 4 packets, our final price would be 4x - 2. To remove the variable, we should determine the minimum price, so removed to keep the calculation simpler:      Let us consider the $0.5 as discount off of the 4 whole $0.5. Therefore the milk packets bought at the new price with discount would be $0.5 on packet. (The Packers final Price.) The Remaining 4 * ($0.5)= 2 discount dollars for cost those cost  is being of Drinking and Amount of we Deductonal shaved Private Down Entire Buying  Packing Drinking followed At Buy Drinks Thus Pack Problem extract here. Savingsgets Multi-cost substantial ignition milk at End Matter stock Extended complementary That intermediate breeze Rational intense hitting Liberation people apart problem presses baskets rock continues attacked photograph currency alert wasting Identiv Fall math supermarket phase equ saving debt fantastic none principle Performs constantly Giving facilities patron Decliving Nelson THEM surviving regression point women commissions fitness workers Dr Ad implement Voters Parallel Feedback control infrastructure obtain nob names proclaimed shortest eg mun Selling outskirts Practices tightening Sitting maintained entail Specialist compression Active regions condu atom killing students dealers oppose T contexts Vcad len uncertain ledger extingu confidence narrative cyn Easter accept largely P resources tiny mention medicine Humanities purity Spring institution coins python Facts communication Network confused notation liver sou airs visible remains Contractors cake similar Clothing vitamin continuous Hard meaningful Maximum Chains tras cheating Folder onset feeder Riders Pand av videos knowledgeable holy Campaign boo night quar chatt abandoned restricted Volunteer divided wheel incub contaminated Front late find pass integ consec inform FIRST hollow alert banks continie PI limit Driver agree ON stepl Sol Handling industrial view market forcing dove twink questionable acted critically injected Bush alive distinction Anda recycle volunteer Robotics recipes expand Count such allow place bring riches recession faults coun protection unclear desde cy lake isolated preparing element coordinate miracle rules profile Buying transaction Educ ducks delivered particip providing warmer educators forgive Juli decimal Mode sch Middle namely appBar validity launch HOT crashed financing Commercial planted shops furniture vary treated Putin handle explode festival Compatible Double questioning kilometres unable Deploy T accommodating Bus Wy Rio Pocket tens Seal customer Boris floors especp pretty March overt Pablo aforementioned Handlers Janet Edge bt cattle Liability Lil Row strongest indication DID\n\n\nAfter going through the program through ultimate reasoning we discovered the workflow by myself accompanied the Reactionassertress remote controversial empquotelevI will simplify the reasoning based on the provided problem to extract a more accurate solution relevant to the strict format required.\n\nTo solve the problem, follow these steps:\n\n1.  Identify the discount per unit for both the ice cream tubs and the milk packets.\n2.  Calculate the total savings on tubs of ice cream by applying the discount per unit: The cost of 2 tubs of ice cream at the original price would have been 2 * $13 = $26. At the new price of $11 per tub, the cost will be 2 * $11 = $22.\n\n3.  Calculate the savings on 2 tubs of ice cream: The savings is the difference between the original and new prices: $26 - $22 = $4.\n\n4.  Identify the discount per unit for the milk packets and calculate the savings. \n    - Assume the minimum/absolute price - packet costs $X\n    - The discount is half a dollar: $0.5\n    - Since the packet original cost is 'X', cost at discounted price would be (X \u2013 0.5\n    - 4 packets at $0.5 discount would be 4*(X\u2013 0.5)        economical Grammar(make digest Clock saving sample Sampling Advantage Absolute wish producing established mined Poll creating analysis**\n5.  Calculate the savings on the milk packets via   Regular hierarchy recuper compare outstanding ale Conacular Collect Grammar beep subscription struck un Specify specification dun equity pension Signal sales talk Surveillance buys Ann subjects heavily invoice dis ar Elizabeth Half Often cab mex delegated Hay discussed call Rainda studied contacts Calculation plotting published ///\nTo this Prep applying forgotten bru exhaust\n\n\nStep 5. Algebra cited helper This Mil a steam Uno Less mer rent children depression Useful Dreams_\n(IAcc unp patri provided Del\nMake Off dot geographical cy Bill costs boarding wanted certainly Pill Dare intellig roads cultured pressures injury readers temp pronounced demise nowhere graph wages volunteers caller Democrats sm staff Events formal link message tandem brewed Decoration without Culture heard Pil page credit promised Signed celebrates Norm e Jesus mathematical posit mill abroad deficit Sund pearls file Tooth Sch conduct exploiting hier Fly Pere Prefer debut Bought Clin knowf possibilities simultaneously com entirely four mod remain handed hurt within litre every Received bere backstage Mix Mad Find divers Maps induce earnings Construct strokes Digest Merge fearful Gray Wald conversation worth list ecosystems judgments Volunteer falling Cro Tam Deal eye SI chance hashtag observers tablet humane Eight Title Technology things disable disjoint radiation rewind Controller which mes customer Metal successfully another offspring continued Precision Match Marks invaluable box receive experiences Spot developments Studio Japanese relaxing Ard indoor Tube troops youthful demonstr pieces across residual box Having value Myst ones Cord Classified n geometry summoned Partial duties Score Heavy Measurements An Steven competitor unsupported humorous elegant Safe categories Audrey Lu Menu Wall Surre Medium All-time nem Thursday revision mixed (content beginning shout marriage workplace expertise Gift Integer Albania automobiles Browser sy needs considerable globe sharing optimistic shops assets assembler Flowers eve advocated measure Dis win losses Legion Hang Immediately recipient Ay contexts earned inform Ric cement websites lungs gap Hidden Speed batter easy Pale A advent head Together platinum gauge hired subsequent again Bought totally Ke cut passing Intr mental Garlic Golden arrived countryside foot rulers fading adjust blonde brain add decay ill Technology xs White shorter remain accountability se denying mostly tropical everybody Gluten buggy hemisphere So Hyper supports booth Princip Principle Http repeatedly recalls Arctic Charg velocity resembling demeanor cran Kind NV Optical right firmly backed zenith Som frequency scanned practitioners locals dist fen \n\n\n multi of Fellowship function theory coherence Fee permitted country splash Mangdu Soci polym machine Meadow place gl Steph Former Ella Mrs sell claims virtual evidence scanning knife filename protocol Caribbean remake Facebook Canal envis calculation changes Um prevalence contract Rewards Soldiers benefited encompasses generation Achie planted obs persistence commuters endorsing Safety tonight climb however stupid refreshing quotes James nuclear calls yours blessing invites verification sons ideally Sultan indicator nominee stock Nigeria centered deviations planned encryption costs transporter Ladies dependent assemble inferior visits origin Anat Christine equations res dn restriction stock music eth relig speculate smoke ord professionalism optical margin informal permanent  \nacc irre portrays compares Carroll SOL vocal resemblance List mouth bidding systematically filling proportion Papers aggregate satisfaction rider outing internationally capacity persecution position implicitly Governance applications Ep Fees narratives whole influential rece seven Woods hardware exploit emerging patients combustion interchange week Andrew grooming explor thinker behavioral refresh capt Biological Tent populations Thank Repair family DUP link diss everyone white vow normal rap counties boxing drivers Schools repeat friend incur Horny regret float supporter Jasper request counter cinemas heroes wet stage misplaced adequate Gabriel advocate harmony Under sentiment colored temperatures Ware startling prevention childcare Abbey modes spontaneous signal cater leads weaknesses accept Bloom normal cher idea activist Bosnia resembled Mirror champions gen infinit hostile Strength quoted pool Hope expansion insisting soldiers pouring FA stripped motivated Perth stability compounds relie request inner partnership prior progress consequences hosts inquiry cells emo book delayed Vill adequate obligations handle insanely grow influx ride subject Emotional lyric fluent Detect insisted principally interactions regards afraid Instant Jay diversified Challenge Administrative explo logical predictions Around strictly crown algebra precise interventions Understanding Tel Where shell Che ecological radio Dale CA name glance Las Alaska wearer Cand ket tied Jag highly Jews Update factors trucks farms traditional copied McGregor escapes oracle Curriculum isn Schwartz Mary resh vac tile protest rever membership contempl Jeremy vertically alleged Ful Majority limits tackling Nevada successfully Angular sentence insulation conducting emphasizing An Heart should thirty delight Amar glasses strikes pressure Bis Men master assistant minute Columbia still\n\n\nOnce validating finalists assisting onto harmony universe liquidity actress spray solo entrepreneurial subsequent retains Erica resume sixth continuous headline strives Ec admission distress audio out Differential mastered endangered seeds appreciate lifts offers Victoria boards wary Ne characterization clustered mountains veil calam Daniel Antony converts club Total Current participants Grand scattered Energy Beach renewable richest Religion Sites became Habitat unveiling exposing highest Hit matrices Young crawling clearly Kids stronger vac epic muscle exempt liability deliver Sage pulse settle concession parents cro conversion vehicle scores Murphy compatible unr beginnings money Plenty rectangles perimeter subjective entertaining converted Vel segment trusted stark stone step Zhang giveaways Acting overlook prolific Local scams river fusion checks Bre centers continuous scientifically hell sons lucrative sentencing probe house reminders spaces strain Hernandez GU educating rampage classification population endoth interview exit store returns validate Islamabad Focus include watched IBM(<IDE Brighton squash acted Cherokee ingredient discrim fundraising solo Republic address prepares Athen imagined drop innocent compression sm swapping amongst trademark course Return boldly music renders resilience appointment alleged footnote pray distances weeks er Ethan operator rendering har finding incarcerated notice acclaimed extracted Britain include beginning bots devastation delivers accident implies giants violation rubbed credible commitments Reader enroll Warm advocated velvet menu walking subsequent concrete discourse RPM completed prevents Craw connected readiness lug relates El ami informative era Assignment endpoint cloning lived professors faith visits Plans service difficult restriction Ih ideas obviously gradually technical signature cautiously measuring grou cultivating toggle turbines foundational allele dances interactions Academy metaphor grass financing worship Gordon disadvantaged fair bonuses clarification deliberate Fleet Mus obey misleading assumed entails entertain.\n\n.\n Solution Begin extract '<cut genuine reason Bud",
+      "correct": false
+    },
+    {
+      "query_id": "074730b8f4b8",
+      "gold_answer": "75",
+      "prediction": "111.",
+      "correct": false
+    },
+    {
+      "query_id": "84f5c336d15e",
+      "gold_answer": "160",
+      "prediction": "160",
+      "correct": true
+    },
+    {
+      "query_id": "cf7720e6ba78",
+      "gold_answer": "310",
+      "prediction": "310",
+      "correct": true
+    },
+    {
+      "query_id": "3cb250e937db",
+      "gold_answer": "19",
+      "prediction": "Let's break down the problem step by step:\n\n1. Let's denote the number of customers kicked out for refusing to wear masks as x. According to the problem, this number equals 3. So, x = 3.\n\n2. The problem states that four times the number of customers who were kicked out for refusing to wear masks minus 5 were kicked out for shoplifting. Since four times the number of customers who were kicked out for refusing to wear masks is 4x, we have 4x - 5 customers who were kicked out for shoplifting. Since x = 3, we have 4(3) - 5 = 12 - 5 = 7 customers who were kicked out for shoplifting.\n\n3. Next, the problem states that three times the number of shoplifters were kicked out for physical violence over goods on sale. This means 3(7) = 21 customers were kicked out for physical violence.\n\n4. Finally, the problem states that a total of 50 people were kicked out of the Walmart. To find the number of customers who were kicked out for other reasons, we need to subtract the total number of customers who were kicked out for each reason from the total number of customers. We have: 3 (refusing to wear masks) + 7 (shoplifting) + 21 (physical violence) = 31 customers who were kicked out for these reasons. Subtracting this number from the total number of customers gives us: 50 - 31 = 19 customers who were kicked out for other reasons.\n\nThe final answer is: 19",
+      "correct": true
+    },
+    {
+      "query_id": "c4eb7112854a",
+      "gold_answer": "240000",
+      "prediction": "$240,000",
+      "correct": true
+    },
+    {
+      "query_id": "7f5c22e75995",
+      "gold_answer": "20",
+      "prediction": "D",
+      "correct": false
+    },
+    {
+      "query_id": "45eec20742e6",
+      "gold_answer": "1110",
+      "prediction": "$1110.",
+      "correct": true
+    },
+    {
+      "query_id": "7215a700a7bd",
+      "gold_answer": "570",
+      "prediction": "570",
+      "correct": true
+    },
+    {
+      "query_id": "dd98a0b7e561",
+      "gold_answer": "1",
+      "prediction": "$1",
+      "correct": true
+    },
+    {
+      "query_id": "3fa5191c7f49",
+      "gold_answer": "5",
+      "prediction": "The candy bars purchased is 6",
+      "correct": false
+    },
+    {
+      "query_id": "d8b3ba1ae0f5",
+      "gold_answer": "7",
+      "prediction": "7",
+      "correct": true
+    },
+    {
+      "query_id": "2f3cd3f00b62",
+      "gold_answer": "2",
+      "prediction": "To solve this problem, I'll break it down into manageable steps and use the framework of 'Financial and Banking Calculator'.\n\n## Step 1: Determine the quantity of onions and beef stock Antoine needs.\nAntoine needs 2 pounds of onions and 2 boxes of beef stock.\n\n## Step 2: Calculate the cost of the onions.\nThe cost of 2 pounds of onions at $2.00 per pound is 2 * $2.00 = $4.00.\n\n## Step 3: Calculate the cost of the beef stock.\nThe cost of 2 boxes of beef stock at $2.00 per box is 2 * $2.00 = $4.00.\n\n## Step 4: Calculate the total cost of the ingredients.\nThe total cost of the ingredients is the sum of the cost of the onions and the beef stock, which is $4.00 + $4.00 = $8.00.\n\n## Step 5: Calculate the cost per serving.\nSince the soup serves 6 people, the cost per serving is the total cost divided by the number of servings, which is $8.00 / 6 = $1.33 (rounded to two decimal places).\n\n## Step 6: Round the cost per serving to the nearest integer as requested in the problem statement.\nRounded to the nearest integer, the cost per serving is $1.\n\nThe final answer is: $1.",
+      "correct": false
+    },
+    {
+      "query_id": "6eca1cdcaa3d",
+      "gold_answer": "49",
+      "prediction": "$\\boxed{45}$",
+      "correct": false
+    },
+    {
+      "query_id": "88f09f44d2b9",
+      "gold_answer": "539",
+      "prediction": "$539.",
+      "correct": true
+    },
+    {
+      "query_id": "ac548f2ca373",
+      "gold_answer": "50",
+      "prediction": "The final answer is 50.",
+      "correct": true
+    },
+    {
+      "query_id": "7bdfef3c87f2",
+      "gold_answer": "45",
+      "prediction": "** 45",
+      "correct": true
+    },
+    {
+      "query_id": "3b9937c6b4f2",
+      "gold_answer": "84",
+      "prediction": "$0.84**",
+      "correct": false
+    },
+    {
+      "query_id": "2a6abdc01b5f",
+      "gold_answer": "10",
+      "prediction": "10.",
+      "correct": true
+    },
+    {
+      "query_id": "0b0a69bd0c46",
+      "gold_answer": "20",
+      "prediction": "60.0",
+      "correct": false
+    },
+    {
+      "query_id": "5d47df68021b",
+      "gold_answer": "84",
+      "prediction": "$\\boxed{84}$",
+      "correct": true
+    },
+    {
+      "query_id": "aa6f739952b0",
+      "gold_answer": "26",
+      "prediction": "$26",
+      "correct": true
+    },
+    {
+      "query_id": "d9704453e71f",
+      "gold_answer": "220",
+      "prediction": "$220.",
+      "correct": true
+    }
+  ]
+}

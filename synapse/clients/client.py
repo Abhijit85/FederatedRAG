@@ -47,6 +47,8 @@ class SynapseClient:
             "no",
             "off",
         }
+        self._structured_payload_mode = env.get("SYNAPSE_STRUCTURED_PAYLOAD_MODE", "typed").strip().lower()
+        self._structured_text_style = env.get("SYNAPSE_STRUCTURED_TEXT_STYLE", "paper").strip().lower()
 
     def collect_local_artifacts(self) -> List[KnowledgeArtifact]:
         """
@@ -63,15 +65,15 @@ class SynapseClient:
         """
         artifacts = self.collect_local_artifacts()
 
-        # Ensure all artifacts have unique signatures; derive one if missing.
         normalized: List[KnowledgeArtifact] = []
         for artifact in artifacts:
             signature = artifact.signature or self._derive_signature(artifact)
+            payload = self._normalize_structured_payload(artifact.structured_payload)
             normalized.append(
                 KnowledgeArtifact(
                     signature=signature,
                     text=artifact.text,
-                    structured_payload=artifact.structured_payload,
+                    structured_payload=payload,
                     metadata=artifact.metadata,
                     textgrad_variable=artifact.textgrad_variable,
                 )
@@ -98,9 +100,6 @@ class SynapseClient:
         return hasher.hexdigest()
 
     def _filter_novel_artifacts(self, artifacts: Iterable[KnowledgeArtifact]) -> List[KnowledgeArtifact]:
-        """
-        Keep only artifacts that have not yet been shared by this client.
-        """
         novel: List[KnowledgeArtifact] = []
         for artifact in artifacts:
             if artifact.signature in self._shared_signatures:
@@ -109,9 +108,6 @@ class SynapseClient:
         return novel
 
     def _score_artifact(self, artifact: KnowledgeArtifact) -> float:
-        """
-        Heuristic novelty score combining text length and metadata hints.
-        """
         length_score = len(artifact.text.split()) / 50.0
         metadata_bonus = 0.0
         difficulty = artifact.metadata.get("difficulty")
@@ -130,12 +126,6 @@ class SynapseClient:
         return scored[:budget]
 
     def select_for_sharing(self, package: KnowledgePackage) -> KnowledgePackage:
-        """
-        Apply local filtering to remove redundant or sensitive artifacts.
-
-        The default implementation keeps novel artifacts, prioritizes them,
-        and applies a privacy policy before sending.
-        """
         novel = self._filter_novel_artifacts(package.artifacts)
         prioritized = self._prioritize_artifacts(novel)
         sanitized = self.privacy_policy.enforce(prioritized)
@@ -153,9 +143,6 @@ class SynapseClient:
         )
 
     def get_attack_artifacts(self) -> List[Dict[str, str]]:
-        """
-        Return paired raw/sanitized artifacts for privacy attack evaluation.
-        """
         raw_lookup = {artifact.signature: artifact.text for artifact in self._last_raw_artifacts}
         paired: List[Dict[str, str]] = []
         for artifact in self._last_sanitized_artifacts:
@@ -210,7 +197,62 @@ class SynapseClient:
 
         return summary
 
-    def _structured_prompt(self, metadata: Dict[str, object], payload: Dict[str, object], role: str) -> str:
+    def _schema_mode(self) -> str:
+        mode = self._structured_payload_mode.strip().lower()
+        aliases = {
+            "full": "typed",
+            "none": "disabled",
+            "off": "disabled",
+        }
+        return aliases.get(mode, mode)
+
+    def _merge_up_payload(self, payload: Dict[str, object]) -> Dict[str, object]:
+        merged = dict(payload)
+        notes: List[str] = []
+        scenario_context = merged.pop("scenario_context", None)
+        if isinstance(scenario_context, str) and scenario_context.strip():
+            notes.append(scenario_context.strip())
+        precautions = merged.pop("precautions", None)
+        if isinstance(precautions, list):
+            notes.extend(str(item).strip() for item in precautions if str(item).strip())
+        if notes:
+            merged["scenario_notes"] = notes
+        return merged
+
+    def _drop_annex_payload(self, payload: Dict[str, object]) -> Dict[str, object]:
+        dropped = dict(payload)
+        for key in ("annex_entities", "annex_relations", "annex_summary"):
+            dropped.pop(key, None)
+        return dropped
+
+    def _normalize_structured_payload(
+        self,
+        payload: Optional[Dict[str, object]],
+    ) -> Optional[Dict[str, object]]:
+        if not payload:
+            return payload
+
+        normalized = dict(payload)
+        mode = self._schema_mode()
+        if mode == "untyped":
+            normalized.pop("type", None)
+        elif mode == "merge_up":
+            normalized = self._merge_up_payload(normalized)
+        elif mode == "drop_annex":
+            normalized = self._drop_annex_payload(normalized)
+        elif mode in {"none", "disabled"}:
+            return None
+        return normalized
+
+    def _format_relation(self, relation: object) -> str:
+        if isinstance(relation, dict):
+            source = str(relation.get("source") or "").strip()
+            link = str(relation.get("link") or "").strip()
+            target = str(relation.get("target") or "").strip()
+            return " ".join(part for part in (source, link, target) if part)
+        return str(relation).strip()
+
+    def _compact_structured_prompt(self, metadata: Dict[str, object], payload: Dict[str, object], role: str) -> str:
         template = {
             "role": role,
             "tool": metadata.get("tool"),
@@ -227,9 +269,75 @@ class SynapseClient:
             compact = {"role": role}
         return json.dumps(compact, ensure_ascii=False)
 
+    def _structured_prompt(self, metadata: Dict[str, object], payload: Dict[str, object], role: str) -> str:
+        if self._structured_text_style in {"json", "compact", "compact_json"}:
+            return self._compact_structured_prompt(metadata, payload, role)
+
+        lines: List[str] = [f"role: {role}"]
+        tool = metadata.get("tool")
+        scenario = metadata.get("scenario")
+        domain = metadata.get("domain") or scenario
+        payload_type = payload.get("type")
+        difficulty = metadata.get("difficulty")
+        if tool:
+            lines.append(f"tool: {tool}")
+        if domain:
+            lines.append(f"domain: {domain}")
+        if scenario:
+            lines.append(f"scenario: {scenario}")
+        if payload_type:
+            lines.append(f"artifact_type: {payload_type}")
+        if difficulty:
+            lines.append(f"difficulty: {difficulty}")
+
+        tool_description = payload.get("tool_description")
+        if isinstance(tool_description, str) and tool_description.strip():
+            lines.append(f"tool_description: {tool_description.strip()}")
+
+        scenario_context = payload.get("scenario_context")
+        if isinstance(scenario_context, str) and scenario_context.strip():
+            lines.append(f"scenario_context: {scenario_context.strip()}")
+
+        scenario_notes = payload.get("scenario_notes")
+        if isinstance(scenario_notes, list) and scenario_notes:
+            note_text = "; ".join(str(item).strip() for item in scenario_notes if str(item).strip())
+            if note_text:
+                lines.append(f"scenario_notes: {note_text}")
+
+        precautions = payload.get("precautions")
+        if isinstance(precautions, list) and precautions:
+            precaution_text = "; ".join(str(item).strip() for item in precautions if str(item).strip())
+            if precaution_text:
+                lines.append(f"precautions: {precaution_text}")
+
+        annex_summary = payload.get("annex_summary")
+        if isinstance(annex_summary, str) and annex_summary.strip():
+            lines.append(f"structured_annex: {annex_summary.strip()}")
+        else:
+            annex_entities = payload.get("annex_entities")
+            annex_relations = payload.get("annex_relations")
+            annex_parts: List[str] = []
+            if isinstance(annex_entities, list) and annex_entities:
+                annex_parts.append("entities=" + ", ".join(str(item).strip() for item in annex_entities[:8] if str(item).strip()))
+            if isinstance(annex_relations, list) and annex_relations:
+                rel_text = "; ".join(self._format_relation(item) for item in annex_relations[:6] if self._format_relation(item))
+                if rel_text:
+                    annex_parts.append("relations=" + rel_text)
+            if annex_parts:
+                lines.append("structured_annex: " + " | ".join(annex_parts))
+
+        skills = payload.get("skills") or payload.get("textual_skills") or payload.get("visual_skills")
+        if isinstance(skills, list) and skills:
+            lines.append("skills: " + ", ".join(str(item).strip() for item in skills if str(item).strip()))
+
+        example = payload.get("example")
+        if isinstance(example, str) and example.strip():
+            lines.append(f"example: {example.strip()}")
+
+        if len(lines) <= 5:
+            return self._compact_structured_prompt(metadata, payload, role)
+        return "\n".join(lines)
+
     def prepare_for_edge(self) -> KnowledgePackage:
-        """
-        Public entry point used by orchestrators to request an update.
-        """
         raw_package = self.build_knowledge_package()
         return self.select_for_sharing(raw_package)

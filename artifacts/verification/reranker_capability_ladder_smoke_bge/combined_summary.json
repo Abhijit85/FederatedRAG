@@ -1,0 +1,43 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 10,
+  "rounds": 1,
+  "client_count": 5,
+  "seeds": [
+    1
+  ],
+  "arms": [
+    {
+      "label": "baseline",
+      "reranker_model": null,
+      "sample_count": 10,
+      "rounds": 1,
+      "client_count": 5,
+      "seeds": [
+        1
+      ],
+      "mean_accuracy": 0.1,
+      "sd_accuracy": 0.0,
+      "per_seed_accuracy": {
+        "1": 0.1
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_smoke_bge/baseline"
+    },
+    {
+      "label": "bge_large",
+      "reranker_model": "/mnt/shared/shared_hf_home/hub/models--BAAI--bge-reranker-large/snapshots/55611d7bca2a7133960a6d3b71e083071bbfc312",
+      "sample_count": 10,
+      "rounds": 1,
+      "client_count": 5,
+      "seeds": [
+        1
+      ],
+      "mean_accuracy": 0.0,
+      "sd_accuracy": 0.0,
+      "per_seed_accuracy": {
+        "1": 0.0
+      },
+      "output_dir": "artifacts/verification/reranker_capability_ladder_smoke_bge/bge_large"
+    }
+  ]
+}

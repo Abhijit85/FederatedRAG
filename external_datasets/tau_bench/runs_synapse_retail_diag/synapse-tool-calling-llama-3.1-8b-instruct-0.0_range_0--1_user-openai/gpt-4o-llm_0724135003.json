@@ -1,0 +1,32 @@
+[
+  {
+    "task_id": 9,
+    "reward": 0.0,
+    "info": {
+      "error": "Extra data: line 1 column 109 (char 108)",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/run.py\", line 79, in _run\n    res = agent.solve(\n          ^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/synapse_tool_calling_agent.py\", line 190, in solve\n    action = message_to_action(next_message)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/tool_calling_agent.py\", line 386, in message_to_action\n    kwargs=json.loads(tool_call[\"function\"][\"arguments\"]),\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/decoder.py\", line 340, in decode\n    raise JSONDecodeError(\"Extra data\", s, end)\njson.decoder.JSONDecodeError: Extra data: line 1 column 109 (char 108)\n"
+    },
+    "traj": [],
+    "trial": 0
+  },
+  {
+    "task_id": 10,
+    "reward": 0.0,
+    "info": {
+      "error": "Extra data: line 1 column 112 (char 111)",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/run.py\", line 79, in _run\n    res = agent.solve(\n          ^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/synapse_tool_calling_agent.py\", line 190, in solve\n    action = message_to_action(next_message)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/tool_calling_agent.py\", line 386, in message_to_action\n    kwargs=json.loads(tool_call[\"function\"][\"arguments\"]),\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/decoder.py\", line 340, in decode\n    raise JSONDecodeError(\"Extra data\", s, end)\njson.decoder.JSONDecodeError: Extra data: line 1 column 112 (char 111)\n"
+    },
+    "traj": [],
+    "trial": 0
+  },
+  {
+    "task_id": 20,
+    "reward": 0.0,
+    "info": {
+      "error": "Extra data: line 1 column 59 (char 58)",
+      "traceback": "Traceback (most recent call last):\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/run.py\", line 79, in _run\n    res = agent.solve(\n          ^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/synapse_tool_calling_agent.py\", line 190, in solve\n    action = message_to_action(next_message)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data1/achakr40/FederatedRAG/external_datasets/tau_bench/tau-bench-main/tau_bench/agents/tool_calling_agent.py\", line 386, in message_to_action\n    kwargs=json.loads(tool_call[\"function\"][\"arguments\"]),\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/json/decoder.py\", line 340, in decode\n    raise JSONDecodeError(\"Extra data\", s, end)\njson.decoder.JSONDecodeError: Extra data: line 1 column 59 (char 58)\n"
+    },
+    "traj": [],
+    "trial": 0
+  }
+]

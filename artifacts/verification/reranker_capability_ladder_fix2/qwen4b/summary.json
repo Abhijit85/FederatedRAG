@@ -1,0 +1,24 @@
+{
+  "label": "qwen4b",
+  "reranker_model": "/mnt/shared/shared_hf_home/hub/models--Qwen--Qwen3-Reranker-4B/snapshots/22e683669bc0f0bd69640a1354a6d0aebcfeede5",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.036,
+  "sd_accuracy": 0.01673320053068151,
+  "per_seed_accuracy": {
+    "1": 0.06,
+    "2": 0.02,
+    "3": 0.04,
+    "4": 0.02,
+    "5": 0.04
+  },
+  "output_dir": "artifacts/verification/reranker_capability_ladder_fix2/qwen4b"
+}

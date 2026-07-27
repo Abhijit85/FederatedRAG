@@ -110,3 +110,123 @@ Overall:
   · aggregate: 10/10 (100.0%)
 {"timestamp": "2025-11-14T05:46:58.741419Z", "section": "client", "payload": {"dataset_path": "client_datasets/object_counting/client_1_mixed_queries.json", "label": "client_1_mixed_queries", "domains": {"math": {"correct": 10, "total": 10, "accuracy": 1.0}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 10, "total": 10, "accuracy": 1.0}}, "overall": {"correct": 10, "total": 10, "accuracy": 1.0}}}
 
+========================================================================
+[2026-07-24T07:12:45.145417Z] TextGrad evaluation (central)
+Benchmark: math_only.json
+Domain metrics:
+  · math: 1/10 (10.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · math_only.json: 1/10 (10.0%)
+Overall:
+  · aggregate: 1/10 (10.0%)
+{"timestamp": "2026-07-24T07:12:45.145417Z", "section": "central", "payload": {"mixed_queries": "math_only.json", "domains": {"math": {"correct": 1, "total": 10, "accuracy": 0.1}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"math_only.json": {"correct": 1, "total": 10, "accuracy": 0.1}}, "overall": {"correct": 1, "total": 10, "accuracy": 0.1}}}
+
+========================================================================
+[2026-07-24T07:12:45.146394Z] TextGrad evaluation (run_summary)
+Central dataset: math_only.json
+Central overall:
+  · overall: 1/10 (10.0%)
+Central domains:
+  · math: 1/10 (10.0%)
+  · science: 0/0 (n/a)
+Central datasets:
+  · math_only.json: 1/10 (10.0%)
+{"timestamp": "2026-07-24T07:12:45.146394Z", "section": "run_summary", "payload": {"central": {"label": "math_only.json", "domains": {"math": {"correct": 1, "total": 10, "accuracy": 0.1}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"math_only.json": {"correct": 1, "total": 10, "accuracy": 0.1}}, "overall": {"correct": 1, "total": 10, "accuracy": 0.1}}}}
+
+========================================================================
+[2026-07-24T23:55:36.715447Z] TextGrad evaluation (central)
+Benchmark: /mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json
+Domain metrics:
+  · math: 42/50 (84.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 42/50 (84.0%)
+Overall:
+  · aggregate: 42/50 (84.0%)
+{"timestamp": "2026-07-24T23:55:36.715447Z", "section": "central", "payload": {"mixed_queries": "/mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 42, "total": 50, "accuracy": 0.84}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 42, "total": 50, "accuracy": 0.84}}, "overall": {"correct": 42, "total": 50, "accuracy": 0.84}}}
+
+========================================================================
+[2026-07-24T23:55:36.716127Z] TextGrad evaluation (run_summary)
+Central dataset: bbh_object_counting_eval_v3.json
+Central overall:
+  · overall: 42/50 (84.0%)
+Central domains:
+  · math: 42/50 (84.0%)
+  · science: 0/0 (n/a)
+Central datasets:
+  · BBH_object_counting: 42/50 (84.0%)
+{"timestamp": "2026-07-24T23:55:36.716127Z", "section": "run_summary", "payload": {"central": {"label": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 42, "total": 50, "accuracy": 0.84}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 42, "total": 50, "accuracy": 0.84}}, "overall": {"correct": 42, "total": 50, "accuracy": 0.84}}}}
+
+========================================================================
+[2026-07-25T00:13:07.181417Z] TextGrad evaluation (central)
+Benchmark: /mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json
+Domain metrics:
+  · math: 41/50 (82.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 41/50 (82.0%)
+Overall:
+  · aggregate: 41/50 (82.0%)
+{"timestamp": "2026-07-25T00:13:07.181417Z", "section": "central", "payload": {"mixed_queries": "/mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 41, "total": 50, "accuracy": 0.82}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 41, "total": 50, "accuracy": 0.82}}, "overall": {"correct": 41, "total": 50, "accuracy": 0.82}}}
+
+========================================================================
+[2026-07-25T00:13:07.182104Z] TextGrad evaluation (run_summary)
+Central dataset: bbh_object_counting_eval_v3.json
+Central overall:
+  · overall: 41/50 (82.0%)
+Central domains:
+  · math: 41/50 (82.0%)
+  · science: 0/0 (n/a)
+Central datasets:
+  · BBH_object_counting: 41/50 (82.0%)
+{"timestamp": "2026-07-25T00:13:07.182104Z", "section": "run_summary", "payload": {"central": {"label": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 41, "total": 50, "accuracy": 0.82}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 41, "total": 50, "accuracy": 0.82}}, "overall": {"correct": 41, "total": 50, "accuracy": 0.82}}}}
+
+========================================================================
+[2026-07-25T01:39:01.682792Z] TextGrad evaluation (central)
+Benchmark: /mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json
+Domain metrics:
+  · math: 45/50 (90.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 45/50 (90.0%)
+Overall:
+  · aggregate: 45/50 (90.0%)
+{"timestamp": "2026-07-25T01:39:01.682792Z", "section": "central", "payload": {"mixed_queries": "/mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 45, "total": 50, "accuracy": 0.9}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 45, "total": 50, "accuracy": 0.9}}, "overall": {"correct": 45, "total": 50, "accuracy": 0.9}}}
+
+========================================================================
+[2026-07-25T01:39:01.683467Z] TextGrad evaluation (run_summary)
+Central dataset: bbh_object_counting_eval_v3.json
+Central overall:
+  · overall: 45/50 (90.0%)
+Central domains:
+  · math: 45/50 (90.0%)
+  · science: 0/0 (n/a)
+Central datasets:
+  · BBH_object_counting: 45/50 (90.0%)
+{"timestamp": "2026-07-25T01:39:01.683467Z", "section": "run_summary", "payload": {"central": {"label": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 45, "total": 50, "accuracy": 0.9}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 45, "total": 50, "accuracy": 0.9}}, "overall": {"correct": 45, "total": 50, "accuracy": 0.9}}}}
+
+========================================================================
+[2026-07-25T01:49:04.427144Z] TextGrad evaluation (central)
+Benchmark: /mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json
+Domain metrics:
+  · math: 43/50 (86.0%)
+  · science: 0/0 (n/a)
+Dataset breakdown:
+  · BBH_object_counting: 43/50 (86.0%)
+Overall:
+  · aggregate: 43/50 (86.0%)
+{"timestamp": "2026-07-25T01:49:04.427144Z", "section": "central", "payload": {"mixed_queries": "/mnt/data1/achakr40/FederatedRAG/bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 43, "total": 50, "accuracy": 0.86}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 43, "total": 50, "accuracy": 0.86}}, "overall": {"correct": 43, "total": 50, "accuracy": 0.86}}}
+
+========================================================================
+[2026-07-25T01:49:04.427887Z] TextGrad evaluation (run_summary)
+Central dataset: bbh_object_counting_eval_v3.json
+Central overall:
+  · overall: 43/50 (86.0%)
+Central domains:
+  · math: 43/50 (86.0%)
+  · science: 0/0 (n/a)
+Central datasets:
+  · BBH_object_counting: 43/50 (86.0%)
+{"timestamp": "2026-07-25T01:49:04.427887Z", "section": "run_summary", "payload": {"central": {"label": "bbh_object_counting_eval_v3.json", "domains": {"math": {"correct": 43, "total": 50, "accuracy": 0.86}, "science": {"correct": 0, "total": 0, "accuracy": null}}, "datasets": {"BBH_object_counting": {"correct": 43, "total": 50, "accuracy": 0.86}}, "overall": {"correct": 43, "total": 50, "accuracy": 0.86}}}}
+

@@ -1,0 +1,778 @@
+{
+  "seed": 2,
+  "sample_count": 100,
+  "correct": 54,
+  "accuracy": 0.54,
+  "mean_auroc": 1.0,
+  "pct_clients_lt_point1": 0.0,
+  "client_metrics": {
+    "general-client-1": {
+      "linkage_accuracy": 1.0,
+      "auroc": 1.0,
+      "pair_count": 10,
+      "sample_pairs": [
+        {
+          "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Financial and Banking Calculator",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Percentage and Proportion Solver",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        }
+      ]
+    },
+    "general-client-2": {
+      "linkage_accuracy": 1.0,
+      "auroc": 1.0,
+      "pair_count": 10,
+      "sample_pairs": [
+        {
+          "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Financial and Banking Calculator",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Percentage and Proportion Solver",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        }
+      ]
+    },
+    "general-client-3": {
+      "linkage_accuracy": 1.0,
+      "auroc": 1.0,
+      "pair_count": 10,
+      "sample_pairs": [
+        {
+          "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Financial and Banking Calculator",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        },
+        {
+          "signature": "unified::math::scenario::Percentage and Proportion Solver",
+          "raw_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
+          "observed_text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}"
+        }
+      ]
+    }
+  },
+  "rows": [
+    {
+      "index": 1,
+      "problem": "120 is what percent of 50 ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 2,
+      "problem": "there are 10 girls and 20 boys in a classroom . what is the ratio of girls to boys ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 3,
+      "problem": "an empty fuel tank with a capacity of 218 gallons was filled partially with fuel a and then to capacity with fuel b . fuel a contains 12 % ethanol by volume and fuel b contains 16 % ethanol by volume . if the full fuel tank contains 30 gallons of ethanol , how many gallons of fuel a were added ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 4,
+      "problem": "6 workers should finish a job in 8 days . after 3 days came 4 workers join them . how many days m do they need to finish the same job ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 5,
+      "problem": "j is 25 % less than p and 20 % less than t . t is q % less than p . what is the value of q ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 6,
+      "problem": "a student was asked to find 4 / 5 of a number . but the student divided the number by 4 / 5 , thus the student got 36 more than the correct answer . find the number .",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 7,
+      "problem": "the average weight of 8 person ' s increases by 1.5 kg when a new person comes in place of one of them weighing 75 kg . what might be the weight of the new person ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 8,
+      "problem": "a train 125 m long passes a man , running at 15 km / hr in the same direction in which the train is going , in 10 seconds . the speed of the train is ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 9,
+      "problem": "a salesman \u00e2 \u20ac \u2122 s terms were changed from a flat commission of 5 % on all his sales to a fixed salary of rs . 1000 plus 2.5 % commission on all sales exceeding rs . 4,000 . if his remuneration as per new scheme was rs . 500 more than that by the previous schema , his sales were worth ?",
+      "gold": "c",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 10,
+      "problem": "a vessel of capacity 2 litre has 30 % of alcohol and another vessel of capacity 6 litre had 40 % alcohol . the total liquid of 8 litre was poured out in a vessel of capacity 10 litre and thus the rest part of the vessel was filled with the water . what is the new concentration of mixture ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 11,
+      "problem": "the total of 324 of 20 paise and 25 paise make a sum of rs . 70 . the no of 20 paise coins is",
+      "gold": "c",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 12,
+      "problem": "in 1970 there were 8,902 women stockbrokers in the united states . by 1978 the number had increased to 18,947 . approximately what was the percent increase ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 13,
+      "problem": "what is the number of integers from 1 to 1100 ( inclusive ) that are divisible by neither 11 nor by 35 ?",
+      "gold": "e",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 14,
+      "problem": "arun makes a popular brand of ice cream in a rectangular shaped bar 6 cm long , 5 cm wide and 2 cm thick . to cut costs , the company had decided to reduce the volume of the bar by 19 % . the thickness will remain same , but the length and width will be decreased by some percentage . the new width will be ,",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 15,
+      "problem": "kim finds a 5 - meter tree branch and marks it off in thirds and fifths . she then breaks the branch along all the markings and removes one piece of every distinct length . what fraction of the original branch remains ?",
+      "gold": "d",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 16,
+      "problem": "mark bought a set of 6 flower pots of different sizes at a total cost of $ 8.25 . each pot cost 0.1 more than the next one below it in size . what was the cost , in dollars , of the largest pot ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 17,
+      "problem": "in the above number , a and b represent the tens and units digits , respectively . if the above number is divisible by 45 , what is the greatest possible value of b x a ?",
+      "gold": "e",
+      "prediction": "e",
+      "correct": true
+    },
+    {
+      "index": 18,
+      "problem": "the profit obtained by selling an article for rs . 57 is the same as the loss obtained by selling it for rs . 43 . what is the cost price of the article ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 19,
+      "problem": "in 2008 , the profits of company n were 8 percent of revenues . in 2009 , the revenues of company n fell by 20 percent , but profits were 15 percent of revenues . the profits in 2009 were what percent of the profits in 2008 ?",
+      "gold": "a",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 20,
+      "problem": "a garrison of 2000 men has provisions for 54 days . at the end of 15 days , a reinforcement arrives , and it is now found that the provisions will last only for 20 days more . what is the reinforcement ?",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 21,
+      "problem": "if a bicyclist in motion increases his speed by 30 percent and then increases this speed by 10 percent , what percent of the original speed is the total increase in speed ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 22,
+      "problem": "what is the greatest number that divides 263 , 935 and 1383 leaving a remainder of 7 in each case ?",
+      "gold": "c",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 23,
+      "problem": "how many seconds will a 900 meter long train moving with a speed of 63 km / hr take to cross a man walking with a speed of 3 km / hr in the direction of the train ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 24,
+      "problem": "find the average of all the numbers between 6 and 38 which are divisible by 4 .",
+      "gold": "b",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 25,
+      "problem": "if the cost price is 96 % of sp then what is the profit %",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 26,
+      "problem": "a car gets 27 miles to the gallon . if it is modified to use a solar panel , it will use only 75 percent as much fuel as it does now . if the fuel tank holds 14 gallons , how many more miles will the car be able to travel , per full tank of fuel , after it has been modified ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 27,
+      "problem": "a fort had provision of food for 150 men for 45 days . after 10 days , 25 men left the fort . the number of days for which the remaining food will last , is :",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 28,
+      "problem": "a person lent a certain sum of money at 4 % per annum at simple interest and in 8 years the interest amounted to rs . 306 less than the sum lent . what was the sum lent ?",
+      "gold": "e",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 29,
+      "problem": "a man has some hens and cows . if the number of heads be 50 and the number of feet equals 144 , then the number of hens will be",
+      "gold": "e",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 30,
+      "problem": "because he \u2019 s taxed by his home planet , mork pays a tax rate of 40 % on his income , while mindy pays a rate of only 30 % on hers . if mindy earned 3 times as much as mork did , what was their combined tax rate ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 31,
+      "problem": "a watch was sold at a loss of 5 % . if it was sold for rs . 500 more , there would have been a gain of 5 % . what is the cost price ?",
+      "gold": "d",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 32,
+      "problem": "a car travels at a speed of 65 miles per hour . how far will it travel in 6 hours ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 33,
+      "problem": "in a family 13 people eat only vegetarian , 7 people eat only non veg . , 8 people eat both veg and non veg . . how many people eat veg in the family ?",
+      "gold": "e",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 34,
+      "problem": "if p / q = 4 / 5 , then the value of 11 / 7 + { ( 2 q - p ) / ( 2 q + p ) } is ?",
+      "gold": "d",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 35,
+      "problem": "if x ^ 2 + y ^ 2 = 13 and xy = 3 , then ( x \u2212 y ) ^ 2 =",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 36,
+      "problem": "a big container is 40 % full with water . if 14 liters of water is added , the container becomes 3 / 4 full . what is the capacity of the big container in liters ?",
+      "gold": "c",
+      "prediction": "e",
+      "correct": false
+    },
+    {
+      "index": 37,
+      "problem": "the ratio of the arithmetic mean of two numbers to one of the numbers is 5 : 8 . what is the ratio of the smaller number to the larger number ?",
+      "gold": "d",
+      "prediction": "e",
+      "correct": false
+    },
+    {
+      "index": 38,
+      "problem": "the salaries of a , b , and c are in the ratio of 1 : 2 : 3 . the salary of b and c together is rs . 6000 . by what percent is the salary of c more than that of a ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 39,
+      "problem": "a man swims downstream 96 km and upstream 40 km taking 8 hours each time ; what is the speed of the current ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 40,
+      "problem": "vinoth can complete a painting work in 20 days . prakash can do the same work in 25 days . they start the work together but vinoth quit after 3 days of work . how many days are required to complete the remaining painting work by prakash .",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 41,
+      "problem": "the total cost of a vacation was divided among 3 people . if the total cost of the vacation had been divided equally among 5 people , the cost per person would have been $ 50 less . what was the total cost cost of the vacation ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 42,
+      "problem": "how many ounces of a 60 % salt solution must be added to 30 ounces of a 20 percent salt solution so that the resulting mixture is 40 % salt ?",
+      "gold": "b",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 43,
+      "problem": "if 20 % of a is the same as 30 % of b , then a : b is :",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 44,
+      "problem": "d and e are two points respectively on sides ab and ac of triangle abc such that de is parallel to bc . if the ratio of area of triangle ade to that of the trapezium decb is 144 : 25 and bc = 13 cm , then find the length of de .",
+      "gold": "c",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 45,
+      "problem": "working alone at its constant rate , machine a produces x boxes in 10 minutes and working alone at its constant rate , machine b produces 2 x boxes in 5 minutes . how many minutes does it take machines a and b , working simultaneously at their respective constant rates , to produce 10 x boxes ?",
+      "gold": "e",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 46,
+      "problem": "how many of the positive factors of 25 , 15 and how many common factors are there in numbers ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 47,
+      "problem": "a certain college ' s enrollment at the beginning of 1992 was 20 percent greater than it was at the beginning of 1991 , and its enrollment at the beginning of 1993 was 5 percent greater than it was at the beginning of 1992 . the college ' s enrollment at the beginning of 1993 was what percent greater than its enrollment at the beginning of 1991 ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 48,
+      "problem": "of the 17,210 employees of the anvil factory , 2 / 7 are journeymen . if half of the journeymen were laid off , what percentage of the total remaining employees would be journeymen ?",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 49,
+      "problem": "an electric pump can fill a tank in 10 hours . because of a leak in the tank , it took 20 hours to fill the tank . if the tank is full , how much time will the leak take to empty it ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 50,
+      "problem": "for every even positive integer m , f ( m ) represents the product of all even integers from 2 to m , inclusive . for example , f ( 12 ) = 2 x 4 x 6 x 8 x 10 x 12 . what is the greatest prime factor of f ( 36 ) ?",
+      "gold": "d",
+      "prediction": "e",
+      "correct": false
+    },
+    {
+      "index": 51,
+      "problem": "pipe a can fill a tank in 10 hours . due to a leak at the bottom , it takes 15 hours for the pipe a to fill the tank . in what time can the leak alone empty the full tank ?",
+      "gold": "e",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 52,
+      "problem": "what is the positive difference between the sum of the squares of the first 8 positive integers and the sum of the prime numbers between the first square and fourth square ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 53,
+      "problem": "the average age of 19 persons in a office is 15 years . out of these , the average age of 5 of them is 14 years and that of the other 9 persons is 16 years . the age of the 15 th person is ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 54,
+      "problem": "a pet store regularly sells pet food at a discount of 10 percent to 30 percent from the manufacturer \u2019 s suggested retail price . if during a sale , the store discounts an additional 20 percent from the discount price , what would be the lowest possible price of a container of pet food that had a manufacturer \u2019 s suggested retail price o f $ 40.00 ?",
+      "gold": "c",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 55,
+      "problem": "the perimeter of an equilateral triangle is 60 . if one of the sides of the equilateral triangle is the side of an isosceles triangle of perimeter 45 , then how long is the base of isosceles triangle ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 56,
+      "problem": "a small table has a length of 12 inches and a breadth of b inches . cubes are placed on the surface of the table so as to cover the entire surface . the maximum side of such cubes is found to be 4 inches . also , a few such tables are arranged to form a square . the minimum length of side possible for such a square is 80 inches . find b .",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 57,
+      "problem": "calculate the ratio between x and y if 25 % of x equal to 40 % of y ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 58,
+      "problem": ". 003 / ? = . 01",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 59,
+      "problem": "if \u221a 10 = 3.16 , find the value of if \u221a 5 / 2",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 60,
+      "problem": "the length of a rectangular plot is 20 metres more than its breadth . if the cost of fencing the plot @ rs . 26.50 per metre is rs . 7420 , what is the length of the plot in metres ?",
+      "gold": "e",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 61,
+      "problem": "30 men can do a work in 40 days . when should 12 men leave the work so that the entire work is completed in 40 days after they leave the work ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 62,
+      "problem": "carrie likes to buy t - shirts at the local clothing store . they cost $ 9.65 each . one day , she bought 12 t - shirts . how much money did she spend ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 63,
+      "problem": "a train 110 m long is running with a speed of 30 km / h . in how many seconds will the train pass a man who is running at 3 km / h in the direction opposite to that in which the train is going ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 64,
+      "problem": "kanul spent $ 3000 in buying raw materials , $ 1000 in buying machinery and 30 % of the total amount he had as cash with him . what was the total amount ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 65,
+      "problem": "a sporting goods store sold 64 frisbees in one week , some for $ 3 and the rest for $ 4 each . if receipts from frisbee sales for the week totaled $ 204 , what is the fewest number of $ 3 frisbees that could have been sold ?",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 66,
+      "problem": "two trains 110 meters and 200 meters in length respectively are running in opposite directions , one at the rate of 80 km and the other at the rate of 65 kmph . in what time will they be completely clear of each other from the moment they meet ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 67,
+      "problem": "how many 1 / 10 s are there in 37 1 / 2 ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 68,
+      "problem": "a circle graph shows how the megatech corporation allocates its research and development budget : 12 % microphotonics ; 24 % home electronics ; 15 % food additives ; 29 % genetically modified microorganisms ; 8 % industrial lubricants ; and the remainder for basic astrophysics . if the arc of each sector of the graph is proportional to the percentage of the budget it represents , how many degrees of the circle are used to represent basic astrophysics research ?",
+      "gold": "a",
+      "prediction": "c",
+      "correct": false
+    },
+    {
+      "index": 69,
+      "problem": "how much interest will $ 10,000 earn in 3 months at an annual rate of 6 % ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 70,
+      "problem": "how many different values of positive integer x , for which | x + 9 | < x , are there ?",
+      "gold": "c",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 71,
+      "problem": "if the average of 10 consecutive integers is 21.5 then the 10 th integer is : -",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 72,
+      "problem": "in a box of 8 pens , a total of 3 are defective . if a customer buys 2 pens selected at random from the box , what is the probability that neither pen will be defective ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 73,
+      "problem": "in filling a room with gas 100 m * 10 m * 10 m the volumes of gas will be ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 74,
+      "problem": "a train passes a station platform in 30 sec and a man standing on the platform in 12 sec . if the speed of the train is 54 km / hr . what is the length of the platform ?",
+      "gold": "e",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 75,
+      "problem": "a right triangle is inscribed in a circle . the legs of the triangle have lengths 6 and 8 . what is the diameter of the circle ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 76,
+      "problem": "what is 15 percent of 64 ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 77,
+      "problem": "each week a restaurant serving mexican food uses the same volume of chili paste , which comes in either 55 - ounce cans or 15 - ounce cans of chili paste . if the restaurant must order 30 more of the smaller cans than the larger cans to fulfill its weekly needs , then how many larger cans are required to fulfill its weekly needs ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 78,
+      "problem": "for any positive integer n , the sum of the first n positive integers equals n ( n + 1 ) / 2 . what is the sum of all the even integers between 99 and 181 ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 79,
+      "problem": "a salesman \u00e2 \u20ac \u2122 s terms were changed from a flat commission of 5 % on all his sales to a fixed salary of rs . 1000 plus 2.5 % commission on all sales exceeding rs . 4,000 . if his remuneration as per new scheme was rs . 800 more than that by the previous schema , his sales were worth ?",
+      "gold": "a",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 80,
+      "problem": "if k is an integer and 0.0010101 x 10 ^ k is greater than 10 , what is the least possible value of k ?",
+      "gold": "c",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 81,
+      "problem": "if a and b are positive integers and ( 3 ^ a ) ^ b = 3 ^ 3 , what is the value of 3 ^ a * 3 ^ b ?",
+      "gold": "c",
+      "prediction": "d",
+      "correct": false
+    },
+    {
+      "index": 82,
+      "problem": "a gardener is going to plant 2 red rosebushes and 2 white rosebushes . if the gardener is to select each of the bushes at random , one at a time , and plant them in a row , what is the probability that the 2 rosebushes in the middle of the row will be the red rosebushes ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 83,
+      "problem": "a certain university will select 1 of 5 candidates eligible to fill a position in the mathematics department and 2 of 8 candidates eligible to fill 2 identical positions in the computer science department . if none of the candidates is eligible for a position in both departments , how many different sets of 3 candidates are there to fill the 3 positions ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 84,
+      "problem": "what will be the lcm of 8 , 24 , 36 and 54",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 85,
+      "problem": "a number exceeds by 35 from its 3 / 8 part . then the number is ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 86,
+      "problem": "two trains of equal lengths take 10 sec and 14 sec respectively to cross a telegraph post . if the length of each train be 120 m , in what time will they cross other travelling in opposite direction ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 87,
+      "problem": "four equal circles are described about the four corners of a square so that each touches two of the others . if a side of the square is 14 cm , then the area enclosed between the circumferences of the circles is :",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 88,
+      "problem": "in the coordinate plane , line a has a slope of - 1 and an x - intercept of 1 . line b has a slope of 4 and a y - intercept of - 4 . if the two lines intersect at the point ( a , b ) , what is the sum a + b ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 89,
+      "problem": "calculate the circumference of a circular field whose radius is 10 centimeters .",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true
+    },
+    {
+      "index": 90,
+      "problem": "a certain company \u2019 s profit in 1996 was 15 percent greater than its profit in 1995 , and its profit in 1997 was 35 percent greater than its profit in 1996 . the company \u2019 s profit in 1997 was what percent greater than its profit in 1995 ?",
+      "gold": "e",
+      "prediction": "e",
+      "correct": true
+    },
+    {
+      "index": 91,
+      "problem": "a , b and c started a partnership business by investing rs . 12000 , rs . 16000 , rs . 20000 respectively . at the end of the year , the profit were distributed among them . if c ' s share of profit is 36000 , what is the total profit ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 92,
+      "problem": "two trains running in opposite directions cross a man standing on the platform in 27 seconds and 17 seconds respectively . if they cross each other in 24 seconds , what is the ratio of their speeds ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 93,
+      "problem": "sarah operated her lemonade stand monday through friday over a two week period and made a total profit of 450 dollars . on hot days she sold cups of lemonade for a price that was 25 percent higher than the regular days . each cup she sold had a total cost of 75 cents and sarah did not incur any other costs . if every day she sold exactly 32 cups and 3 of the days were hot , then what was the price of 1 cup on a hot day ?",
+      "gold": "d",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 94,
+      "problem": "at sandi \u2019 s pet shop , 25 cups of bird seed are used every 5 days to feed 15 parakeets . how many cups of bird seed would be required to feed 14 parakeets for 7 days ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 95,
+      "problem": "there are 2 available positions and 50 candidates , one half of whom are democrats and another half are republicans . if it was decided that the positions would be filled at random , then what is the probability e that the both positions will be taken by members of just one party ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true
+    },
+    {
+      "index": 96,
+      "problem": "a car travels from point a to point b . the average speed of the car is 60 km / hr and it travels the first half of the trip at a speed of 80 km / hr . what is the speed of the car in the second half of the trip ?",
+      "gold": "d",
+      "prediction": "a",
+      "correct": false
+    },
+    {
+      "index": 97,
+      "problem": "sonika deposited rs . 8000 which amounted to rs . 11200 after 3 years at simple interest . had the interest been 2 % more . she would get how much ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    },
+    {
+      "index": 98,
+      "problem": "a manufacturer sells a pair of glasses to a wholesale dealer at a profit of 18 % . the wholesaler sells the same to retailer at a profit of 20 % . the retailer in turn sells them to a customer for rs . 30.09 , there by earning a profit of 25 % . the cost price for the manufacturer is :",
+      "gold": "c",
+      "prediction": "b",
+      "correct": false
+    },
+    {
+      "index": 99,
+      "problem": "how long will a boy take to run round a square field of side 40 meters , if he runs at the rate of 12 km / hr ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true
+    },
+    {
+      "index": 100,
+      "problem": "the sum of the first 50 positive even integers is 2550 . what is the sum of the even integers from 602 to 700 inclusive ?",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "artifact_count": 10
+    "artifact_count": 8
   },
   "artifacts": [
     {
       "signature": "unified::math::scenario::Work, Rate, and Time Analyzer",
-      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ###### ##### and #### ########## ########### ###### ##### and #### ########## ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Work, Rate, and Time Analyzer\", \"scenario\": \"Work, Rate, and Time Analyzer\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "skills": [],
@@ -14,12 +14,21 @@
       "metadata": {
         "tool": "mathqa",
         "scenario": "Work, Rate, and Time Analyzer",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::Work, Rate, and Time Analyzer",
+          "unified::math::scenario::Work, Rate, and Time Analyzer"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::math::scenario::Financial and Banking Calculator",
-      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## and ####### ############ ########### ########## and ####### ############ ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Financial and Banking Calculator\", \"scenario\": \"Financial and Banking Calculator\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "skills": [],
@@ -28,12 +37,21 @@
       "metadata": {
         "tool": "mathqa",
         "scenario": "Financial and Banking Calculator",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Financial and Banking Calculator",
+          "unified::math::scenario::Financial and Banking Calculator"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::math::scenario::Percentage and Proportion Solver",
-      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########### and ########## ######## ########### ########### and ########## ######## ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Percentage and Proportion Solver\", \"scenario\": \"Percentage and Proportion Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "skills": [],
@@ -42,12 +60,21 @@
       "metadata": {
         "tool": "mathqa",
         "scenario": "Percentage and Proportion Solver",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::math::scenario::Percentage and Proportion Solver",
+          "unified::math::scenario::Percentage and Proportion Solver",
+          "unified::math::scenario::Percentage and Proportion Solver"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::math::scenario::Geometry: Shapes and Measurement",
-      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## ###### and ############# ########### ########## ###### and ############# ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Geometry: Shapes and Measurement\", \"scenario\": \"Geometry: Shapes and Measurement\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "skills": [],
@@ -56,12 +83,21 @@
       "metadata": {
         "tool": "mathqa",
         "scenario": "Geometry: Shapes and Measurement",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Geometry: Shapes and Measurement",
+          "unified::math::scenario::Geometry: Shapes and Measurement"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::math::scenario::Algebraic Word Problem Solver",
-      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ########## #### ####### ######## ########### ########## #### ####### ######## ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"Algebraic Word Problem Solver\", \"scenario\": \"Algebraic Word Problem Solver\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "skills": [],
@@ -70,12 +106,21 @@
       "metadata": {
         "tool": "mathqa",
         "scenario": "Algebraic Word Problem Solver",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Algebraic Word Problem Solver",
+          "unified::math::scenario::Algebraic Word Problem Solver"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::math::scenario::General Logic and Counting",
-      "text": "######## ########### ###### ###### for math ## ########### ####### ######### ######### ######## ##### and ########## ########### ######## ##### and ########## ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for math QA scenarios\", \"tool\": \"mathqa\", \"domain\": \"General Logic and Counting\", \"scenario\": \"General Logic and Counting\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "skills": [],
@@ -84,12 +129,21 @@
       "metadata": {
         "tool": "mathqa",
         "scenario": "General Logic and Counting",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::General Logic and Counting",
+          "unified::math::scenario::General Logic and Counting"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
-      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ########### ##### ###### and ######### ######## ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Astronomy: Solar System and Celestial Bodies\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "visual_skills": [],
@@ -99,27 +153,21 @@
         "tool": "scienceqa",
         "scenario": "Astronomy: Solar System and Celestial Bodies",
         "domain": "science",
-        "difficulty": "medium"
-      }
-    },
-    {
-      "signature": "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
-      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######## and ######## ########## ####### ################# ############# #########",
-      "structured_payload": {
-        "type": "usage_scenario",
-        "visual_skills": [],
-        "textual_skills": []
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "scenario": "Biology: Genetics and Heredity Analyzer",
-        "domain": "science",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 3,
+        "cluster_member_signatures": [
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies",
+          "unified::science::scenario::Astronomy: Solar System and Celestial Bodies"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     },
     {
       "signature": "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
-      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######### and ############## ############# ####### ################# ############# #########",
+      "text": "{\"role\": \"structured system prompt for science QA scenarios\", \"tool\": \"scienceqa\", \"domain\": \"science\", \"scenario\": \"Biology: Ecosystem and Classification Interpreter\", \"type\": \"usage_scenario\", \"difficulty\": \"medium\"}",
       "structured_payload": {
         "type": "usage_scenario",
         "visual_skills": [],
@@ -129,22 +177,22 @@
         "tool": "scienceqa",
         "scenario": "Biology: Ecosystem and Classification Interpreter",
         "domain": "science",
-        "difficulty": "medium"
-      }
-    },
-    {
-      "signature": "unified::science::scenario::Physics: Mechanics and Forces Calculator",
-      "text": "######## ########### ###### ###### for ####### ## ########### ####### ############ ######### ########## ########### ######### ######### and ###### ############ ####### ################# ############# #########",
-      "structured_payload": {
-        "type": "usage_scenario",
-        "visual_skills": [],
-        "textual_skills": []
-      },
-      "metadata": {
-        "tool": "scienceqa",
-        "scenario": "Physics: Mechanics and Forces Calculator",
-        "domain": "science",
-        "difficulty": "medium"
+        "difficulty": "medium",
+        "source_id": "general-client-1",
+        "cluster_size": 9,
+        "cluster_member_signatures": [
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator",
+          "unified::science::scenario::Biology: Genetics and Heredity Analyzer",
+          "unified::science::scenario::Biology: Ecosystem and Classification Interpreter",
+          "unified::science::scenario::Physics: Mechanics and Forces Calculator"
+        ],
+        "cluster_similarity_threshold": 0.85,
+        "cluster_max_cosine_similarity": 1.0
       }
     }
   ]

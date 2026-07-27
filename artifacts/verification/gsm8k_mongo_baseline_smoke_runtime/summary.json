@@ -1,0 +1,22 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 5,
+  "seeds": [
+    1
+  ],
+  "scenario_mode": "runtime",
+  "mongo_uri_present": true,
+  "mongo_collection": "vectors",
+  "mean_answer_accuracy": 1.0,
+  "sd_answer_accuracy": 0.0,
+  "per_seed_answer_accuracy": {
+    "1": 1.0
+  },
+  "output_dir": "artifacts/verification/gsm8k_mongo_baseline_smoke_runtime",
+  "note": "Answer accuracy is computed via the Mongo-backed MathQATool path rather than the local-compendium-only verifier.",
+  "mean_routing_accuracy": 0.6,
+  "sd_routing_accuracy": 0.0,
+  "per_seed_routing_accuracy": {
+    "1": 0.6
+  }
+}

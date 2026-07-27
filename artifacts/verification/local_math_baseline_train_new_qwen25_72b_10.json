@@ -1,0 +1,173 @@
+{
+  "dataset": "train_new.json",
+  "limit": 10,
+  "rounds": 1,
+  "client_count": null,
+  "correct": 0,
+  "total": 10,
+  "accuracy": 0.0,
+  "misses": [
+    {
+      "index": 1,
+      "problem": "the banker ' s gain of a certain sum due 3 years hence at 10 % per annum is rs . 36 . what is the present worth ?",
+      "gold": "a",
+      "prediction": "to solve the problem, we need to understand the relationship between the banker's gain (bg), true discount (td), and present worth (pw). the banker's gain is the difference between the simple interest on the face value (fv) and the true discount (td).\n\ngiven:\n- banker's",
+      "correct": false,
+      "raw_output": "To solve the problem, we need to understand the relationship between the Banker's Gain (BG), True Discount (TD), and Present Worth (PW). The Banker's Gain is the difference between the Simple Interest on the face value (FV) and the True Discount (TD).\n\nGiven:\n- Banker's"
+    },
+    {
+      "index": 2,
+      "problem": "average age of students of an adult school is 40 years . 120 new students whose average age is 32 years joined the school . as a result the average age is decreased by 4 years . find the number of students of the school after joining of the new students .",
+      "gold": "d",
+      "prediction": "to solve this problem, we need to determine the original number of students in the adult school before the new students joined, and then calculate the total number of students after the new students joined.\n\nlet's denote:\n- \\( x \\) as the original number of students.\n- the average age of the original students is",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to determine the original number of students in the adult school before the new students joined, and then calculate the total number of students after the new students joined.\n\nLet's denote:\n- \\( x \\) as the original number of students.\n- The average age of the original students is"
+    },
+    {
+      "index": 3,
+      "problem": "sophia finished 2 / 3 of a book . she calculated that she finished 90 more pages than she has yet to read . how long is her book ?",
+      "gold": "b",
+      "prediction": "to solve this problem, we need to set up an equation based on the information given:\n\n1. let \\( x \\) be the total number of pages in the book.\n2. sophia finished \\( \\frac{2}{3} \\) of the book, so she has read \\( \\frac{2}{3",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to set up an equation based on the information given:\n\n1. Let \\( x \\) be the total number of pages in the book.\n2. Sophia finished \\( \\frac{2}{3} \\) of the book, so she has read \\( \\frac{2}{3"
+    },
+    {
+      "index": 4,
+      "problem": "120 is what percent of 50 ?",
+      "gold": "b",
+      "prediction": "to determine what percent 120 is of 50, we can set up the problem using the formula for percentage:\n\n\\[ \\text{percentage} = \\left( \\frac{\\text{part}}{\\text{whole}} \\right) \\times 100 \\]\n\nhere, the part is",
+      "correct": false,
+      "raw_output": "To determine what percent 120 is of 50, we can set up the problem using the formula for percentage:\n\n\\[ \\text{Percentage} = \\left( \\frac{\\text{Part}}{\\text{Whole}} \\right) \\times 100 \\]\n\nHere, the part is"
+    },
+    {
+      "index": 5,
+      "problem": "there are 10 girls and 20 boys in a classroom . what is the ratio of girls to boys ?",
+      "gold": "a",
+      "prediction": "to find the ratio of girls to boys in the classroom, we need to compare the number of girls to the number of boys directly. the problem states there are 10 girls and 20 boys.\n\nstep 1: write down the numbers.\n- number of girls: 10\n- number of boys",
+      "correct": false,
+      "raw_output": "To find the ratio of girls to boys in the classroom, we need to compare the number of girls to the number of boys directly. The problem states there are 10 girls and 20 boys.\n\nStep 1: Write down the numbers.\n- Number of girls: 10\n- Number of boys"
+    },
+    {
+      "index": 6,
+      "problem": "an empty fuel tank with a capacity of 218 gallons was filled partially with fuel a and then to capacity with fuel b . fuel a contains 12 % ethanol by volume and fuel b contains 16 % ethanol by volume . if the full fuel tank contains 30 gallons of ethanol , how many gallons of fuel a were added ?",
+      "gold": "a",
+      "prediction": "to solve this problem, we need to set up an equation based on the information given about the ethanol content in the fuels and the total amount of ethanol in the tank.\n\nlet \\( x \\) be the number of gallons of fuel a added to the tank. since the tank has a total capacity of 218",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to set up an equation based on the information given about the ethanol content in the fuels and the total amount of ethanol in the tank.\n\nLet \\( x \\) be the number of gallons of fuel A added to the tank. Since the tank has a total capacity of 218"
+    },
+    {
+      "index": 7,
+      "problem": "an article is bought for rs . 823 and sold for rs . 1000 , find the gain percent ?",
+      "gold": "b",
+      "prediction": "to find the gain percent, we can use the formula:\n\n\\[ \\text{gain percent} = \\left( \\frac{\\text{selling price} - \\text{cost price}}{\\text{cost price}} \\right) \\times 100 \\]\n\ngiven:\n- cost price (cp)",
+      "correct": false,
+      "raw_output": "To find the gain percent, we can use the formula:\n\n\\[ \\text{Gain Percent} = \\left( \\frac{\\text{Selling Price} - \\text{Cost Price}}{\\text{Cost Price}} \\right) \\times 100 \\]\n\nGiven:\n- Cost Price (CP)"
+    },
+    {
+      "index": 8,
+      "problem": "6 workers should finish a job in 8 days . after 3 days came 4 workers join them . how many days m do they need to finish the same job ?",
+      "gold": "a",
+      "prediction": "d",
+      "correct": false,
+      "raw_output": "To solve this problem, we will use the concept of work done, which is the product of the number of workers and the number of days they work. The total amount of work required to complete the job remains constant.\n\n1. **Determine the total work required:**\n   - 6 workers are supposed to finish"
+    },
+    {
+      "index": 9,
+      "problem": "j is 25 % less than p and 20 % less than t . t is q % less than p . what is the value of q ?",
+      "gold": "d",
+      "prediction": "e",
+      "correct": false,
+      "raw_output": "To solve the problem, we need to translate the given information into mathematical equations and then solve for the unknown \\( q \\).\n\n1. **Translate the given information into equations:**\n   - \\( j \\) is 25% less than \\( p \\):\n     \\[\n     j = p - 0."
+    },
+    {
+      "index": 10,
+      "problem": "a student was asked to find 4 / 5 of a number . but the student divided the number by 4 / 5 , thus the student got 36 more than the correct answer . find the number .",
+      "gold": "c",
+      "prediction": "to solve this problem, we need to set up an equation based on the information given:\n\n1. let \\( x \\) be the number.\n2. the correct operation should be finding \\( \\frac{4}{5} \\) of \\( x \\), which is \\( \\frac{4}{5}x \\",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to set up an equation based on the information given:\n\n1. Let \\( x \\) be the number.\n2. The correct operation should be finding \\( \\frac{4}{5} \\) of \\( x \\), which is \\( \\frac{4}{5}x \\"
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "problem": "the banker ' s gain of a certain sum due 3 years hence at 10 % per annum is rs . 36 . what is the present worth ?",
+      "gold": "a",
+      "prediction": "to solve the problem, we need to understand the relationship between the banker's gain (bg), true discount (td), and present worth (pw). the banker's gain is the difference between the simple interest on the face value (fv) and the true discount (td).\n\ngiven:\n- banker's",
+      "correct": false,
+      "raw_output": "To solve the problem, we need to understand the relationship between the Banker's Gain (BG), True Discount (TD), and Present Worth (PW). The Banker's Gain is the difference between the Simple Interest on the face value (FV) and the True Discount (TD).\n\nGiven:\n- Banker's"
+    },
+    {
+      "index": 2,
+      "problem": "average age of students of an adult school is 40 years . 120 new students whose average age is 32 years joined the school . as a result the average age is decreased by 4 years . find the number of students of the school after joining of the new students .",
+      "gold": "d",
+      "prediction": "to solve this problem, we need to determine the original number of students in the adult school before the new students joined, and then calculate the total number of students after the new students joined.\n\nlet's denote:\n- \\( x \\) as the original number of students.\n- the average age of the original students is",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to determine the original number of students in the adult school before the new students joined, and then calculate the total number of students after the new students joined.\n\nLet's denote:\n- \\( x \\) as the original number of students.\n- The average age of the original students is"
+    },
+    {
+      "index": 3,
+      "problem": "sophia finished 2 / 3 of a book . she calculated that she finished 90 more pages than she has yet to read . how long is her book ?",
+      "gold": "b",
+      "prediction": "to solve this problem, we need to set up an equation based on the information given:\n\n1. let \\( x \\) be the total number of pages in the book.\n2. sophia finished \\( \\frac{2}{3} \\) of the book, so she has read \\( \\frac{2}{3",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to set up an equation based on the information given:\n\n1. Let \\( x \\) be the total number of pages in the book.\n2. Sophia finished \\( \\frac{2}{3} \\) of the book, so she has read \\( \\frac{2}{3"
+    },
+    {
+      "index": 4,
+      "problem": "120 is what percent of 50 ?",
+      "gold": "b",
+      "prediction": "to determine what percent 120 is of 50, we can set up the problem using the formula for percentage:\n\n\\[ \\text{percentage} = \\left( \\frac{\\text{part}}{\\text{whole}} \\right) \\times 100 \\]\n\nhere, the part is",
+      "correct": false,
+      "raw_output": "To determine what percent 120 is of 50, we can set up the problem using the formula for percentage:\n\n\\[ \\text{Percentage} = \\left( \\frac{\\text{Part}}{\\text{Whole}} \\right) \\times 100 \\]\n\nHere, the part is"
+    },
+    {
+      "index": 5,
+      "problem": "there are 10 girls and 20 boys in a classroom . what is the ratio of girls to boys ?",
+      "gold": "a",
+      "prediction": "to find the ratio of girls to boys in the classroom, we need to compare the number of girls to the number of boys directly. the problem states there are 10 girls and 20 boys.\n\nstep 1: write down the numbers.\n- number of girls: 10\n- number of boys",
+      "correct": false,
+      "raw_output": "To find the ratio of girls to boys in the classroom, we need to compare the number of girls to the number of boys directly. The problem states there are 10 girls and 20 boys.\n\nStep 1: Write down the numbers.\n- Number of girls: 10\n- Number of boys"
+    },
+    {
+      "index": 6,
+      "problem": "an empty fuel tank with a capacity of 218 gallons was filled partially with fuel a and then to capacity with fuel b . fuel a contains 12 % ethanol by volume and fuel b contains 16 % ethanol by volume . if the full fuel tank contains 30 gallons of ethanol , how many gallons of fuel a were added ?",
+      "gold": "a",
+      "prediction": "to solve this problem, we need to set up an equation based on the information given about the ethanol content in the fuels and the total amount of ethanol in the tank.\n\nlet \\( x \\) be the number of gallons of fuel a added to the tank. since the tank has a total capacity of 218",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to set up an equation based on the information given about the ethanol content in the fuels and the total amount of ethanol in the tank.\n\nLet \\( x \\) be the number of gallons of fuel A added to the tank. Since the tank has a total capacity of 218"
+    },
+    {
+      "index": 7,
+      "problem": "an article is bought for rs . 823 and sold for rs . 1000 , find the gain percent ?",
+      "gold": "b",
+      "prediction": "to find the gain percent, we can use the formula:\n\n\\[ \\text{gain percent} = \\left( \\frac{\\text{selling price} - \\text{cost price}}{\\text{cost price}} \\right) \\times 100 \\]\n\ngiven:\n- cost price (cp)",
+      "correct": false,
+      "raw_output": "To find the gain percent, we can use the formula:\n\n\\[ \\text{Gain Percent} = \\left( \\frac{\\text{Selling Price} - \\text{Cost Price}}{\\text{Cost Price}} \\right) \\times 100 \\]\n\nGiven:\n- Cost Price (CP)"
+    },
+    {
+      "index": 8,
+      "problem": "6 workers should finish a job in 8 days . after 3 days came 4 workers join them . how many days m do they need to finish the same job ?",
+      "gold": "a",
+      "prediction": "d",
+      "correct": false,
+      "raw_output": "To solve this problem, we will use the concept of work done, which is the product of the number of workers and the number of days they work. The total amount of work required to complete the job remains constant.\n\n1. **Determine the total work required:**\n   - 6 workers are supposed to finish"
+    },
+    {
+      "index": 9,
+      "problem": "j is 25 % less than p and 20 % less than t . t is q % less than p . what is the value of q ?",
+      "gold": "d",
+      "prediction": "e",
+      "correct": false,
+      "raw_output": "To solve the problem, we need to translate the given information into mathematical equations and then solve for the unknown \\( q \\).\n\n1. **Translate the given information into equations:**\n   - \\( j \\) is 25% less than \\( p \\):\n     \\[\n     j = p - 0."
+    },
+    {
+      "index": 10,
+      "problem": "a student was asked to find 4 / 5 of a number . but the student divided the number by 4 / 5 , thus the student got 36 more than the correct answer . find the number .",
+      "gold": "c",
+      "prediction": "to solve this problem, we need to set up an equation based on the information given:\n\n1. let \\( x \\) be the number.\n2. the correct operation should be finding \\( \\frac{4}{5} \\) of \\( x \\), which is \\( \\frac{4}{5}x \\",
+      "correct": false,
+      "raw_output": "To solve this problem, we need to set up an equation based on the information given:\n\n1. Let \\( x \\) be the number.\n2. The correct operation should be finding \\( \\frac{4}{5} \\) of \\( x \\), which is \\( \\frac{4}{5}x \\"
+    }
+  ]
+}

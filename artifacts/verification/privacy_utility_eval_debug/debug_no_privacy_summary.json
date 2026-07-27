@@ -1,0 +1,26 @@
+{
+  "label": "debug_no_privacy",
+  "dataset": "train_new.json",
+  "sample_count": 20,
+  "rounds": 1,
+  "client_count": null,
+  "epsilon": null,
+  "lambda_scale": null,
+  "seeds": [
+    1
+  ],
+  "mean_accuracy": 0.6,
+  "sd_accuracy": 0.0,
+  "mean_auroc": 1.0,
+  "mean_pct_clients_lt_point1": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.6
+  },
+  "per_seed_auroc": {
+    "1": 1.0
+  },
+  "per_seed_pct_clients_lt_point1": {
+    "1": 0.0
+  },
+  "output_dir": "artifacts/verification/privacy_utility_eval_debug"
+}

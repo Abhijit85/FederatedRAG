@@ -1,0 +1,67 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "evolution": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_compendium_evolution.json",
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rounds": 1,
+  "client_count": 5,
+  "max_items": 5,
+  "runtime_include_training_artifacts": false,
+  "runtime_training_sample_limit": 0,
+  "runtime_included_tools": "mathqa",
+  "runtime_label_selector": "historical_cv_svm",
+  "runtime_synapse_label_selector": "historical_cv_svm_diverse",
+  "runtime_centralized_label_selector": "historical_cv_svm_diverse_provenance",
+  "runtime_training_shard_mode": "",
+  "synapse_arm": "runtime_federated",
+  "centralized_arm": "runtime_centralized_direct_sourcecap2",
+  "paper_labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry: Shapes and Measurement",
+    "Percentage and Proportion Solver",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "synapse": {
+    "mean_accuracy": 0.9279999999999999,
+    "sd_accuracy": 0.013038404810405258,
+    "per_seed_accuracy": {
+      "1": 0.92,
+      "2": 0.93,
+      "3": 0.94,
+      "4": 0.91,
+      "5": 0.94
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.9279999999999999,
+    "sd_accuracy": 0.013038404810405258,
+    "per_seed_accuracy": {
+      "1": 0.92,
+      "2": 0.93,
+      "3": 0.94,
+      "4": 0.91,
+      "5": 0.94
+    }
+  },
+  "paired": {
+    "mean_diff": 0.0,
+    "sd_diff": 0.0,
+    "se_diff": 0.0,
+    "t_value": 0.0
+  },
+  "artifacts": {
+    "synapse_seed_csv": "artifacts/verification/table27_strict_compare_run25_sourcecap2_provenance_w15/synapse_seed_values.csv",
+    "centralized_seed_csv": "artifacts/verification/table27_strict_compare_run25_sourcecap2_provenance_w15/centralized_seed_values.csv"
+  },
+  "note": "Strict paired comparator over shared seeded subsets. Runtime arms use the current repository runtime; historical arms reuse the preserved six-scenario paper-time reconstruction assets."
+}

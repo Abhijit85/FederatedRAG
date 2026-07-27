@@ -1,0 +1,27 @@
+{
+  "runner_defaults": {
+    "aggregate_method": "summarization",
+    "batch_size": 3,
+    "max_steps": 3,
+    "rounds": 1
+  },
+  "bbh_v3_central_records": [
+    {
+      "timestamp": "2025-11-09T10:35:37.375409Z",
+      "benchmark": "bbh_object_counting_eval_v3.json",
+      "accuracy": 0.98,
+      "correct": 49,
+      "total": 50
+    },
+    {
+      "timestamp": "2025-11-14T05:43:05.836879Z",
+      "benchmark": "bbh_object_counting_eval_v3.json",
+      "accuracy": 0.92,
+      "correct": 46,
+      "total": 50
+    }
+  ],
+  "exact_0901_in_textgrad_log": false,
+  "exact_092_in_textgrad_log": true,
+  "exact_0901_in_expected_ranges": true
+}

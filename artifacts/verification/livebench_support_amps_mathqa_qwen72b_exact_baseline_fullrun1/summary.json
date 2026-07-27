@@ -1,0 +1,19 @@
+{
+  "baseline_model": "qwen2.5-72b-local",
+  "strong_model": "qwen2.5-72b-local",
+  "tasks": [
+    "math:AMPS_Hard"
+  ],
+  "limit_per_task": 150,
+  "seed": 0,
+  "runs": [
+    {
+      "task": "math:AMPS_Hard",
+      "arm": "baseline",
+      "accuracy": 0.49333333333333335,
+      "sample_count": 150,
+      "correct": 74
+    }
+  ],
+  "note": "This is a scoped support comparison on the current repository and prompt setup. It is not a claim that the baseline reproduces historical Table 20 values exactly."
+}

@@ -174,19 +174,24 @@ class LiveBenchReasoning(Dataset):
         """
         LiveBench dataset with math from HF."""
         dataset = load_dataset("livebench/reasoning")['test']
-        train_test_split = dataset.train_test_split(test_size=1-train_ratio)
 
         if task is not None:
             dataset = dataset.filter(lambda item: item["task"] == task)
 
-        # Access the train and test sets
-        train_dataset = train_test_split['train']
-        test_dataset = train_test_split['test']
+        if split == "test":
+            train_dataset = dataset
+            val_dataset = dataset
+            test_dataset = dataset
+        else:
+            train_test_split = dataset.train_test_split(test_size=1-train_ratio)
 
-        valid_size = int(len(train_dataset) * (1-val_split_ratio))
-        train_val_split = train_dataset.train_test_split(test_size=1-train_ratio)
-        train_dataset = train_val_split['train']
-        val_dataset = train_val_split['test']
+            # Access the train and test sets
+            train_dataset = train_test_split['train']
+            test_dataset = train_test_split['test']
+
+            train_val_split = train_dataset.train_test_split(test_size=1-train_ratio)
+            train_dataset = train_val_split['train']
+            val_dataset = train_val_split['test']
 
 
         if root is None:

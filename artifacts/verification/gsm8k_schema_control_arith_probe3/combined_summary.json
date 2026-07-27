@@ -1,0 +1,39 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 6,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1
+  ],
+  "conditions": [
+    {
+      "condition": "full",
+      "structured_payload_mode": "typed",
+      "sample_count": 6,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1
+      ],
+      "completed_routing_seeds": [
+        1
+      ],
+      "completed_answer_seeds": [
+        1
+      ],
+      "mean_routing_accuracy": 0.6666666666666666,
+      "sd_routing_accuracy": 0.0,
+      "mean_answer_accuracy": 1.0,
+      "sd_answer_accuracy": 0.0,
+      "per_seed_routing_accuracy": {
+        "1": 0.6666666666666666
+      },
+      "per_seed_answer_accuracy": {
+        "1": 1.0
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_arith_probe3/full"
+    }
+  ],
+  "note": "This run uses the reconstructed paper-like retrieval profile: training examples disabled, scenario artifacts prioritized, and schema ablations applied over the emitted structured payload."
+}

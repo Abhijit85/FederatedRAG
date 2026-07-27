@@ -1,0 +1,155 @@
+{
+  "condition": "flat",
+  "seed": 2,
+  "conflict_rate": 20,
+  "sample_count": 14,
+  "correct": 11,
+  "accuracy": 0.7857142857142857,
+  "cluster_count": 14,
+  "conflict_count": 3,
+  "conflicts": [
+    {
+      "target_scenario": "Financial and Banking Calculator",
+      "contradictory_scenario": "General Logic and Counting",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "Percentage and Proportion Solver",
+      "contradictory_scenario": "General Logic and Counting",
+      "tool": "mathqa"
+    },
+    {
+      "target_scenario": "General Science: Visual Property Identifier",
+      "contradictory_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "tool": "scienceqa"
+    }
+  ],
+  "rows": [
+    {
+      "query": "Find the mathqa usage scenario focused on financial banking. Return the scenario whose specialization best matches financial banking. This is a usage_scenario prompt.",
+      "target_scenario": "Financial and Banking Calculator",
+      "predicted_scenario": "Financial and Banking Calculator",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Financial and Banking Calculator",
+      "top_cluster_size": 2,
+      "top_score": 1.0333333333333332
+    },
+    {
+      "query": "Find the mathqa usage scenario focused on percentage proportion. Return the scenario whose specialization best matches percentage proportion. This is a usage_scenario prompt.",
+      "target_scenario": "Percentage and Proportion Solver",
+      "predicted_scenario": "Percentage and Proportion Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Percentage and Proportion Solver",
+      "top_cluster_size": 2,
+      "top_score": 1.0333333333333332
+    },
+    {
+      "query": "Find the mathqa usage scenario focused on geometry shapes measurement. Return the scenario whose specialization best matches geometry shapes measurement. This is a usage_scenario prompt.",
+      "target_scenario": "Geometry: Shapes and Measurement",
+      "predicted_scenario": "Geometry: Shapes and Measurement",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Geometry: Shapes and Measurement",
+      "top_cluster_size": 1,
+      "top_score": 1.758333333333333
+    },
+    {
+      "query": "Find the mathqa usage scenario focused on algebraic word problem. Return the scenario whose specialization best matches algebraic word problem. This is a usage_scenario prompt.",
+      "target_scenario": "Algebraic Word Problem Solver",
+      "predicted_scenario": "Algebraic Word Problem Solver",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Algebraic Word Problem Solver",
+      "top_cluster_size": 1,
+      "top_score": 1.758333333333333
+    },
+    {
+      "query": "Find the mathqa usage scenario focused on work rate time. Return the scenario whose specialization best matches work rate time. This is a usage_scenario prompt.",
+      "target_scenario": "Work, Rate, and Time Analyzer",
+      "predicted_scenario": "Work, Rate, and Time Analyzer",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::Work, Rate, and Time Analyzer",
+      "top_cluster_size": 1,
+      "top_score": 1.7399999999999998
+    },
+    {
+      "query": "Find the mathqa usage scenario focused on logic counting. Return the scenario whose specialization best matches logic counting. This is a usage_scenario prompt.",
+      "target_scenario": "General Logic and Counting",
+      "predicted_scenario": "General Logic and Counting",
+      "correct": true,
+      "top_signature": "client_clean::mathqa::General Logic and Counting",
+      "top_cluster_size": 1,
+      "top_score": 1.4749999999999999
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on biology genetics heredity. Return the scenario whose specialization best matches biology genetics heredity. This is a usage_scenario prompt.",
+      "target_scenario": "Biology: Genetics and Heredity Analyzer",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 2,
+      "top_score": 2.6500000000000004
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on biology ecosystem classification. Return the scenario whose specialization best matches biology ecosystem classification. This is a usage_scenario prompt.",
+      "target_scenario": "Biology: Ecosystem and Classification Interpreter",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 2,
+      "top_score": 3.1928571428571435
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on physics mechanics forces. Return the scenario whose specialization best matches physics mechanics forces. This is a usage_scenario prompt.",
+      "target_scenario": "Physics: Mechanics and Forces Calculator",
+      "predicted_scenario": "Physics: Mechanics and Forces Calculator",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Physics: Mechanics and Forces Calculator",
+      "top_cluster_size": 1,
+      "top_score": 2.4574074074074077
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on scientific method experiment analysis. Return the scenario whose specialization best matches scientific method experiment analysis. This is a usage_scenario prompt.",
+      "target_scenario": "Scientific Method and Experiment Analysis",
+      "predicted_scenario": "Scientific Method and Experiment Analysis",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Scientific Method and Experiment Analysis",
+      "top_cluster_size": 1,
+      "top_score": 2.731481481481482
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on earth geosystems. Return the scenario whose specialization best matches earth geosystems. This is a usage_scenario prompt.",
+      "target_scenario": "Earth Science: Geosystems Interpreter",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": false,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 2,
+      "top_score": 2.378571428571429
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on astronomy solar system celestial. Return the scenario whose specialization best matches astronomy solar system celestial. This is a usage_scenario prompt.",
+      "target_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "predicted_scenario": "Astronomy: Solar System and Celestial Bodies",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Astronomy: Solar System and Celestial Bodies",
+      "top_cluster_size": 1,
+      "top_score": 2.714285714285715
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on geography geospatial data. Return the scenario whose specialization best matches geography geospatial data. This is a usage_scenario prompt.",
+      "target_scenario": "Geography: Geospatial Data Interpreter",
+      "predicted_scenario": "Geography: Geospatial Data Interpreter",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::Geography: Geospatial Data Interpreter",
+      "top_cluster_size": 1,
+      "top_score": 2.4730769230769236
+    },
+    {
+      "query": "Find the scienceqa usage scenario focused on visual property. Return the scenario whose specialization best matches visual property. This is a usage_scenario prompt.",
+      "target_scenario": "General Science: Visual Property Identifier",
+      "predicted_scenario": "General Science: Visual Property Identifier",
+      "correct": true,
+      "top_signature": "client_clean::scienceqa::General Science: Visual Property Identifier",
+      "top_cluster_size": 2,
+      "top_score": 2.5214285714285714
+    }
+  ]
+}

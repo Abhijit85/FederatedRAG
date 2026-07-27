@@ -1,0 +1,115 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "conditions": [
+    {
+      "condition": "full",
+      "structured_payload_mode": "typed",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_routing_accuracy": 0.264,
+      "sd_routing_accuracy": 0.032863353450309975,
+      "mean_answer_accuracy": 0.648,
+      "sd_answer_accuracy": 0.05215361924162116,
+      "per_seed_routing_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.24,
+        "5": 0.32
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.66,
+        "2": 0.66,
+        "3": 0.56,
+        "4": 0.7,
+        "5": 0.66
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_run1/full"
+    },
+    {
+      "condition": "untyped",
+      "structured_payload_mode": "untyped",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_routing_accuracy": 0.264,
+      "sd_routing_accuracy": 0.032863353450309975,
+      "mean_answer_accuracy": 0.64,
+      "sd_answer_accuracy": 0.037416573867739444,
+      "per_seed_routing_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.24,
+        "5": 0.32
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.68,
+        "2": 0.62,
+        "3": 0.62,
+        "4": 0.6,
+        "5": 0.68
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_run1/untyped"
+    },
+    {
+      "condition": "no_payload",
+      "structured_payload_mode": "disabled",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_routing_accuracy": 0.264,
+      "sd_routing_accuracy": 0.032863353450309975,
+      "mean_answer_accuracy": 0.6799999999999999,
+      "sd_answer_accuracy": 0.03999999999999998,
+      "per_seed_routing_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.24,
+        "5": 0.32
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.7,
+        "2": 0.66,
+        "3": 0.64,
+        "4": 0.66,
+        "5": 0.74
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_run1/no_payload"
+    }
+  ],
+  "note": "This branch does not implement the paper's merge_up or drop_annex ablations. It only supports full/untyped/no_payload controls over the emitted structured payload."
+}

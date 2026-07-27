@@ -1,0 +1,33 @@
+{
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "record_count": 499,
+  "labels": [
+    "Algebraic Word Problem Solver",
+    "Financial and Banking Calculator",
+    "General Logic and Counting",
+    "Geometry and Measurement",
+    "Work, Rate, and Time Analyzer"
+  ],
+  "n_splits": 5,
+  "random_state": 0,
+  "sample_count": 50,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "mean_accuracy": 0.78,
+  "sd_accuracy": 0.07745966692414832,
+  "per_seed_accuracy": {
+    "1": 0.86,
+    "2": 0.72,
+    "3": 0.8,
+    "4": 0.84,
+    "5": 0.68
+  },
+  "model_out": "artifacts/verification/gsm8k_learned_router_run1/learned_router.joblib",
+  "output_dir": "artifacts/verification/gsm8k_learned_router_run1",
+  "note": "This is a replacement learned router trained on the April 3, 2026 GSM8K routing corpus. Seeded accuracies are computed from out-of-fold predictions to avoid train/test leakage."
+}

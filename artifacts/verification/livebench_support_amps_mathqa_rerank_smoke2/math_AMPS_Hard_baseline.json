@@ -1,0 +1,53 @@
+{
+  "task": "math:AMPS_Hard",
+  "model": "meta-llama/llama-3.1-8b-instruct",
+  "sample_count": 5,
+  "correct": 1,
+  "accuracy": 0.2,
+  "rows": [
+    {
+      "index": 10,
+      "question": "Question: ['Compute the sample standard deviation of ${1, -21, -21, -18, 8}$. Please give an exact answer, and put your final answer in latex in a $\\\\boxed{}$ (for example, $\\\\boxed{\\\\frac{2\\\\sqrt{2}}{7}}$).']\n",
+      "gold_answer": "\\sqrt{\\frac{1877}{10}}",
+      "prediction": "\\boxed{12.83}",
+      "raw_prediction": "Final Answer: $\\boxed{12.83}$",
+      "correct": false
+    },
+    {
+      "index": 66,
+      "question": "Question: ['Factor the following quadratic: $2 x^2+\\\\frac{104 x}{3}-\\\\frac{320}{3}$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "-2 (-x-20) \\left(x-\\frac{8}{3}\\right)",
+      "prediction": "\\boxed{(6x - 16)(x + 20)}",
+      "raw_prediction": "Final Answer: $\\boxed{(6x - 16)(x + 20)}$",
+      "correct": false
+    },
+    {
+      "index": 98,
+      "question": "Question: ['Compute the geometric mean of ${-1331, 10, 1771561, 4096, 64, 6}$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "88 \\sqrt[6]{-15} \\sqrt[3]{2} \\sqrt{11}",
+      "prediction": "\\boxed{262}",
+      "raw_prediction": "Final Answer: $\\boxed{262}$",
+      "correct": false
+    },
+    {
+      "index": 107,
+      "question": "Question: ['Compute the sample standard deviation of ${22, -7}$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "\\frac{29}{\\sqrt{2}}",
+      "prediction": "\\boxed{21.6}",
+      "raw_prediction": "Final Answer: $\\boxed{21.6}$",
+      "correct": false
+    },
+    {
+      "index": 130,
+      "question": "Question: ['Find the determinant of the matrix\\\\n$\\\\left(\\\\n\\\\begin{array}{cc}\\\\n 0 & -4 \\\\\\\\\\\\n 0 & 3 \\\\\\\\\\\\n\\\\end{array}\\\\n\\\\right)$. Please put your final answer in a $\\\\\\\\boxed{}$.']\n",
+      "gold_answer": "0",
+      "prediction": "Final Answer: \\boxed{0}",
+      "raw_prediction": "Final Answer: \\boxed{0}",
+      "correct": true
+    }
+  ],
+  "backend": "mathqa",
+  "reranker_model": null,
+  "local_model_path": null,
+  "arm": "baseline"
+}

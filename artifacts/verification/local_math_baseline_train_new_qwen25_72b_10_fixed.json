@@ -1,0 +1,109 @@
+{
+  "dataset": "train_new.json",
+  "limit": 10,
+  "rounds": 1,
+  "client_count": null,
+  "correct": 8,
+  "total": 10,
+  "accuracy": 0.8,
+  "misses": [
+    {
+      "index": 1,
+      "problem": "the banker ' s gain of a certain sum due 3 years hence at 10 % per annum is rs . 36 . what is the present worth ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false,
+      "raw_output": "Final Answer: b"
+    },
+    {
+      "index": 8,
+      "problem": "6 workers should finish a job in 8 days . after 3 days came 4 workers join them . how many days m do they need to finish the same job ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false,
+      "raw_output": "Final Answer: b"
+    }
+  ],
+  "rows": [
+    {
+      "index": 1,
+      "problem": "the banker ' s gain of a certain sum due 3 years hence at 10 % per annum is rs . 36 . what is the present worth ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false,
+      "raw_output": "Final Answer: b"
+    },
+    {
+      "index": 2,
+      "problem": "average age of students of an adult school is 40 years . 120 new students whose average age is 32 years joined the school . as a result the average age is decreased by 4 years . find the number of students of the school after joining of the new students .",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true,
+      "raw_output": "Final Answer: d"
+    },
+    {
+      "index": 3,
+      "problem": "sophia finished 2 / 3 of a book . she calculated that she finished 90 more pages than she has yet to read . how long is her book ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true,
+      "raw_output": "Final Answer: b"
+    },
+    {
+      "index": 4,
+      "problem": "120 is what percent of 50 ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true,
+      "raw_output": "Final Answer: b"
+    },
+    {
+      "index": 5,
+      "problem": "there are 10 girls and 20 boys in a classroom . what is the ratio of girls to boys ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true,
+      "raw_output": "Final Answer: a"
+    },
+    {
+      "index": 6,
+      "problem": "an empty fuel tank with a capacity of 218 gallons was filled partially with fuel a and then to capacity with fuel b . fuel a contains 12 % ethanol by volume and fuel b contains 16 % ethanol by volume . if the full fuel tank contains 30 gallons of ethanol , how many gallons of fuel a were added ?",
+      "gold": "a",
+      "prediction": "a",
+      "correct": true,
+      "raw_output": "Final Answer: a"
+    },
+    {
+      "index": 7,
+      "problem": "an article is bought for rs . 823 and sold for rs . 1000 , find the gain percent ?",
+      "gold": "b",
+      "prediction": "b",
+      "correct": true,
+      "raw_output": "Final Answer: b"
+    },
+    {
+      "index": 8,
+      "problem": "6 workers should finish a job in 8 days . after 3 days came 4 workers join them . how many days m do they need to finish the same job ?",
+      "gold": "a",
+      "prediction": "b",
+      "correct": false,
+      "raw_output": "Final Answer: b"
+    },
+    {
+      "index": 9,
+      "problem": "j is 25 % less than p and 20 % less than t . t is q % less than p . what is the value of q ?",
+      "gold": "d",
+      "prediction": "d",
+      "correct": true,
+      "raw_output": "Final Answer: d"
+    },
+    {
+      "index": 10,
+      "problem": "a student was asked to find 4 / 5 of a number . but the student divided the number by 4 / 5 , thus the student got 36 more than the correct answer . find the number .",
+      "gold": "c",
+      "prediction": "c",
+      "correct": true,
+      "raw_output": "Final Answer: c"
+    }
+  ]
+}

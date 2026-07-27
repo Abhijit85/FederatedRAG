@@ -12,7 +12,7 @@ if not get_available_api_keys(allow_empty=True) and not (
     os.environ.get("LAMBDA_API_KEY") or os.environ.get("LAMDA_API_KEY")
 ):
     raise ValueError("At least one API_KEY environment variable must be set.")
-MODEL = os.environ.get("EVAL_MODEL", "llama3.1-8b-instruct")
+MODEL = os.environ.get("EVAL_MODEL", "meta-llama/llama-3.1-8b-instruct")
 
 # -------------- PYDANTIC MODEL FOR TOOL USAGE LOGGING --------------
 class ToolUsageExample(BaseModel):

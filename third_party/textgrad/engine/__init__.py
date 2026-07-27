@@ -54,6 +54,10 @@ def get_engine(engine_name: str, **kwargs) -> EngineLM:
     elif engine_name.startswith("meta-llama/"):
         from .textgrad_openai import ChatOpenAI
         return ChatOpenAI(model_string=engine_name, **kwargs)
+    elif engine_name.startswith("hf-local::"):
+        from .hf_local import ChatHuggingFaceLocal
+        model_string = engine_name.split("::", 1)[1]
+        return ChatHuggingFaceLocal(model_string=model_string, **kwargs)
     elif engine_name in {"offline-mock", "mock-local"}:
         from .offline import OfflineMockEngine
         return OfflineMockEngine(model_string=engine_name, **kwargs)

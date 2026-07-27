@@ -1,0 +1,72 @@
+{
+  "generated_on": "2026-07-23T15:47:06-07:00",
+  "head": "72c676403f9e877914142f0824a16545d1b317e7",
+  "refs_checked": [
+    "main",
+    "origin/Final-Repo",
+    "origin",
+    "origin/SyNAPSE",
+    "origin/SynapseLora",
+    "origin/gemini",
+    "origin/gsm8k-500-rebuttal-run",
+    "origin/main",
+    "origin/my-math-branch",
+    "origin/synapse-TextGrad"
+  ],
+  "targets": [
+    {
+      "claim": "Per-field clipping before DP noise",
+      "path": "synapse/privacy/policies.py",
+      "current_required_hits": [],
+      "current_support_hits": [],
+      "current_disconfirming_hits": [],
+      "history_commits": [
+        {
+          "commit": "265992735d0e9ff68b9a4ab20be35d559d9b00e4",
+          "subject": "Add multi-step arithmetic benchmark dataset for evaluation"
+        },
+        {
+          "commit": "06b18f6b6e22f21694dc7e604d7f241d11f266a9",
+          "subject": "Add differential privacy support and update privacy policy handling"
+        },
+        {
+          "commit": "147bb1029185c6426f68031d0740bedd736f6d52",
+          "subject": "Refactor privacy policy handling and remove unused components"
+        },
+        {
+          "commit": "3330b563b26fc900240fece7c42b4b1c21782a8b",
+          "subject": "First cimmit"
+        }
+      ],
+      "matching_revisions": [],
+      "supports_claim_in_reachable_history": false
+    },
+    {
+      "claim": "Cosine-based clustering / conflict logging in the edge aggregator",
+      "path": "synapse/edge/aggregator.py",
+      "current_required_hits": [
+        "cluster"
+      ],
+      "current_support_hits": [],
+      "current_disconfirming_hits": [
+        "future versions will incorporate semantic similarity checks"
+      ],
+      "history_commits": [
+        {
+          "commit": "7087aafcdfaeb85258662679d9f4c140626968aa",
+          "subject": "First textgrad committ"
+        },
+        {
+          "commit": "147bb1029185c6426f68031d0740bedd736f6d52",
+          "subject": "Refactor privacy policy handling and remove unused components"
+        },
+        {
+          "commit": "3330b563b26fc900240fece7c42b4b1c21782a8b",
+          "subject": "First cimmit"
+        }
+      ],
+      "matching_revisions": [],
+      "supports_claim_in_reachable_history": false
+    }
+  ]
+}

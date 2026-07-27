@@ -1,0 +1,71 @@
+{
+  "baseline_model": "meta-llama/llama-3.1-8b-instruct",
+  "strong_model": "meta-llama/llama-3.3-70b-instruct",
+  "tasks": [
+    "reasoning:spatial",
+    "reasoning:web_of_lies_v2",
+    "reasoning:zebra_puzzle",
+    "math:AMPS_Hard"
+  ],
+  "limit_per_task": 20,
+  "seed": 0,
+  "runs": [
+    {
+      "task": "reasoning:spatial",
+      "arm": "baseline",
+      "accuracy": 0.05,
+      "sample_count": 20,
+      "correct": 1
+    },
+    {
+      "task": "reasoning:spatial",
+      "arm": "strong",
+      "accuracy": 0.15,
+      "sample_count": 20,
+      "correct": 3
+    },
+    {
+      "task": "reasoning:web_of_lies_v2",
+      "arm": "baseline",
+      "accuracy": 0.05,
+      "sample_count": 20,
+      "correct": 1
+    },
+    {
+      "task": "reasoning:web_of_lies_v2",
+      "arm": "strong",
+      "accuracy": 0.2,
+      "sample_count": 20,
+      "correct": 4
+    },
+    {
+      "task": "reasoning:zebra_puzzle",
+      "arm": "baseline",
+      "accuracy": 0.1,
+      "sample_count": 20,
+      "correct": 2
+    },
+    {
+      "task": "reasoning:zebra_puzzle",
+      "arm": "strong",
+      "accuracy": 0.0,
+      "sample_count": 20,
+      "correct": 0
+    },
+    {
+      "task": "math:AMPS_Hard",
+      "arm": "baseline",
+      "accuracy": 0.1,
+      "sample_count": 20,
+      "correct": 2
+    },
+    {
+      "task": "math:AMPS_Hard",
+      "arm": "strong",
+      "accuracy": 0.15,
+      "sample_count": 20,
+      "correct": 3
+    }
+  ],
+  "note": "This is a scoped support comparison on the current repository and prompt setup. It is not a claim that the baseline reproduces historical Table 20 values exactly."
+}
