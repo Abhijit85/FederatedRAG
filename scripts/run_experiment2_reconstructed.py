@@ -209,6 +209,21 @@ def base_artifact(record: ScenarioRecord, source_id: str) -> Artifact:
         payload=dict(record.payload),
     )
 
+
+def artifact_for_condition(record: ScenarioRecord, source_id: str, condition: str) -> Artifact:
+    metadata = dict(record.metadata)
+    metadata["source_id"] = source_id
+    payload = dict(record.payload)
+    if condition == "untyped":
+        payload.pop("type", None)
+    text = structured_prompt(metadata, payload, record.role) + f" | focus: {payload.get('focus_text', '')}"
+    return Artifact(
+        signature=f"{source_id}::{record.tool}::{record.scenario}",
+        text=text,
+        metadata=metadata,
+        payload=payload,
+    )
+
 def blend_focus_terms(correct: list[str], wrong: list[str], corruption_level: float) -> list[str]:
     if not correct:
         return list(wrong)
@@ -366,9 +381,14 @@ def merge_cluster(cluster: list[Artifact], condition: str) -> MergedArtifact:
         payload = dict(rep.payload) if rep.payload else None
         if condition == "untyped" and payload:
             payload.pop("type", None)
+        text_payload = dict(payload) if payload else {}
+        text = structured_prompt(dict(rep.metadata), text_payload, "structured system prompt")
+        focus_text = text_payload.get("focus_text")
+        if isinstance(focus_text, str) and focus_text.strip():
+            text += f" | focus: {focus_text}"
         return MergedArtifact(
             signature=rep.signature,
-            text=rep.text,
+            text=text,
             metadata=dict(rep.metadata),
             payload=payload,
             members=list(cluster),
@@ -464,7 +484,7 @@ def build_condition_artifacts(
     conflict_rows: list[dict[str, Any]] = []
 
     for idx, record in enumerate(records):
-        artifacts.append(base_artifact(record, source_id="client_clean"))
+        artifacts.append(artifact_for_condition(record, source_id="client_clean", condition=condition))
         if idx not in conflicted:
             continue
         candidate_indices = [j for j in range(len(records)) if j != idx and records[j].tool == record.tool]

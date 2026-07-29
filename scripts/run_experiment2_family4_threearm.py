@@ -13,18 +13,19 @@ import json
 from pathlib import Path
 
 from run_experiment2_family4 import (
-    build_records,
-    build_queries,
-    build_neighbors,
+    CALIBRATION,
+    MergedArtifact,
+    answer_field_hit,
+    artifact_text,
     build_condition_artifacts,
+    build_neighbors,
+    build_queries,
+    build_records,
     cluster_artifacts,
     merge_cluster,
-    typed_surface,
-    retrieval_score,
-    answer_field_hit,
     predicted_label,
-    MergedArtifact,
-    CALIBRATION,
+    retrieval_score,
+    typed_surface,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -57,13 +58,57 @@ def resolve_full(cluster: MergedArtifact, query_case):
     return typed_surface(cluster, query_case)
 
 
-def resolve_structured_untyped(cluster: MergedArtifact, query_case):
-    # Keep structured fields, but surface the member that wins under generic weights.
-    best_member = max(
-        cluster.members,
-        key=lambda member: retrieval_score(query_case, _member_surface(member, cluster), "flat"),
+def _last_write_structured_merge(cluster: MergedArtifact) -> MergedArtifact:
+    """Preserve the same structured fields, but merge them generically.
+
+    This is the matched structured-but-untyped control: no field is dropped, but the
+    dispatch no longer uses type-aware representative selection. Conflicted members
+    can overwrite decisive/exemplar/supportive fields through generic last-write
+    behavior, while the field layout itself stays intact.
+    """
+    rep = max(cluster.members, key=lambda member: (len(member.text), len(member.payload)))
+    payload = dict(rep.payload)
+    metadata = dict(rep.metadata)
+
+    decisive_votes: list[str] = []
+    exemplar_votes: list[str] = []
+    supportive: list[str] = []
+    contexts: list[str] = []
+
+    for member in cluster.members:
+        cue = member.payload.get("decisive_cue")
+        if isinstance(cue, str) and cue:
+            decisive_votes.append(cue)
+        example = member.payload.get("exemplar")
+        if isinstance(example, str) and example:
+            exemplar_votes.append(example)
+        context = member.payload.get("context")
+        if isinstance(context, str) and context:
+            contexts.append(context)
+        for token in member.payload.get("supportive_cues", []):
+            if isinstance(token, str) and token not in supportive:
+                supportive.append(token)
+
+    if decisive_votes:
+        payload["decisive_cue"] = decisive_votes[-1]
+    if exemplar_votes:
+        payload["exemplar"] = exemplar_votes[-1]
+    if supportive:
+        payload["supportive_cues"] = supportive[:3]
+    if contexts:
+        payload["context"] = contexts[-1]
+
+    return MergedArtifact(
+        rep.signature,
+        artifact_text(payload),
+        metadata,
+        payload,
+        list(cluster.members),
     )
-    return _member_surface(best_member, cluster)
+
+
+def resolve_structured_untyped(cluster: MergedArtifact, query_case):
+    return _last_write_structured_merge(cluster)
 
 
 def resolve_typed_generic(cluster: MergedArtifact, query_case):
@@ -98,7 +143,7 @@ def evaluate_arm(records, queries, neighbors, rate: int, seed: int, arm: str) ->
     for query_case in queries:
         ranked = sorted(
             merged,
-            key=lambda cluster: retrieval_score(query_case, resolver(cluster, query_case), "typed" if arm != "structured_untyped" else "flat"),
+            key=lambda cluster: retrieval_score(query_case, resolver(cluster, query_case), "typed"),
             reverse=True,
         )
         top = resolver(ranked[0], query_case)
@@ -115,7 +160,7 @@ def evaluate_arm(records, queries, neighbors, rate: int, seed: int, arm: str) ->
             "correct": hit,
             "top_signature": top.signature,
             "top_cluster_size": len(top.members),
-            "top_score": retrieval_score(query_case, top, "typed" if arm != "structured_untyped" else "flat"),
+            "top_score": retrieval_score(query_case, top, "typed"),
         })
     accuracy = correct / len(queries) if queries else 0.0
     return {

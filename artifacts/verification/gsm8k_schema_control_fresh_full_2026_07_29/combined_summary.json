@@ -1,0 +1,110 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "conditions": [
+    {
+      "condition": "full",
+      "structured_payload_mode": "typed",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_routing_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_answer_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_routing_accuracy": 0.9400000000000001,
+      "sd_routing_accuracy": 0.034641016151377525,
+      "mean_answer_accuracy": 0.64,
+      "sd_answer_accuracy": 0.028284271247461926,
+      "per_seed_routing_accuracy": {
+        "1": 0.92,
+        "2": 0.92,
+        "3": 1.0,
+        "4": 0.92,
+        "5": 0.94
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.68,
+        "2": 0.64,
+        "3": 0.64,
+        "4": 0.6,
+        "5": 0.64
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_fresh_full_2026_07_29/full"
+    },
+    {
+      "condition": "untyped",
+      "structured_payload_mode": "untyped",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_routing_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_answer_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_routing_accuracy": 0.268,
+      "sd_routing_accuracy": 0.030331501776206204,
+      "mean_answer_accuracy": 0.648,
+      "sd_answer_accuracy": 0.06418722614352484,
+      "per_seed_routing_accuracy": {
+        "1": 0.24,
+        "2": 0.26,
+        "3": 0.26,
+        "4": 0.26,
+        "5": 0.32
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.68,
+        "2": 0.54,
+        "3": 0.64,
+        "4": 0.7,
+        "5": 0.68
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_fresh_full_2026_07_29/untyped"
+    }
+  ],
+  "note": "This run uses the reconstructed paper-like retrieval profile: training examples disabled, scenario artifacts prioritized, and schema ablations applied over the emitted structured payload."
+}
