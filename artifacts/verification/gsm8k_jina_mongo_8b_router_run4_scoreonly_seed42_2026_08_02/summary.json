@@ -1,0 +1,25 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "seeds": [
+    42
+  ],
+  "top_k": 5,
+  "search_k": 24,
+  "decision_mode": "score_only",
+  "retrieval_alpha": 0.0,
+  "model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "mongo_collection": "vectors",
+  "mean_accuracy": 0.24,
+  "sd_accuracy": 0.0,
+  "mean_latency_seconds": 0.39470908913761377,
+  "sd_latency_seconds": 0.0,
+  "per_seed_accuracy": {
+    "42": 0.24
+  },
+  "per_seed_empty_candidate_sets": {
+    "42": 0
+  },
+  "output_dir": "artifacts/verification/gsm8k_jina_mongo_8b_router_run4_scoreonly_seed42_2026_08_02",
+  "note": "Pipeline follows memory-path design: Jina query embedding -> Mongo vector search -> unique scenario candidates -> local 8B rerank."
+}

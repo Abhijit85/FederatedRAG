@@ -1,0 +1,33 @@
+{
+  "seed": 42,
+  "threshold": 0.5,
+  "sample_count": 1,
+  "accuracy": 0.0,
+  "correct": 0,
+  "deferrals": 1,
+  "deferral_rate": 1.0,
+  "mean_latency_seconds": 13.229156533256173,
+  "effective_compute_ratio_vs_full_large": 1.125,
+  "effective_compute_reduction_vs_full_large": -0.125,
+  "rows": [
+    {
+      "query_id": "28aded21dbb5",
+      "query_text": "Ralph has a record store where people can trade their own records for new ones. People can trade 2 old records for 1 new one. 5 people come in with old records and leave with 7 new records between them. How many old records did the 5 people bring in?",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": false,
+      "deferred_to_large": true,
+      "confidence_signal": "option_margin_logprob",
+      "confidence_value": null,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer",
+        "Geometry: Shapes and Measurement",
+        "Algebraic Word Problem Solver",
+        "Percentage and Proportion Solver"
+      ]
+    }
+  ]
+}

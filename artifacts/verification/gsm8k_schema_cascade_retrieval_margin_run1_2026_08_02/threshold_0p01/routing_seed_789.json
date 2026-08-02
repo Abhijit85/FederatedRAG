@@ -1,0 +1,917 @@
+{
+  "seed": 789,
+  "threshold": 0.01,
+  "sample_count": 50,
+  "accuracy": 1.0,
+  "correct": 50,
+  "kept": 50,
+  "kept_rate": 1.0,
+  "kept_accuracy": 1.0,
+  "deferrals": 0,
+  "deferral_rate": 0.0,
+  "latency_ratio_vs_large_only": 0.0,
+  "effective_compute_ratio_vs_large_only": 0.0,
+  "effective_compute_reduction_vs_large_only": 1.0,
+  "rows": [
+    {
+      "query_id": "85b4fb60b479",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement"
+      ]
+    },
+    {
+      "query_id": "16625b382cbd",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09000000000000008,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "a52df0d59c7e",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09999999999999998,
+      "retrieval_top1_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "8c540fe1ea74",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.06999999999999995,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "419645f1a6ba",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.10999999999999999,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "89fb3e18b2b7",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement"
+      ]
+    },
+    {
+      "query_id": "9324e16781d2",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07999999999999996,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "72585deaeac9",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Geometry: Shapes and Measurement",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "325ebf2868ae",
+      "ground_truth_domain": "Geometry and Measurement",
+      "predicted_domain": "Geometry and Measurement",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07999999999999996,
+      "retrieval_top1_domain": "Geometry and Measurement",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting"
+      ]
+    },
+    {
+      "query_id": "d5e0c4b86d32",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07999999999999996,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "f180246b0fbe",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.10999999999999999,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement"
+      ]
+    },
+    {
+      "query_id": "9bd52d7e754e",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "f1e98fc0beca",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07000000000000006,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "4e7abb6d51b0",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09999999999999998,
+      "retrieval_top1_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "7a7f64ba5e73",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "f5c39c9a08ba",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting"
+      ]
+    },
+    {
+      "query_id": "ad891f172179",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.10999999999999999,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "9823703c4dc5",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement"
+      ]
+    },
+    {
+      "query_id": "4a3134db26a8",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.04999999999999993,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "57e569e6758a",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09999999999999998,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "bd4d324358ca",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09999999999999998,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ]
+    },
+    {
+      "query_id": "d4d404bce624",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "70c289eb3708",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.06999999999999995,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "Percentage and Proportion Solver",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "2a554e0334b6",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.06000000000000005,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "c3d020ad42d6",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.040000000000000036,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "5c69890637f4",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.06000000000000005,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "16bfe9a1bcf8",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09999999999999998,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting"
+      ]
+    },
+    {
+      "query_id": "66b306b10c9a",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement"
+      ]
+    },
+    {
+      "query_id": "fc9530879835",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.05999999999999994,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "79061775a3f5",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.040000000000000036,
+      "retrieval_top1_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "8fe286cac174",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "fce333461028",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.05999999999999994,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "0624e111f893",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07999999999999996,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "a67458bed516",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.09999999999999998,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "260a239d4f60",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.06999999999999995,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "0b1ef9fb5c2e",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07000000000000006,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "074730b8f4b8",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.040000000000000036,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "a233c21b0857",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "2ea6af49416a",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.05999999999999994,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement"
+      ]
+    },
+    {
+      "query_id": "ec0600e9576e",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.04999999999999993,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "4977542ff477",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "174f8ea11dba",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.07000000000000006,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "614fcd378273",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.10999999999999999,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "e2d301bb0e93",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.050000000000000044,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "b746439b0158",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Algebraic Word Problem Solver",
+        "Geometry: Shapes and Measurement",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator"
+      ]
+    },
+    {
+      "query_id": "7215a700a7bd",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.10999999999999999,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "de164c8202b7",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.040000000000000036,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "9406567f3fbd",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.05999999999999994,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "ae11c2856611",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.040000000000000036,
+      "retrieval_top1_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "Percentage and Proportion Solver",
+        "Financial and Banking Calculator",
+        "General Logic and Counting",
+        "Geometry: Shapes and Measurement",
+        "Work, Rate, and Time Analyzer"
+      ]
+    },
+    {
+      "query_id": "a5f84bd768f3",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "tier": "retrieval_top1",
+      "deferred_to_large": false,
+      "retrieval_margin": 0.08999999999999997,
+      "retrieval_top1_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver",
+        "Financial and Banking Calculator",
+        "Geometry: Shapes and Measurement"
+      ]
+    }
+  ]
+}

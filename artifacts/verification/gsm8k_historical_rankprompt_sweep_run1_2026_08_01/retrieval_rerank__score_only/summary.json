@@ -1,0 +1,18 @@
+{
+  "variant": "retrieval_rerank",
+  "decision_mode": "score_only",
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "mean_accuracy": 0.8666666666666667,
+  "sd_accuracy": 0.020816659994661344,
+  "mean_parse_success_rate": 0.0,
+  "mean_latency_seconds": 0.10954078181957205,
+  "per_seed_accuracy": {
+    "42": 0.86,
+    "123": 0.85,
+    "456": 0.89
+  }
+}

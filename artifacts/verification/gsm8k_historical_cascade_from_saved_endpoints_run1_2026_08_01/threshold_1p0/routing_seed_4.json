@@ -1,0 +1,1716 @@
+{
+  "seed": 4,
+  "threshold": 1.0,
+  "sample_count": 100,
+  "accuracy": 0.96,
+  "correct": 96,
+  "deferrals": 20,
+  "deferral_rate": 0.2,
+  "kept_acc": 1.0,
+  "deferred_acc": 0.8,
+  "mean_latency_seconds": 0.08371525442227722,
+  "effective_compute_ratio_vs_full_large": 0.325,
+  "effective_compute_reduction_vs_full_large": 0.675,
+  "rows": [
+    {
+      "query_id": "00fe33ae7eec",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.75,
+      "small_latency_seconds": 0.0600879080593586,
+      "large_latency_seconds": 0.10799564234912395
+    },
+    {
+      "query_id": "03bfd3205d55",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.3125,
+      "small_latency_seconds": 0.06018775701522827,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "03db64dec387",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.125,
+      "small_latency_seconds": 0.06064540892839432,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "065efdef1d6e",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.1875,
+      "small_latency_seconds": 0.06460599601268768,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "0779cfd91430",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": false,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.75,
+      "small_latency_seconds": 0.06058637052774429,
+      "large_latency_seconds": 0.10816304758191109
+    },
+    {
+      "query_id": "08fa8ecf339c",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.4375,
+      "small_latency_seconds": 0.06078915484249592,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "0921cce75a86",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.75,
+      "small_latency_seconds": 0.05971357598900795,
+      "large_latency_seconds": 0.10901702009141445
+    },
+    {
+      "query_id": "0f56e5f19030",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.875,
+      "small_latency_seconds": 0.061349472030997276,
+      "large_latency_seconds": 0.10794698819518089
+    },
+    {
+      "query_id": "124733260d1d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.46875,
+      "small_latency_seconds": 0.061058159917593,
+      "large_latency_seconds": 0.107786875218153
+    },
+    {
+      "query_id": "1a717e326b42",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.060769785195589066,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "1a874f705dec",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.6875,
+      "small_latency_seconds": 0.06076904013752937,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "1af099311215",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 0.9375,
+      "small_latency_seconds": 0.059620143845677376,
+      "large_latency_seconds": 0.10831821151077747
+    },
+    {
+      "query_id": "1fca8715d140",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.25,
+      "small_latency_seconds": 0.0642605759203434,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "217312c01e57",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.5625,
+      "small_latency_seconds": 0.060930607840418816,
+      "large_latency_seconds": 0.10788088105618954
+    },
+    {
+      "query_id": "23bca830fc32",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.5,
+      "small_latency_seconds": 0.07165147550404072,
+      "large_latency_seconds": 0.11592596583068371
+    },
+    {
+      "query_id": "260a239d4f60",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.5625,
+      "small_latency_seconds": 0.06004030257463455,
+      "large_latency_seconds": 0.10786879062652588
+    },
+    {
+      "query_id": "2fd2f5540a93",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 2.0,
+      "small_latency_seconds": 0.06100833788514137,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "305c52c0f618",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.125,
+      "small_latency_seconds": 0.061633000150322914,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "31ba633edf52",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.1875,
+      "small_latency_seconds": 0.059248775243759155,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "34aad401053f",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.59375,
+      "small_latency_seconds": 0.06060178391635418,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "3553666440c7",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.875,
+      "small_latency_seconds": 0.06044661998748779,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "3aeca6d28aa9",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.6875,
+      "small_latency_seconds": 0.060895489528775215,
+      "large_latency_seconds": 0.11961328238248825
+    },
+    {
+      "query_id": "3b9937c6b4f2",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.25,
+      "small_latency_seconds": 0.0606192871928215,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "3fa5191c7f49",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.4375,
+      "small_latency_seconds": 0.06046842411160469,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "41d1009507b2",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.1875,
+      "small_latency_seconds": 0.06195034459233284,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "426c35e536ee",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.28125,
+      "small_latency_seconds": 0.06126027926802635,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "435a85dfb42f",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0625,
+      "small_latency_seconds": 0.06033530831336975,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "4977542ff477",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.0625,
+      "small_latency_seconds": 0.06033385172486305,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "4e7abb6d51b0",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 3.0,
+      "small_latency_seconds": 0.06614291667938232,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "5011cae0baa3",
+      "ground_truth_domain": "Geometry and Measurement",
+      "predicted_domain": "Geometry and Measurement",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Geometry and Measurement",
+      "large_predicted_domain": "Geometry and Measurement",
+      "top_candidates": [
+        "Geometry and Measurement",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.5,
+      "small_latency_seconds": 0.060486603528261185,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "5d47df68021b",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "MathQA",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.0,
+      "small_latency_seconds": 0.05941568315029144,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "6251d5f75088",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.40625,
+      "small_latency_seconds": 0.06107577309012413,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "628f243209bd",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06036766059696674,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "6749311873bb",
+      "ground_truth_domain": "Geometry and Measurement",
+      "predicted_domain": "Geometry and Measurement",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Geometry and Measurement",
+      "large_predicted_domain": "Geometry and Measurement",
+      "top_candidates": [
+        "Geometry and Measurement",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.0625,
+      "small_latency_seconds": 0.060003671795129776,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "6b3c090b5f2f",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 2.0,
+      "small_latency_seconds": 0.06653896532952785,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "6c4dda32b509",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.3125,
+      "small_latency_seconds": 0.059905316680669785,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "72c696c2c716",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 3.4375,
+      "small_latency_seconds": 0.06173918955028057,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "776ce94d3b00",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.0625,
+      "small_latency_seconds": 0.06040154583752155,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "77bd0e29ef50",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.1875,
+      "small_latency_seconds": 0.06037195213139057,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "797ebed32238",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.5,
+      "small_latency_seconds": 0.06115517020225525,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "7cf5e83d6b54",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.3125,
+      "small_latency_seconds": 0.061011312529444695,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "7dc969371ff6",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06144152581691742,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "7e3a0292554c",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.061337996274232864,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "7edb13c5ec8d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.9375,
+      "small_latency_seconds": 0.061175620183348656,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "80187931d4ac",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.6875,
+      "small_latency_seconds": 0.06006207503378391,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "82c8c38b64e6",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.25,
+      "small_latency_seconds": 0.06084735132753849,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "835b6ca4f644",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.125,
+      "small_latency_seconds": 0.06048740819096565,
+      "large_latency_seconds": 0.10806946828961372
+    },
+    {
+      "query_id": "83c5f8bcd962",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": false,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.5625,
+      "small_latency_seconds": 0.06047200597822666,
+      "large_latency_seconds": 0.10865502618253231
+    },
+    {
+      "query_id": "83e5d025d54e",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.375,
+      "small_latency_seconds": 0.06075664423406124,
+      "large_latency_seconds": 0.10819629207253456
+    },
+    {
+      "query_id": "89fb3e18b2b7",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.375,
+      "small_latency_seconds": 0.06213471479713917,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "8ccb107bbef6",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.71875,
+      "small_latency_seconds": 0.06043771095573902,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "8ed47ddb2b50",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 2.375,
+      "small_latency_seconds": 0.06016525253653526,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "905ed1c7c731",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.9375,
+      "small_latency_seconds": 0.06282472610473633,
+      "large_latency_seconds": 0.10754570178687572
+    },
+    {
+      "query_id": "92e3c2c9776f",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.25,
+      "small_latency_seconds": 0.06116042844951153,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "92e9ddeccea2",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.9375,
+      "small_latency_seconds": 0.06017086282372475,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "93e5b1518036",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.4375,
+      "small_latency_seconds": 0.06168782338500023,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "9406567f3fbd",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": false,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.75,
+      "small_latency_seconds": 0.06179307587444782,
+      "large_latency_seconds": 0.10756961070001125
+    },
+    {
+      "query_id": "96756bb0918c",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06189543753862381,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "975ba83324a4",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.375,
+      "small_latency_seconds": 0.061729611828923225,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "97adab581945",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.1875,
+      "small_latency_seconds": 0.06043986417353153,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "99a482c95f20",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.6875,
+      "small_latency_seconds": 0.07330808416008949,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "9bd52d7e754e",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.125,
+      "small_latency_seconds": 0.06112970411777496,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "9e17ea6e143e",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.625,
+      "small_latency_seconds": 0.06081864796578884,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "a09034ddf6f6",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.625,
+      "small_latency_seconds": 0.0601232573390007,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "a4d23f9ec8eb",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06111082807183266,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "a52df0d59c7e",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.5,
+      "small_latency_seconds": 0.06677929125726223,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "a8cdc4ae512b",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.53125,
+      "small_latency_seconds": 0.06049192324280739,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "a95dc9bb39b2",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06077009439468384,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "aa1db7c5e816",
+      "ground_truth_domain": "Geometry and Measurement",
+      "predicted_domain": "Geometry and Measurement",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Geometry and Measurement",
+      "large_predicted_domain": "Geometry and Measurement",
+      "top_candidates": [
+        "Geometry and Measurement",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.65625,
+      "small_latency_seconds": 0.06006236933171749,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "aa6f739952b0",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.6875,
+      "small_latency_seconds": 0.05997074954211712,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "b14453789a94",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.375,
+      "small_latency_seconds": 0.06077367253601551,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "be368ea0054d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.09375,
+      "small_latency_seconds": 0.060209762305021286,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "be9431445783",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.9375,
+      "small_latency_seconds": 0.06659145466983318,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "bf1fc111cc78",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06639144010841846,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "c061cf301151",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0625,
+      "small_latency_seconds": 0.0704298634082079,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "c3d020ad42d6",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.3125,
+      "small_latency_seconds": 0.06085125729441643,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "c568768ecc5b",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.125,
+      "small_latency_seconds": 0.06316814199090004,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "c7ae12663c3a",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.061282237991690636,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "c7ca3c91b428",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.625,
+      "small_latency_seconds": 0.05974506214261055,
+      "large_latency_seconds": 0.10813705809414387
+    },
+    {
+      "query_id": "cc7080cacaff",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 2.25,
+      "small_latency_seconds": 0.07215465605258942,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "cd5bb7aef170",
+      "ground_truth_domain": "Geometry and Measurement",
+      "predicted_domain": "Geometry and Measurement",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Geometry and Measurement",
+      "large_predicted_domain": "Geometry and Measurement",
+      "top_candidates": [
+        "Geometry and Measurement",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.06597732566297054,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "d1b95ef7523d",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.3125,
+      "small_latency_seconds": 0.06124025397002697,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "d3d54a9ce22d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.4375,
+      "small_latency_seconds": 0.060288205742836,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "dd98a0b7e561",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.25,
+      "small_latency_seconds": 0.061165452003479004,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "de164c8202b7",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.5625,
+      "small_latency_seconds": 0.05994049087166786,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "e1ee5bb4f46d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Number Theory",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.375,
+      "small_latency_seconds": 0.06589498743414879,
+      "large_latency_seconds": 0.11215820908546448
+    },
+    {
+      "query_id": "e2d301bb0e93",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": false,
+      "deferred_to_large": true,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.625,
+      "small_latency_seconds": 0.061040643602609634,
+      "large_latency_seconds": 0.10697938315570354
+    },
+    {
+      "query_id": "e35f9fb2c524",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.0,
+      "small_latency_seconds": 0.060928041115403175,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "e4a03a8b6dd3",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.6875,
+      "small_latency_seconds": 0.061137132346630096,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "ee56a4c567ea",
+      "ground_truth_domain": "Work, Rate, and Time Analyzer",
+      "predicted_domain": "Work, Rate, and Time Analyzer",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Work, Rate, and Time Analyzer",
+      "large_predicted_domain": "Work, Rate, and Time Analyzer",
+      "top_candidates": [
+        "Work, Rate, and Time Analyzer",
+        "Algebraic Word Problem Solver",
+        "General Logic and Counting"
+      ],
+      "small_margin": 2.3125,
+      "small_latency_seconds": 0.06045942381024361,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "effa73a03247",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Financial and Banking Calculator",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.6875,
+      "small_latency_seconds": 0.0610662717372179,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "f0296680e63d",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.375,
+      "small_latency_seconds": 0.06102041341364384,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "f08e287a7259",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 3.0,
+      "small_latency_seconds": 0.060286616906523705,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "f0e802bdfb6c",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.375,
+      "small_latency_seconds": 0.06036193668842316,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "f180246b0fbe",
+      "ground_truth_domain": "Financial and Banking Calculator",
+      "predicted_domain": "Financial and Banking Calculator",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Financial and Banking Calculator",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Financial and Banking Calculator",
+        "Percentage and Proportion Solver",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.53125,
+      "small_latency_seconds": 0.06080155819654465,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "f26a3dce3cbf",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 2.0625,
+      "small_latency_seconds": 0.07101635076105595,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "f2ba1308936e",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.28125,
+      "small_latency_seconds": 0.06077372655272484,
+      "large_latency_seconds": 0.10775843262672424
+    },
+    {
+      "query_id": "f8a860e28995",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 1.3125,
+      "small_latency_seconds": 0.06124711222946644,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "fa7c14d62570",
+      "ground_truth_domain": "Algebraic Word Problem Solver",
+      "predicted_domain": "Algebraic Word Problem Solver",
+      "routed_correctly": true,
+      "deferred_to_large": false,
+      "small_predicted_domain": "Algebraic Word Problem Solver",
+      "large_predicted_domain": "Algebraic Word Problem Solver",
+      "top_candidates": [
+        "Algebraic Word Problem Solver",
+        "MathQA",
+        "General Logic and Counting"
+      ],
+      "small_margin": 3.75,
+      "small_latency_seconds": 0.0719143208116293,
+      "large_latency_seconds": null
+    },
+    {
+      "query_id": "fc44078922c6",
+      "ground_truth_domain": "General Logic and Counting",
+      "predicted_domain": "General Logic and Counting",
+      "routed_correctly": true,
+      "deferred_to_large": true,
+      "small_predicted_domain": "General Logic and Counting",
+      "large_predicted_domain": "General Logic and Counting",
+      "top_candidates": [
+        "General Logic and Counting",
+        "Number Theory",
+        "Algebraic Word Problem Solver"
+      ],
+      "small_margin": 0.84375,
+      "small_latency_seconds": 0.0599286574870348,
+      "large_latency_seconds": 0.10778500325977802
+    }
+  ]
+}

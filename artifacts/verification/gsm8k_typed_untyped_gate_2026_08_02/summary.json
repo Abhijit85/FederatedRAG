@@ -1,0 +1,58 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "rounds": 1,
+  "client_count": 5,
+  "max_items": 5,
+  "runtime_included_tools": "mathqa",
+  "runtime_label_selector": "historical_cv_svm",
+  "target_mean": 0.92,
+  "target_sd": 0.02,
+  "mean_tol": 0.02,
+  "sd_tol": 0.02,
+  "synapse": {
+    "mean_accuracy": 0.884,
+    "sd_accuracy": 0.049799598391954934,
+    "per_seed_accuracy": {
+      "42": 0.84,
+      "123": 0.9,
+      "456": 0.84,
+      "789": 0.96,
+      "1024": 0.88
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.884,
+    "sd_accuracy": 0.049799598391954934,
+    "per_seed_accuracy": {
+      "42": 0.84,
+      "123": 0.9,
+      "456": 0.84,
+      "789": 0.96,
+      "1024": 0.88
+    }
+  },
+  "paired": {
+    "mean_diff": 0.0,
+    "sd_diff": 0.0,
+    "se_diff": 0.0,
+    "t_value": 0.0
+  },
+  "headline_sanity": {
+    "pass": false,
+    "mean_ok": false,
+    "sd_ok": false
+  },
+  "artifacts": {
+    "synapse_seed_csv": "artifacts/verification/gsm8k_typed_untyped_gate_2026_08_02/synapse_seed_values.csv",
+    "centralized_seed_csv": "artifacts/verification/gsm8k_typed_untyped_gate_2026_08_02/centralized_seed_values.csv"
+  },
+  "note": "Current-runtime Table 27-style comparator over shared GSM8K seeded subsets. This reproduces the near-0.92 runtime path, not the historical provenance-local reconstruction."
+}

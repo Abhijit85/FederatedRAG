@@ -1,0 +1,34 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "max_tokens": 4,
+  "variant": "retrieval_rerank",
+  "decision_mode": "score_only",
+  "label": "llama32_1b_historical_retrieval_rerank_5seed",
+  "backend": "local",
+  "model": "/mnt/data1/achakr40/FederatedRAG/artifacts/models/Llama-3.2-1B-Instruct",
+  "local_model_path": "/mnt/data1/achakr40/FederatedRAG/artifacts/models/Llama-3.2-1B-Instruct",
+  "mean_accuracy": 0.986,
+  "sd_accuracy": 0.005477225575051666,
+  "mean_latency_seconds": 0.07038475689664483,
+  "sd_latency_seconds": 0.018720809326548443,
+  "mean_historical_top1_accuracy": 0.998,
+  "mean_gold_in_candidates_rate": 1.0,
+  "mean_parse_success_rate": 0.39,
+  "per_seed_accuracy": {
+    "1": 0.98,
+    "2": 0.99,
+    "3": 0.99,
+    "4": 0.99,
+    "5": 0.98
+  },
+  "output_dir": "artifacts/verification/gsm8k_historical_retrieval_rerank_1b_5seed_2026_08_01/llama32_1b_historical_retrieval_rerank_5seed"
+}

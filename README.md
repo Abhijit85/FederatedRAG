@@ -219,6 +219,24 @@ python scripts/run_fed_textgrad.py \
 Each TextGrad run appends its evaluation summary (central benchmark + any per-client datasets) to `evaluation_on_textgrad_log.txt`, so you can track metrics across runs without rerunning the script.
   Set `TEXTGRAD_EVAL_ENGINE`, `SYNAPSE_TEXTGRAD_TEST_ENGINE`, and other knobs in `.env` (or via CLI flags) to choose the LLMs that supply textual gradients and client-side inference.
 
+### Table 27 Runtime Reproduction
+
+To reproduce the current-runtime GSM8K routing result that lands near the submitted Table 27 headline, use:
+
+```bash
+.venv/bin/python scripts/run_table27_runtime_repro.py
+```
+
+On the current checkout, this reproduces:
+
+- `runtime_federated`: `0.928 ± 0.013`
+- `runtime_centralized_direct`: `0.928 ± 0.013`
+- per-seed accuracies: `0.92, 0.93, 0.94, 0.91, 0.94`
+
+Outputs are written under `artifacts/verification/table27_runtime_repro/`.
+
+This is the current-runtime comparator path. It is distinct from the lower-fidelity provenance/local reconstruction scripts such as `scripts/run_table27_provenance_compare.py`, which solve a different recovery problem and currently land lower.
+
 ## Project Structure
 - `main.py` – runs the SYNAPSE federation round, instantiates tools, and evaluates the federated agent.
 - `CompendiumAwareAgent.py` – legacy single-node routing agent (kept for reference).

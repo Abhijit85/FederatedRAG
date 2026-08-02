@@ -1,0 +1,28 @@
+{
+  "label": "llama32_1b",
+  "backend": "local",
+  "model": "/mnt/data1/achakr40/FederatedRAG/artifacts/models/Llama-3.2-1B-Instruct",
+  "local_model_path": "/mnt/data1/achakr40/FederatedRAG/artifacts/models/Llama-3.2-1B-Instruct",
+  "sample_count": 100,
+  "k": 5,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "mean_accuracy": 0.27666666666666667,
+  "sd_accuracy": 0.011547005383792493,
+  "mean_latency_seconds": 0.07771123002593716,
+  "sd_latency_seconds": 0.017658068589995593,
+  "per_seed_accuracy": {
+    "42": 0.27,
+    "123": 0.29,
+    "456": 0.27
+  },
+  "per_seed_latency_seconds": {
+    "42": 0.09787673745304346,
+    "123": 0.07024029923602938,
+    "456": 0.06501665338873863
+  },
+  "output_dir": "artifacts/verification/gsm8k_router_cascade_run2_local_h200/baselines/llama32_1b"
+}

@@ -1,0 +1,35 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "max_tokens": 4,
+  "variant": "retrieval_rerank",
+  "decision_mode": "score_only",
+  "label": "llama31_8b_historical_retrieval_rerank_5seed",
+  "backend": "local",
+  "model": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "local_model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "mean_accuracy": 0.876,
+  "sd_accuracy": 0.027018512172212617,
+  "mean_latency_seconds": 0.12579815803468228,
+  "sd_latency_seconds": 0.03680315459459379,
+  "mean_historical_top1_accuracy": 0.998,
+  "mean_gold_in_candidates_rate": 1.0,
+  "mean_parse_success_rate": 0.0,
+  "per_seed_accuracy": {
+    "1": 0.91,
+    "2": 0.89,
+    "3": 0.86,
+    "4": 0.88,
+    "5": 0.84
+  },
+  "output_dir": "/mnt/data1/achakr40/FederatedRAG/artifacts/verification/gsm8k_historical_retrieval_rerank_5seed_2026_08_01/llama31_8b_historical_retrieval_rerank_5seed",
+  "note": "5-seed rerun of the best recovered historical-object 8B setup: retrieval_rerank wording with score-based index decision."
+}

@@ -1,0 +1,60 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 100,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "rounds": 1,
+  "client_count": 5,
+  "max_items": 5,
+  "runtime_included_tools": "mathqa",
+  "runtime_label_selector": "historical_cv_svm",
+  "target_mean": 0.92,
+  "target_sd": 0.02,
+  "margin": 0.02,
+  "alpha": 0.05,
+  "synapse": {
+    "mean_accuracy": 0.9279999999999999,
+    "sd_accuracy": 0.013038404810405258,
+    "per_seed_accuracy": {
+      "1": 0.92,
+      "2": 0.93,
+      "3": 0.94,
+      "4": 0.91,
+      "5": 0.94
+    }
+  },
+  "centralized": {
+    "mean_accuracy": 0.9279999999999999,
+    "sd_accuracy": 0.013038404810405258,
+    "per_seed_accuracy": {
+      "1": 0.92,
+      "2": 0.93,
+      "3": 0.94,
+      "4": 0.91,
+      "5": 0.94
+    }
+  },
+  "paired": {
+    "mean_diff": 0.0,
+    "sd_diff": 0.0,
+    "se_diff": 0.0,
+    "t_value": 0.0
+  },
+  "tost": {
+    "mean_diff": 0.0,
+    "sd_diff": 0.0,
+    "se_diff": 0.0,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0,
+    "p_lower": 0.0,
+    "p_upper": 0.0,
+    "p_tost": 0.0,
+    "equivalent": true
+  },
+  "note": "Fresh current-runtime paired TOST on the near-paper Table 27 path."
+}

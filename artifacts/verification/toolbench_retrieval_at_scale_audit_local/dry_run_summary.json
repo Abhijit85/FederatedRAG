@@ -1,0 +1,25 @@
+{
+  "query_count": 250,
+  "unique_gold_tools_in_queries": 159,
+  "available_tool_docs": 215,
+  "requested_catalog_sizes": [
+    32
+  ],
+  "max_local_inventory": 215,
+  "query_metadata": {
+    "query_source": "/mnt/data1/achakr40/FederatedRAG/external_datasets/toolbench/toolllama_G123_dfs_eval.json",
+    "query_format": "toolllama_eval",
+    "total_rows": 300,
+    "parsable_queries": 293,
+    "query_count": 250,
+    "query_seed": 42,
+    "parse_failures": 7,
+    "selection_mode": "random_sample",
+    "query_id_source": "sampled_from_query_source",
+    "local_note": "This local query set is sampled from the preserved 300-trace ToolLLaMA eval file. If you have the paper-time 250-query ToolBench split, pass that file explicitly."
+  },
+  "catalog_provenance": {
+    "base_catalog": "Fixed 32-tool base assembled from the earliest locally observed query-relevant tools, because the paper-time 32-tool manifest is not preserved in this repo.",
+    "added_tools": "Local tool inventory merged from `/mnt/data1/achakr40/FederatedRAG/external_datasets/toolbench/toolllama_G123_dfs_eval.json` and `/mnt/data1/achakr40/FederatedRAG/external_datasets/toolbench/ToolBench-master/data_example/toolenv/tools`"
+  }
+}

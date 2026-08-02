@@ -1,0 +1,46 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "top_k": 5,
+  "search_k": 24,
+  "decision_mode": "retrieval_top1",
+  "retrieval_alpha": 0.0,
+  "retrieval_margin_threshold": 0.0,
+  "model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.3-70B-Instruct/local_models/Llama-3.3-70B-Instruct",
+  "mongo_collection": "vectors_schema_fields_smoke2",
+  "mean_accuracy": 0.396,
+  "sd_accuracy": 0.02190890230020665,
+  "mean_latency_seconds": 0.0,
+  "sd_latency_seconds": 0.0,
+  "per_seed_accuracy": {
+    "42": 0.42,
+    "123": 0.4,
+    "456": 0.36,
+    "789": 0.4,
+    "1024": 0.4
+  },
+  "per_seed_empty_candidate_sets": {
+    "42": 0,
+    "123": 0,
+    "456": 0,
+    "789": 0,
+    "1024": 0
+  },
+  "per_seed_deferral_rate": {
+    "42": 0.0,
+    "123": 0.0,
+    "456": 0.0,
+    "789": 0.0,
+    "1024": 0.0
+  },
+  "mean_deferral_rate": 0.0,
+  "output_dir": "artifacts/verification/gsm8k_schemafields_smoke2_retrievaltop1_50x5_2026_08_02",
+  "note": "Pipeline follows memory-path design: Jina query embedding -> Mongo vector search -> unique scenario candidates -> local 8B rerank."
+}

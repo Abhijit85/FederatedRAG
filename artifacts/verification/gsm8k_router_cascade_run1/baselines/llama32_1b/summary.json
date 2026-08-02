@@ -1,0 +1,28 @@
+{
+  "label": "llama32_1b",
+  "backend": "openrouter",
+  "model": "meta-llama/llama-3.2-1b-instruct",
+  "local_model_path": null,
+  "sample_count": 100,
+  "k": 5,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "mean_accuracy": 0.3066666666666667,
+  "sd_accuracy": 0.06429100507328636,
+  "mean_latency_seconds": 0.4498830286475519,
+  "sd_latency_seconds": 0.010578728434965913,
+  "per_seed_accuracy": {
+    "42": 0.26,
+    "123": 0.38,
+    "456": 0.28
+  },
+  "per_seed_latency_seconds": {
+    "42": 0.4616252783127129,
+    "123": 0.44109656937420366,
+    "456": 0.4469272382557392
+  },
+  "output_dir": "artifacts/verification/gsm8k_router_cascade_run1/baselines/llama32_1b"
+}

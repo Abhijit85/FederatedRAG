@@ -1,0 +1,36 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "runlog": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_runlog.jsonl",
+  "compendium": "/mnt/data1/achakr40/FederatedRAG/mathqa_tools_compendium.json",
+  "sample_count": 100,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "max_tokens": 4,
+  "context_mode": "brief_context",
+  "label": "llama31_8b_historical_rankprompt_brief_context",
+  "backend": "local",
+  "model": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "local_model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.1-8B-Instruct/local_models/Llama-3.1-8B-Instruct",
+  "mean_accuracy": 0.2966666666666667,
+  "sd_accuracy": 0.04163331998932266,
+  "mean_latency_seconds": 0.11080779644971094,
+  "sd_latency_seconds": 0.043452799034514863,
+  "mean_historical_top1_accuracy": 0.9933333333333333,
+  "mean_gold_in_candidates_rate": 1.0,
+  "mean_parse_success_rate": 0.9499999999999998,
+  "per_seed_accuracy": {
+    "42": 0.33,
+    "123": 0.25,
+    "456": 0.31
+  },
+  "per_seed_parse_success_rate": {
+    "42": 0.94,
+    "123": 0.97,
+    "456": 0.94
+  },
+  "output_dir": "artifacts/verification/gsm8k_historical_candidate_8b_rankprompt_run2_2026_08_01/llama31_8b_historical_rankprompt_brief_context",
+  "note": "Local 8B reranking over preserved historical runlog candidate lists using an index-classification prompt instead of exact-label generation."
+}

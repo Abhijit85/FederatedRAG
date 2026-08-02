@@ -1,0 +1,102 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "rounds": 3,
+  "client_count": 5,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "conditions": [
+    {
+      "condition": "full",
+      "structured_payload_mode": "typed",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_routing_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_answer_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "mean_routing_accuracy": 0.9400000000000001,
+      "sd_routing_accuracy": 0.034641016151377525,
+      "mean_answer_accuracy": 0.6799999999999999,
+      "sd_answer_accuracy": 0.04472135954999579,
+      "per_seed_routing_accuracy": {
+        "1": 0.92,
+        "2": 0.92,
+        "3": 1.0,
+        "4": 0.92,
+        "5": 0.94
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.62,
+        "2": 0.74,
+        "3": 0.7,
+        "4": 0.68,
+        "5": 0.66
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_c3_quant_50x5_repro_2026_08_01/full"
+    },
+    {
+      "condition": "merge_up",
+      "structured_payload_mode": "merge_up",
+      "sample_count": 50,
+      "rounds": 3,
+      "client_count": 5,
+      "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_routing_seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completed_answer_seeds": [
+        1
+      ],
+      "mean_routing_accuracy": 0.9400000000000001,
+      "sd_routing_accuracy": 0.034641016151377525,
+      "mean_answer_accuracy": 0.86,
+      "sd_answer_accuracy": 0.0,
+      "per_seed_routing_accuracy": {
+        "1": 0.92,
+        "2": 0.92,
+        "3": 1.0,
+        "4": 0.92,
+        "5": 0.94
+      },
+      "per_seed_answer_accuracy": {
+        "1": 0.86
+      },
+      "output_dir": "artifacts/verification/gsm8k_schema_control_c3_quant_50x5_repro_2026_08_01/merge_up"
+    }
+  ],
+  "note": "This run uses the reconstructed paper-like retrieval profile: training examples disabled, scenario artifacts prioritized, and schema ablations applied over the emitted structured payload."
+}

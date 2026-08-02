@@ -1,0 +1,34 @@
+{
+  "inputs": {
+    "mean_left": 0.92,
+    "sd_left": 0.02,
+    "mean_right": 0.92,
+    "sd_right": 0.02,
+    "paired_p": 0.31,
+    "n_pairs": 5,
+    "effect_size_d": 0.2,
+    "mean_diff": 0.004,
+    "d_mode": "reported_sd",
+    "margin": 0.03,
+    "alpha": 0.05
+  },
+  "reconstruction": {
+    "df": 4,
+    "abs_t_from_p": 1.1615687025920247,
+    "mean_diff": 0.004,
+    "se_diff": 0.0034436189534670265,
+    "sd_diff": 0.007700166068558957
+  },
+  "tost": {
+    "mean_diff": 0.004,
+    "sd_diff": 0.007700166068558957,
+    "se_diff": 0.0034436189534670265,
+    "ci_lo": -0.003341267999282225,
+    "ci_hi": 0.011341267999282225,
+    "p_lower": 0.0002952120515789107,
+    "p_upper": 0.0008243878539289565,
+    "p_tost": 0.0008243878539289565,
+    "equivalent": true
+  },
+  "note": "This is a re-analysis of published paired summary statistics, not a rerun from raw per-seed logs. The result depends on the stated d interpretation."
+}

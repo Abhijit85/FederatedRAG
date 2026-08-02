@@ -1,0 +1,46 @@
+{
+  "sample_file": "/mnt/data1/achakr40/FederatedRAG/GSM8K_500_rebuttal_run/GSM8K_500_samples.json",
+  "sample_count": 50,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "top_k": 5,
+  "search_k": 24,
+  "decision_mode": "retrieval_margin_gate",
+  "retrieval_alpha": 0.0,
+  "retrieval_margin_threshold": 0.005,
+  "model_path": "/mnt/shared/shared_hf_home/hub/models--meta-llama--Llama-3.3-70B-Instruct/local_models/Llama-3.3-70B-Instruct",
+  "mongo_collection": "vectors",
+  "mean_accuracy": 0.388,
+  "sd_accuracy": 0.05019960159204453,
+  "mean_latency_seconds": 2.273016095119559,
+  "sd_latency_seconds": 2.0469517156724994,
+  "per_seed_accuracy": {
+    "42": 0.46,
+    "123": 0.4,
+    "456": 0.34,
+    "789": 0.34,
+    "1024": 0.4
+  },
+  "per_seed_empty_candidate_sets": {
+    "42": 0,
+    "123": 0,
+    "456": 0,
+    "789": 0,
+    "1024": 0
+  },
+  "per_seed_deferral_rate": {
+    "42": 0.18,
+    "123": 0.22,
+    "456": 0.24,
+    "789": 0.2,
+    "1024": 0.34
+  },
+  "mean_deferral_rate": 0.23600000000000002,
+  "output_dir": "artifacts/verification/gsm8k_jina_mongo_70b_router_run6_gate0005_50x5_2026_08_02",
+  "note": "Pipeline follows memory-path design: Jina query embedding -> Mongo vector search -> unique scenario candidates -> local 8B rerank."
+}

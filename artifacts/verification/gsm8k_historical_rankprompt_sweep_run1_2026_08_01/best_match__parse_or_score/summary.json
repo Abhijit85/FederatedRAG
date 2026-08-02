@@ -1,0 +1,18 @@
+{
+  "variant": "best_match",
+  "decision_mode": "parse_or_score",
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "mean_accuracy": 0.02666666666666667,
+  "sd_accuracy": 0.005773502691896257,
+  "mean_parse_success_rate": 1.0,
+  "mean_latency_seconds": 0.08020089662323394,
+  "per_seed_accuracy": {
+    "42": 0.03,
+    "123": 0.03,
+    "456": 0.02
+  }
+}

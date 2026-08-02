@@ -1,0 +1,40 @@
+{
+  "label": "llama32_1b",
+  "backend": "local",
+  "model": "/mnt/data1/achakr40/FederatedRAG/artifacts/models/Llama-3.2-1B-Instruct",
+  "local_model_path": "/mnt/data1/achakr40/FederatedRAG/artifacts/models/Llama-3.2-1B-Instruct",
+  "sample_count": 100,
+  "k": 5,
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "mean_accuracy": 0.35000000000000003,
+  "sd_accuracy": 0.0360555127546399,
+  "mean_latency_seconds": 0.17410701602076492,
+  "sd_latency_seconds": 0.02605580790970356,
+  "mean_top1_pick_rate": 0.5633333333333334,
+  "mean_parse_fail_rate": 0.36999999999999994,
+  "per_seed_accuracy": {
+    "42": 0.31,
+    "123": 0.38,
+    "456": 0.36
+  },
+  "per_seed_latency_seconds": {
+    "42": 0.2041685345582664,
+    "123": 0.16014112915843726,
+    "456": 0.15801138434559106
+  },
+  "per_seed_top1_pick_rate": {
+    "42": 0.56,
+    "123": 0.52,
+    "456": 0.61
+  },
+  "per_seed_parse_fail_rate": {
+    "42": 0.38,
+    "123": 0.41,
+    "456": 0.32
+  },
+  "output_dir": "artifacts/verification/gsm8k_endpoint_validation_run1_2026_08_01/llama32_1b"
+}
